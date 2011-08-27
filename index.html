@@ -1,1 +1,26 @@
-Heya This is Ivana Setiawan's page :D
+!!! 5
+
+%html{:class => 'no-js'}
+  %head
+    %meta{'charset' => 'utf-8'}
+    %title Ivana Setiawan's github page
+    %link{:href => 'assets/stylesheets/site.css', :media => 'screen', :rel => 'stylesheet'}
+    = javascript_include_tag 'modernizr'
+
+  %body
+
+    #wrap
+
+      %header#header
+        %h1#logo= link_to('Head yo!', 'index.html')
+
+        %nav
+          / Main navigation. The active item should have class "active" on the LI.
+
+      #main
+
+      %footer#footer
+
+    / For best performance, combine in a single file (if possible in your build process).
+    %script{:src => 'javascripts/jquery.js'}
+    %script{:src => 'javascripts/application.js'}
