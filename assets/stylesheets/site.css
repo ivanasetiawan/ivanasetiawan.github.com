@@ -63,7 +63,69 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 17, site.sass */
+/* line 21, site.sass */
 body {
-  background: blue;
+  background: #f3f3f3;
+  color: #4c463f;
+}
+
+/* line 25, site.sass */
+a,
+a:visited {
+  text-decoration: none;
+  color: #d25c25;
+}
+/* line 30, site.sass */
+a:hover,
+a:visited:hover {
+  color: #0066ee;
+}
+
+/* line 33, site.sass */
+#wrap {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* line 38, site.sass */
+header {
+  text-align: center;
+}
+
+/* line 41, site.sass */
+#title {
+  margin-bottom: 10px;
+  font-family: "Vast Shadow", cursive;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: black;
+}
+
+/* line 48, site.sass */
+.welcome {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Satisfy", cursive, Baskerville, Palatino, Georgia;
+  font-size: 0.8em;
+  text-transform: none;
+  color: #4c463f;
+}
+
+/* line 56, site.sass */
+#intro {
+  margin-top: 60px;
+  padding: 20px 0;
+  font-size: 2em;
+  font-family: "Satisfy", cursive, Baskerville, Palatino, Georgia;
+  line-height: 1.5em;
+  border-top: solid 1px #b2b2b2;
+  border-bottom: solid 1px #b2b2b2;
+}
+
+/* line 65, site.sass */
+footer {
+  padding: 10px 0;
+  font-size: 0.9em;
+  text-align: right;
 }

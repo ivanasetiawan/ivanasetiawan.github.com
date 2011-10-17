@@ -4,7 +4,11 @@
 
 // Variables.
 $font-color: #4c463f   // Grey
-$bg-color: #f5e9cf    // Grain
+$light-color: #d25c25 // Orange
+
+$font-family: Baskerville, Palatino, Georgia, serif
+$header-font: 'Vast Shadow', cursive
+$alt-font: 'Satisfy', cursive, Baskerville, Palatino, Georgia
 
 @mixin data-uri-bg($image, $properties: false)
   @if $properties != false
@@ -15,7 +19,50 @@ $bg-color: #f5e9cf    // Grain
     *background: url($image)
 
 body
-  background: blue
-  //+data-uri-bg("bg.jpg", $bg-color)
+  background: #f3f3f3
+  color: $font-color
 
+a,
+a:visited
+  text-decoration: none
+  color: $light-color
 
+  &:hover
+    color: #0066ee
+
+#wrap
+  max-width: 700px
+  margin: 0 auto
+  padding: 20px
+
+header
+  text-align: center
+
+#title
+  margin-bottom: 10px
+  font-family: $header-font
+  font-size: 2em
+  text-transform: uppercase
+  color: black
+
+.welcome
+  display: block
+  margin-bottom: 10px
+  font-family: $alt-font
+  font-size: 0.8em
+  text-transform: none
+  color: $font-color
+
+#intro
+  margin-top: 60px
+  padding: 20px 0
+  font-size: 2em
+  font-family: $alt-font
+  line-height: 1.5em
+  border-top: solid 1px #b2b2b2
+  border-bottom: solid 1px #b2b2b2
+
+footer
+  padding: 10px 0
+  font-size: 0.9em
+  text-align: right
