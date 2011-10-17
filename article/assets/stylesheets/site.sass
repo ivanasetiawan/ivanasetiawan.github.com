@@ -1,0 +1,155 @@
+// Compass imports & mixins
+@import "compass"
+@import "compass/reset"
+
+// Variables.
+$font-color: #4c463f   // Grey
+$bg-color: #f2e6cc   // Grain
+$light-color: #d25c25 // Orange
+
+$font-family: Georgia, serif
+$alt-font: 'Abel', sans-serif
+$header-font: Baskerville, Palatino, Georgia
+
+@mixin data-uri-bg($image, $properties: false)
+  @if $properties != false
+    background: inline-image($image) $properties
+    *background: url($image) $properties
+  @else
+    background: inline-image($image)
+    *background: url($image)
+
+#wrap
+  max-width: 876px
+  padding: 0 10px
+  margin: 0 auto
+
+body
+  font-family: $font-family
+  font-size: 16px
+  line-height: 25px
+  color: $font-color
+  +data-uri-bg("bg.jpg", $bg-color)
+
+figcaption
+  font-size: 12px
+  line-height: 15px
+
+blockquote,
+.stars
+  font-family: $alt-font
+  font-size: 23px
+  line-height: 35px
+  color: $light-color
+  +text-shadow(#fff 0 2px 1px)
+
+  &.left
+    max-width: 295px
+    float: left
+    margin: 0 15px 0 0
+    text-align: right
+
+  &.centered
+    margin-bottom: 30px
+    text-align: center
+
+.stars
+  text-align: center
+  color: #6b6b6b
+  +text-shadow(#fff 0 1px 1px)
+
+header
+  padding: 40px 0
+  text-align: center
+
+#by
+  display: block
+  font-size: 15px
+  font-style: italic
+  color: $light-color
+
+#subtitle
+  max-width: 700px
+  margin: 0 auto 25px
+  font-size: 23px
+  line-height: 35px
+
+h1,
+h2
+  margin-bottom: 20px
+  font-family: $header-font
+  text-align: center
+
+p
+  margin-bottom: 20px
+
+a,
+a:visited
+  text-decoration: none
+  color: $light-color
+
+  &:hover
+    color: $font-color
+    text-decoration: underline
+
+#title
+  img
+    width: 100%
+
+article
+  max-width: 700px
+  margin: 0 auto
+
+  h1,
+  h2
+    text-transform: uppercase
+    letter-spacing: 0.5em
+    color: $light-color
+
+.content
+  margin-bottom: 40px
+
+.letter
+  float: left
+  margin: 12px 3px 0 0
+  font-size: 48px
+
+// Conversation
+.conversation
+  max-width: 480px
+  margin: 0 auto 20px
+  overflow: hidden
+
+  span
+    display: block
+    text-align: center
+    font-style: italic
+
+.lindsey,
+.author
+  max-width: 88%
+  display: inline-block
+  padding: 5px 10px
+  color: $bg-color
+
+.lindsey
+  background: $font-color
+
+.author
+  float: right
+  text-align: right
+  background: $light-color
+
+p.center
+  text-align: center
+
+  .author
+    float: none
+    text-align: center
+
+footer
+  text-align: center
+  font-size: 13px
+  font-style: italic
+
+@import media

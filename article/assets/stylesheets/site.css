@@ -1,0 +1,271 @@
+/* line 17, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 22, site.sass */
+#wrap {
+  max-width: 876px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+/* line 27, site.sass */
+body {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 25px;
+  color: #4c463f;
+  background: url('data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMtaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MSA2NC4xNDA5NDksIDIwMTAvMTIvMDctMTA6NTc6MDEgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUuMSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Njc0MDY1QTlEMEQ1MTFFMDk1MkFEQ0JGM0NFMEU5MzQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Njc0MDY1QUFEMEQ1MTFFMDk1MkFEQ0JGM0NFMEU5MzQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2NzQwNjVBN0QwRDUxMUUwOTUyQURDQkYzQ0UwRTkzNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2NzQwNjVBOEQwRDUxMUUwOTUyQURDQkYzQ0UwRTkzNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/uAA5BZG9iZQBkwAAAAAH/2wCEAAYEBAQFBAYFBQYJBgUGCQsIBgYICwwKCgsKCgwQDAwMDAwMEAwODxAPDgwTExQUExMcGxsbHB8fHx8fHx8fHx8BBwcHDQwNGBAQGBoVERUaHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fH//AABEIAH4AfgMBEQACEQEDEQH/xABqAAEBAQEBAAAAAAAAAAAAAAABAAIDCAEBAQEBAAAAAAAAAAAAAAAAAAEEBRAAAgEEAQMCBQQDAQAAAAAAAAERITFBAlFhcRKBkfChwSIDsdHhMvFCUhMRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APRZzmlRRgUT2AknNcMDGum/lO20r/lKgGpjZQnXIDgCaisAHkpjN56APeoF+oE6UApQF8SBOYpDqAeVenzAQLTZbJvVzWPVActvy/m82n+BvRW2Wyr6EG9dk1MNPKd0Ua8fZgG2+ukeTS8mtV1YC3W4E2ANr/IEkgG1YApT+MADScS/Qga0ipRAGZAHPPeQJXTT/YDUKLUAm/UCU5sBNWzn+QCj+gA5m3SoFWQFSBNzR+sAGYVKTOAFa9KgTdugFWOUBZmPUCf9gJNaqW0l3gCWy2qq6vIDCAqW9mAJu2wFFuAJPldgCKdAL9MgSAcRYCrl04AHyA66uZ6KANJXrLmewGGpVQM7fi/Fvt5fk1W8U+63sBv+uqhJLEKiAvnyA9WBO30AKT9QBpy/unjoBT/IFOVcBS/gAdNaVjBBNuJfyKEDWOIVQKgGO91yBNatQ1KynaQFJpUgBUIA7MAUxNgGZAFHZYAqtU9gJWWAKZp8gLyxnoBN/bIA6KWq8KoG6RR+gBX0AttVsoao1D7ASlUinUBQEwD4gAmKAUcgUoATrV1wBuFgAUUAx+HXZ6Lzf35A1FG7cgMdAJpRa1gCHF68ganizAG46AZbf+vqgFbpu9eHcBkCarKAy169AKOXcBaTaeVRAKbywJwu4DgCjnAFmgBF3lgM9VCAFmEBbJYqwMvi4A1q7qQNJ8WYCn0mQMsBSn9gKGprAFL9wF17gT7gKAWk1WzAJrAB4qtFeegCuQMfkW70fjTdV17rABrutvxLdrxlV1d0wFSBeKnyV4gBWyAevIBEw5sBVmbqwEvH+uYvgB8Vz6ALSgBSTvgCcpvjoBh8vADjoA1Aypj7uecAUJqwF4tADVQJUt6gMqf0aAVeMATuuOOQKsxYBVdodIAYzfqASsADadLAKVIYFABLn9AC7h5skBpLAA+bADv1Ay5iFfACm4U1fIEr+WQFOqjACpf7gMOaO+QDXZvWWno3fV3QFKYCrAEUAfhgERVV6gKpQCd4XuBnd7p6rTVbJtLaXELnqAU5nqBTkCXLuBOqUWA0pAX8ICS9wB45yAJfcgGIVHPUBsBTX49gCgDz8kBdgKP3AtuvuBmnq7AGfqApLj1AbOV7gUv1AnMfUC7+4GUqgaqnbt3AWpiQKWBRyAbdABvgBWzd/kBPnkAp49gLZAVEoTjZ2kBrn3AI9gBuNW4bisJSA6PP8XApw/cDSiWAO8fMApEwBpADxPzAywNIC2s5Atf66z6AVJqBnX/08tvOIn7GsrrIDil+oFWvGQBWXIF9tJ5pHIDxwBrDkCdugEB//9k=') #f2e6cc;
+  *background: url("bg.jpg") #f2e6cc;
+}
+
+/* line 34, site.sass */
+figcaption {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+/* line 38, site.sass */
+blockquote,
+.stars {
+  font-family: "Abel", sans-serif;
+  font-size: 23px;
+  line-height: 35px;
+  color: #d25c25;
+  text-shadow: white 0 2px 1px;
+}
+/* line 46, site.sass */
+blockquote.left,
+.stars.left {
+  max-width: 295px;
+  float: left;
+  margin: 0 15px 0 0;
+  text-align: right;
+}
+/* line 52, site.sass */
+blockquote.centered,
+.stars.centered {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* line 56, site.sass */
+.stars {
+  text-align: center;
+  color: #6b6b6b;
+  text-shadow: white 0 1px 1px;
+}
+
+/* line 61, site.sass */
+header {
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* line 65, site.sass */
+#by {
+  display: block;
+  font-size: 15px;
+  font-style: italic;
+  color: #d25c25;
+}
+
+/* line 71, site.sass */
+#subtitle {
+  max-width: 700px;
+  margin: 0 auto 25px;
+  font-size: 23px;
+  line-height: 35px;
+}
+
+/* line 77, site.sass */
+h1,
+h2 {
+  margin-bottom: 20px;
+  font-family: Baskerville, Palatino, Georgia;
+  text-align: center;
+}
+
+/* line 83, site.sass */
+p {
+  margin-bottom: 20px;
+}
+
+/* line 86, site.sass */
+a,
+a:visited {
+  text-decoration: none;
+  color: #d25c25;
+}
+/* line 91, site.sass */
+a:hover,
+a:visited:hover {
+  color: #4c463f;
+  text-decoration: underline;
+}
+
+/* line 96, site.sass */
+#title img {
+  width: 100%;
+}
+
+/* line 99, site.sass */
+article {
+  max-width: 700px;
+  margin: 0 auto;
+}
+/* line 103, site.sass */
+article h1,
+article h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  color: #d25c25;
+}
+
+/* line 109, site.sass */
+.content {
+  margin-bottom: 40px;
+}
+
+/* line 112, site.sass */
+.letter {
+  float: left;
+  margin: 12px 3px 0 0;
+  font-size: 48px;
+}
+
+/* line 118, site.sass */
+.conversation {
+  max-width: 480px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+}
+/* line 123, site.sass */
+.conversation span {
+  display: block;
+  text-align: center;
+  font-style: italic;
+}
+
+/* line 128, site.sass */
+.lindsey,
+.author {
+  max-width: 88%;
+  display: inline-block;
+  padding: 5px 10px;
+  color: #f2e6cc;
+}
+
+/* line 135, site.sass */
+.lindsey {
+  background: #4c463f;
+}
+
+/* line 138, site.sass */
+.author {
+  float: right;
+  text-align: right;
+  background: #d25c25;
+}
+
+/* line 143, site.sass */
+p.center {
+  text-align: center;
+}
+/* line 146, site.sass */
+p.center .author {
+  float: none;
+  text-align: center;
+}
+
+/* line 150, site.sass */
+footer {
+  text-align: center;
+  font-size: 13px;
+  font-style: italic;
+}
+
+@media screen and (max-width: 480px) {
+  /* line 2, _media.sass */
+  body {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  /* line 6, _media.sass */
+  #wrap {
+    padding: 0 20px;
+  }
+
+  /* line 9, _media.sass */
+  #title {
+    margin-bottom: 0;
+  }
+
+  /* line 12, _media.sass */
+  .letter {
+    margin: 15px 3px 0 0;
+    font-size: 60px;
+  }
+}
