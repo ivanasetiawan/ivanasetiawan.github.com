@@ -1,0 +1,21 @@
+// Compass imports & mixins
+@import "compass"
+@import "compass/reset"
+
+// Variables.
+$font-color: #4c463f   // Grey
+$bg-color: #f5e9cf    // Grain
+
+@mixin data-uri-bg($image, $properties: false)
+  @if $properties != false
+    background: inline-image($image) $properties
+    *background: url($image) $properties
+  @else
+    background: inline-image($image)
+    *background: url($image)
+
+body
+  background: blue
+  //+data-uri-bg("bg.jpg", $bg-color)
+
+
