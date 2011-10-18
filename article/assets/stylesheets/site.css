@@ -126,8 +126,8 @@ header {
 /* line 65, site.sass */
 #by {
   display: block;
-  font-size: 15px;
-  font-style: italic;
+  font-size: 16px;
+  font-family: "Abel", sans-serif;
   color: #d25c25;
 }
 
