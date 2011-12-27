@@ -1,0 +1,134 @@
+// Compass imports & mixins
+@import "compass"
+@import "compass/reset"
+@import compass/layout/grid-background
+
+// Variables.
+$font-color: #e2dbbc   // Creme
+$light-color: #ff9b4a // Orange
+
+$font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+$museo: museoslab, $font-family
+$megalopolis: megalopolis, $museo
+$handwriting: marketingscript, cursive
+
+// Font face
+@font-face
+  font-family: 'museoslab'
+  src: url('../fonts/museo_slab_500-webfont-webfont.eot')
+  src: local('☺'), url('../fonts/museo_slab_500-webfont-webfont.woff') format('woff'), url('../fonts/museo_slab_500-webfont-webfont.ttf') format('truetype'), url('../fonts/museo_slab_500-webfont-webfont.svg') format('svg')
+  font-style: normal
+
+@font-face
+  font-family: 'megalopolis'
+  src: url('../fonts/megalopolisextra-webfont.eot')
+  src: local('☺'), url('../fonts/megalopolisextra-webfont.woff') format('woff'), url('../fonts/megalopolisextra-webfont.ttf') format('truetype'), url('../fonts/megalopolisextra-webfont.svg') format('svg')
+  font-style: normal
+
+@font-face
+  font-family: 'marketingscript'
+  src: url('../fonts/marketingscript-webfont.eot')
+  src: local('☺'), url('../fonts/marketingscript-webfont.woff') format('woff'), url('../fonts/marketingscript-webfont.ttf') format('truetype'), url('../fonts/marketingscript-webfont.svg') format('svg')
+  font-style: normal
+
+// Mixin
+@mixin data-uri-bg($image, $properties: false)
+  @if $properties != false
+    background: inline-image($image) $properties
+    *background: url($image) $properties
+  @else
+    background: inline-image($image)
+    *background: url($image)
+
+body
+  font-family: $font-family
+  font-size: 100%
+  color: $font-color
+  background: url("../images/swirl_blue.png") right top no-repeat, url("../images/swirl_pink.png") left top no-repeat, url("../images/bg.jpg") center top #111519 repeat-x
+
+// Grid dimensions.
+$grid-width: 960px
+$column-width: 40px
+$gutter-width: 20px
+
+$sec-column-width: 20px
+$sec-gutter-width: 10px
+
+$show-baseline-grid-backgrounds: false // Toggle baselines visibility.
+$grid-background-baseline-height: 1em
+$grid-background-total-columns: 16
+$grid-background-column-width: $column-width
+$grid-background-gutter-width: $gutter-width
+$grid-background-offset: $gutter-width / 2
+$grid-background-column-color: rgba(255, 0, 0, .08)
+$grid-background-baseline-color: rgba(0, 0, 0, .8)
+
+#wrap
+  max-width: $grid-width - $gutter-width
+  min-height: 100%
+  margin: 0 auto
+  padding: 0 halve-gutter()
+  +grid-background
+
+a,
+a:visited
+  color: $light-color
+
+#mainheader
+  position: relative
+  padding: 125px 0 0 10px
+
+  h1
+    font-size: 1.875em // 30px
+
+  h1,
+  em
+    font-family: $handwriting
+    letter-spacing: 0.03em
+
+  em
+    color: #a9ad9c
+    font-size: 1.38095em
+
+  #ivana
+    display: block
+    margin-left: -5px
+    font-family: $megalopolis
+    font-size: 3.3333em // 100px
+    color: $light-color
+
+  #intro
+    font-family: $museo
+    font-size: 0.7em // 21px
+
+  nav
+    top: 20px
+    right: 0
+    position: absolute
+
+    a
+      display: block
+      float: left
+      margin-left: 20px
+      padding-left: 20px
+      font-family: $handwriting
+      font-size: 1.875em
+      text-decoration: none
+      text-align: right
+      border-left: dashed 2px $font-color
+      color: $font-color
+
+      &:first-child
+        border: 0
+
+      &:hover
+        color: $light-color
+
+        span
+          color: $font-color
+
+      span
+        display: block
+        font-size: 0.8333em
+        color: $light-color
+
