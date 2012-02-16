@@ -1,16 +1,10 @@
 <!doctype html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
 
   <title>Ivana Setiawan's github</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="I am a rocket scientist wannabe who's passionately in love with web stuff">
+  <meta name="author" content="Ivana Setiawan">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -19,20 +13,15 @@
 
   <!-- CSS: implied media=all -->
   <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="assets/stylesheets/reset.css">
   <link rel="stylesheet" href="assets/stylesheets/site.css">
-  <link rel='stylesheet' href='assets/stylesheets/medium.css' />
+  <link rel='stylesheet' href='assets/stylesheets/media.css' />
   <!-- end CSS-->
 
-  <!--Google font-->
-  <link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>
-  <!--End -->
-
   <script src="assets/js/modernizr.js"></script>
+
 </head>
 <body id="home">
-
-  <div id="wrap">
+  <div class="wrap">
     <header id="mainheader">
       <h1>
         Oh Hi! My name is...
@@ -41,51 +30,120 @@
           I am a
           <em>Rocket Scientist</em>
           wannabe, who's passionately in love with
-          <em>Front End</em>
+          <em>Front End </em>
           stuff &amp; currently work in
           <em>Amsterdam</em>
         </span>
       </h1>
 
       <nav>
-        <a href="">Journal <span>coding</span></a>
-        <a href="">Notes <span>blog</span></a>
-        <a href="">Work <span>arts</span></a>
+        <a href="">Projects <span>art</span></a>
         <a href="">About <span>bio</span></a>
         <a href="">Contact <span>ivana</span></a>
       </nav>
     </header>
 
-    <footer>
-      Personal website: <a href="http://ivanasetiawan.com/">ivanasetiawan.com</a> // Thank you :)
-    </footer>
-  </div> <!--! end of #container -->
-
+    <section>
+      <h1>Projects/Art</h1>
+      <ul id="projects">
+        <li>
+          <div>
+            <a href="">
+              <figure>
+                <img src="assets/images/works/people_colours.jpg" alt="People do have their colours"/>
+                <figcaption>People do have their colours</figcaption>
+              </figure>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="">
+              <figure>
+                <img src="assets/images/works/amsterdam-rb.jpg" alt="Amsterdam-rb"/>
+                <figcaption>Amsterdam-rb</figcaption>
+              </figure>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="">
+              <figure>
+                <img src="assets/images/works/euruko2012.jpg" alt="Euruko 2012!"/>
+                <figcaption>Euruko 2012</figcaption>
+              </figure>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="">
+              <figure>
+                <img src="assets/images/works/tapirgo.jpg" alt="TapirGo!"/>
+                <figcaption>TapirGo!</figcaption>
+              </figure>
+            </a>
+          </div>
+        </li>    
+      </ul>
+      <span class="more">More coming...</span>
+    </section>
+    <div class="block awesomeness">
+      <h2>Awesomeness</h2>
+      <div>
+        <div class="image_wrapper"><a href=""><img src="assets/images/fronteers.png" alt="Fronteers" /></a></div>
+        <p> <strong>Fronteers</strong> is a Dutch trade union(vakvereniging) for front-end developers. They are pretty active and you can always sign up as a member if you’re interested in attending their regular meeting. (More info can be found on their website – I am warning you though, it is in Dutch.)</p>
+      </div>
+    </div>
+    
+    <div class="block find_me">
+      <h2>Find me on:</h2>
+      <ul>
+        <li><a href="#">Forrst</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Dribble</a></li>
+      </ul>
+    </div>
+        
+  </div> <!-- End of .container -->
+    
+  <footer id="mainfooter">
+    <div class="wrap">
+      <div class="block">
+        <h2>Thank you!</h2>
+        <p> For visiting, reading, commenting, &amp; spreading the words.This is my fun side project as a cool way to gain more skills related to FrontEnd stuff. Who thought being part of the geek community is awesome!
+        <span class="author">Ivana Setiawan</span>
+        </p>
+      </div>
+      <div id="twitter_box" class="block">
+        <h2>Twitter update:</h2>
+        <img src="assets/images/avatar.jpg" alt="avatar" />
+        <div id="tweet"></div>
+        <p class="follow_me">You should follow me on Twitter <a href="#">here</a></p>
+      </div>
+    </div><!-- End of wrap -->
+  </footer>
 
   <!-- JavaScript at the bottom for fast page loading -->
-
-  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="assets/js/jquery.js"><\/script>')</script>
-
-
-  <!-- scripts concatenated and minified via ant build script-->
+  <script defer src="assets/js/jquery.js"></script>
   <script defer src="assets/js/plugins.js"></script>
   <script defer src="assets/js/application.js"></script>
+  <script src="assets/js/twitter.js"></script>
   <!-- end scripts-->
 
-
-  <!-- Change UA-XXXXX-X to be your site's ID -->
-  <script>
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+  <!-- Twitter -->
+  <script type="text/javascript" charset="utf-8">
+    getTwitters('tweet', { 
+      id: 'ivanasetiawan', 
+      count: 1, 
+      enableLinks: true, 
+      ignoreReplies: true, 
+      clearContents: true,
+      template: '"%text%" <span class="time"><a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/">%time%</a></span>'
     });
   </script>
 
-
-  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
-       chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 7 ]>
     <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
     <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
