@@ -43,8 +43,8 @@
       </nav>
     </header>
 
-    <section>
-      <h1>Projects/Art</h1>
+    <section id="projects">
+      <h1>Awh-Sum Projects</h1>
       <ul id="projects">
         <li>
           <div>
@@ -85,10 +85,36 @@
               </figure>
             </a>
           </div>
-        </li>    
+        </li>
       </ul>
       <span class="more">More coming...</span>
     </section>
+
+    <section id="about">
+      <h1>
+        Ivana Setiawan
+        <span class="subtitle">Pronounced <span>/ee-vanh-uh/</span> so stop calling me <span>/ai-vanh-uh/</span> Really.</span>
+      </h1>
+
+      <div>
+        I was born in 1987
+      </div>
+
+    </section>
+
+    <section id="contact">
+      <h1>
+        Drop me some lines!
+      </h1>
+      <p>
+        Your kind words will make me smile
+        Your suggestions will be much appreciated
+        You can also be rude and open if necessary, and I will find some ways to deliver "Fuck you" in a nice way.
+      </p>
+      <a href="mailto:ivana.setiawan@gmail.com"> Big ass button to contact me! </a>
+    </section>
+
+    <!--
     <div class="block awesomeness">
       <h2>Awesomeness</h2>
       <div>
@@ -96,26 +122,25 @@
         <p> <strong>Fronteers</strong> is a Dutch trade union(vakvereniging) for front-end developers. They are pretty active and you can always sign up as a member if you’re interested in attending their regular meeting. (More info can be found on their website – I am warning you though, it is in Dutch.)</p>
       </div>
     </div>
-    
-    <div class="block find_me">
-      <h2>Find me on:</h2>
-      <ul>
-        <li><a href="#">Forrst</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Dribble</a></li>
-      </ul>
-    </div>
-        
-  </div> <!-- End of .container -->
-    
-  <footer id="mainfooter">
-    <div class="wrap">
-      <div class="block">
-        <h2>Thank you!</h2>
-        <p> For visiting, reading, commenting, &amp; spreading the words.This is my fun side project as a cool way to gain more skills related to FrontEnd stuff. Who thought being part of the geek community is awesome!
+
+    <div class="block thanks">
+      <h2>Thank you!</h2>
+      <div>
+        <p> For visiting, reading, commenting, &amp; spreading the words. This is my fun side project as a cool way to gain more skills related to FrontEnd stuff. Who thought being part of the geek community is awesome!
         <span class="author">Ivana Setiawan</span>
         </p>
       </div>
+    </div>
+    -->
+  </div> <!-- End of .container -->
+
+  <footer id="mainfooter">
+    <div class="wrap">
+      <div id="about_me" class="block">
+        <h2>People used to call me Kiddo</h2>
+        <p>I live in <em>Amsterdam</em> and work at <a href="#">Mangrove</a> in <em>Rotterdam</em>. <br />I love doodling, writing songs, exercising, and coding during my free time. I consider LA as my third hometown after Surabaya &amp; Amsterdam. O yea, I am a passionate writer and want to be better at it.</p>
+      </div>
+
       <div id="twitter_box" class="block">
         <h2>Twitter update:</h2>
         <img src="assets/images/avatar.jpg" alt="avatar" />
@@ -123,6 +148,16 @@
         <p class="follow_me">You should follow me on Twitter <a href="#">here</a></p>
       </div>
     </div><!-- End of wrap -->
+    <!--
+    <div class="block">
+      <h2>Find me on:</h2>
+      <ul>
+        <li><a href="#">Forrst</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Dribble</a></li>
+      </ul>
+    </div>
+    -->
   </footer>
 
   <!-- JavaScript at the bottom for fast page loading -->
@@ -134,11 +169,11 @@
 
   <!-- Twitter -->
   <script type="text/javascript" charset="utf-8">
-    getTwitters('tweet', { 
-      id: 'ivanasetiawan', 
-      count: 1, 
-      enableLinks: true, 
-      ignoreReplies: true, 
+    getTwitters('tweet', {
+      id: 'ivanasetiawan',
+      count: 1,
+      enableLinks: true,
+      ignoreReplies: true,
       clearContents: true,
       template: '"%text%" <span class="time"><a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/">%time%</a></span>'
     });

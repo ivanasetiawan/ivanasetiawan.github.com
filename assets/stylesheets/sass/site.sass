@@ -80,9 +80,17 @@ $grid-background-baseline-color: rgba(0, 0, 0, .8)
 a,
 a:visited
   color: $light-color
+  text-decoration: none
 
   &:hover
     color: $font-color
+
+strong
+  font-weight: bold
+  color: $light-color
+
+em
+  font-style: italic
 
 .wrap
   max-width: $grid-width - $gutter-width
@@ -211,12 +219,12 @@ a:visited
 .block
   width: 48.9362%
   float: left
-  
+
   h2
     margin-bottom: 20px
     font-family: $handwriting
     font-size: 1.875em
-  
+
   p
     line-height: 1.375em
 
@@ -228,16 +236,16 @@ a:visited
   text-align: right
 
 .awesomeness,
-.find_me
+.thanks
   float: left
 
-  > div,
-  > ul
+  > div
+    min-height: 183px
     padding: 10px
     background: rgba(0, 0, 0, 0.45)
     +border-radius(5px)
 
-.find_me
+.thanks
   float: right
 
 #twitter_box
@@ -255,17 +263,17 @@ a:visited
     left: 10px
     position: absolute
     border: solid 3px rgba(255, 255, 255, 0.5)
-  
+
   .follow_me
     bottom: 10px
     right: 10px
     position: absolute
     font-weight: bold
     font-size: 0.875em
-  
+
   a
     text-decoration: none
-  
+
   .time
     top: 16px
     right: 10px
@@ -278,6 +286,8 @@ a:visited
 #tweet
   padding-left: 110px
   line-height: 1.375em
+
+#about_me
 
 .image_wrapper
   margin-bottom: 15px
