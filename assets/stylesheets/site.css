@@ -1,1 +1,398 @@
+<<<<<<< Updated upstream
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}body{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}q,blockquote{quotes:none}q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}@font-face{font-family:"museoslab";src:url("../fonts/museo_slab_500-webfont-webfont.eot");src:local("☺"),url("../fonts/museo_slab_500-webfont-webfont.woff") format("woff"),url("../fonts/museo_slab_500-webfont-webfont.ttf") format("truetype"),url("../fonts/museo_slab_500-webfont-webfont.svg") format("svg");font-style:normal}@font-face{font-family:"megalopolis";src:url("../fonts/megalopolisextra-webfont.eot");src:local("☺"),url("../fonts/megalopolisextra-webfont.woff") format("woff"),url("../fonts/megalopolisextra-webfont.ttf") format("truetype"),url("../fonts/megalopolisextra-webfont.svg") format("svg");font-style:normal}@font-face{font-family:"marketingscript";src:url("../fonts/marketingscript-webfont.eot");src:local("☺"),url("../fonts/marketingscript-webfont.woff") format("woff"),url("../fonts/marketingscript-webfont.ttf") format("truetype"),url("../fonts/marketingscript-webfont.svg") format("svg");font-style:normal}::-moz-selection{background:#ff9b4a;color:#fff;text-shadow:none}::selection{background:#ff9b4a;color:#fff;text-shadow:none}body{font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:100%;color:#e2dbbc;border-top:solid 10px #435058;background:url("../images/swirl_blue.png") right top no-repeat,url("../images/swirl_pink.png") left top no-repeat,url("../images/bg_repeat.jpg") center top #111519}a,a:visited{color:#ff9b4a;text-decoration:none}a:hover,a:visited:hover{color:#e2dbbc}strong{font-weight:bold;color:#ff9b4a}em{font-style:italic}.wrap{max-width:940px;min-height:100%;margin:0 auto;padding:0 10px}.wrap > section,.wrap > div{margin:25px 0 30px}.wrap > section h1,.wrap > div h1{border-bottom:dashed 1px #6a6963;font-family:museoslab,"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1.313em;line-height:1.667em}#mainheader{position:relative;padding-top:125px;margin-bottom:50px;text-shadow:#222 2px 2px 2px}#mainheader h1{font-size:1.875em}#mainheader h1,#mainheader em{font-family:marketingscript,cursive;letter-spacing:0.03em}#mainheader em{color:#a9ad9c;font-size:1.381em}#mainheader #ivana{display:block;margin-left:-5px;font-family:megalopolis,museoslab,"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:3.333em;color:#ff9b4a}#mainheader #intro{font-family:museoslab,"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:0.7em}#mainheader nav{top:20px;right:0;position:absolute}#mainheader nav a{display:block;float:left;margin-left:20px;padding-left:20px;font-family:marketingscript,cursive;font-size:1.875em;text-decoration:none;text-align:right;border-left:dashed 2px #e2dbbc;color:#e2dbbc}#mainheader nav a:first-child{border:0}#mainheader nav a:hover{color:#ff9b4a}#mainheader nav a:hover span{color:#e2dbbc}#mainheader nav a span{display:block;font-size:0.833em;color:#ff9b4a}#projects{margin-left:-2.128%;overflow:hidden}#projects li{width:22.85%;float:left;margin:20px 0 0 2.128%}#projects li > div{padding:5px;background:rgba(0,0,0,0.45);-moz-border-radius:3px;-webkit-border-radius:3px;-o-border-radius:3px;-ms-border-radius:3px;-khtml-border-radius:3px;border-radius:3px}#projects li > div:hover{background:#6a6963}#projects li > div:hover a{color:#fff}#projects li a{display:block;height:180px;overflow:hidden;font-weight:bold;letter-spacing:0.05em;text-decoration:none;color:#ff9b4a}#projects li figcaption{font-size:0.75em;line-height:1.25em}.more{display:block;margin:15px 0 50px;text-align:right}#mainfooter{padding-top:30px;clear:both;border-top:solid 10px #435058;background:url("../images/swirl_footer.png") right top no-repeat,url("../images/bg_footer.jpg") center top #0d1015}#mainfooter .wrap{overflow:hidden}.block{width:48.936%;float:left}.block h2{margin-bottom:20px;font-family:marketingscript,cursive;font-size:1.875em}.block p{line-height:1.375em}.author{display:block;margin-top:15px;font-family:marketingscript,cursive;font-size:1.313em;text-align:right}.awesomeness,.thanks{float:left}.awesomeness > div,.thanks > div{min-height:183px;padding:10px;background:rgba(0,0,0,0.45);-moz-border-radius:5px;-webkit-border-radius:5px;-o-border-radius:5px;-ms-border-radius:5px;-khtml-border-radius:5px;border-radius:5px}.thanks{float:right}#twitter_box{width:440px;min-height:145px;position:relative;float:right;padding:10px;margin-top:15px;background:rgba(0,0,0,0.45);-moz-border-radius:5px;-webkit-border-radius:5px;-o-border-radius:5px;-ms-border-radius:5px;-khtml-border-radius:5px;border-radius:5px}#twitter_box img{top:65px;left:10px;position:absolute;border:solid 3px rgba(255,255,255,0.5)}#twitter_box .follow_me{bottom:10px;right:10px;position:absolute;font-weight:bold;font-size:0.875em}#twitter_box a{text-decoration:none}#twitter_box .time{top:16px;right:10px;position:absolute;font-size:0.813em}#twitter_box .time a{color:#6a6963}#tweet{padding-left:110px;line-height:1.375em}.image_wrapper{margin-bottom:15px;text-align:center}
+=======
+/* line 17, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../../../../Applications/Scout.app/Contents/Resources/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: "museoslab";
+  src: url("../fonts/museo_slab_500-webfont-webfont.eot");
+  src: local("☺"), url("../fonts/museo_slab_500-webfont-webfont.woff") format("woff"), url("../fonts/museo_slab_500-webfont-webfont.ttf") format("truetype"), url("../fonts/museo_slab_500-webfont-webfont.svg") format("svg");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "megalopolis";
+  src: url("../fonts/megalopolisextra-webfont.eot");
+  src: local("☺"), url("../fonts/megalopolisextra-webfont.woff") format("woff"), url("../fonts/megalopolisextra-webfont.ttf") format("truetype"), url("../fonts/megalopolisextra-webfont.svg") format("svg");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "marketingscript";
+  src: url("../fonts/marketingscript-webfont.eot");
+  src: local("☺"), url("../fonts/marketingscript-webfont.woff") format("woff"), url("../fonts/marketingscript-webfont.ttf") format("truetype"), url("../fonts/marketingscript-webfont.svg") format("svg");
+  font-style: normal;
+}
+
+/* line 45, sass/site.sass */
+::-moz-selection {
+  background: #ff9b4a;
+  color: white;
+  text-shadow: none;
+}
+
+/* line 50, sass/site.sass */
+::selection {
+  background: #ff9b4a;
+  color: white;
+  text-shadow: none;
+}
+
+/* line 55, sass/site.sass */
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  color: #e2dbbc;
+  border-top: solid 10px #435058;
+  background: url("../images/swirl_blue.png") right top no-repeat, url("../images/swirl_pink.png") left top no-repeat, url("../images/bg_repeat.jpg") center top #111519;
+}
+
+/* line 80, sass/site.sass */
+a,
+a:visited {
+  color: #ff9b4a;
+}
+/* line 84, sass/site.sass */
+a:hover,
+a:visited:hover {
+  color: #e2dbbc;
+}
+
+/* line 87, sass/site.sass */
+.wrap {
+  max-width: 940px;
+  min-height: 100%;
+  margin: 0 auto;
+  background-image: -webkit-gradient(linear, 0% 50%, 970 50%, color-stop(1.031%, rgba(0, 0, 0, 0)), color-stop(1.031%, rgba(255, 0, 0, 0.08)), color-stop(5.155%, rgba(255, 0, 0, 0.08)), color-stop(5.155%, rgba(0, 0, 0, 0)), color-stop(7.216%, rgba(0, 0, 0, 0)), color-stop(7.216%, rgba(255, 0, 0, 0.08)), color-stop(11.34%, rgba(255, 0, 0, 0.08)), color-stop(11.34%, rgba(0, 0, 0, 0)), color-stop(13.402%, rgba(0, 0, 0, 0)), color-stop(13.402%, rgba(255, 0, 0, 0.08)), color-stop(17.526%, rgba(255, 0, 0, 0.08)), color-stop(17.526%, rgba(0, 0, 0, 0)), color-stop(19.588%, rgba(0, 0, 0, 0)), color-stop(19.588%, rgba(255, 0, 0, 0.08)), color-stop(23.711%, rgba(255, 0, 0, 0.08)), color-stop(23.711%, rgba(0, 0, 0, 0)), color-stop(25.773%, rgba(0, 0, 0, 0)), color-stop(25.773%, rgba(255, 0, 0, 0.08)), color-stop(29.897%, rgba(255, 0, 0, 0.08)), color-stop(29.897%, rgba(0, 0, 0, 0)), color-stop(31.959%, rgba(0, 0, 0, 0)), color-stop(31.959%, rgba(255, 0, 0, 0.08)), color-stop(36.082%, rgba(255, 0, 0, 0.08)), color-stop(36.082%, rgba(0, 0, 0, 0)), color-stop(38.144%, rgba(0, 0, 0, 0)), color-stop(38.144%, rgba(255, 0, 0, 0.08)), color-stop(42.268%, rgba(255, 0, 0, 0.08)), color-stop(42.268%, rgba(0, 0, 0, 0)), color-stop(44.33%, rgba(0, 0, 0, 0)), color-stop(44.33%, rgba(255, 0, 0, 0.08)), color-stop(48.454%, rgba(255, 0, 0, 0.08)), color-stop(48.454%, rgba(0, 0, 0, 0)), color-stop(50.515%, rgba(0, 0, 0, 0)), color-stop(50.515%, rgba(255, 0, 0, 0.08)), color-stop(54.639%, rgba(255, 0, 0, 0.08)), color-stop(54.639%, rgba(0, 0, 0, 0)), color-stop(56.701%, rgba(0, 0, 0, 0)), color-stop(56.701%, rgba(255, 0, 0, 0.08)), color-stop(60.825%, rgba(255, 0, 0, 0.08)), color-stop(60.825%, rgba(0, 0, 0, 0)), color-stop(62.887%, rgba(0, 0, 0, 0)), color-stop(62.887%, rgba(255, 0, 0, 0.08)), color-stop(67.01%, rgba(255, 0, 0, 0.08)), color-stop(67.01%, rgba(0, 0, 0, 0)), color-stop(69.072%, rgba(0, 0, 0, 0)), color-stop(69.072%, rgba(255, 0, 0, 0.08)), color-stop(73.196%, rgba(255, 0, 0, 0.08)), color-stop(73.196%, rgba(0, 0, 0, 0)), color-stop(75.258%, rgba(0, 0, 0, 0)), color-stop(75.258%, rgba(255, 0, 0, 0.08)), color-stop(79.381%, rgba(255, 0, 0, 0.08)), color-stop(79.381%, rgba(0, 0, 0, 0)), color-stop(81.443%, rgba(0, 0, 0, 0)), color-stop(81.443%, rgba(255, 0, 0, 0.08)), color-stop(85.567%, rgba(255, 0, 0, 0.08)), color-stop(85.567%, rgba(0, 0, 0, 0)), color-stop(87.629%, rgba(0, 0, 0, 0)), color-stop(87.629%, rgba(255, 0, 0, 0.08)), color-stop(91.753%, rgba(255, 0, 0, 0.08)), color-stop(91.753%, rgba(0, 0, 0, 0)), color-stop(93.814%, rgba(0, 0, 0, 0)), color-stop(93.814%, rgba(255, 0, 0, 0.08)), color-stop(97.938%, rgba(255, 0, 0, 0.08)), color-stop(97.938%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 10px, rgba(255, 0, 0, 0.08) 10px, rgba(255, 0, 0, 0.08) 50px, rgba(0, 0, 0, 0) 50px, rgba(0, 0, 0, 0) 70px, rgba(255, 0, 0, 0.08) 70px, rgba(255, 0, 0, 0.08) 110px, rgba(0, 0, 0, 0) 110px, rgba(0, 0, 0, 0) 130px, rgba(255, 0, 0, 0.08) 130px, rgba(255, 0, 0, 0.08) 170px, rgba(0, 0, 0, 0) 170px, rgba(0, 0, 0, 0) 190px, rgba(255, 0, 0, 0.08) 190px, rgba(255, 0, 0, 0.08) 230px, rgba(0, 0, 0, 0) 230px, rgba(0, 0, 0, 0) 250px, rgba(255, 0, 0, 0.08) 250px, rgba(255, 0, 0, 0.08) 290px, rgba(0, 0, 0, 0) 290px, rgba(0, 0, 0, 0) 310px, rgba(255, 0, 0, 0.08) 310px, rgba(255, 0, 0, 0.08) 350px, rgba(0, 0, 0, 0) 350px, rgba(0, 0, 0, 0) 370px, rgba(255, 0, 0, 0.08) 370px, rgba(255, 0, 0, 0.08) 410px, rgba(0, 0, 0, 0) 410px, rgba(0, 0, 0, 0) 430px, rgba(255, 0, 0, 0.08) 430px, rgba(255, 0, 0, 0.08) 470px, rgba(0, 0, 0, 0) 470px, rgba(0, 0, 0, 0) 490px, rgba(255, 0, 0, 0.08) 490px, rgba(255, 0, 0, 0.08) 530px, rgba(0, 0, 0, 0) 530px, rgba(0, 0, 0, 0) 550px, rgba(255, 0, 0, 0.08) 550px, rgba(255, 0, 0, 0.08) 590px, rgba(0, 0, 0, 0) 590px, rgba(0, 0, 0, 0) 610px, rgba(255, 0, 0, 0.08) 610px, rgba(255, 0, 0, 0.08) 650px, rgba(0, 0, 0, 0) 650px, rgba(0, 0, 0, 0) 670px, rgba(255, 0, 0, 0.08) 670px, rgba(255, 0, 0, 0.08) 710px, rgba(0, 0, 0, 0) 710px, rgba(0, 0, 0, 0) 730px, rgba(255, 0, 0, 0.08) 730px, rgba(255, 0, 0, 0.08) 770px, rgba(0, 0, 0, 0) 770px, rgba(0, 0, 0, 0) 790px, rgba(255, 0, 0, 0.08) 790px, rgba(255, 0, 0, 0.08) 830px, rgba(0, 0, 0, 0) 830px, rgba(0, 0, 0, 0) 850px, rgba(255, 0, 0, 0.08) 850px, rgba(255, 0, 0, 0.08) 890px, rgba(0, 0, 0, 0) 890px, rgba(0, 0, 0, 0) 910px, rgba(255, 0, 0, 0.08) 910px, rgba(255, 0, 0, 0.08) 950px, rgba(0, 0, 0, 0) 950px, rgba(0, 0, 0, 0) 970px);
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 10px, rgba(255, 0, 0, 0.08) 10px, rgba(255, 0, 0, 0.08) 50px, rgba(0, 0, 0, 0) 50px, rgba(0, 0, 0, 0) 70px, rgba(255, 0, 0, 0.08) 70px, rgba(255, 0, 0, 0.08) 110px, rgba(0, 0, 0, 0) 110px, rgba(0, 0, 0, 0) 130px, rgba(255, 0, 0, 0.08) 130px, rgba(255, 0, 0, 0.08) 170px, rgba(0, 0, 0, 0) 170px, rgba(0, 0, 0, 0) 190px, rgba(255, 0, 0, 0.08) 190px, rgba(255, 0, 0, 0.08) 230px, rgba(0, 0, 0, 0) 230px, rgba(0, 0, 0, 0) 250px, rgba(255, 0, 0, 0.08) 250px, rgba(255, 0, 0, 0.08) 290px, rgba(0, 0, 0, 0) 290px, rgba(0, 0, 0, 0) 310px, rgba(255, 0, 0, 0.08) 310px, rgba(255, 0, 0, 0.08) 350px, rgba(0, 0, 0, 0) 350px, rgba(0, 0, 0, 0) 370px, rgba(255, 0, 0, 0.08) 370px, rgba(255, 0, 0, 0.08) 410px, rgba(0, 0, 0, 0) 410px, rgba(0, 0, 0, 0) 430px, rgba(255, 0, 0, 0.08) 430px, rgba(255, 0, 0, 0.08) 470px, rgba(0, 0, 0, 0) 470px, rgba(0, 0, 0, 0) 490px, rgba(255, 0, 0, 0.08) 490px, rgba(255, 0, 0, 0.08) 530px, rgba(0, 0, 0, 0) 530px, rgba(0, 0, 0, 0) 550px, rgba(255, 0, 0, 0.08) 550px, rgba(255, 0, 0, 0.08) 590px, rgba(0, 0, 0, 0) 590px, rgba(0, 0, 0, 0) 610px, rgba(255, 0, 0, 0.08) 610px, rgba(255, 0, 0, 0.08) 650px, rgba(0, 0, 0, 0) 650px, rgba(0, 0, 0, 0) 670px, rgba(255, 0, 0, 0.08) 670px, rgba(255, 0, 0, 0.08) 710px, rgba(0, 0, 0, 0) 710px, rgba(0, 0, 0, 0) 730px, rgba(255, 0, 0, 0.08) 730px, rgba(255, 0, 0, 0.08) 770px, rgba(0, 0, 0, 0) 770px, rgba(0, 0, 0, 0) 790px, rgba(255, 0, 0, 0.08) 790px, rgba(255, 0, 0, 0.08) 830px, rgba(0, 0, 0, 0) 830px, rgba(0, 0, 0, 0) 850px, rgba(255, 0, 0, 0.08) 850px, rgba(255, 0, 0, 0.08) 890px, rgba(0, 0, 0, 0) 890px, rgba(0, 0, 0, 0) 910px, rgba(255, 0, 0, 0.08) 910px, rgba(255, 0, 0, 0.08) 950px, rgba(0, 0, 0, 0) 950px, rgba(0, 0, 0, 0) 970px);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 10px, rgba(255, 0, 0, 0.08) 10px, rgba(255, 0, 0, 0.08) 50px, rgba(0, 0, 0, 0) 50px, rgba(0, 0, 0, 0) 70px, rgba(255, 0, 0, 0.08) 70px, rgba(255, 0, 0, 0.08) 110px, rgba(0, 0, 0, 0) 110px, rgba(0, 0, 0, 0) 130px, rgba(255, 0, 0, 0.08) 130px, rgba(255, 0, 0, 0.08) 170px, rgba(0, 0, 0, 0) 170px, rgba(0, 0, 0, 0) 190px, rgba(255, 0, 0, 0.08) 190px, rgba(255, 0, 0, 0.08) 230px, rgba(0, 0, 0, 0) 230px, rgba(0, 0, 0, 0) 250px, rgba(255, 0, 0, 0.08) 250px, rgba(255, 0, 0, 0.08) 290px, rgba(0, 0, 0, 0) 290px, rgba(0, 0, 0, 0) 310px, rgba(255, 0, 0, 0.08) 310px, rgba(255, 0, 0, 0.08) 350px, rgba(0, 0, 0, 0) 350px, rgba(0, 0, 0, 0) 370px, rgba(255, 0, 0, 0.08) 370px, rgba(255, 0, 0, 0.08) 410px, rgba(0, 0, 0, 0) 410px, rgba(0, 0, 0, 0) 430px, rgba(255, 0, 0, 0.08) 430px, rgba(255, 0, 0, 0.08) 470px, rgba(0, 0, 0, 0) 470px, rgba(0, 0, 0, 0) 490px, rgba(255, 0, 0, 0.08) 490px, rgba(255, 0, 0, 0.08) 530px, rgba(0, 0, 0, 0) 530px, rgba(0, 0, 0, 0) 550px, rgba(255, 0, 0, 0.08) 550px, rgba(255, 0, 0, 0.08) 590px, rgba(0, 0, 0, 0) 590px, rgba(0, 0, 0, 0) 610px, rgba(255, 0, 0, 0.08) 610px, rgba(255, 0, 0, 0.08) 650px, rgba(0, 0, 0, 0) 650px, rgba(0, 0, 0, 0) 670px, rgba(255, 0, 0, 0.08) 670px, rgba(255, 0, 0, 0.08) 710px, rgba(0, 0, 0, 0) 710px, rgba(0, 0, 0, 0) 730px, rgba(255, 0, 0, 0.08) 730px, rgba(255, 0, 0, 0.08) 770px, rgba(0, 0, 0, 0) 770px, rgba(0, 0, 0, 0) 790px, rgba(255, 0, 0, 0.08) 790px, rgba(255, 0, 0, 0.08) 830px, rgba(0, 0, 0, 0) 830px, rgba(0, 0, 0, 0) 850px, rgba(255, 0, 0, 0.08) 850px, rgba(255, 0, 0, 0.08) 890px, rgba(0, 0, 0, 0) 890px, rgba(0, 0, 0, 0) 910px, rgba(255, 0, 0, 0.08) 910px, rgba(255, 0, 0, 0.08) 950px, rgba(0, 0, 0, 0) 950px, rgba(0, 0, 0, 0) 970px);
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 10px, rgba(255, 0, 0, 0.08) 10px, rgba(255, 0, 0, 0.08) 50px, rgba(0, 0, 0, 0) 50px, rgba(0, 0, 0, 0) 70px, rgba(255, 0, 0, 0.08) 70px, rgba(255, 0, 0, 0.08) 110px, rgba(0, 0, 0, 0) 110px, rgba(0, 0, 0, 0) 130px, rgba(255, 0, 0, 0.08) 130px, rgba(255, 0, 0, 0.08) 170px, rgba(0, 0, 0, 0) 170px, rgba(0, 0, 0, 0) 190px, rgba(255, 0, 0, 0.08) 190px, rgba(255, 0, 0, 0.08) 230px, rgba(0, 0, 0, 0) 230px, rgba(0, 0, 0, 0) 250px, rgba(255, 0, 0, 0.08) 250px, rgba(255, 0, 0, 0.08) 290px, rgba(0, 0, 0, 0) 290px, rgba(0, 0, 0, 0) 310px, rgba(255, 0, 0, 0.08) 310px, rgba(255, 0, 0, 0.08) 350px, rgba(0, 0, 0, 0) 350px, rgba(0, 0, 0, 0) 370px, rgba(255, 0, 0, 0.08) 370px, rgba(255, 0, 0, 0.08) 410px, rgba(0, 0, 0, 0) 410px, rgba(0, 0, 0, 0) 430px, rgba(255, 0, 0, 0.08) 430px, rgba(255, 0, 0, 0.08) 470px, rgba(0, 0, 0, 0) 470px, rgba(0, 0, 0, 0) 490px, rgba(255, 0, 0, 0.08) 490px, rgba(255, 0, 0, 0.08) 530px, rgba(0, 0, 0, 0) 530px, rgba(0, 0, 0, 0) 550px, rgba(255, 0, 0, 0.08) 550px, rgba(255, 0, 0, 0.08) 590px, rgba(0, 0, 0, 0) 590px, rgba(0, 0, 0, 0) 610px, rgba(255, 0, 0, 0.08) 610px, rgba(255, 0, 0, 0.08) 650px, rgba(0, 0, 0, 0) 650px, rgba(0, 0, 0, 0) 670px, rgba(255, 0, 0, 0.08) 670px, rgba(255, 0, 0, 0.08) 710px, rgba(0, 0, 0, 0) 710px, rgba(0, 0, 0, 0) 730px, rgba(255, 0, 0, 0.08) 730px, rgba(255, 0, 0, 0.08) 770px, rgba(0, 0, 0, 0) 770px, rgba(0, 0, 0, 0) 790px, rgba(255, 0, 0, 0.08) 790px, rgba(255, 0, 0, 0.08) 830px, rgba(0, 0, 0, 0) 830px, rgba(0, 0, 0, 0) 850px, rgba(255, 0, 0, 0.08) 850px, rgba(255, 0, 0, 0.08) 890px, rgba(0, 0, 0, 0) 890px, rgba(0, 0, 0, 0) 910px, rgba(255, 0, 0, 0.08) 910px, rgba(255, 0, 0, 0.08) 950px, rgba(0, 0, 0, 0) 950px, rgba(0, 0, 0, 0) 970px);
+  background-image: linear-gradient(left, rgba(0, 0, 0, 0) 10px, rgba(255, 0, 0, 0.08) 10px, rgba(255, 0, 0, 0.08) 50px, rgba(0, 0, 0, 0) 50px, rgba(0, 0, 0, 0) 70px, rgba(255, 0, 0, 0.08) 70px, rgba(255, 0, 0, 0.08) 110px, rgba(0, 0, 0, 0) 110px, rgba(0, 0, 0, 0) 130px, rgba(255, 0, 0, 0.08) 130px, rgba(255, 0, 0, 0.08) 170px, rgba(0, 0, 0, 0) 170px, rgba(0, 0, 0, 0) 190px, rgba(255, 0, 0, 0.08) 190px, rgba(255, 0, 0, 0.08) 230px, rgba(0, 0, 0, 0) 230px, rgba(0, 0, 0, 0) 250px, rgba(255, 0, 0, 0.08) 250px, rgba(255, 0, 0, 0.08) 290px, rgba(0, 0, 0, 0) 290px, rgba(0, 0, 0, 0) 310px, rgba(255, 0, 0, 0.08) 310px, rgba(255, 0, 0, 0.08) 350px, rgba(0, 0, 0, 0) 350px, rgba(0, 0, 0, 0) 370px, rgba(255, 0, 0, 0.08) 370px, rgba(255, 0, 0, 0.08) 410px, rgba(0, 0, 0, 0) 410px, rgba(0, 0, 0, 0) 430px, rgba(255, 0, 0, 0.08) 430px, rgba(255, 0, 0, 0.08) 470px, rgba(0, 0, 0, 0) 470px, rgba(0, 0, 0, 0) 490px, rgba(255, 0, 0, 0.08) 490px, rgba(255, 0, 0, 0.08) 530px, rgba(0, 0, 0, 0) 530px, rgba(0, 0, 0, 0) 550px, rgba(255, 0, 0, 0.08) 550px, rgba(255, 0, 0, 0.08) 590px, rgba(0, 0, 0, 0) 590px, rgba(0, 0, 0, 0) 610px, rgba(255, 0, 0, 0.08) 610px, rgba(255, 0, 0, 0.08) 650px, rgba(0, 0, 0, 0) 650px, rgba(0, 0, 0, 0) 670px, rgba(255, 0, 0, 0.08) 670px, rgba(255, 0, 0, 0.08) 710px, rgba(0, 0, 0, 0) 710px, rgba(0, 0, 0, 0) 730px, rgba(255, 0, 0, 0.08) 730px, rgba(255, 0, 0, 0.08) 770px, rgba(0, 0, 0, 0) 770px, rgba(0, 0, 0, 0) 790px, rgba(255, 0, 0, 0.08) 790px, rgba(255, 0, 0, 0.08) 830px, rgba(0, 0, 0, 0) 830px, rgba(0, 0, 0, 0) 850px, rgba(255, 0, 0, 0.08) 850px, rgba(255, 0, 0, 0.08) 890px, rgba(0, 0, 0, 0) 890px, rgba(0, 0, 0, 0) 910px, rgba(255, 0, 0, 0.08) 910px, rgba(255, 0, 0, 0.08) 950px, rgba(0, 0, 0, 0) 950px, rgba(0, 0, 0, 0) 970px);
+  background-position: left top;
+}
+/* line 93, sass/site.sass */
+.wrap > section,
+.wrap > div {
+  margin: 25px 0 30px;
+}
+/* line 97, sass/site.sass */
+.wrap > section h1,
+.wrap > div h1 {
+  border-bottom: dashed 1px #6a6963;
+  font-family: museoslab, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.313em;
+  line-height: 1.667em;
+}
+
+/* line 103, sass/site.sass */
+#mainheader {
+  position: relative;
+  padding-top: 125px;
+  margin-bottom: 50px;
+  text-shadow: #222222 2px 2px 2px;
+}
+/* line 109, sass/site.sass */
+#mainheader h1 {
+  font-size: 1.875em;
+}
+/* line 112, sass/site.sass */
+#mainheader h1,
+#mainheader em {
+  font-family: marketingscript, cursive;
+  letter-spacing: 0.03em;
+}
+/* line 117, sass/site.sass */
+#mainheader em {
+  color: #a9ad9c;
+  font-size: 1.381em;
+}
+/* line 121, sass/site.sass */
+#mainheader #ivana {
+  display: block;
+  margin-left: -5px;
+  font-family: megalopolis, museoslab, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 3.333em;
+  color: #ff9b4a;
+}
+/* line 128, sass/site.sass */
+#mainheader #intro {
+  font-family: museoslab, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.7em;
+}
+/* line 132, sass/site.sass */
+#mainheader nav {
+  top: 20px;
+  right: 0;
+  position: absolute;
+}
+/* line 137, sass/site.sass */
+#mainheader nav a {
+  display: block;
+  float: left;
+  margin-left: 20px;
+  padding-left: 20px;
+  font-family: marketingscript, cursive;
+  font-size: 1.875em;
+  text-decoration: none;
+  text-align: right;
+  border-left: dashed 2px #e2dbbc;
+  color: #e2dbbc;
+}
+/* line 149, sass/site.sass */
+#mainheader nav a:first-child {
+  border: 0;
+}
+/* line 152, sass/site.sass */
+#mainheader nav a:hover {
+  color: #ff9b4a;
+}
+/* line 155, sass/site.sass */
+#mainheader nav a:hover span {
+  color: #e2dbbc;
+}
+/* line 158, sass/site.sass */
+#mainheader nav a span {
+  display: block;
+  font-size: 0.833em;
+  color: #ff9b4a;
+}
+
+/* line 163, sass/site.sass */
+#projects {
+  margin-left: -2.128%;
+  overflow: hidden;
+}
+/* line 167, sass/site.sass */
+#projects li {
+  width: 22.85%;
+  float: left;
+  margin: 20px 0 0 2.128%;
+}
+/* line 172, sass/site.sass */
+#projects li > div {
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.45);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 177, sass/site.sass */
+#projects li > div:hover {
+  background: #6a6963;
+}
+/* line 180, sass/site.sass */
+#projects li > div:hover a {
+  color: white;
+}
+/* line 183, sass/site.sass */
+#projects li a {
+  display: block;
+  height: 180px;
+  overflow: hidden;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: #ff9b4a;
+}
+/* line 192, sass/site.sass */
+#projects li figcaption {
+  font-size: 0.75em;
+  line-height: 1.25em;
+}
+
+/* line 196, sass/site.sass */
+.more {
+  display: block;
+  margin: 15px 0 50px;
+  text-align: right;
+}
+
+/* line 201, sass/site.sass */
+#mainfooter {
+  padding-top: 30px;
+  clear: both;
+  border-top: solid 10px #435058;
+  background: url("../images/swirl_footer.png") right top no-repeat, url("../images/bg_footer.jpg") center top #0d1015;
+}
+/* line 207, sass/site.sass */
+#mainfooter .wrap {
+  overflow: hidden;
+}
+
+/* line 210, sass/site.sass */
+.block {
+  width: 50%;
+  float: left;
+}
+/* line 214, sass/site.sass */
+.block h2 {
+  margin-bottom: 20px;
+  font-family: marketingscript, cursive;
+  font-size: 1.875em;
+}
+/* line 219, sass/site.sass */
+.block p {
+  line-height: 1.375em;
+}
+
+/* line 222, sass/site.sass */
+.author {
+  display: block;
+  margin-top: 15px;
+  font-family: marketingscript, cursive;
+  font-size: 1.313em;
+  text-align: right;
+}
+
+/* line 229, sass/site.sass */
+.awesomeness,
+.find_me {
+  width: 48%;
+  float: left;
+}
+/* line 234, sass/site.sass */
+.awesomeness > div,
+.awesomeness > ul,
+.find_me > div,
+.find_me > ul {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 240, sass/site.sass */
+.find_me {
+  float: right;
+}
+
+/* line 243, sass/site.sass */
+#twitter_box {
+  width: 428px;
+  min-height: 145px;
+  position: relative;
+  float: right;
+  padding: 10px;
+  margin-top: 15px;
+  background: rgba(0, 0, 0, 0.45);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 253, sass/site.sass */
+#twitter_box img {
+  top: 65px;
+  left: 10px;
+  position: absolute;
+  border: solid 3px rgba(255, 255, 255, 0.5);
+}
+/* line 259, sass/site.sass */
+#twitter_box .follow_me {
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+  font-weight: bold;
+  font-size: 0.875em;
+}
+/* line 266, sass/site.sass */
+#twitter_box a {
+  text-decoration: none;
+}
+/* line 269, sass/site.sass */
+#twitter_box .time {
+  top: 16px;
+  right: 10px;
+  position: absolute;
+  font-size: 0.813em;
+}
+/* line 275, sass/site.sass */
+#twitter_box .time a {
+  color: #6a6963;
+}
+
+/* line 278, sass/site.sass */
+#tweet {
+  padding-left: 110px;
+  line-height: 1.375em;
+}
+
+/* line 282, sass/site.sass */
+.image_wrapper {
+  margin-bottom: 15px;
+  text-align: center;
+}
+>>>>>>> Stashed changes
