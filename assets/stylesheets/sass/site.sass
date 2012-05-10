@@ -93,10 +93,10 @@ em
   font-style: italic
 
 .wrap
-  max-width: $grid-width - $gutter-width
+  max-width: $grid-width
   min-height: 100%
   margin: 0 auto
-  +grid-background
+  //+grid-background
 
   > section,
   > div
@@ -287,7 +287,14 @@ em
   padding-left: 110px
   line-height: 1.375em
 
-#about_me
+.center-header
+  width: 960px
+  height: 199px
+
+#about
+  h1 img
+    width: 100%
+    height: auto
 
 .image_wrapper
   margin-bottom: 15px
