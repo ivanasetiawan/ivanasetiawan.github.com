@@ -9,10 +9,15 @@ $light-color: #ff9b4a   // Orange
 $border-color: #6a6963  // Grey creme
 $dark-color: #222       // Dark grey
 
-$font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif
-$museo: museoslab, $font-family
+$museo: museoslab
 $megalopolis: megalopolis, $museo
 $handwriting: marketingscript, cursive
+
+$font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+@mixin italic
+  font-family: Baskerville,'Goudy Old Style','Palatino','Book Antiqua', serif
+  font-style: italic
 
 // Font face
 @font-face
@@ -55,6 +60,7 @@ $handwriting: marketingscript, cursive
 body
   font-family: $font-family
   font-size: 100%
+  line-height: 1.375em
   color: $font-color
   border-top: solid 10px #435058
   background: url("../images/swirl_blue.png") right top no-repeat, url("../images/swirl_pink.png") left top no-repeat, url("../images/bg_repeat.jpg") center top #111519
@@ -126,17 +132,6 @@ em
     color: #a9ad9c
     font-size: 1.38095em
 
-  #ivana
-    display: block
-    margin-left: -5px
-    font-family: $megalopolis
-    font-size: 3.3333em // 100px
-    color: $light-color
-
-  #intro
-    font-family: $museo
-    font-size: 0.7em // 21px
-
   nav
     top: 20px
     right: 0
@@ -167,6 +162,30 @@ em
         display: block
         font-size: 0.8333em
         color: $light-color
+
+#ivana
+  display: block
+  margin-left: -5px
+  font-family: $megalopolis
+  font-size: 3.3333em // 100px
+  color: $light-color
+
+#intro
+  font-family: $museo
+  font-size: 0.7em // 21px
+
+#go-home
+  width: 90px
+  height: 75px
+  top: 10px
+  left: 10px
+  position: absolute
+  display: block
+  +hide-text
+  +data-uri-bg("go-home.png", no-repeat)
+
+  &:hover
+    background-position: 0 -80px
 
 #projects
   margin-left: -2.1277% // -20px
@@ -205,6 +224,79 @@ em
   display: block
   margin: 15px 0 50px
   text-align: right
+
+#about h1,
+aside h2
+  font-size: 1.875em
+  font-family: $handwriting
+  border: 0
+
+#about
+  width: 64.584%
+  float: left
+  padding: 20px
+  background: rgba(0, 0, 0, 0.3)
+
+.story
+  padding: 20px 0
+  border-top: dashed 1px $border-color
+
+  h2
+    margin-bottom: 15px
+    font-family: $handwriting
+    font-size: 1.375em
+
+.ball
+  width: 24px
+  height: 24px
+  display: inline-block
+  margin-right: 15px
+  line-height: 24px
+  text-align: center
+  font-family: $museo
+  font-size: 0.6364em
+  color: $dark-color
+  +data-uri-bg("bg-number.png", no-repeat)
+
+aside
+  width: 260px
+  position: relative
+  float: right
+  padding: 20px 10px 20px 30px
+  margin-top: 56px
+  +data-uri-bg("bg-interests.png", top left repeat-y)
+
+  .bottom-tag,
+  .top-tag
+    width: 300px
+    height: 31px
+    left: 0
+    display: block
+    position: absolute
+    +data-uri-bg("bg-interests-top.png", top left no-repeat)
+
+  .top-tag
+    top: -31px
+
+  .bottom-tag
+    height: 21px
+    bottom: -21px
+    +data-uri-bg("bg-interests-bottom.png", bottom left no-repeat)
+
+  h3
+    margin: 20px 0 34px
+    +italic
+    font-size: 1.25em
+
+  ul
+    margin: 0 0 30px 20px
+
+.contact
+  padding-top: 24px
+  border-top: dashed 1px $border-color
+
+  h2
+    margin-bottom: 17px
 
 #mainfooter
   padding-top: 30px
@@ -291,8 +383,8 @@ em
   width: 960px
   height: 199px
 
-#about
-  h1 img
+.about-header
+  img
     width: 100%
     height: auto
 
