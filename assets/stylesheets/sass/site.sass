@@ -186,7 +186,7 @@ em
   &:hover
     background-position: 0 -80px
 
-#projects
+#project-lists
   margin-left: -2.1277% // -20px
   overflow: hidden
 
@@ -225,26 +225,46 @@ em
   text-align: right
 
 #about h1,
+#contact h1,
 aside h2
   font-size: 1.875em
   font-family: $handwriting
   border: 0
 
-#about
+#about,
+#contact
   width: 64.584%
   float: left
   padding: 20px
+  margin-top: 0
   line-height: 1.375em
   background: rgba(0, 0, 0, 0.3)
 
+  p
+    margin-bottom: 15px
+
 .story
-  padding: 20px 0
+  padding: 25px 0 10px
   border-top: dashed 1px $border-color
 
   h2
     margin-bottom: 15px
     font-family: $handwriting
     font-size: 1.375em
+
+  ul
+    margin: 15px 0
+
+  li
+    margin: 10px 0 0 20px
+    list-style: outside disc
+
+    &:first-child
+      margin-top: 0
+
+.note
+  margin-bottom: 15px
+  font-size: 0.75em
 
 .ball
   width: 24px
@@ -263,7 +283,7 @@ aside
   position: relative
   float: right
   padding: 20px 10px 20px 30px
-  margin-top: 56px
+  margin-top: 31px
   line-height: 1.375em
   +data-uri-bg("bg-interests.png", top left repeat-y)
 
@@ -280,24 +300,17 @@ aside
     top: -31px
 
   .bottom-tag
-    height: 21px
-    bottom: -21px
+    height: 15px
+    bottom: -15px
     +data-uri-bg("bg-interests-bottom.png", bottom left no-repeat)
 
   h3
-    margin: 20px 0 15px
+    margin: 20px 0
     +italic
     font-size: 1.25em
 
   ul
     margin: 0 0 30px 20px
-
-.contact
-  padding-top: 24px
-  border-top: dashed 1px $border-color
-
-  h2
-    margin-bottom: 17px
 
 #mainfooter
   padding-top: 30px
@@ -327,6 +340,33 @@ aside
   font-size: 1.3125em
   text-align: right
 
+.find-me
+  clear: both
+  text-align: center
+
+  h2
+    margin-bottom: 15px
+    +italic
+    font-size: 1.125em
+
+  a
+    width: 16px
+    height: 16px
+    display: inline-block
+    margin-left: 10px
+    +hide-text
+
+    &:first-child
+      margin-left: 0
+
+  @each $icon in forrst, twitter, dribbble, github
+    .#{$icon}
+      +data-uri-bg("icons/#{$icon}.png", no-repeat)
+
+      &:hover
+        +data-uri-bg("icons/#{$icon}-active.png", no-repeat)
+
+// Can be removed soon
 .awesomeness,
 .thanks
   width: 48%
@@ -341,7 +381,7 @@ aside
 .thanks
   float: right
 
-#twitter_box
+#twitter-box
   width: 428px
   min-height: 145px
   position: relative
@@ -357,7 +397,7 @@ aside
     position: absolute
     border: solid 3px rgba(255, 255, 255, 0.5)
 
-  .follow_me
+  .follow-me
     bottom: 10px
     right: 10px
     position: absolute
@@ -389,6 +429,30 @@ aside
     width: 100%
     height: auto
 
-.image_wrapper
+.image-wrapper
   margin-bottom: 15px
   text-align: center
+
+#contact-ivana
+  padding: 8px 15px
+  font-family: $museo
+  font-size: 1.25em
+  color: #fff
+  border: solid 1px #bb5400
+  +border-radius(4px)
+  +background-image(linear-gradient(top, $light-color, #fb801c))
+  +text-shadow(#bb5400 1px 1px 1px)
+  +box-shadow(rgba(0, 0, 0, 0.8) 1px 1px 1px)
+
+  &:hover
+    background: #fb801c
+
+.signature
+  margin-top: 30px
+  text-align: right
+
+  span
+    display: block
+    font-family: $handwriting
+    font-size: 1.25em
+    color: $light-color
