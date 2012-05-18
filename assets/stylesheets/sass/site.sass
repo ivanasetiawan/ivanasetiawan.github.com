@@ -189,6 +189,7 @@ em
 #project-lists
   margin-left: -2.1277% // -20px
   overflow: hidden
+  padding-bottom: 10px
 
   li
     width: 22.85%
@@ -202,10 +203,11 @@ em
       +border-radius(3px)
 
       &:hover
-        background: $border-color
+        background: $light-color
+        +box-shadow(#000 0 0 5px)
 
         a
-          color: #fff
+          color: #333
 
     a
       display: block
@@ -425,10 +427,28 @@ aside
   width: 960px
   height: 199px
 
-.about-header
+.about-header .header-img
+  width: 90.625%
+
+.contact-header .header-img
+  width: 77.2917%
+
+.about-header,
+.contact-header
   img
     width: 100%
     height: auto
+    margin-top: 15px
+
+  span
+    font-family: $museo
+    font-size: 0.6667em
+
+  .star-note
+    display: block
+    margin-top: 10px
+    text-align: right
+    font-family: $handwriting
 
 .image-wrapper
   margin-bottom: 15px
