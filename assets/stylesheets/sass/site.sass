@@ -131,6 +131,21 @@ em
     color: #a9ad9c
     font-size: 1.38095em
 
+  .blog-header
+    text-align: right
+    font-size: 2em
+    font-family: $museo
+    color: $light-color
+
+    span
+      color: #fff
+
+      &.star-note
+        display: block
+        margin-top: 20px
+        font-family: $museo
+        font-size: 0.46875em
+        text-align: left
   nav
     top: 20px
     right: 0
@@ -218,6 +233,9 @@ em
       text-decoration: none
       color: $light-color
 
+    figure
+      cursor: pointer
+
     figcaption
       font-size: 0.75em // 12px
       line-height: 1.25em
@@ -235,7 +253,8 @@ aside h2
   border: 0
 
 #about,
-#contact
+#contact,
+#blog
   width: 64.584%
   float: left
   padding: 20px
@@ -281,6 +300,12 @@ aside h2
   color: $dark-color
   +data-uri-bg("bg-number.png", no-repeat)
 
+#blog
+  h1
+    margin-bottom: 20px
+    color: $light-color
+    border-bottom: 0
+
 aside
   width: 260px
   position: relative
@@ -289,6 +314,9 @@ aside
   margin-top: 31px
   line-height: 1.375em
   +data-uri-bg("bg-interests.png", top left repeat-y)
+
+  time
+    +italic
 
   .bottom-tag,
   .top-tag
