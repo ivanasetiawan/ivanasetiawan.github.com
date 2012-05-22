@@ -618,19 +618,24 @@ aside ul {
 }
 
 /* line 438, sass/site.sass */
+.about-header .header-img,
+.contact-header .header-img {
+  display: inline-block;
+}
+/* line 441, sass/site.sass */
 .about-header img,
 .contact-header img {
   width: 100%;
   height: auto;
   margin-top: 15px;
 }
-/* line 443, sass/site.sass */
+/* line 446, sass/site.sass */
 .about-header span,
 .contact-header span {
   font-family: museoslab;
   font-size: 0.667em;
 }
-/* line 447, sass/site.sass */
+/* line 450, sass/site.sass */
 .about-header .star-note,
 .contact-header .star-note {
   display: block;
@@ -639,13 +644,13 @@ aside ul {
   font-family: marketingscript, cursive;
 }
 
-/* line 453, sass/site.sass */
+/* line 456, sass/site.sass */
 .image-wrapper {
   margin-bottom: 15px;
   text-align: center;
 }
 
-/* line 457, sass/site.sass */
+/* line 460, sass/site.sass */
 #contact-ivana {
   padding: 8px 15px;
   font-family: museoslab;
@@ -670,17 +675,17 @@ aside ul {
   -o-box-shadow: rgba(0, 0, 0, 0.8) 1px 1px 1px;
   box-shadow: rgba(0, 0, 0, 0.8) 1px 1px 1px;
 }
-/* line 468, sass/site.sass */
+/* line 471, sass/site.sass */
 #contact-ivana:hover {
   background: #fb801c;
 }
 
-/* line 471, sass/site.sass */
+/* line 474, sass/site.sass */
 .signature {
   margin-top: 30px;
   text-align: right;
 }
-/* line 475, sass/site.sass */
+/* line 478, sass/site.sass */
 .signature span {
   display: block;
   font-family: marketingscript, cursive;
