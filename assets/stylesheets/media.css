@@ -1,6 +1,85 @@
-@media all and (max-width: 699px) and (min-width: 520px) {
-  /* line 6, sass/media.sass */
-  #mainheader #ivana {
-    font-size: 2.3em;
+@media all and (max-width : 1024px) {
+  /* line 4, sass/media.sass */
+  body {
+    background: red;
+    padding: 0 20px;
+  }
+
+  /* line 8, sass/media.sass */
+  aside {
+    width: 26%;
+    margin-top: 0;
+  }
+  /* line 12, sass/media.sass */
+  aside .bottom-tag,
+  aside .top-tag {
+    display: none;
+  }
+
+  /* line 16, sass/media.sass */
+  #about, #contact, #blog, aside {
+    background: rgba(0, 0, 0, 0.3);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  /* line 20, sass/media.sass */
+  #about, #contact, #blog {
+    width: 63%;
+  }
+
+  /* line 23, sass/media.sass */
+  #project-lists {
+    margin-left: -4.256%;
+  }
+  /* line 26, sass/media.sass */
+  #project-lists li {
+    width: 45.7%;
+    margin-left: 4.256%;
+  }
+  /* line 30, sass/media.sass */
+  #project-lists li a {
+    height: 195px;
+  }
+  /* line 33, sass/media.sass */
+  #project-lists li figcaption {
+    margin-top: 5px;
+    font-size: 1em;
+    line-height: 1.3em;
+  }
+}
+@media all and (max-width : 768px) {
+  /* line 39, sass/media.sass */
+  body {
+    background: blue;
+  }
+}
+@media all and (max-width : 480px) {
+  /* line 43, sass/media.sass */
+  body {
+    background: red;
+  }
+
+  /* line 46, sass/media.sass */
+  #project-lists {
+    margin-left: 0;
+  }
+  /* line 49, sass/media.sass */
+  #project-lists li {
+    width: 100%;
+    margin-left: 0;
+  }
+  /* line 53, sass/media.sass */
+  #project-lists li a {
+    height: auto;
+  }
+  /* line 56, sass/media.sass */
+  #project-lists li figcaption {
+    font-size: 1.2em;
+    line-height: 1.3em;
   }
 }

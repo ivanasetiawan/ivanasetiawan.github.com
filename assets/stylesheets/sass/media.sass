@@ -1,7 +1,58 @@
-@media all and (max-width: 699px) and (min-width: 520px)
+@import "compass"
+
+@media all and (max-width : 1024px)
+  body
+    background: red
+    padding: 0 20px
+
+  aside
+    width: 26%
+    margin-top: 0
+
+    .bottom-tag,
+    .top-tag
+      display: none
+
+  #about, #contact, #blog, aside
+    background: rgba(0, 0, 0, 0.3)
+    +border-radius(5px)
+
+  #about, #contact, #blog
+    width: 63%
+
+  #project-lists
+    margin-left: -4.256%
+
+    li
+      width: 45.7%
+      margin-left: 4.256%
+
+      a
+        height: 195px
+
+      figcaption
+        margin-top: 5px
+        font-size: 1em
+        line-height: 1.3em
+
+@media all and (max-width : 768px)
+  body
+    background: blue
+
+@media all and (max-width : 480px)
   body
     background: red
 
-  #mainheader
-    #ivana
-      font-size: 2.3em // 78px
+  #project-lists
+    margin-left: 0
+
+    li
+      width: 100%
+      margin-left: 0
+
+      a
+        height: auto
+
+      figcaption
+        font-size: 1.2em
+        line-height: 1.3em
