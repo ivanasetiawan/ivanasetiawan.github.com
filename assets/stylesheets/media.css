@@ -1,6 +1,1 @@
-@media all and (max-width: 699px) and (min-width: 520px) {
-  /* line 6, sass/media.sass */
-  #mainheader #ivana {
-    font-size: 2.3em;
-  }
-}
+@media all and (max-width: 699px) and (min-width: 520px){body{background:red}#mainheader #ivana{font-size:2.3em}}
