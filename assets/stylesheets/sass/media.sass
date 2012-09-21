@@ -1,7 +1,75 @@
-@media all and (max-width: 699px) and (min-width: 520px)
-  body
-    background: red
+// Compass imports & mixins
+@import "compass"
+@import "compass/reset"
+@import "compass/css3"
+@import "compass/layout/grid-background"
 
-  #mainheader
-    #ivana
-      font-size: 2.3em // 78px
+//@media all and (max-width: 699px) and (min-width: 520px)
+//  body
+//    background: red
+//
+//  #mainheader
+//    #ivana
+//      font-size: 2.3em // 78px
+
+@media screen and (max-width: 1000px)
+	.wrap
+		padding: 20px 30px
+
+	aside#mainaside
+		width: 26%
+		float: left
+		margin: 0
+		background: rgba(0, 0, 0, 0.7)
+
+		.top-tag, .bottom-tag
+			display: none
+
+@media screen and (max-width: 850px)
+	#mainheader
+		text-align: center
+
+		nav
+			width: 462px
+			right: auto
+			left: 50%
+			margin-left: -231px
+
+	#intro
+		line-height: 1.8em
+
+	#project-lists
+		li
+			width: 47.872%
+
+			figcaption
+				font-size: 0.85em
+				line-height: 1.6em
+
+	.more-coming
+		height: 85px
+
+@media screen and (max-width: 800px)
+	#twitter-box .follow-me
+		display: none
+
+@media screen and (max-width: 600px)
+	#ivana span
+		display: none
+
+	.block
+		width: 100%
+
+	.more-coming
+		padding-top: 10px !important
+
+	#twitter-box
+		width: 96%
+
+		.follow-me
+			display: block
+
+@media screen and (max-width: 500px)
+	#project-lists
+		li
+			width: 95.744%
