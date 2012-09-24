@@ -16,16 +16,28 @@
 	.wrap
 		padding: 20px 30px
 
+	#about,
+	#contact,
+	#blog
+		width: 62%
+		+border-radius(4px)
+
 	aside#mainaside
-		width: 26%
-		float: left
-		margin: 0
-		background: rgba(0, 0, 0, 0.7)
+		margin-top: 0
+		+border-radius(4px)
 
 		.top-tag, .bottom-tag
 			display: none
 
 @media screen and (max-width: 850px)
+	#about,
+	#contact,
+	#blog
+		width: 60%
+
+	.interests
+		margin-left: 0
+
 	#mainheader
 		text-align: center
 
@@ -52,6 +64,34 @@
 @media screen and (max-width: 800px)
 	#twitter-box .follow-me
 		display: none
+
+@media screen and (max-width: 700px)
+	#about,
+	#contact,
+	#blog
+		width: 93%
+
+	aside#mainaside
+		display: none
+
+	#mainheader
+		.blog-header
+			text-align: center
+
+		nav
+			margin-left: -218px
+			font-size: 0.75em
+
+	.about-header,
+	.contact-header
+		.star-note
+			text-align: center
+
+	#go-home
+		display: none
+
+	#contact-ivana-url
+		display: block
 
 @media screen and (max-width: 600px)
 	#ivana span
