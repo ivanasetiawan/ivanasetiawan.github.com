@@ -4,13 +4,10 @@
 @import "compass/css3"
 @import "compass/layout/grid-background"
 
-//@media all and (max-width: 699px) and (min-width: 520px)
-//  body
-//    background: red
-//
-//  #mainheader
-//    #ivana
-//      font-size: 2.3em // 78px
+$font-color: #e2dbbc    // Creme
+$museo: museoslab
+$megalopolis: megalopolis, $museo
+$handwriting: marketingscript, cursive
 
 @media screen and (max-width: 1000px)
 	.wrap
@@ -39,13 +36,25 @@
 		margin-left: 0
 
 	#mainheader
+		padding-top: 300px
 		text-align: center
 
 		nav
-			width: 462px
+			width: 100%
+			margin: 0
+			top: 10px
 			right: auto
-			left: 50%
-			margin-left: -231px
+			font-size: 0.8em
+
+			a
+				float: none
+				margin: 0 0 10px
+				padding: 0 0 10px
+				text-align: center
+				border-left: 0
+
+			a, a:first-child
+				border-bottom: dashed 1px rgba(255, 255, 255, 0.3)
 
 	#intro
 		line-height: 1.8em
@@ -74,21 +83,18 @@
 	aside#mainaside
 		display: none
 
-	#mainheader
-		.blog-header
-			text-align: center
-
-		nav
-			margin-left: -218px
-			font-size: 0.75em
-
 	.about-header,
 	.contact-header
 		.star-note
 			text-align: center
 
 	#go-home
-		display: none
+		left: -15px
+		top: -10px
+		text-indent: 1px
+		font-size: 1em
+		font-family: $museo
+		background: none
 
 	#contact-ivana-url
 		display: block
@@ -109,7 +115,7 @@
 		.follow-me
 			display: block
 
-@media screen and (max-width: 500px)
+@media screen and (max-width: 400px)
 	#project-lists
 		li
 			width: 95.744%
