@@ -1,7 +1,6 @@
 // Compass imports & mixins
 @import "compass"
 @import "compass/reset"
-@import "compass/css3"
 @import "compass/layout/grid-background"
 
 // Variables.
@@ -10,11 +9,11 @@ $light-color: #ff9b4a   // Orange
 $border-color: #6a6963  // Grey creme
 $dark-color: #222       // Dark grey
 
-$museo: museoslab
+$museo: museoslab, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif
 $megalopolis: megalopolis, $museo
 $handwriting: marketingscript, cursive
 
-$font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+$font-family: $museo
 
 @mixin italic
   font-family: Baskerville,'Goudy Old Style','Palatino','Book Antiqua', serif
@@ -162,7 +161,7 @@ em
         margin-top: 20px
         font-family: $museo
         font-size: 0.46875em
-        text-align: left
+      
   nav
     top: 20px
     right: 0
@@ -262,7 +261,6 @@ em
         +fleximage
 
     figcaption
-      width: 100%
       display: block
       padding: 5px
       bottom: -4px
@@ -270,7 +268,6 @@ em
       font-size: 0.75em // 12px
       font-weight: normal
       line-height: 1.25em
-      background: rgba(0, 0, 0, 0.7)
 
 .more-coming
   height: 135px
@@ -300,6 +297,7 @@ aside h2
 
   p
     margin-bottom: 15px
+    line-height: 1.5em
 
 .story
   padding: 25px 0 10px
@@ -308,7 +306,7 @@ aside h2
   h2
     margin-bottom: 15px
     font-family: $handwriting
-    font-size: 1.375em
+    font-size: 1.5em
 
   ul
     margin: 15px 0
@@ -353,6 +351,7 @@ aside#mainaside
 
   time
     +italic
+    font-size: 1.35em
 
   .bottom-tag,
   .top-tag
@@ -374,10 +373,11 @@ aside#mainaside
   h3
     margin: 20px 0
     +italic
-    font-size: 1.25em
+    font-size: 1.35em
 
   ul
     margin: 0 0 30px 20px
+    font-size: 0.9em
 
 .interests
   margin-left: 18px
@@ -401,7 +401,7 @@ aside#mainaside
     font-size: 1.875em
 
   p
-    line-height: 1.375em
+    line-height: 1.5em
 
 .author
   display: block
@@ -417,7 +417,7 @@ aside#mainaside
   h2
     margin-bottom: 15px
     +italic
-    font-size: 1.125em
+    font-size: 1.35em
 
   a
     width: 16px
@@ -471,7 +471,6 @@ aside#mainaside
     bottom: 10px
     right: 10px
     position: absolute
-    font-weight: bold
     font-size: 0.875em
 
   a
@@ -553,3 +552,5 @@ aside#mainaside
     font-family: $handwriting
     font-size: 1.25em
     color: $light-color
+
+@import "media"
