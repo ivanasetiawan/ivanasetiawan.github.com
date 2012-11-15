@@ -1,0 +1,423 @@
+#mainheader
+  position: relative
+  padding-top: 125px
+  margin-bottom: 50px
+  +text-shadow($dark-color 2px 2px 2px)
+
+  h1
+    font-size: 1.875em // 30px
+
+  h1,
+  em
+    font-family: $handwriting
+    letter-spacing: 0.03em
+
+  em
+    color: #a9ad9c
+    font-size: 1.38095em
+
+  .blog-header
+    text-align: right
+    font-size: 2em
+    font-family: $museo
+    color: $light-color
+
+    span
+      color: #fff
+
+      &.star-note
+        display: block
+        margin-top: 20px
+        font-family: $museo
+        font-size: 0.46875em
+
+  nav
+    top: 20px
+    right: 0
+    position: absolute
+
+    a
+      display: block
+      float: left
+      margin-left: 20px
+      padding-left: 20px
+      font-family: $handwriting
+      font-size: 1.875em
+      text-decoration: none
+      text-align: right
+      border-left: dashed 2px $font-color
+      color: $font-color
+
+      &:first-child
+        border: 0
+
+      &:hover
+        color: $light-color
+
+        span
+          color: $font-color
+
+      span
+        display: block
+        font-size: 0.8333em
+        color: $light-color
+
+#ivana
+  display: block
+  margin-left: -5px
+  font-family: $megalopolis
+  font-size: 3.3333em // 100px
+  color: $light-color
+
+#intro
+  font-family: $museo
+  font-size: 0.7em // 21px
+
+#go-home
+  width: 90px
+  height: 75px
+  top: 10px
+  left: 10px
+  position: absolute
+  display: block
+  +hide-text
+  +data-uri-bg("go-home.png", no-repeat)
+
+  &:hover
+    background-position: 0 -80px
+
+#project-lists
+  margin-left: -2.1277% // -20px
+  overflow: hidden
+  padding-bottom: 10px
+
+  li
+    width: 22.85%
+    float: left
+    margin: 20px 0 0 2.1277% // 20px
+    cursor: pointer
+
+    > div
+      padding: 5px
+      background: rgba(0, 0, 0, 0.45)
+      +border-radius(3px)
+
+      &:hover
+        background: $light-color
+        +box-shadow(#000 0 0 5px)
+        color: #333
+
+        a
+          color: #333
+
+        figcaption
+          background: $light-color
+
+    a
+      display: block
+      position: relative
+      min-height: 185px
+      overflow: hidden
+      font-weight: bold
+      letter-spacing: 0.05em
+      text-decoration: none
+      color: $light-color
+
+    figure
+      cursor: pointer
+
+      img
+        +fleximage
+
+    figcaption
+      display: block
+      padding: 5px
+      bottom: -4px
+      position: absolute
+      font-size: 0.75em // 12px
+      font-weight: normal
+      line-height: 1.25em
+
+.more-coming
+  height: 135px
+  display: block
+  padding-top: 50px !important
+  font-family: $megalopolis
+  font-size: 2em
+  text-align: center
+  line-height: 1.25em
+
+#about h1,
+#contact h1,
+aside h2
+  font-size: 1.875em
+  font-family: $handwriting
+  border: 0
+
+#about,
+#contact,
+#blog
+  width: 65%
+  float: left
+  padding: 20px
+  margin-top: 0
+  line-height: 1.375em
+  background: rgba(0, 0, 0, 0.3)
+
+  p
+    margin-bottom: 15px
+    line-height: 1.5em
+
+.story
+  padding: 25px 0 10px
+  border-top: dashed 1px $border-color
+
+  h2
+    margin-bottom: 15px
+    font-family: $handwriting
+    font-size: 1.5em
+
+  ul
+    margin: 15px 0
+
+  li
+    margin: 10px 0 0 20px
+    list-style: outside disc
+
+    &:first-child
+      margin-top: 0
+
+.note
+  margin-bottom: 15px
+  font-size: 0.75em
+
+.ball
+  width: 24px
+  height: 24px
+  display: inline-block
+  margin-right: 15px
+  line-height: 24px
+  text-align: center
+  font-family: $museo
+  font-size: 0.6364em
+  color: $dark-color
+  +data-uri-bg("bg-number.png", no-repeat)
+
+#blog
+  h1
+    margin-bottom: 20px
+    color: $light-color
+    border-bottom: 0
+
+aside#mainaside
+  width: 26.66%
+  position: relative
+  float: right
+  padding: 20px 10px 20px 30px
+  margin-top: 31px
+  line-height: 1.375em
+  +data-uri-bg("bg-interests.png", top left repeat-y)
+
+  time
+    +italic
+    font-size: 1.35em
+
+  .bottom-tag,
+  .top-tag
+    width: 296px
+    height: 31px
+    left: 0
+    display: block
+    position: absolute
+    +data-uri-bg("bg-interests-top.png", top left no-repeat)
+
+  .top-tag
+    top: -31px
+
+  .bottom-tag
+    height: 15px
+    bottom: -15px
+    +data-uri-bg("bg-interests-bottom.png", bottom left no-repeat)
+
+  h3
+    margin: 20px 0
+    +italic
+    font-size: 1.35em
+
+  ul
+    margin: 0 0 30px 20px
+    font-size: 0.9em
+
+.interests
+  margin-left: 18px
+
+#mainfooter
+  padding-top: 30px
+  clear: both
+  border-top: solid 10px #435058
+  background: url("../images/swirl_footer.png") right top no-repeat, url("../images/bg_footer.jpg") center top #0d1015
+
+  .wrap
+    overflow: hidden
+
+.block
+  width: 50%
+  float: left
+
+  h2
+    margin-bottom: 20px
+    font-family: $handwriting
+    font-size: 1.875em
+
+  p
+    line-height: 1.5em
+
+.author
+  display: block
+  margin-top: 15px
+  font-family: $handwriting
+  font-size: 1.3125em
+  text-align: right
+
+.find-me
+  clear: both
+  text-align: center
+
+  h2
+    margin-bottom: 15px
+    +italic
+    font-size: 1.35em
+
+  a
+    width: 16px
+    height: 16px
+    display: inline-block
+    margin-left: 10px
+    +hide-text
+
+    &:first-child
+      margin-left: 0
+
+  @each $icon in forrst, twitter, dribbble, github
+    .#{$icon}
+      +data-uri-bg("icons/#{$icon}.png", no-repeat)
+
+      &:hover
+        +data-uri-bg("icons/#{$icon}-active.png", no-repeat)
+
+// Can be removed soon
+.awesomeness,
+.thanks
+  width: 48%
+  float: left
+
+  > div
+    min-height: 183px
+    padding: 10px
+    background: rgba(0, 0, 0, 0.45)
+    +border-radius(5px)
+
+.thanks
+  float: right
+
+#twitter-box
+  width: 42.8%
+  min-height: 145px
+  position: relative
+  float: right
+  padding: 10px
+  margin-top: 15px
+  background: rgba(0, 0, 0, 0.45)
+  +border-radius(5px)
+
+  img
+    top: 65px
+    left: 10px
+    position: absolute
+    border: solid 3px rgba(255, 255, 255, 0.5)
+
+  .follow-me
+    bottom: 10px
+    right: 10px
+    position: absolute
+    font-size: 0.875em
+
+  a
+    text-decoration: none
+
+  .time
+    top: 16px
+    right: 10px
+    position: absolute
+    font-size: 0.8125em
+
+    a
+      color: $border-color
+
+#tweet
+  padding-left: 110px
+  line-height: 1.375em
+
+.center-header
+  width: 960px
+  height: 199px
+
+.about-header .header-img
+  width: 90.625%
+
+.contact-header .header-img
+  width: 77.2917%
+
+.about-header,
+.contact-header
+  .header-img
+    display: inline-block
+
+  img
+    width: 100%
+    height: auto
+    margin-top: 15px
+
+  span
+    font-family: $museo
+    font-size: 0.6667em
+
+  .star-note
+    display: block
+    margin-top: 10px
+    text-align: right
+    font-family: $handwriting
+
+.image-wrapper
+  margin-bottom: 15px
+  text-align: center
+
+#contact-ivana, #contact-ivana-url a
+  padding: 8px 15px
+  font-family: $museo
+  font-size: 1.25em
+  color: #fff
+  border: solid 1px #bb5400
+  +border-radius(4px)
+  +background-image(linear-gradient(top, $light-color, #fb801c))
+  +text-shadow(#bb5400 1px 1px 1px)
+  +box-shadow(rgba(0, 0, 0, 0.8) 1px 1px 1px)
+
+  &:hover
+    background: #fb801c
+
+#contact-ivana-url
+  display: none
+  min-height: 41px
+  padding-top: 20px
+  text-align: center
+
+.signature
+  margin-top: 30px
+  text-align: right
+
+  span
+    display: block
+    font-family: $handwriting
+    font-size: 1.25em
+    color: $light-color
