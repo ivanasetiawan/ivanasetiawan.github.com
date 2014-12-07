@@ -154,16 +154,19 @@ header {
   background: rgba(0, 0, 0, 0.9);
   padding: 10px 20px; }
   .boxtop > a {
-    float: left; }
+    display: block; }
     .boxtop > a i {
       margin-right: 10px; }
-    .boxtop > a:not(:first-child) {
-      padding: 0 15px;
-      margin-left: 15px;
-      border-left: solid 1px rgba(255, 255, 255, 0.35); }
     .boxtop > a:hover {
       color: #e2dbbc;
       text-decoration: none; }
+  @media (min-width: 480px) {
+    .boxtop > a {
+      float: left; }
+      .boxtop > a:not(:first-child) {
+        padding: 0 15px;
+        margin-left: 15px;
+        border-left: solid 1px rgba(255, 255, 255, 0.35); } }
 
 .btn {
   display: inline-block;
@@ -313,5 +316,11 @@ header {
   @media (min-width: 480px) {
     .bottom-space {
       margin-bottom: 50px; } }
+
+.top-space {
+  margin-top: 70px; }
+  @media (min-width: 480px) {
+    .top-space {
+      margin-top: 60px; } }
 
 /*# sourceMappingURL=island.css.map */

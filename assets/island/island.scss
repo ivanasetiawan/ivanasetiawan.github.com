@@ -217,19 +217,24 @@ header {
   padding: 10px 20px;
   
   > a {
-    float: left;
+    display: block;
     i { margin-right: 10px; }
-    &:not(:first-child) {
-      padding: 0 15px;
-      margin-left: 15px; 
-      border-left: solid 1px rgba(255, 255, 255, 0.35);
-    }
     &:hover {
       color: $color-light;
       text-decoration: none;
     } 
   }
 
+  @media (min-width: $screen-sm) {
+    > a {
+      float: left;
+      &:not(:first-child) {
+        padding: 0 15px;
+        margin-left: 15px; 
+        border-left: solid 1px rgba(255, 255, 255, 0.35);
+      }
+    }
+  }
 }
 
 
@@ -411,5 +416,12 @@ header {
   @media (min-width: $screen-sm) {
     margin-bottom: 50px;
   }
+}
+
+.top-space {
+  margin-top: 70px;
+  @media (min-width: $screen-sm) {
+    margin-top: 60px;
+  } 
 }
 
