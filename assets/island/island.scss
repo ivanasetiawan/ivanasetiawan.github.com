@@ -99,12 +99,17 @@ a:visited {
   text-decoration: none;
   color: $color-orange;
   transition: color .2s;
+  &:hover {
+    color: $color-grey-dark;
+  }
 }
 
 p { 
   margin-bottom: 20px;
   @media (min-width: $screen-md) {
     margin-bottom: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 
@@ -143,7 +148,7 @@ header {
     letter-spacing: 0.03em;
     font-size: 22px;
     @media (min-width: $screen-md) {
-      font-size: 30px;
+      font-size: 26px;
     }
   }
   em {
@@ -164,6 +169,7 @@ header {
   margin: 0 auto 20px;
   border-radius: 50%;
   overflow: hidden;
+
   img { 
     max-width: 100%;
     height: auto;
@@ -172,6 +178,7 @@ header {
     width: 160px;
     height: 160px;
     margin-bottom: 20px;
+    border: solid 5px $color-light;
   }
 }
 
@@ -180,12 +187,9 @@ header {
   font-family: $megalopolis;
   font-size: 30px;
   color: $color-orange;
-  margin-top: 10px;
-  margin-bottom: 10px;
   text-shadow: $color-grey-dark 0 2px 2px;
   @media (min-width: $screen-md) {
     font-size: 60px;
-    margin-bottom: 20px;
   }
 }
 
@@ -199,7 +203,7 @@ header {
   @media (min-width: $screen-md) {
     margin: 0 12%;
     margin-bottom: 30px; 
-    font-size: 21px;
+    font-size: 18px;
   }
 }
 
@@ -211,15 +215,23 @@ header {
   left: 0;
   background: rgba(0, 0, 0, 0.9);
   padding: 10px 20px;
+  
+  > a {
+    float: left;
+    i { margin-right: 10px; }
+    &:not(:first-child) {
+      padding: 0 15px;
+      margin-left: 15px; 
+      border-left: solid 1px rgba(255, 255, 255, 0.35);
+    }
+    &:hover {
+      color: $color-light;
+      text-decoration: none;
+    } 
+  }
+
 }
 
-.goback {
-  float: left;
-  i { margin-right: 10px; }
-  &:hover {
-    color: $color-light;
-  }
-}
 
 .btn {
   display: inline-block;
@@ -231,6 +243,8 @@ header {
   &:visited { color: $color-grey-dark; }
   &:hover {
     background: #6cc88a;
+    text-decoration: none;
+    color: $color-grey-dark;
   }
 }
 
@@ -299,6 +313,7 @@ header {
         width: 20px;
         height: 20px;
         border-radius: 50%;
+        border: solid 2px $color-light;
         background: #333;
         position: absolute;
         top: 0;
@@ -363,6 +378,38 @@ header {
       margin: 10px;
       vertical-align: middle;
     }
+  }
+}
+
+.lists-with-icon {
+  text-align: left;
+  margin-bottom: 30px;
+  
+  li {
+    position: relative;
+    padding-left: 30px;
+  }
+  
+  i { 
+    position: absolute;
+    top: 4px;
+    left: 0;
+  }
+  
+  @media (min-width: $screen-sm) {
+    margin-bottom: 50px;
+    li {
+      max-width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.bottom-space {
+  margin-bottom: 30px;
+  @media (min-width: $screen-sm) {
+    margin-bottom: 50px;
   }
 }
 
