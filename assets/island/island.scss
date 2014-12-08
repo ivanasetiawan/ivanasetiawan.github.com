@@ -137,7 +137,6 @@ h3 {
 }
 
 header {
-  //background: url("../island/stardust.png") #333;
   color: $color-light;
   position: relative;
   text-align: center;
@@ -160,6 +159,10 @@ header {
     @media (min-width: $screen-md) {
       padding-top: 100px;
     }
+  }
+
+  @media (max-height: 620px) and (max-width: $screen-sm-max) {
+    height: 100% !important;
   }
 }
 

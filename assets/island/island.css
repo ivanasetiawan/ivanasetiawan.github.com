@@ -105,6 +105,9 @@ header {
     @media (min-width: 768px) {
       header .wrap {
         padding-top: 100px; } }
+  @media (max-height: 620px) and (max-width: 767px) {
+    header {
+      height: 100% !important; } }
 
 .headshot {
   width: 100px;
