@@ -95,11 +95,14 @@ body {
 }
 
 a,
-a:visited {
+a:visited,
+a:active {
   text-decoration: none;
   color: $color-orange;
   transition: color .2s;
-  &:hover {
+  &:hover,
+  &:visited,
+  &:active {
     color: $color-grey-dark;
   }
 }
@@ -248,7 +251,10 @@ header {
   background: rgba(46, 212, 138, 1);
   color: $color-grey-dark;
   transition: background 0.25s;
-  &:visited, &:active { color: $color-grey-dark; text-decoration: none; }
+  &:visited, &:active { 
+    color: $color-grey-dark; 
+    text-decoration: none; 
+  }
   &:hover {
     background: #6cc88a;
     text-decoration: none;

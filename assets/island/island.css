@@ -47,12 +47,18 @@ body {
       font-size: 16px; } }
 
 a,
-a:visited {
+a:visited,
+a:active {
   text-decoration: none;
   color: #ff9b4a;
   transition: color .2s; }
-  a:hover,
-  a:visited:hover {
+  a:hover, a:visited, a:active,
+  a:visited:hover,
+  a:visited:visited,
+  a:visited:active,
+  a:active:hover,
+  a:active:visited,
+  a:active:active {
     color: #222; }
 
 p {
