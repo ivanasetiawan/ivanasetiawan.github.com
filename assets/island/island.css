@@ -178,8 +178,9 @@ header {
   background: #2ed48a;
   color: #222;
   transition: background 0.25s; }
-  .btn:visited {
-    color: #222; }
+  .btn:visited, .btn:active {
+    color: #222;
+    text-decoration: none; }
   .btn:hover {
     background: #6cc88a;
     text-decoration: none;
@@ -285,9 +286,15 @@ header {
     height: 100px;
     line-height: 100px;
     margin: 0 auto 20px;
-    background: white; }
+    background: white;
+    overflow: hidden; }
   .logo-inlineblock img {
     max-width: 90%; }
+  .logo-inlineblock a {
+    display: block; }
+    .logo-inlineblock a:hover {
+      opacity: 0.8;
+      transition: opacity 0.2s; }
   @media (min-width: 480px) {
     .logo-inlineblock {
       margin: 30px 0; }

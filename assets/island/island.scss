@@ -248,7 +248,7 @@ header {
   background: rgba(46, 212, 138, 1);
   color: $color-grey-dark;
   transition: background 0.25s;
-  &:visited { color: $color-grey-dark; }
+  &:visited, &:active { color: $color-grey-dark; text-decoration: none; }
   &:hover {
     background: #6cc88a;
     text-decoration: none;
@@ -377,8 +377,17 @@ header {
     line-height: 100px;
     margin: 0 auto 20px;
     background: rgba(255, 255, 255, 1);
+    overflow: hidden;
   }
   img { max-width: 90%; }
+  
+  a { display: block; 
+    &:hover { 
+      opacity: 0.8; 
+      transition: opacity 0.2s;
+    }
+  }
+  
   @media (min-width: $screen-sm) {
     margin: 30px 0;
     li {
