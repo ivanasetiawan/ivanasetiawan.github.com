@@ -85,6 +85,18 @@
 
   &:hover
     background-position: 0 -80px
+    transition: background-position 0.2s
+
+#freelance
+  padding: 15px 20px
+  background: rgba(0, 0, 0, 0.45)
+  +border-radius(3px)
+
+  h1
+    border-bottom: 0
+    +italic
+    font-size: 1.25em
+    line-height: 1.2
 
 #project-lists
   margin-left: -2.1277% // -20px
@@ -106,6 +118,7 @@
         background: $light-color
         +box-shadow(#000 0 0 5px)
         color: #333
+        transition: background 0.2s
 
         a
           color: #333
