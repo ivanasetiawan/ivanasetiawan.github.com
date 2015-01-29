@@ -4,7 +4,7 @@
 // Variables.
 $color-light:    #e2dbbc;    // Creme
 $color-orange:   #ff9b4a;    // Orange
-$color-grey:  #6a6963;    // Grey creme
+$color-grey:     #6a6963;    // Grey creme
 $color-grey-dark:    #222;       // Dark grey
 
 $museo: museoslab, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -114,6 +114,10 @@ p {
     margin-left: 10%;
     margin-right: 10%;
   }
+}
+
+.color--grey {
+  color: $color-grey;
 }
 
 h2 {
