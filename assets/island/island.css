@@ -1,18 +1,17 @@
-@charset "UTF-8";
 @font-face {
   font-family: 'museoslab';
   src: url("../fonts/museo_slab_500-webfont-webfont.eot");
-  src: local("☺"), url("../fonts/museo_slab_500-webfont-webfont.woff") format("woff"), url("../fonts/museo_slab_500-webfont-webfont.ttf") format("truetype"), url("../fonts/museo_slab_500-webfont-webfont.svg") format("svg");
+  src: url("../fonts/museo_slab_500-webfont-webfont.woff") format("woff"), url("../fonts/museo_slab_500-webfont-webfont.ttf") format("truetype"), url("../fonts/museo_slab_500-webfont-webfont.svg") format("svg");
   font-style: normal; }
 @font-face {
   font-family: 'megalopolis';
   src: url("../fonts/megalopolisextra-webfont.eot");
-  src: local("☺"), url("../fonts/megalopolisextra-webfont.woff") format("woff"), url("../fonts/megalopolisextra-webfont.ttf") format("truetype"), url("../fonts/megalopolisextra-webfont.svg") format("svg");
+  src: url("../fonts/megalopolisextra-webfont.woff") format("woff"), url("../fonts/megalopolisextra-webfont.ttf") format("truetype"), url("../fonts/megalopolisextra-webfont.svg") format("svg");
   font-style: normal; }
 @font-face {
   font-family: 'marketingscript';
   src: url("../fonts/marketingscript-webfont.eot");
-  src: local("☺"), url("../fonts/marketingscript-webfont.woff") format("woff"), url("../fonts/marketingscript-webfont.ttf") format("truetype"), url("../fonts/marketingscript-webfont.svg") format("svg");
+  src: url("../fonts/marketingscript-webfont.woff") format("woff"), url("../fonts/marketingscript-webfont.ttf") format("truetype"), url("../fonts/marketingscript-webfont.svg") format("svg");
   font-style: normal; }
 .italic {
   font-family: Baskerville,'Goudy Old Style','Palatino','Book Antiqua', serif;
@@ -69,6 +68,9 @@ p {
       margin-left: 10%;
       margin-right: 10%; } }
 
+.color--grey {
+  color: #6a6963; }
+
 h2 {
   font-family: 'marketingscript';
   font-size: 30px;
@@ -83,12 +85,11 @@ h2 {
 h3 {
   font-size: 20px;
   margin-top: 20px;
-  margin-bottom: 10px; }
+  margin-bottom: 0; }
   @media (min-width: 768px) {
     h3 {
       font-size: 25px;
-      margin-top: 40px;
-      margin-bottom: 15px; } }
+      margin-top: 40px; } }
 
 header {
   color: #e2dbbc;

@@ -33,14 +33,14 @@ $screen-lg-max:       ($screen-xl - 1) !default;
 @font-face {
   font-family: 'museoslab';
   src: url('../fonts/museo_slab_500-webfont-webfont.eot');
-  src: local('☺'), url('../fonts/museo_slab_500-webfont-webfont.woff') format('woff'), url('../fonts/museo_slab_500-webfont-webfont.ttf') format('truetype'), url('../fonts/museo_slab_500-webfont-webfont.svg') format('svg');
+  src: url('../fonts/museo_slab_500-webfont-webfont.woff') format('woff'), url('../fonts/museo_slab_500-webfont-webfont.ttf') format('truetype'), url('../fonts/museo_slab_500-webfont-webfont.svg') format('svg');
   font-style: normal;
 }
 
 @font-face {
   font-family: 'megalopolis';
   src: url('../fonts/megalopolisextra-webfont.eot');
-  src: local('☺'), url('../fonts/megalopolisextra-webfont.woff') format('woff'), url('../fonts/megalopolisextra-webfont.ttf') format('truetype'), url('../fonts/megalopolisextra-webfont.svg') format('svg');
+  src: url('../fonts/megalopolisextra-webfont.woff') format('woff'), url('../fonts/megalopolisextra-webfont.ttf') format('truetype'), url('../fonts/megalopolisextra-webfont.svg') format('svg');
   font-style: normal;
 }
 
@@ -48,7 +48,7 @@ $screen-lg-max:       ($screen-xl - 1) !default;
 @font-face {
   font-family: 'marketingscript';
   src: url('../fonts/marketingscript-webfont.eot');
-  src: local('☺'), url('../fonts/marketingscript-webfont.woff') format('woff'), url('../fonts/marketingscript-webfont.ttf') format('truetype'), url('../fonts/marketingscript-webfont.svg') format('svg');
+  src: url('../fonts/marketingscript-webfont.woff') format('woff'), url('../fonts/marketingscript-webfont.ttf') format('truetype'), url('../fonts/marketingscript-webfont.svg') format('svg');
   font-style: normal;
 }
 //////// End: /BASIC
