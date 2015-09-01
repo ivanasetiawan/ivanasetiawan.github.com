@@ -1,0 +1,14 @@
+{"advertisements":[
+  {
+    "globalId":"123",
+    "lok":"2001",
+    "size-default":"[ 728, 90 ]",
+    "size-mapping":"[ [ [ 768, 0 ], [ [ 728, 90 ] ] ], [ [ 0, 0 ], [  ] ] ]"
+  },
+  {
+    "globalId":"245",
+    "lok":"2005",
+    "size-default":"[ 728, 90 ]",
+    "size-mapping":"[ [ [ 768, 0 ], [ [ 728, 90 ] ] ], [ [ 0, 0 ], [  ] ] ]"
+  }
+]}
