@@ -1,0 +1,64 @@
+@mixin italic {
+  font-family: $italic-font;
+  font-style: italic;
+  letter-spacing: .7px;  
+}
+
+// Font face
+@font-face {
+  font-family: 'museoslab';
+  src: url('/assets/fonts/museo_slab_500-webfont-webfont.eot');
+  src: url('/assets/fonts/museo_slab_500-webfont-webfont.woff') format('woff'), url('/assets/fonts/museo_slab_500-webfont-webfont.ttf') format('truetype'), url('/assets/fonts/museo_slab_500-webfont-webfont.svg') format('svg');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'megalopolis';
+  src: url('/assets/fonts/megalopolisextra-webfont.eot');
+  src: url('/assets/fonts/megalopolisextra-webfont.woff') format('woff'), url('/assets/fonts/megalopolisextra-webfont.ttf') format('truetype'), url('/assets/fonts/megalopolisextra-webfont.svg') format('svg');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'marketingscript';
+  src: url('/assets/fonts/marketingscript-webfont.eot');
+  src: url('/assets/fonts/marketingscript-webfont.woff') format('woff'), url('/assets/fonts/marketingscript-webfont.ttf') format('truetype'), url('/assets/fonts/marketingscript-webfont.svg') format('svg');
+  font-style: normal;
+}
+
+// Typography
+a,
+a:visited {
+  color: $light-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $font-color;
+    transition: color 0.2s;
+  }
+}
+
+strong {
+  font-weight: bold;
+  color: $light-color;
+}
+
+em {
+  font-style: italic;
+}
+
+// em vs. rem article:
+// http://webdesign.tutsplus.com/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984
+h1,
+.h1 {
+  font-size: 2rem;
+  @media screen and (min-width: $screen-md) {
+    font-size: 3rem;
+  }
+  @media screen and (min-width: $screen-lg) {
+    font-size: 3.5rem;
+  }
+  @media screen and (min-width: $screen-xl) {
+    font-size: 4rem;
+  }
+}

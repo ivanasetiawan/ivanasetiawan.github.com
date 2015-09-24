@@ -1,0 +1,115 @@
+.wrap {
+  max-width: $grid-width;
+  min-height: 100%;
+  margin: 0 auto;
+
+  > section,
+  > div {
+    margin: 25px 0 30px;
+    
+    // h1 {
+    //   border-bottom: dashed 1px $border-color;
+    //   font-family: $museo;
+    //   font-size: rem(21px);
+    //   line-height: rem(35px);    
+    // }
+  }
+}
+
+.hello {
+  position: relative;
+  padding-top: rem(125px);
+  margin-bottom: rem(50px);
+  text-shadow: $dark-color 2px 2px 2px;
+  
+  h1,
+  em {
+    font-family: $handwriting;
+    letter-spacing: 0.03em;
+  }
+
+  h1 {
+    font-size: rem(30px);
+  }
+
+  em {
+    color: #a9ad9c;
+    font-size: rem(22px);
+  }
+
+}
+
+nav[role="navigation"] {
+  position: absolute;
+  top: rem(20px);
+  right: 0;
+
+  a {
+    display: block;
+    float: left;
+    margin-left: rem(20px);
+    padding-left: rem(20px);
+    font-family: $handwriting;
+    font-size: rem(30px);
+    text-decoration: none;
+    text-align: right;
+    border-left: dashed 2px $font-color;
+    color: $font-color;
+
+    &:first-child { border: 0; }
+    &:hover { color: $light-color;
+      span { color: $font-color; }
+    }
+
+    span {
+      display: block;
+      font-size: rem(24px);
+      color: $light-color;
+    }
+  }
+}
+
+.ivana {
+  display: block;
+  margin-left: -5px;
+  font-family: $megalopolis;
+  font-size: rem(100px);
+  color: $light-color;
+}
+
+.intro {
+  font-family: $museo;
+  font-size: rem(21px);
+}
+
+.go-home {
+  width: 90px;
+  height: 75px;
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  display: block;
+  text-indent: -9999px;
+  background-image: url("go-home.png");
+
+  &:hover {
+    background-position: 0 -80px;
+    transition: background-position 0.2s;
+  }
+
+}
+
+.freelance {
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: $radius;
+
+  > h1 {
+    margin: 0;
+    @include italic;
+    border-bottom: 0;
+    font-size: rem(20px);
+    font-weight: normal;
+    line-height: rem(24px);
+  }
+}

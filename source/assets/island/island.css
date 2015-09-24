@@ -1,0 +1,343 @@
+@font-face {
+  font-family: 'museoslab';
+  src: url("../fonts/museo_slab_500-webfont-webfont.eot");
+  src: url("../fonts/museo_slab_500-webfont-webfont.woff") format("woff"), url("../fonts/museo_slab_500-webfont-webfont.ttf") format("truetype"), url("../fonts/museo_slab_500-webfont-webfont.svg") format("svg");
+  font-style: normal; }
+@font-face {
+  font-family: 'megalopolis';
+  src: url("../fonts/megalopolisextra-webfont.eot");
+  src: url("../fonts/megalopolisextra-webfont.woff") format("woff"), url("../fonts/megalopolisextra-webfont.ttf") format("truetype"), url("../fonts/megalopolisextra-webfont.svg") format("svg");
+  font-style: normal; }
+@font-face {
+  font-family: 'marketingscript';
+  src: url("../fonts/marketingscript-webfont.eot");
+  src: url("../fonts/marketingscript-webfont.woff") format("woff"), url("../fonts/marketingscript-webfont.ttf") format("truetype"), url("../fonts/marketingscript-webfont.svg") format("svg");
+  font-style: normal; }
+.italic {
+  font-family: Baskerville,'Goudy Old Style','Palatino','Book Antiqua', serif;
+  font-style: italic;
+  font-size: 20px; }
+  @media (min-width: 768px) {
+    .italic {
+      font-size: 24px; } }
+
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px; }
+
+.clearlist {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .clearlist li {
+    margin-top: 8px; }
+
+.list-icon i {
+  margin-right: 10px; }
+
+body {
+  font-family: museoslab, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background: url("../island/ricepaper2.png") #333; }
+  @media (min-width: 768px) {
+    body {
+      font-size: 16px; } }
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #ff9b4a;
+  transition: color .2s; }
+  a:hover, a:visited, a:active,
+  a:visited:hover,
+  a:visited:visited,
+  a:visited:active,
+  a:active:hover,
+  a:active:visited,
+  a:active:active {
+    color: #222; }
+
+p {
+  margin-bottom: 20px; }
+  @media (min-width: 768px) {
+    p {
+      margin-bottom: 30px;
+      margin-left: 10%;
+      margin-right: 10%; } }
+
+.color--grey {
+  color: #6a6963; }
+
+h2 {
+  font-family: 'marketingscript';
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px; }
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 40px;
+      margin-top: 60px;
+      margin-bottom: 15px; } }
+
+h3 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 0; }
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 25px;
+      margin-top: 40px; } }
+
+header {
+  color: #e2dbbc;
+  position: relative;
+  text-align: center;
+  background: url("../images/swirl_blue.png") right top no-repeat, url("../images/swirl_pink.png") left top no-repeat, url("../images/bg_repeat.jpg") center top #111519; }
+  header h1,
+  header em {
+    font-family: marketingscript, cursive;
+    letter-spacing: 0.03em;
+    font-size: 22px; }
+    @media (min-width: 768px) {
+      header h1,
+      header em {
+        font-size: 26px; } }
+  header em {
+    color: #a9ad9c; }
+  header .wrap {
+    padding-top: 60px; }
+    @media (min-width: 768px) {
+      header .wrap {
+        padding-top: 100px; } }
+  @media (max-height: 620px) and (max-width: 767px) {
+    header {
+      height: 100% !important; } }
+
+.headshot {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden; }
+  .headshot img {
+    max-width: 100%;
+    height: auto; }
+  @media (min-width: 768px) {
+    .headshot {
+      width: 160px;
+      height: 160px;
+      margin-bottom: 20px;
+      border: solid 5px #e2dbbc; } }
+
+#ivana {
+  display: block;
+  font-family: megalopolis, museoslab, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  color: #ff9b4a;
+  text-shadow: #222 0 2px 2px; }
+  @media (min-width: 768px) {
+    #ivana {
+      font-size: 60px; } }
+
+#intro {
+  display: block;
+  font-family: museoslab, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  text-shadow: #222 0 2px 2px;
+  margin-bottom: 20px;
+  line-height: 1.5; }
+  @media (min-width: 768px) {
+    #intro {
+      margin: 0 12%;
+      margin-bottom: 30px;
+      font-size: 18px; } }
+
+.boxtop {
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 10px 20px; }
+  .boxtop > a {
+    display: block; }
+    .boxtop > a i {
+      margin-right: 10px; }
+    .boxtop > a:hover {
+      color: #e2dbbc;
+      text-decoration: none; }
+  @media (min-width: 480px) {
+    .boxtop > a {
+      float: left; }
+      .boxtop > a:not(:first-child) {
+        padding: 0 15px;
+        margin-left: 15px;
+        border-left: solid 1px rgba(255, 255, 255, 0.35); } }
+
+.btn {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 5px;
+  background: #2ed48a;
+  color: #222;
+  transition: background 0.25s; }
+  .btn:visited, .btn:active {
+    color: #222;
+    text-decoration: none; }
+  .btn:hover {
+    background: #6cc88a;
+    text-decoration: none;
+    color: #222; }
+
+#page-2 {
+  text-align: center; }
+
+.container {
+  min-height: 100%; }
+
+.timeline {
+  list-style: none;
+  position: relative; }
+  @media (max-width: 767px) {
+    .timeline {
+      margin-top: 20px; }
+      .timeline .year {
+        font-size: 20px;
+        font-family: 'megalopolis'; }
+      .timeline .timeline__box {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.2); } }
+  @media (min-width: 768px) {
+    .timeline {
+      margin: 20px 0;
+      padding: 20px 0; }
+      .timeline:before {
+        content: "";
+        display: block;
+        width: 5px;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        position: absolute;
+        left: 188px;
+        top: 0; }
+      .timeline .timeline__box {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 100px;
+        position: relative; }
+      .timeline .year {
+        position: absolute;
+        top: 20px;
+        left: 100px;
+        width: 100px;
+        font-size: 16px; }
+        .timeline .year:before {
+          content: "";
+          display: block;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: solid 2px #e2dbbc;
+          background: #333;
+          position: absolute;
+          top: 0;
+          right: 0; } }
+
+.timeline__text {
+  text-align: left; }
+  @media (min-width: 768px) {
+    .timeline__text {
+      margin-left: 150px;
+      margin-top: -7px; } }
+
+.progress {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.15);
+  text-align: left;
+  position: relative; }
+  .progress:before {
+    content: "";
+    display: block;
+    height: 100%;
+    background: #ff9b4a;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; }
+  .progress.bar100:before {
+    width: 100%; }
+  .progress.bar95:before {
+    width: 95%; }
+  .progress.bar90:before {
+    width: 90%; }
+  .progress.bar80:before {
+    width: 80%; }
+  .progress.bar75:before {
+    width: 75%; }
+  .progress.bar60:before {
+    width: 75%; }
+  @media (min-width: 768px) {
+    .progress {
+      max-width: 50%;
+      margin: 0 auto; } }
+
+.logo-inlineblock {
+  margin: 20px 0; }
+  .logo-inlineblock li {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    margin: 0 auto 20px;
+    background: white;
+    overflow: hidden; }
+  .logo-inlineblock img {
+    max-width: 90%; }
+  .logo-inlineblock a {
+    display: block; }
+    .logo-inlineblock a:hover {
+      opacity: 0.8;
+      transition: opacity 0.2s; }
+  @media (min-width: 480px) {
+    .logo-inlineblock {
+      margin: 30px 0; }
+      .logo-inlineblock li {
+        display: inline-block;
+        margin: 10px;
+        vertical-align: middle; } }
+
+.lists-with-icon {
+  text-align: left;
+  margin-bottom: 30px; }
+  .lists-with-icon li {
+    position: relative;
+    padding-left: 30px; }
+  .lists-with-icon i {
+    position: absolute;
+    top: 4px;
+    left: 0; }
+  @media (min-width: 480px) {
+    .lists-with-icon {
+      margin-bottom: 50px; }
+      .lists-with-icon li {
+        max-width: 50%;
+        margin-left: auto;
+        margin-right: auto; } }
+
+.bottom-space {
+  margin-bottom: 30px; }
+  @media (min-width: 480px) {
+    .bottom-space {
+      margin-bottom: 50px; } }
+
+.top-space {
+  margin-top: 70px; }
+  @media (min-width: 480px) {
+    .top-space {
+      margin-top: 60px; } }
+
+/*# sourceMappingURL=island.css.map */

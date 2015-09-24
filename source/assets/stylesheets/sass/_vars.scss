@@ -1,0 +1,25 @@
+// Variables.
+$font-color: #e2dbbc;    // Creme
+$light-color: #ff9b4a;   // Orange
+$border-color: #6a6963;  // Grey creme
+$dark-color: #222;       // Dark grey
+
+$museo: museoslab, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$megalopolis: megalopolis, $museo;
+$handwriting: marketingscript, cursive;
+$italic-font: Baskerville,'Goudy Old Style','Palatino','Book Antiqua', serif;
+
+$font-family: $museo;
+$radius: 3px;
+
+// Base screen
+$screen-xl: 1224px;
+$screen-lg: 1224px;
+$screen-md: 1024px;
+$screen-sm: 768px;
+$screen-xs: 480px;
+
+// Grid dimentions.
+$grid-width: $screen-md;
+$column-width: 40px;
+$gutter-width: 20px;
