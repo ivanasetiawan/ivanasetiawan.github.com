@@ -50,7 +50,9 @@ body {
   font-size: 100%;
   color: #e2dbbc;
   border-top: solid 10px #435058;
-  background: url("/assets/images/swirl_blue.png") right top no-repeat, url("/assets/images/swirl_pink.png") left top no-repeat, url("/assets/images/bg_repeat.jpg") center top #111519; }
+  background: url("/assets/images/bg_repeat.jpg") center top #111519; }
+  body.index {
+    background: url("/assets/images/swirl_blue.png") right top no-repeat, url("/assets/images/swirl_pink.png") left top no-repeat, url("/assets/images/bg_repeat.jpg") center top #111519; }
 
 .wrap {
   max-width: 1024px;
@@ -138,5 +140,16 @@ nav[role="navigation"] {
     font-size: 1.25rem;
     font-weight: normal;
     line-height: 1.5rem; }
+
+.projects__lists {
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  padding-bottom: 0.625rem;
+  margin-left: -2.1277%; }
+  .projects__lists li {
+    width: calc((100% - (20px * 3)) /4);
+    float: left;
+    margin: 1.25rem 0 0 -2.1277%; }
 
 /*# sourceMappingURL=site.css.map */

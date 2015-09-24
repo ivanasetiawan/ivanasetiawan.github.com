@@ -113,3 +113,19 @@ nav[role="navigation"] {
     line-height: rem(24px);
   }
 }
+
+.projects__lists{
+
+  padding: 0;
+  list-style: none;
+
+  overflow: hidden;
+  padding-bottom: rem(10px);
+  margin-left: -2.1277%; // -20px
+
+  li {
+    width: calc((100% - (20px * 3)) /4);
+    float: left;
+    margin: rem(20px) 0 0 -2.1277%;
+  }
+}
