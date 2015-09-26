@@ -21,7 +21,40 @@
   </head>
 
   <body class="<%= page_classes %>">
-    <%= yield %>
+    <div class="wrap">
+      <header class="mainheader">
+        <h1 class="blog-header">
+          Funny, interesting, creepy, or weird stuff
+          <br />
+          {
+          <span>around me</span>
+          }
+          <br />
+          <span class="star-note">* Warning: PG-13 // I am not joking, I really do swear a lot. Maybe less on typing - but just in case.</span>
+        </h1>
+        
+        <!-- PARTIAL -->
+        <nav role="navigation">
+          <a href="index.html#projects">Projects <span>art</span></a>
+          <a href="about.html">About <span>bio</span></a>
+          <a href="blog.html">Blog <span>notes</span></a>
+          <a href="contact.html">Contact <span>ivana</span></a>
+        </nav>
+        <a class="go-home" href="index.html">&laquo; home</a>
+
+      </header>
+      
+      <article class="is-blog">
+        <%= yield %>
+      </article>
+    
+    </div>
+    
+    <footer class="mainfooter">
+      <div class="wrap">
+        This is the footer
+      </div>  
+    </footer>
     <%= javascript_include_tag  "assets/js/jquery", "assets/js/application" %>
   </body>
 </html>

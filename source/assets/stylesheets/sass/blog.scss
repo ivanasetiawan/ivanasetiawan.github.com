@@ -1,1 +1,33 @@
-body { background-color: red; }
+@import "base/normalize";
+@import "base/vars";
+@import "base/functions";
+@import "base/icons";
+@import "base/typography";
+@import "base/layout";
+
+@import "components/header";
+@import "components/footer";
+@import "components/nav";
+
+.blog-header {
+	text-align: right;
+	font-size: rem(32px);
+	font-family: $museo;
+	color: $light-color;
+
+	span {
+		color: #fff;
+		&.star-note {
+			display: block;
+			margin-top: rem(20px);
+			font-family: $museo;
+			font-size: 0.5em
+		}
+	}
+}
+
+.is-blog {
+	padding: rem(20px);
+	background-color: rgba(255, 255, 255, 0.6);
+	color: $dark-color;
+}

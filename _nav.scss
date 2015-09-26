@@ -1,0 +1,54 @@
+nav[role="navigation"] {
+  top: rem(10px);
+  
+  @media screen and (max-width: $screen-md - 1) {
+    width: 100%; 
+
+    a, a:first-child {
+      border-bottom: dashed 1px rgba(255, 255, 255, 0.3);
+    } 
+  }
+
+  a {
+    font-family: $handwriting;
+    margin: 0 0 10px;
+    padding: 0 0 10px;
+    text-align: center;
+    border-left: 0;
+    display: block;
+    color: $font-color;
+    font-size: rem(25px);
+  }
+
+  span {
+    display: block;
+    color: $light-color;
+    line-height: 1;
+    margin-top: rem(-5px);
+  }
+
+  @media screen and (min-width: $screen-md) {
+    position: absolute;
+    top: rem(20px);
+    right: 0;
+
+    a {
+      float: left;
+      margin-left: rem(20px);
+      padding-left: rem(20px);
+      font-size: rem(30px);
+      text-decoration: none;
+      text-align: right;
+      border-left: dashed 2px $font-color;
+
+      &:first-child { border: 0; }
+      &:hover { color: $light-color;
+        span { color: $font-color; }
+      }
+
+      span {
+        font-size: rem(24px);
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+.hello {
+  &__ivana {
+    display: block;
+    font-family: $megalopolis;
+    color: $light-color;
+    font-size: rem(40px);
+    @media screen and (min-width: $screen-sm) {
+      font-size: rem(60px);
+    }
+    @media screen and (min-width: $screen-md) {
+      font-size: rem(100px);
+      margin-left: -5px;
+    }
+  }
+
+  &__intro {
+    font-family: $museo;
+    font-size: rem(21px);
+  }
+}
+
+.freelance {
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: $radius;
+
+  > h2 {
+    margin: 0;
+    @include italic;
+    border-bottom: 0;
+    font-size: rem(20px);
+    font-weight: normal;
+    line-height: rem(24px);
+  }
+}
+
+.projects__lists{
+  padding: 0;
+  list-style: none;
+
+  overflow: hidden;
+  padding-bottom: rem(10px);
+  margin-left: rem(-20px);
+
+  li {
+    width: calc((100% - (20px * 3)) /3);
+    float: left;
+    margin: rem(20px) 0 0 rem(20px);
+    padding: rem(5px);
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  figcaption {
+    margin: rem(5px) 0 0;
+  }
+
+  img { 
+    max-width: 100%; 
+    vertical-align: top;
+  }
+
+  a { display: block; }
+
+}
