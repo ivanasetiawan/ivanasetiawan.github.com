@@ -1,14 +1,16 @@
 .hello {
+  
   &__ivana {
     display: block;
     font-family: $megalopolis;
     color: $light-color;
     font-size: rem(80px);
     span { display: none; }
+    
     @media screen and (min-width: $screen-md) {
       font-size: rem(100px);
       margin-left: -5px;
-      span { display: block; }
+      span { display: inline-block; }
     }
   }
 

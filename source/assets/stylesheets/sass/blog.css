@@ -556,58 +556,64 @@ body {
     .mainfooter .find-me .icon {
       margin-right: 5px; }
 
-nav[role="navigation"] {
-  top: 0.625rem; }
+nav[role="navigation"] a {
+  font-family: marketingscript, cursive;
+  margin: 0 0 10px;
+  padding: 0 0 10px;
+  text-align: center;
+  border-left: 0;
+  display: block;
+  color: #e2dbbc;
+  font-size: 1.5625rem; }
+nav[role="navigation"] span {
+  display: block;
+  color: #ff9b4a;
+  line-height: 1;
+  margin-top: -0.3125rem; }
+@media screen and (max-width: 767px) {
+  nav[role="navigation"] {
+    width: 100%;
+    height: 0;
+    overflow: hidden; }
+    nav[role="navigation"] a, nav[role="navigation"] a:first-child {
+      transition-delay: 0.3s;
+      transition-duration: 0.3s, 0.3s;
+      transition-property: opacity;
+      opacity: 0;
+      border-bottom: dashed 1px rgba(255, 255, 255, 0.3); }
+    nav[role="navigation"].active {
+      height: 100%; }
+      nav[role="navigation"].active a {
+        opacity: 1; } }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  nav[role="navigation"] {
+    overflow: hidden;
+    display: inline-block; }
+    nav[role="navigation"] a:first-child {
+      padding-left: 0;
+      margin-left: 0; } }
+@media screen and (min-width: 768px) {
   nav[role="navigation"] a {
-    font-family: marketingscript, cursive;
-    margin: 0 0 10px;
-    padding: 0 0 10px;
-    text-align: center;
-    border-left: 0;
-    display: block;
-    color: #e2dbbc;
-    font-size: 1.5625rem; }
-  nav[role="navigation"] span {
-    display: block;
-    color: #ff9b4a;
-    line-height: 1;
-    margin-top: -0.3125rem; }
-  @media screen and (max-width: 767px) {
-    nav[role="navigation"] {
-      width: 100%;
-      height: 0;
-      overflow: hidden; }
-      nav[role="navigation"] a, nav[role="navigation"] a:first-child {
-        transition-delay: 0.3s;
-        transition-duration: 0.3s, 0.3s;
-        transition-property: opacity;
-        opacity: 0;
-        border-bottom: dashed 1px rgba(255, 255, 255, 0.3); }
-      nav[role="navigation"].active {
-        height: 100%; }
-        nav[role="navigation"].active a {
-          opacity: 1; } }
-  @media screen and (min-width: 768px) {
-    nav[role="navigation"] {
-      position: absolute;
-      top: 1.25rem;
-      right: 0; }
-      nav[role="navigation"] a {
-        float: left;
-        margin-left: 1.25rem;
-        padding-left: 1.25rem;
-        font-size: 1.875rem;
-        text-decoration: none;
-        text-align: right;
-        border-left: dashed 2px #e2dbbc; }
-        nav[role="navigation"] a:first-child {
-          border: 0; }
-        nav[role="navigation"] a:hover {
-          color: #ff9b4a; }
-          nav[role="navigation"] a:hover span {
-            color: #e2dbbc; }
-        nav[role="navigation"] a span {
-          font-size: 1.5rem; } }
+    float: left;
+    margin-left: 1.25rem;
+    padding-left: 1.25rem;
+    font-size: 1.875rem;
+    text-decoration: none;
+    text-align: right;
+    border-left: dashed 2px #e2dbbc; }
+    nav[role="navigation"] a:first-child {
+      border: 0; }
+    nav[role="navigation"] a:hover {
+      color: #ff9b4a; }
+      nav[role="navigation"] a:hover span {
+        color: #e2dbbc; }
+    nav[role="navigation"] a span {
+      font-size: 1.5rem; } }
+@media screen and (min-width: 1024px) {
+  nav[role="navigation"] {
+    position: absolute;
+    top: 1.25rem;
+    right: 0; } }
 
 .blog-header {
   text-align: right;

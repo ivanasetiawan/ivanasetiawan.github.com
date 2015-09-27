@@ -1,5 +1,4 @@
 nav[role="navigation"] {
-  top: rem(10px);
 
   a {
     font-family: $handwriting;
@@ -37,12 +36,17 @@ nav[role="navigation"] {
       a { opacity: 1; }
     }
   }
+  
+  @media screen and (min-width: $screen-sm) and (max-width: $screen-md - 1) {
+    overflow: hidden;
+    display: inline-block;
+    a:first-child {
+      padding-left: 0;
+      margin-left: 0;
+    }
+  }
 
   @media screen and (min-width: $screen-sm) {
-    position: absolute;
-    top: rem(20px);
-    right: 0;
-
     a {
       float: left;
       margin-left: rem(20px);
@@ -61,5 +65,11 @@ nav[role="navigation"] {
         font-size: rem(24px);
       }
     }
+  }
+
+  @media screen and (min-width: $screen-md) {
+    position: absolute;
+    top: rem(20px);
+    right: 0;
   }
 }

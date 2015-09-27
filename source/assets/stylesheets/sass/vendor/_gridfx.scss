@@ -23,7 +23,7 @@
 
 	@media screen and (min-width: $screen-sm) {
 		width: calc((100% - (20px * 3)) /3);
-		height: 205px;
+		// height: 205px;
 	}
 
 	@media screen and (min-width: $screen-md) {
@@ -134,7 +134,7 @@
 
 .og-details h3 {
 	font-weight: 300;
-	font-size: 52px;
+	font-size: rem(40px);
 	// padding: 40px 0 10px;
 	margin-bottom: 10px;
 }
@@ -143,6 +143,9 @@
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 22px;
+	@media screen and (min-width: $screen-sm) {
+		max-width: 80%;
+	}
 }
 
 .og-details a {
