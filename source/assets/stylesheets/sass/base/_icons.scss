@@ -9,7 +9,7 @@
 	font-style: normal;
 }
 
-%icon-base {
+.icon {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -30,11 +30,8 @@
 .icon-bug:before {
 	content: "\e601";
 }
-.icon-menu{
-	@extend %icon-base;
-	&:before {
-		content: "\e602";
-	}
+.icon-menu:before {
+	content: "\e602";
 }
 .icon-embed2:before {
 	content: "\e603";
@@ -42,9 +39,9 @@
 .icon-terminal:before {
 	content: "\e604";
 }
-.icon-youtube3:before {
+.icon-youtube:before {
 	content: "\e605";
 }
-.icon-github3:before {
+.icon-github:before {
 	content: "\e606";
 }

@@ -362,7 +362,7 @@ th {
   src: url("/assets/fonts/icomoon.eot?#iefix-hk25ho") format("embedded-opentype"), url("/assets/fonts/icomoon.ttf?-hk25ho") format("truetype"), url("/assets/fonts/icomoon.woff?-hk25ho") format("woff"), url("/assets/fonts/icomoon.svg?-hk25ho#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
-.icon-menu {
+.icon {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -389,10 +389,10 @@ th {
 .icon-terminal:before {
   content: "\e604"; }
 
-.icon-youtube3:before {
+.icon-youtube:before {
   content: "\e605"; }
 
-.icon-github3:before {
+.icon-github:before {
   content: "\e606"; }
 
 @font-face {
@@ -413,11 +413,11 @@ th {
 a,
 a:visited {
   color: #ff9b4a;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: color 0.2s; }
   a:hover,
   a:visited:hover {
-    color: #e2dbbc;
-    transition: color 0.2s; }
+    color: #e2dbbc; }
 
 strong {
   font-weight: bold;
@@ -472,6 +472,12 @@ body {
   position: relative;
   margin-bottom: 3.125rem;
   text-shadow: #222 2px 2px 2px; }
+  @media screen and (max-width: 1023px) {
+    .mainheader {
+      text-align: center; } }
+  @media screen and (min-width: 1024px) {
+    .mainheader {
+      padding-top: 6.25rem; } }
   .mainheader h1,
   .mainheader em {
     font-family: marketingscript, cursive;
@@ -500,21 +506,58 @@ body {
 
 .mainfooter {
   background-color: #222;
-  padding: 1.25rem 0;
-  border-top: solid 10px #435058;
-  position: fixed;
-  width: 100%;
-  bottom: 0; }
+  padding: 1.25rem 0 0;
+  border-top: solid 10px #435058; }
+  @media screen and (min-width: 1024px) {
+    .mainfooter {
+      overflow: hidden; } }
+  .mainfooter .block h2 {
+    margin-bottom: 20px;
+    font-family: marketingscript, cursive;
+    font-size: 1.875em; }
+  .mainfooter .block p {
+    line-height: 1.5; }
+  @media screen and (min-width: 1024px) {
+    .mainfooter .block {
+      width: 50%;
+      float: left; } }
+  .mainfooter .update-box {
+    position: relative;
+    padding: 0.625rem;
+    margin-top: 0.9375rem;
+    background: rgba(0, 0, 0, 0.45);
+    min-height: 125px; }
+    .mainfooter .update-box h2 {
+      margin: 0 0 10px; }
+    .mainfooter .update-box .update__content {
+      margin-left: 100px; }
+    .mainfooter .update-box img {
+      position: absolute;
+      top: 50px;
+      left: 10px;
+      border: solid 3px rgba(0, 0, 0, 0.8); }
+    @media screen and (min-width: 1024px) {
+      .mainfooter .update-box {
+        width: 42.8%;
+        float: right; } }
+  .mainfooter .find-me {
+    clear: both;
+    text-align: center; }
+    .mainfooter .find-me h2 {
+      margin-bottom: 15px;
+      font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+      font-style: italic;
+      font-weight: normal;
+      letter-spacing: .7px;
+      font-size: 1.35em; }
+    .mainfooter .find-me a {
+      display: inline-block;
+      margin-right: 10px; }
+    .mainfooter .find-me .icon {
+      margin-right: 5px; }
 
 nav[role="navigation"] {
   top: 0.625rem; }
-  @media screen and (max-width: 1023px) {
-    nav[role="navigation"] {
-      width: 100%; }
-      nav[role="navigation"] a, nav[role="navigation"] a:first-child {
-        border-bottom: dashed 1px rgba(255, 255, 255, 0.3); }
-      nav[role="navigation"] a:not(.hamburger) {
-        display: none; } }
   nav[role="navigation"] a {
     font-family: marketingscript, cursive;
     margin: 0 0 10px;
@@ -529,7 +572,22 @@ nav[role="navigation"] {
     color: #ff9b4a;
     line-height: 1;
     margin-top: -0.3125rem; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (max-width: 767px) {
+    nav[role="navigation"] {
+      width: 100%;
+      height: 0;
+      overflow: hidden; }
+      nav[role="navigation"] a, nav[role="navigation"] a:first-child {
+        transition-delay: 0.3s;
+        transition-duration: 0.3s, 0.3s;
+        transition-property: opacity;
+        opacity: 0;
+        border-bottom: dashed 1px rgba(255, 255, 255, 0.3); }
+      nav[role="navigation"].active {
+        height: 100%; }
+        nav[role="navigation"].active a {
+          opacity: 1; } }
+  @media screen and (min-width: 768px) {
     nav[role="navigation"] {
       position: absolute;
       top: 1.25rem;

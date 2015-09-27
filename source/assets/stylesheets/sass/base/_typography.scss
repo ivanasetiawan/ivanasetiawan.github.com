@@ -1,6 +1,7 @@
 @mixin italic {
   font-family: $italic-font;
   font-style: italic;
+  font-weight: normal;
   letter-spacing: .7px;
 }
 
@@ -31,10 +32,10 @@ a,
 a:visited {
   color: $light-color;
   text-decoration: none;
+  transition: color 0.2s;
 
   &:hover {
     color: $font-color;
-    transition: color 0.2s;
   }
 }
 

@@ -3,19 +3,28 @@
 	padding: 20px 0;
 	margin: 0;
 	text-align: center;
-	width: 100%;
+	width: calc(100% + rem(16px));
 	
-	@media screen and (min-width: $screen-md) {
-		margin-left: rem(-20px);
+	@media screen and (min-width: $screen-xs) {
+		margin-left: rem(-16px);
 	}
 }
 
 .og-grid li {
-	
 	display: inline-block;
-	margin: 10px 0 10px rem(16px);
+	margin: 10px rem(8px) 10px rem(8px);
 	vertical-align: top;
-	
+
+	@media screen and (min-width: $screen-xs) {
+		width: calc((100% - (20px * 2)) /2);
+		margin-right: 0;
+		margin-left: rem(16px);
+	}
+
+	@media screen and (min-width: $screen-sm) {
+		width: calc((100% - (20px * 3)) /3);
+		height: 205px;
+	}
 
 	@media screen and (min-width: $screen-md) {
 		width: calc((100% - (20px * 4)) /4);
@@ -57,6 +66,7 @@
 	text-align: left;
 	height: 0;
 	overflow: hidden;
+	z-index: 20;
 }
 
 .og-expander-inner {
@@ -80,7 +90,7 @@
 	width: 100%;
 	top: 50%;
 	height: 1px;
-	background: #888;
+	background: #fff;
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
 	transform: rotate(45deg);
@@ -94,25 +104,27 @@
 
 .og-close:hover::before,
 .og-close:hover::after {
-	background: #333;
+	background: $light-color;
 }
 
-.og-fullimg,
+// .og-fullimg,
+// .og-details {
+// 	float: left;
+// 	height: 100%;
+// 	overflow: hidden;
+// 	position: relative;
+// }
+
 .og-details {
 	width: 50%;
-	float: left;
 	height: 100%;
-	overflow: hidden;
-	position: relative;
+	margin: 0 auto;
 }
 
-.og-details {
-	padding: 0 40px 0 20px;
-}
-
-.og-fullimg {
-	text-align: center;
-}
+// .og-fullimg {
+// 	width: 215px;
+// 	text-align: center;
+// }
 
 .og-fullimg img {
 	display: inline-block;
@@ -123,7 +135,7 @@
 .og-details h3 {
 	font-weight: 300;
 	font-size: 52px;
-	padding: 40px 0 10px;
+	// padding: 40px 0 10px;
 	margin-bottom: 10px;
 }
 
@@ -131,17 +143,16 @@
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 22px;
-	color: #999;
 }
 
 .og-details a {
 	font-weight: 700;
 	font-size: 16px;
-	color: #333;
+	color: $light-color;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	padding: 10px 20px;
-	border: 3px solid #333;
+	border: 3px solid $font-color;
 	display: inline-block;
 	margin: 30px 0 0;
 	outline: none;
@@ -154,24 +165,26 @@
 }
 
 .og-details a:hover {
-	border-color: #999;
-	color: #999;
+	border-color: $light-color;
+	color: #fff;
+	background-color: $light-color;
+	transition: color 0.2s, background-color 0.2s;
 }
 
-.og-loading {
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	background: #ddd;
-	box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ccc;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -25px 0 0 -25px;
-	-webkit-animation: loader 0.5s infinite ease-in-out both;
-	-moz-animation: loader 0.5s infinite ease-in-out both;
-	animation: loader 0.5s infinite ease-in-out both;
-}
+// .og-loading {
+// 	width: 20px;
+// 	height: 20px;
+// 	border-radius: 50%;
+// 	background: #ddd;
+// 	box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ccc;
+// 	position: absolute;
+// 	top: 50%;
+// 	left: 50%;
+// 	margin: -25px 0 0 -25px;
+// 	-webkit-animation: loader 0.5s infinite ease-in-out both;
+// 	-moz-animation: loader 0.5s infinite ease-in-out both;
+// 	animation: loader 0.5s infinite ease-in-out both;
+// }
 
 @-webkit-keyframes loader {
 	0% { background: #ddd; }
@@ -199,7 +212,7 @@
 
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: $screen-md - 1) {
 
 	.og-fullimg { display: none; }
 	.og-details { float: none; width: 100%; }

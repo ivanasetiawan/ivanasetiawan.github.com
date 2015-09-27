@@ -1,17 +1,5 @@
 nav[role="navigation"] {
   top: rem(10px);
-  
-  @media screen and (max-width: $screen-md - 1) {
-    width: 100%; 
-
-    a, a:first-child {
-      border-bottom: dashed 1px rgba(255, 255, 255, 0.3);
-    } 
-
-    a:not(.hamburger) {
-      display: none;
-    }
-  }
 
   a {
     font-family: $handwriting;
@@ -31,7 +19,26 @@ nav[role="navigation"] {
     margin-top: rem(-5px);
   }
 
-  @media screen and (min-width: $screen-md) {
+  @media screen and (max-width: $screen-sm - 1) {
+    width: 100%; 
+    height: 0;
+    overflow: hidden;
+
+    a, a:first-child {
+      transition-delay: 0.3s;
+      transition-duration: 0.3s, 0.3s;
+      transition-property: opacity;
+      opacity: 0;
+      border-bottom: dashed 1px rgba(255, 255, 255, 0.3);
+    } 
+    
+    &.active { 
+      height: 100%; 
+      a { opacity: 1; }
+    }
+  }
+
+  @media screen and (min-width: $screen-sm) {
     position: absolute;
     top: rem(20px);
     right: 0;
@@ -56,4 +63,3 @@ nav[role="navigation"] {
     }
   }
 }
-
