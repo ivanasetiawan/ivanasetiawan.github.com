@@ -504,10 +504,36 @@ body {
     background-position: 0 -80px;
     transition: background-position 0.2s; }
 
+.about-header .header-img,
+.contact-header .header-img {
+  display: inline-block; }
+.about-header img,
+.contact-header img {
+  width: 100%;
+  height: auto;
+  margin-top: 15px; }
+.about-header span,
+.contact-header span {
+  font-family: museoslab, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.375rem; }
+.about-header .star-note,
+.contact-header .star-note {
+  display: block;
+  margin-top: 10px;
+  text-align: right;
+  font-family: marketingscript, cursive; }
+
+.about-header .header-img {
+  width: 90.625%; }
+
+.contact-header .header-img {
+  width: 77.2917%; }
+
 .mainfooter {
   background-color: #222;
   padding: 1.25rem 0 0;
-  border-top: solid 10px #435058; }
+  border-top: solid 10px #435058;
+  clear: both; }
   @media screen and (min-width: 1024px) {
     .mainfooter {
       overflow: hidden; } }

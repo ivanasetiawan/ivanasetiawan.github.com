@@ -54,9 +54,10 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
 activate :blog do |blog|
-  blog.layout = "blog_layout"
-  blog.prefix = "blog"
+  blog.permalink = "blog/{year}/{title}"
 end
+
+activate :directory_indexes
 
 # Build-specific configuration
 configure :build do

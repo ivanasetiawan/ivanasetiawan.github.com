@@ -45,3 +45,41 @@
   }
 
 }
+
+// About and contact page
+.about-header,
+.contact-header {
+  .header-img {
+    display: inline-block
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+  }
+  
+  span {
+    font-family: $museo;
+    font-size: rem(22px);
+  }
+  
+  .star-note {
+    display: block;
+    margin-top: 10px;
+    text-align: right;
+    font-family: $handwriting;
+  }
+}
+.about-header {
+  .header-img {
+    width: 90.625%;
+  }
+}
+
+.contact-header {
+  .header-img { width: 77.2917%;  }
+}
+
+
+

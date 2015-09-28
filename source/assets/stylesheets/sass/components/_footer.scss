@@ -2,6 +2,7 @@
 	background-color: $dark-color;
 	padding: rem(20px) 0 0;
 	border-top: solid 10px #435058;
+	clear: both; 
 	
 	@media screen and (min-width: $screen-md) {
 		overflow: hidden;
