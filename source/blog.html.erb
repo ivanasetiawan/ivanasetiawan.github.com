@@ -16,4 +16,17 @@ title: Blog
 			<span class="star-note">* Warning: PG-13 // I am not joking, I really do swear a lot. Maybe less on typing - but just in case.</span>
 		</h1>
 	</header>
+
+	<% blog.articles[0...5].each do |article| %>
+		<article class="is-blog">
+			<h2>
+				<a href="<%= article.url %>"><%= article.title %></a>
+				<time><%= article.date.strftime('%b %e %Y') %></time>
+			</h2>
+
+			<%= article.summary %>
+
+			<a href="<%= article.url %>">Read more</a>
+		</article>
+	<% end %>
 </div>

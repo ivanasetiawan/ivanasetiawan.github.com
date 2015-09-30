@@ -55,6 +55,9 @@ set :images_dir, 'images'
 
 activate :blog do |blog|
   blog.permalink = "blog/{year}/{title}"
+  blog.paginate = true
+  blog.page_link = "p{num}"
+  blog.per_page = 1
 end
 
 activate :directory_indexes

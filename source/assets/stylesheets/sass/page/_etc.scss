@@ -9,8 +9,6 @@ aside h2 {
 .about-ivana,
 .contact-ivana,
 #blog {
-  width: 65%;
-  float: left;
   padding: 20px;
   margin-top: 0;
   line-height: 1.375em;
@@ -20,6 +18,11 @@ aside h2 {
   p {
     margin-bottom: 15px;
     line-height: 1.5em;
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    width: 65%;
+    float: left;
   }
 
 }
@@ -81,62 +84,57 @@ aside h2 {
 }
 
 .mainaside {
-  width: 35%;
-  position: relative;
-  float: right;
-  padding: 20px 10px 20px 30px;
-  margin-top: 40px;
+  padding: 1px 20px;
   line-height: 1.375em;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.7);
-  &:before,
-  &:after {
-    content: "";
-    display: block;
-    width: 0; 
-    height: 0;
-    position: absolute;
-    left: 0;
+
+  @media screen and (min-width: $screen-sm) {
+    position: relative;
+    width: calc(35% - 2px);
+    float: right;
+    padding: 20px 10px;
+    margin-left: 1px;
+    margin-top: 25px;
   }
 
-  &:before {
-    border-top: 15px solid transparent;
-    border-bottom: 0px solid transparent; 
-    border-left: 15px solid #000;
-    top: -15px;
-  }
+  @media screen and (min-width: $screen-md) {
+    width: 35%;
+    margin-top: 40px;
+    margin-left: 0; 
+  
+    .interests {
+      margin-left: rem(18px);
+    }
 
-  &:after {
-    border-top: 15px solid transparent;
-    border-bottom: 0px solid transparent; 
-    border-left: 15px solid #293133;
-    bottom: 0;
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      width: 0; 
+      height: 0;
+      position: absolute;
+      left: 0;
+    }
+
+    &:before {
+      border-top: 15px solid transparent;
+      border-bottom: 0px solid transparent; 
+      border-left: 15px solid #000;
+      top: -15px;
+    }
+
+    &:after {
+      border-top: 15px solid transparent;
+      border-bottom: 0px solid transparent; 
+      border-left: 15px solid #293133;
+      bottom: 0;
+    }
   }
-  // +data-uri-bg("bg-interests.png", top left repeat-y)
 
   time {
     @include italic;
     font-size: 1.35em;
-  }
-
-  .bottom-tag,
-  .top-tag {
-    width: 296px;
-    height: 31px;
-    left: 0;
-    display: block;
-    position: absolute;
-    // +data-uri-bg("bg-interests-top.png", top left no-repeat);
-  }
-
-  .top-tag {
-    top: -31px;
-  }
-
-  .bottom-tag {
-    height: 15px;
-    bottom: -15px;
-    // +data-uri-bg("bg-interests-bottom.png", bottom left no-repeat)
   }
 
   h3 {
@@ -149,10 +147,6 @@ aside h2 {
     margin: 0 0 30px 20px;
     font-size: 0.9em;
   }
-}
-
-.interests {
-  margin-left: rem(18px);
 }
 
 .signature {
