@@ -1,5 +1,4 @@
 .hello {
-  
   &__ivana {
     display: block;
     font-family: $megalopolis;
@@ -35,32 +34,32 @@
   }
 }
 
-.projects__lists{
-  padding: 0;
-  list-style: none;
+// .projects__lists{
+//   padding: 0;
+//   list-style: none;
 
-  overflow: hidden;
-  padding-bottom: rem(10px);
-  margin-left: rem(-20px);
+//   overflow: hidden;
+//   padding-bottom: rem(10px);
+//   margin-left: rem(-20px);
 
-  li {
-    width: calc((100% - (20px * 3)) /3);
-    float: left;
-    margin: rem(20px) 0 0 rem(20px);
-    padding: rem(5px);
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.2);
-  }
+//   li {
+//     width: calc((100% - (20px * 3)) /3);
+//     float: left;
+//     margin: rem(20px) 0 0 rem(20px);
+//     padding: rem(5px);
+//     box-sizing: border-box;
+//     background-color: rgba(255, 255, 255, 0.2);
+//   }
   
-  figcaption {
-    margin: rem(5px) 0 0;
-  }
+//   figcaption {
+//     margin: rem(5px) 0 0;
+//   }
 
-  img { 
-    max-width: 100%; 
-    vertical-align: top;
-  }
+//   img { 
+//     max-width: 100%; 
+//     vertical-align: top;
+//   }
 
-  a { display: block; }
+//   a { display: block; }
 
-}
+// }
