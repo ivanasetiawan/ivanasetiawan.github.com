@@ -16,6 +16,46 @@
 	@media screen and (min-width: $screen-xs) {
 		margin-left: rem(-16px);
 	}
+
+	&__hover {
+		bottom: -100%;
+		position: absolute;
+		opacity: 0;
+		display: block;
+		width: 100%;
+		margin-top: 9px;
+		transition: margin 0.3s, opacity 0.5s;
+		transition-delay: 0.2s;
+	}
+
+	a {
+		position: relative;
+		&:before {
+			content: "";
+			display: block; 
+			position: absolute;
+			background-color: rgba(0, 0, 0, 0.7);
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			opacity: 0;
+			transition: opacity 0.2s;
+		}
+
+		&:hover {
+			@at-root & .og-grid__hover {
+				top: 50%;
+				opacity: 1;
+				margin-top: -9px;
+				z-index: 3;		}
+
+			@at-root &:before {
+				opacity: 1;
+			}
+		}
+	} 
 }
 
 .og-grid li {
