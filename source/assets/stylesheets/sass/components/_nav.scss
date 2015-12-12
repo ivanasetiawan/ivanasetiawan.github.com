@@ -12,10 +12,9 @@ nav[role="navigation"] {
   }
 
   span {
-    display: block;
+    display: none;
     color: $light-color;
     line-height: 1;
-    margin-top: rem(-5px);
   }
 
   @media screen and (max-width: $screen-sm - 1) {
@@ -55,14 +54,15 @@ nav[role="navigation"] {
       text-decoration: none;
       text-align: right;
       border-left: dashed 2px $font-color;
-
+      
       &:first-child { border: 0; }
       &:hover { color: $light-color;
         span { color: $font-color; }
       }
 
       span {
-        font-size: rem(24px);
+        display: block;
+        font-size: rem(26px);
       }
     }
   }

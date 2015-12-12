@@ -12,23 +12,34 @@
 	margin: 0;
 	text-align: center;
 	width: calc(100% + rem(16px));
-	
-	@media screen and (min-width: $screen-xs) {
-		margin-left: rem(-16px);
-	}
 
 	&__hover {
-		bottom: -100%;
 		position: absolute;
-		opacity: 0;
 		display: block;
 		width: 100%;
-		margin-top: 9px;
-		transition: margin 0.3s, opacity 0.5s;
-		transition-delay: 0.2s;
+		
+		background-color: rgba(0, 0, 0, 0.7);
+		padding: rem(8px) 0;
+		bottom: 0;
+
 	}
 
-	a {
+	@media screen and (min-width: $screen-xs) {
+		margin-left: rem(-16px);
+		&__hover {
+			margin-top: 9px;
+			bottom: -100%;
+			z-index: -1;
+			opacity: 0;
+			transition: margin 0.3s, opacity 0.5s;
+			transition-delay: 0.2s;
+			background-color: transparent; 
+			padding: 0;
+		}
+	}
+
+	li > a,
+	.is-sibling a {
 		position: relative;
 		&:before {
 			content: "";
@@ -45,14 +56,16 @@
 		}
 
 		&:hover {
-			@at-root & .og-grid__hover {
-				top: 50%;
-				opacity: 1;
-				margin-top: -9px;
-				z-index: 3;		}
+			@media screen and (min-width: $screen-xs) {
+				@at-root & .og-grid__hover {
+					top: 50%;
+					opacity: 1;
+					margin-top: -9px;
+					z-index: 3;		}
 
-			@at-root &:before {
-				opacity: 1;
+				@at-root &:before {
+					opacity: 1;
+				}
 			}
 		}
 	} 
@@ -60,13 +73,21 @@
 
 .og-grid li {
 	display: inline-block;
-	margin: 10px rem(8px) 10px rem(8px);
 	vertical-align: top;
+	margin-bottom: rem(10px);
+	
+	img { 
+		width: 100%; 
+		vertical-align: top; 
+	}
 
 	@media screen and (min-width: $screen-xs) {
 		width: calc((100% - (20px * 2)) /2);
-		margin-right: 0;
-		margin-left: rem(16px);
+		margin: 10px 0 10px rem(16px);
+		img {
+			width: auto;
+			max-width: 100%;
+		}
 	}
 
 	@media screen and (min-width: $screen-sm) {
@@ -76,11 +97,6 @@
 	@media screen and (min-width: $screen-md) {
 		width: calc((100% - (20px * 4)) /4);
 		height: 180px;
-	}
-
-	img { 
-		max-width: 100%; 
-		vertical-align: top; 
 	}
 
 	&.is-sibling img {
@@ -161,24 +177,11 @@
 	background: $light-color;
 }
 
-// .og-fullimg,
-// .og-details {
-// 	float: left;
-// 	height: 100%;
-// 	overflow: hidden;
-// 	position: relative;
-// }
-
 .og-details {
 	width: 50%;
 	height: 100%;
 	margin: 0 auto;
 }
-
-// .og-fullimg {
-// 	width: 215px;
-// 	text-align: center;
-// }
 
 .og-fullimg img {
 	display: inline-block;
@@ -205,7 +208,6 @@
 .og-details a {
 	font-weight: 700;
 	font-size: 16px;
-	color: $light-color;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	padding: 10px 20px;
@@ -215,51 +217,12 @@
 	outline: none;
 }
 
-.og-details a::before {
-	content: '\2192';
-	display: inline-block;
-	margin-right: 10px;
-}
-
 .og-details a:hover {
 	border-color: $light-color;
 	color: #fff;
-	background-color: $light-color;
 	transition: color 0.2s, background-color 0.2s;
 }
 
-// .og-loading {
-// 	width: 20px;
-// 	height: 20px;
-// 	border-radius: 50%;
-// 	background: #ddd;
-// 	box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ccc;
-// 	position: absolute;
-// 	top: 50%;
-// 	left: 50%;
-// 	margin: -25px 0 0 -25px;
-// 	-webkit-animation: loader 0.5s infinite ease-in-out both;
-// 	-moz-animation: loader 0.5s infinite ease-in-out both;
-// 	animation: loader 0.5s infinite ease-in-out both;
-// }
-
-@-webkit-keyframes loader {
-	0% { background: #ddd; }
-	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
-	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
-}
-
-@-moz-keyframes loader {
-	0% { background: #ddd; }
-	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
-	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
-}
-
-@keyframes loader {
-	0% { background: #ddd; }
-	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
-	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
-}
 
 @media screen and (max-width: 830px) {
 

@@ -16,7 +16,7 @@
     
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/ico">
 
-    <%= stylesheet_link_tag "normalize", "assets/stylesheets/sass/blog" %>
+    <%= stylesheet_link_tag "assets/stylesheets/sass/blog" %>
     <%= javascript_include_tag  "assets/js/modernizr" %>
   </head>
 
@@ -26,13 +26,11 @@
         <%= partial "nav" %>
       </header>
 
-      <article class="is-blog">
+      <article class="blog-content">
         <%= yield %>
       </article>
-    
     </div>
-    
     <%= partial "footer" %>
-    <%= javascript_include_tag  "assets/js/jquery", "assets/js/application" %>
+    <%= javascript_include_tag  "assets/js/jquery", "assets/js/grid", "assets/js/application" %>
   </body>
 </html>

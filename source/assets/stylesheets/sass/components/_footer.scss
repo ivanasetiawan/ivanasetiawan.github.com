@@ -55,7 +55,12 @@
 			@include italic;
 			font-size: 1.35em
 		}
-		a { display: inline-block; margin-right: 10px; }
+		a { 
+			display: inline-block; 
+			margin-right: 10px; 
+			color: $font-color; 
+			&:hover { color: $light-color; }
+		}
 		.icon { margin-right: 5px; }
 	}
 }

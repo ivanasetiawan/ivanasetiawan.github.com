@@ -14,7 +14,7 @@
   border: none;
   cursor: pointer;
   transition: background 0.3s;
-  background-color: #ff3264;
+  background-color: $light-color;
   margin: 0 auto 10px; 
 
   &:focus {
@@ -45,12 +45,12 @@
     }
 
     &:before {
-      top: 10px;
+      top: 9px;
       transition-property: top, transform;
     }
 
     &:after {
-      bottom: -20px;
+      bottom: -19px;
       transition-property: bottom, transform;
     }
   }
@@ -66,7 +66,7 @@
       }
       
       &:after {
-        bottom: -10px;
+        bottom: -9px;
         transform: rotate(-45deg);
       }
 
