@@ -73,3 +73,24 @@ nav[role="navigation"] {
     right: 0;
   }
 }
+
+.home {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+@media screen and (min-width: $screen-md) {
+  .home {
+    width: 90px;
+    height: 75px;
+    overflow: hidden;
+    text-indent: -9999px;
+    background-position: 0 0;
+    background-image: url("/assets/images/go-home.png");
+    transition: background-position 0.2s;
+    position: absolute;
+    top: 15px;
+    &:hover { background-position: 0 70px; }
+  }
+}
