@@ -162,11 +162,7 @@ aside h2 {
   }
 }
 
-.contact-ivana-btn {
-  display: inline-block;
-  border: solid 2px $light-color;
-  padding: 8px 15px; 
-}
+.contact-ivana-btn { @extend %btn; }
 
 .blog-header {
   text-align: right;

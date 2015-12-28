@@ -2,4 +2,31 @@
 	padding: 1rem;
 	box-sizing: border-box;
 	background-color: rgba(0,0,0,0.3);
+
+	time {
+		font-family: $italic-font;
+		font-style: italic;
+		float: right;
+		margin-bottom: rem(10px);
+	}
+
+	time ~ p { clear: both; }
+}
+
+input {
+	border: solid 1px #333;
+	padding: rem(5px) rem(10px);
+	color: #333;
+}
+
+button[type="submit"] {
+	background-color: $light-color;
+	color: #fff;
+	border: 0;
+	padding: rem(5px) rem(10px);
+	transition: color 0.2s, background-color 0.1s;
+	&:hover {
+		background-color: $font-color;
+		color: #333;
+	}
 }

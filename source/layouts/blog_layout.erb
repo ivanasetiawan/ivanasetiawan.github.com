@@ -22,11 +22,12 @@
 
   <body class="<%= page_classes %>">
     <div class="wrap">
-      <header class="mainheader js_menu">
+      <header class="mainheader no-margin-bottom js_menu">
         <%= partial "nav" %>
+        <h1 class="blog-header"><%= current_page.data.title %></h1>
       </header>
-
       <article class="blog-content">
+        <time><%= current_page.data.date %></time>
         <%= yield %>
       </article>
     </div>
