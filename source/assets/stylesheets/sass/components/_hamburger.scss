@@ -14,12 +14,10 @@
   border: none;
   cursor: pointer;
   transition: background 0.3s;
-  background-color: #ff3264;
+  background-color: $light-color;
   margin: 0 auto 10px; 
 
-  &:focus {
-    outline: none;
-  }
+  &:focus { outline: none; }
 
   span {
     display: block;
@@ -29,7 +27,7 @@
     right: 5px;
     height: 4px;
     background: white;
-    transition: background 0s 0.3s;
+    transition: background 0.1s;
     
     &:before,
     &:after {
@@ -40,8 +38,7 @@
       height: 4px;
       background-color: #fff;
       content: "";
-      transition-duration: 0.3s, 0.3s;
-      transition-delay: 0.3s, 0s;
+      transition-duration: 0.1s, 0.2s;
     }
 
     &:before {
