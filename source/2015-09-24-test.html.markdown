@@ -1,8 +1,0 @@
----
-title: test
-date: 2015-09-24 15:31 UTC
-tags: news
-layout: blog_layout
----
-
-Hellooooooww

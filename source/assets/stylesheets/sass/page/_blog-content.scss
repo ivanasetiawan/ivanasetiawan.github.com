@@ -6,11 +6,21 @@
 	time {
 		font-family: $italic-font;
 		font-style: italic;
-		float: right;
-		margin-bottom: rem(10px);
+		margin-bottom: rem(20px);
+		padding: rem(5px) 0 rem(15px);
+		display: block;
+		border-bottom: solid 1px $border-color;
 	}
 
 	time ~ p { clear: both; }
+}
+
+.blog-content-header {
+	margin: 0;
+	font-size: rem(24px);
+	@media screen and (min-width: $screen-md) {
+		font-size: rem(32px);
+	}
 }
 
 input {

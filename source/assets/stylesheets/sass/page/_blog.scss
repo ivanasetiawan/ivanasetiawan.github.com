@@ -42,7 +42,10 @@
 	.is-blog {
 		> a { padding: 1rem; }
 
-		h2 { margin-right: 100px; }
+		h2 { 
+			margin-right: 100px; 
+			font-size: rem(24px);
+		}
 
 		time {
 			display: inline-block;
