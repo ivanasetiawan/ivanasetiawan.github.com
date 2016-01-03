@@ -19,16 +19,16 @@ title: Blog
 
 	<% blog.articles.each do |article| %>
 		<article class="is-blog">
-			<header>
+			<a href="<%= article.url %>">
 				<h2>
-					<a href="<%= article.url %>"><%= article.title %></a>
+					<%= article.title %>
+					<time><%= article.date.strftime('%b %e %Y') %></time>
 				</h2>
-				<time><%= article.date.strftime('%b %e %Y') %></time>
-			</header>
-			
-			<%= article.summary %>
 
-			<a href="<%= article.url %>">Read more</a>
+				<%= article.summary %>
+
+				<span class="read-more">Read more..</span>
+			</a>
 		</article>
 	<% end %>
 </div>

@@ -368,7 +368,10 @@ var Grid = (function() {
 			if( current !== -1 ) {
 				var $currentItem = $items.eq( current );
 				$currentItem.removeClass( 'og-expanded' );
+				$currentItem.siblings('li').removeClass('is-sibling');
 				this.$item.addClass( 'og-expanded' );
+				this.$item.siblings('li').addClass( 'is-sibling' );
+				
 				// position the preview correctly
 				this.positionPreview();
 			}
@@ -430,6 +433,7 @@ var Grid = (function() {
 						$( this ).off( transEndEventName );
 					}
 					self.$item.removeClass( 'og-expanded' );
+					self.$item.siblings('li').removeClass('is-sibling');
 					self.$previewEl.remove();
 				};
 
@@ -474,6 +478,7 @@ var Grid = (function() {
 						self.$item.off( transEndEventName );
 					}
 					self.$item.addClass( 'og-expanded' );
+					self.$item.siblings('li').addClass('is-sibling');
 				};
 
 			this.calcHeight();

@@ -12,10 +12,9 @@ nav[role="navigation"] {
   }
 
   span {
-    display: block;
+    display: none;
     color: $light-color;
     line-height: 1;
-    margin-top: rem(-5px);
   }
 
   @media screen and (max-width: $screen-sm - 1) {
@@ -55,14 +54,15 @@ nav[role="navigation"] {
       text-decoration: none;
       text-align: right;
       border-left: dashed 2px $font-color;
-
+      
       &:first-child { border: 0; }
       &:hover { color: $light-color;
         span { color: $font-color; }
       }
 
       span {
-        font-size: rem(24px);
+        display: block;
+        font-size: rem(26px);
       }
     }
   }
@@ -71,5 +71,26 @@ nav[role="navigation"] {
     position: absolute;
     top: rem(20px);
     right: 0;
+  }
+}
+
+.home {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+@media screen and (min-width: $screen-md) {
+  .home {
+    width: 90px;
+    height: 75px;
+    overflow: hidden;
+    text-indent: -9999px;
+    background-position: 0 0;
+    background-image: url("/assets/images/go-home.png");
+    transition: background-position 0.2s;
+    position: absolute;
+    top: 15px;
+    &:hover { background-position: 0 70px; }
   }
 }

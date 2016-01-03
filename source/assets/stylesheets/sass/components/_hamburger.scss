@@ -42,12 +42,12 @@
     }
 
     &:before {
-      top: 10px;
+      top: 9px;
       transition-property: top, transform;
     }
 
     &:after {
-      bottom: -20px;
+      bottom: -19px;
       transition-property: bottom, transform;
     }
   }
@@ -63,7 +63,7 @@
       }
       
       &:after {
-        bottom: -10px;
+        bottom: -9px;
         transform: rotate(-45deg);
       }
 

@@ -57,6 +57,22 @@ em {
   padding-bottom: rem(10px);
 }
 
+%btn {
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  border: 3px solid $font-color;
+  display: inline-block;
+  outline: none;
+  &:hover {
+    border-color: $light-color;
+    color: #fff;
+    transition: color 0.2s, background-color 0.2s;
+  }
+}
+
 // em vs. rem article:
 // http://webdesign.tutsplus.com/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984
 h1,

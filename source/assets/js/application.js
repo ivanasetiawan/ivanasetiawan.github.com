@@ -4,7 +4,6 @@ $(function() {
 
 	////////
 	// Menu behaviour
-	
 	(function( $ ){
 		var $window = $(window);
 
@@ -22,6 +21,5 @@ $(function() {
 	})( jQuery );
 
 	$('.js_menu').menuBehaviour();
-
 	////////
 });

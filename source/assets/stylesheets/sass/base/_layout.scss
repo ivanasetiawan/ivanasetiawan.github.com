@@ -17,7 +17,10 @@ body {
   margin: 0 auto;
   padding: 20px 30px;
 
-  > section { margin: 25px 0 30px; }
+  > section,
+  > article {
+    margin: 25px 0 30px;
+  }
 }
 
 ::-moz-selection {
@@ -31,3 +34,6 @@ body {
   color: #fff;
   text-shadow: none;
 }
+
+.centered { text-align: center; }
+.no-margin-bottom { margin-bottom: 0 !important; }
