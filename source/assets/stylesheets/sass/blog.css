@@ -594,6 +594,22 @@ h1,
     .h1 {
       font-size: 4rem; } }
 
+h2,
+.h2 {
+  font-size: 1.875rem; }
+  @media screen and (min-width: 1024px) {
+    h2,
+    .h2 {
+      font-size: 2rem; } }
+  @media screen and (min-width: 1224px) {
+    h2,
+    .h2 {
+      font-size: 2.125rem; } }
+  @media screen and (min-width: 1224px) {
+    h2,
+    .h2 {
+      font-size: 2.25rem; } }
+
 body {
   font-family: museoslab, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 100%;
@@ -608,8 +624,7 @@ body {
   min-height: 100%;
   margin: 0 auto;
   padding: 20px 30px; }
-  .wrap > section,
-  .wrap > article {
+  .wrap > section {
     margin: 25px 0 30px; }
 
 .mainheader {
@@ -698,12 +713,12 @@ body {
     background: rgba(0, 0, 0, 0.45);
     min-height: 125px; }
     .mainfooter .update-box h2 {
-      margin: 0 0 10px; }
+      margin: 0 0 1.25rem; }
     .mainfooter .update-box .update__content {
       margin-left: 100px; }
     .mainfooter .update-box img {
       position: absolute;
-      top: 50px;
+      top: 65px;
       left: 10px;
       border: solid 3px rgba(0, 0, 0, 0.8); }
     @media screen and (min-width: 1024px) {

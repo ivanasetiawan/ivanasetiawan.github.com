@@ -61,14 +61,28 @@ em {
 // http://webdesign.tutsplus.com/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984
 h1,
 .h1 {
-  font-size: 2rem;
+  font-size: rem(32px);
   @media screen and (min-width: $screen-md) {
-    font-size: 3rem;
+    font-size: rem(48px);
   }
   @media screen and (min-width: $screen-lg) {
-    font-size: 3.5rem;
+    font-size: rem(56px);
   }
   @media screen and (min-width: $screen-xl) {
-    font-size: 4rem;
+    font-size: rem(64px);
+  }
+}
+
+h2,
+.h2 {
+  font-size: rem(30px);
+  @media screen and (min-width: $screen-md) {
+    font-size: rem(32px);
+  }
+  @media screen and (min-width: $screen-lg) {
+    font-size: rem(34px);
+  }
+  @media screen and (min-width: $screen-xl) {
+    font-size: rem(36px);
   }
 }

@@ -28,7 +28,7 @@
 		background: rgba(0, 0, 0, 0.45);
 		min-height: 125px;
 
-		h2 { margin: 0 0 10px; }
+		h2 { margin: 0 0 rem(20px); }
 
 		.update__content {
 			margin-left: 100px;
@@ -36,7 +36,7 @@
 
 		img {
 			position: absolute;
-			top: 50px;
+			top: 65px;
 			left: 10px;
 			border: solid 3px rgba(0, 0, 0, 0.8);
 		}

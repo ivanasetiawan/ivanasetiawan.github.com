@@ -17,8 +17,17 @@ body {
   margin: 0 auto;
   padding: 20px 30px;
 
-  > section,
-  > article {
-    margin: 25px 0 30px;
-  }
+  > section { margin: 25px 0 30px; }
+}
+
+::-moz-selection {
+  background: $light-color;
+  color: #fff;
+  text-shadow: none;
+}
+
+::selection {
+  background: $light-color;
+  color: #fff;
+  text-shadow: none;
 }

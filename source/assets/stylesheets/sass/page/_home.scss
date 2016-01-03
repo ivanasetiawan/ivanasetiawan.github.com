@@ -24,6 +24,7 @@
   padding: 15px 20px;
   background: rgba(0, 0, 0, 0.45);
   border-radius: $radius;
+  margin-bottom: rem(20px);
 
   > h2 {
     margin: 0;
@@ -32,6 +33,10 @@
     font-size: rem(20px);
     font-weight: normal;
     line-height: rem(24px);
+  }
+
+  @media screen and (min-width: $screen-md) {
+    margin-bottom: rem(30px);
   }
 }
 

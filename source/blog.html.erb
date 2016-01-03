@@ -17,13 +17,15 @@ title: Blog
 		</h1>
 	</header>
 
-	<% blog.articles[0...5].each do |article| %>
+	<% blog.articles.each do |article| %>
 		<article class="is-blog">
-			<h2>
-				<a href="<%= article.url %>"><%= article.title %></a>
+			<header>
+				<h2>
+					<a href="<%= article.url %>"><%= article.title %></a>
+				</h2>
 				<time><%= article.date.strftime('%b %e %Y') %></time>
-			</h2>
-
+			</header>
+			
 			<%= article.summary %>
 
 			<a href="<%= article.url %>">Read more</a>
