@@ -83,8 +83,15 @@ configure :build do
   # set :http_prefix, "/Content/images/"
 end
 
+require_relative "./lib/build_cleaner"
+
+configure :build do
+  activate :build_cleaner
+end
+
 activate :deploy do |deploy|
   deploy.build_before = true # runs build before deploying
   deploy.method = :git
-  deploy.branch = 'origin/master'
+  deploy.remote   = 'https://github.com/ivanasetiawan/ivanasetiawan.github.com.git'
+  deploy.branch = 'master'
 end
