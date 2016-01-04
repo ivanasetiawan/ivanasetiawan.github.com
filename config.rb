@@ -54,7 +54,7 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
 activate :relative_assets
-set :relative_links, true
+# set :relative_links, true
 
 activate :blog do |blog|
   blog.permalink = "blog/{year}/{title}"
