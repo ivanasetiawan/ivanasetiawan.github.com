@@ -1,5 +1,8 @@
 .is-blog {
 	margin: 0 0 1px;
+	
+	p { line-height: 1.5; }
+
 	> a {
 		padding: 0.5rem;
 		box-sizing: border-box;

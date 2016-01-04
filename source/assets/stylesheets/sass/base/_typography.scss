@@ -66,10 +66,12 @@ em {
   border: 3px solid $font-color;
   display: inline-block;
   outline: none;
+  position: relative;
+  overflow: hidden;
   &:hover {
     border-color: $light-color;
     color: #fff;
-    transition: color 0.2s, background-color 0.2s;
+    transition: all 0.2s;
   }
 }
 

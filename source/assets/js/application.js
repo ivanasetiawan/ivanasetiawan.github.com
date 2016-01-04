@@ -1,7 +1,9 @@
 /* Runs when the DOM is loaded. */
 $(function() {
-	Grid.init();
-
+	if ($('body').hasClass('index')) {
+		Grid.init();
+	}
+	
 	////////
 	// Menu behaviour
 	(function( $ ){
