@@ -1,0 +1,223 @@
+%grayscale {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%); /* For Webkit browsers */
+	filter: gray; /* For IE 6 - 9 */
+	-webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+}
+
+.og-grid {
+	list-style: none;
+	padding: 20px 0;
+	margin: 0;
+	text-align: center;
+	width: calc(100% + rem(16px));
+
+	&__hover {
+		position: absolute;
+		display: block;
+		width: 100%;
+		
+		background-color: rgba(0, 0, 0, 0.7);
+		padding: rem(8px) 0;
+		bottom: 0;
+
+	}
+
+	@media screen and (min-width: $screen-xs) {
+		margin-left: rem(-16px);
+		&__hover {
+			margin-top: 9px;
+			z-index: -1;
+			opacity: 0;
+			transition: margin 0.2s, opacity 0.4s;
+			transition-delay: 0.2s;
+			background-color: transparent; 
+			padding: 0;
+		}
+	}
+
+	li > a,
+	.is-sibling a {
+		position: relative;
+		&:before {
+			content: "";
+			display: block; 
+			position: absolute;
+			background-color: rgba(0, 0, 0, 0.7);
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			opacity: 0;
+			transition: opacity 0.2s;
+		}
+
+		&:hover {
+			@media screen and (min-width: $screen-xs) {
+				@at-root & .og-grid__hover {
+					top: 50%;
+					opacity: 1;
+					margin-top: -9px;
+					z-index: 3;		}
+
+				@at-root &:before {
+					opacity: 1;
+				}
+			}
+		}
+	} 
+}
+
+.og-grid li {
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: rem(10px);
+	
+	img { 
+		width: 100%; 
+		vertical-align: top; 
+	}
+
+	@media screen and (min-width: $screen-xs) {
+		width: calc((100% - (20px * 2)) /2);
+		margin: 10px 0 10px rem(16px);
+		img {
+			width: auto;
+			max-width: 100%;
+		}
+	}
+
+	@media screen and (min-width: $screen-sm) {
+		width: calc((100% - (20px * 3)) /3);
+	}
+
+	@media screen and (min-width: $screen-md) {
+		width: calc((100% - (20px * 4)) /4);
+		height: 180px;
+	}
+
+	&.is-sibling img {
+		@extend %grayscale;
+	}
+}
+
+.og-grid li > a,
+.og-grid li > a img {
+	border: none;
+	outline: none;
+	display: block;
+	position: relative;
+}
+
+.og-grid li.og-expanded > a::after {
+	top: auto;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: rgba(0, 0, 0, 0.5);
+	border-width: 15px;
+	left: 50%;
+	margin: -20px 0 0 -15px;
+}
+
+.og-expander {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.5);
+	top: auto;
+	left: 0;
+	width: 100%;
+	margin-top: 10px;
+	text-align: left;
+	height: 0;
+	overflow: hidden;
+	z-index: 20;
+}
+
+.og-expander-inner {
+	padding: 50px 30px;
+	height: 100%;
+}
+
+.og-close {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+}
+
+.og-close::before,
+.og-close::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	height: 1px;
+	background: #fff;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.og-close::after {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.og-close:hover::before,
+.og-close:hover::after {
+	background: $light-color;
+}
+
+.og-details {
+	width: 50%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.og-fullimg img {
+	display: inline-block;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.og-details h3 {
+	font-weight: 300;
+	font-size: rem(40px);
+	// padding: 40px 0 10px;
+	margin-bottom: 10px;
+}
+
+.og-details p {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	@media screen and (min-width: $screen-sm) {
+		max-width: 80%;
+	}
+}
+
+.og-details a { @extend %btn; margin: 30px 0 0; }
+
+
+@media screen and (max-width: 830px) {
+
+	.og-expander h3 { font-size: 32px; }
+	.og-expander p { font-size: 13px; }
+	.og-expander a { font-size: 12px; }
+
+}
+
+@media screen and (max-width: $screen-md - 1) {
+
+	.og-fullimg { display: none; }
+	.og-details { float: none; width: 100%; }
+	
+}

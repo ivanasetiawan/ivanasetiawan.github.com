@@ -1,0 +1,106 @@
+@mixin italic {
+  font-family: $italic-font;
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: .7px;
+}
+
+// Font face
+@font-face {
+  font-family: 'museoslab';
+  src: url('/assets/fonts/museo_slab_500-webfont-webfont.eot');
+  src: url('/assets/fonts/museo_slab_500-webfont-webfont.woff') format('woff'), url('/assets/fonts/museo_slab_500-webfont-webfont.ttf') format('truetype'), url('/assets/fonts/museo_slab_500-webfont-webfont.svg') format('svg');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'megalopolis';
+  src: url('/assets/fonts/megalopolisextra-webfont.eot');
+  src: url('/assets/fonts/megalopolisextra-webfont.woff') format('woff'), url('/assets/fonts/megalopolisextra-webfont.ttf') format('truetype'), url('/assets/fonts/megalopolisextra-webfont.svg') format('svg');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'marketingscript';
+  src: url('/assets/fonts/marketingscript-webfont.eot');
+  src: url('/assets/fonts/marketingscript-webfont.woff') format('woff'), url('/assets/fonts/marketingscript-webfont.ttf') format('truetype'), url('/assets/fonts/marketingscript-webfont.svg') format('svg');
+  font-style: normal;
+}
+
+// Typography
+a,
+a:visited {
+  color: $light-color;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $font-color;
+  }
+}
+
+strong {
+  font-weight: bold;
+  color: $light-color;
+}
+
+em {
+  font-style: italic;
+}
+
+.is-title {
+  border-bottom: dashed 1px $border-color;
+  font-family: $museo;
+  font-size: rem(21px);
+  line-height: rem(35px);
+  margin: 0;
+  padding-bottom: rem(10px);
+}
+
+%btn {
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  border: 3px solid $font-color;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    border-color: $light-color;
+    color: #fff;
+    transition: all 0.2s;
+  }
+}
+
+// em vs. rem article:
+// http://webdesign.tutsplus.com/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984
+h1,
+.h1 {
+  font-size: rem(32px);
+  @media screen and (min-width: $screen-md) {
+    font-size: rem(48px);
+  }
+  @media screen and (min-width: $screen-lg) {
+    font-size: rem(56px);
+  }
+  @media screen and (min-width: $screen-xl) {
+    font-size: rem(64px);
+  }
+}
+
+h2,
+.h2 {
+  font-size: rem(30px);
+  @media screen and (min-width: $screen-md) {
+    font-size: rem(32px);
+  }
+  @media screen and (min-width: $screen-lg) {
+    font-size: rem(34px);
+  }
+  @media screen and (min-width: $screen-xl) {
+    font-size: rem(36px);
+  }
+}
