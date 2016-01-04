@@ -86,12 +86,16 @@ end
 require_relative "./lib/build_cleaner"
 
 configure :build do
+  activate :minify_css
+  activate :minify_javascript
+  activate :asset_hash
+  activate :relative_assets
   activate :build_cleaner
 end
 
 activate :deploy do |deploy|
   deploy.build_before = true # runs build before deploying
   deploy.method = :git
-  deploy.remote   = 'https://github.com/ivanasetiawan/ivanasetiawan.github.com.git'
+  deploy.remote = 'https://github.com/ivanasetiawan/ivanasetiawan.github.com.git'
   deploy.branch = 'master'
 end
