@@ -3,7 +3,7 @@
 	box-sizing: border-box;
 	background-color: rgba(0,0,0,0.3);
 	
-	p { line-height: 1.5; }
+	p { line-height: 1.5; max-width: $screen-sm; }
 
 	time {
 		font-family: $italic-font;

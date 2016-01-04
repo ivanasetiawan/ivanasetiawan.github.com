@@ -54,7 +54,6 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
 activate :relative_assets
-# set :relative_links, true
 
 activate :blog do |blog|
   blog.permalink = "blog/{year}/{title}"
@@ -83,7 +82,7 @@ configure :build do
   # set :http_prefix, "/Content/images/"
 end
 
-require_relative "./lib/build_cleaner"
+require_relative './lib/build_cleaner'
 
 configure :build do
   activate :minify_css

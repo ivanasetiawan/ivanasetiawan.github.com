@@ -104,3 +104,13 @@ h2,
     font-size: rem(36px);
   }
 }
+
+pre {
+  background: $font-color;
+  color: $dark-color;
+  max-width: $screen-sm;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+p > code { background: $font-color; color: $dark-color; padding: 0 0.3rem;}
