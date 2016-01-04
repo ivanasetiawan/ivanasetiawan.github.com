@@ -53,6 +53,9 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
+activate :relative_assets
+set :relative_links, true
+
 activate :blog do |blog|
   blog.permalink = "blog/{year}/{title}"
   blog.paginate = true
@@ -78,4 +81,10 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+end
+
+activate :deploy do |deploy|
+  deploy.build_before = true # runs build before deploying
+  deploy.method = :git
+  deploy.branch = 'origin/master'
 end
