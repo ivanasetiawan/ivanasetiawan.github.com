@@ -81,10 +81,19 @@ a {
 	color: $grey-light;
 	text-decoration: none;
 	border-bottom: 1px dotted $grey-light;
+	transition: color 0.2s;
 
 	&:hover {
 		border-bottom-style: solid;
 		color: black;
+	}
+}
+
+.url-company {
+	color: #ff9b4a;
+	border-bottom: none;
+	&:hover {
+		color: #333;
 	}
 }
 
@@ -114,6 +123,12 @@ dd {
 	margin: 0;
 	padding-left: 26px;
 	box-sizing: border-box;
+
+	ul {
+		margin: 0;
+		list-style-position: inside;
+		padding: 0;
+	}
 
 	&.clear {
 		float: none;
