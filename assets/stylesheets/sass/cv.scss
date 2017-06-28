@@ -1,4 +1,4 @@
-@import "base/normalize";
+// @import "base/normalize";
 
 // Base screen
 $screen-xl: 1224px;
@@ -6,6 +6,11 @@ $screen-lg: 1224px;
 $screen-md: 1024px;
 $screen-sm: 768px;
 $screen-xs: 480px;
+$grey-light: #999;
+
+@function rem($target, $base:16px) {
+  @return ($target / $base) + rem;
+}
 
 // Font face
 @font-face {
@@ -29,32 +34,27 @@ $screen-xs: 480px;
   font-style: normal;
 }
 
-h1,
-.h1 {
-  font-size: rem(32px);
+h2,
+.h2 {
+  font-size: rem(20px);
+  margin: 0 0;
+  &:not(:first-child) {
+  	margin: 1.4em 0 0;
+  }
+  line-height: 1.4;
   @media screen and (min-width: $screen-md) {
-    font-size: rem(48px);
+    font-size: rem(22px);
   }
   @media screen and (min-width: $screen-lg) {
-    font-size: rem(56px);
+    font-size: rem(24px);
   }
   @media screen and (min-width: $screen-xl) {
-    font-size: rem(64px);
+    font-size: rem(26px);
   }
 }
 
-h2,
-.h2 {
-  font-size: rem(30px);
-  @media screen and (min-width: $screen-md) {
-    font-size: rem(32px);
-  }
-  @media screen and (min-width: $screen-lg) {
-    font-size: rem(34px);
-  }
-  @media screen and (min-width: $screen-xl) {
-    font-size: rem(36px);
-  }
+.position {
+	color: $grey-light;
 }
 
 body {
@@ -70,43 +70,17 @@ body {
 	margin: 40px auto 60px;
 }
 
-#pic {
+.portrait {
 	float: right;
-	margin: -30px 0 0 0;
+	width: 200px;
+	border-radius: 50%;
 }
-
-// h1 {
-// 	margin: 0 0 16px 0;
-// 	padding: 0 0 16px 0;
-// 	font-size: 42px;
-// 	font-weight: bold;
-// 	letter-spacing: -2px;
-// 	border-bottom: 1px solid #999;
-// }
-
-// h2 {
-// 	font-size: 20px;
-// 	margin: 0 0 6px 0;
-// 	position: relative;
-
-// }
-
-// h2 span {
-// 	position: absolute;
-// 	bottom: 0;
-// 	right: 0;
-// 	font-style: italic;
-// 	font-family: Georgia, Serif;
-// 	font-size: 16px;
-// 	color: #999;
-// 	font-weight: normal;
-// }
 
 p { margin: 0 0 16px 0; }
 a {
-	color: #999;
+	color: $grey-light;
 	text-decoration: none;
-	border-bottom: 1px dotted #999;
+	border-bottom: 1px dotted $grey-light;
 
 	&:hover {
 		border-bottom-style: solid;
@@ -126,20 +100,20 @@ ul { margin: 0 0 32px 17px; }
 }
 
 dt {
-	font-style: italic;
-	font-weight: bold;
-	font-size: 18px;
 	text-align: right;
 	padding: 0 26px 0 0;
 	width: 150px;
 	float: left;
 	height: 100px;
-	border-right: 1px solid #999;
+	border-right: 1px solid $grey-light;
 }
 
 dd {
-	width: 600px;
+	width: calc(100% - 177px);
 	float: right;
+	margin: 0;
+	padding-left: 26px;
+	box-sizing: border-box;
 
 	&.clear {
 		float: none;
