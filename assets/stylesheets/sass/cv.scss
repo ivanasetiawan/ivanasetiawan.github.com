@@ -1,12 +1,12 @@
-// @import "base/normalize";
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700');
 
 // Base screen
-$screen-xl: 1224px;
 $screen-lg: 1224px;
 $screen-md: 1024px;
 $screen-sm: 768px;
 $screen-xs: 480px;
 $grey-light: #999;
+$color-orange: #ff9b4a;
 
 @function rem($target, $base:16px) {
   @return ($target / $base) + rem;
@@ -14,126 +14,160 @@ $grey-light: #999;
 
 // Font face
 @font-face {
-  font-family: 'museoslab';
-  src: url('../fonts/museo_slab_500-webfont-webfont.eot');
-  src: url('../fonts/museo_slab_500-webfont-webfont.woff') format('woff'), url('../fonts/museo_slab_500-webfont-webfont.ttf') format('truetype'), url('../fonts/museo_slab_500-webfont-webfont.svg') format('svg');
+  font-family: 'merriweatherbold';
+  src: url('../fonts/merriweather-bold.woff2') format('woff2'),
+       url('../fonts/merriweather-bold.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'megalopolis';
-  src: url('../fonts/megalopolisextra-webfont.eot');
-  src: url('../fonts/megalopolisextra-webfont.woff') format('woff'), url('../fonts/megalopolisextra-webfont.ttf') format('truetype'), url('../fonts/megalopolisextra-webfont.svg') format('svg');
+  font-family: 'merriweatheritalic';
+  src: url('../fonts/merriweather-italic.woff2') format('woff2'),
+       url('../fonts/merriweather-italic.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marketingscript';
-  src: url('../fonts/marketingscript-webfont.eot');
-  src: url('../fonts/marketingscript-webfont.woff') format('woff'), url('../fonts/marketingscript-webfont.ttf') format('truetype'), url('../fonts/marketingscript-webfont.svg') format('svg');
+  font-family: 'merriweatherregular';
+  src: url('../fonts/merriweather-regular.woff2') format('woff2'),
+       url('../fonts/merriweather-regular.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
+}
+
+body {
+  font: 16px 'merriweatherregular', 'HelveticaNeue-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h2,
 .h2 {
   font-size: rem(20px);
-  margin: 0 0;
-  &:not(:first-child) {
-  	margin: 1.4em 0 0;
-  }
-  line-height: 1.4;
+  font-family: 'merriweatheritalic';
+  font-weight: normal;
+  margin: 0;
+  letter-spacing: 0.5px;
   @media screen and (min-width: $screen-md) {
-    font-size: rem(22px);
-  }
-  @media screen and (min-width: $screen-lg) {
     font-size: rem(24px);
   }
-  @media screen and (min-width: $screen-xl) {
-    font-size: rem(26px);
+}
+
+.cv {
+	max-width: $screen-sm;
+	margin: 2em auto;
+  
+  &-skills,
+  &-projects {
+    margin: 2em 0;
+
+    @media screen and (min-width: $screen-md) {
+      margin: 4em 0;
+    }
+  }
+
+  &-header {
+    &__avatar,
+    &__title {
+      @media screen and (min-width: $screen-md) {
+        margin-top: 4.4em;
+        float: left;
+      }
+    }
+
+    &__intro {
+      @media screen and (min-width: $screen-md) {
+        clear: both;
+      }
+    }
+
+    &__avatar {
+      width: 100px;
+      height: 100px;
+      @media screen and (min-width: $screen-md) {
+        margin-right: 1em;
+      }
+    }
+
+    &__title {
+      line-height: 1;
+      font-size: 2rem;
+      letter-spacing: 2px;
+
+      &__sub {
+        font-size: 1rem;
+        font-family: 'merriweatheritalic';
+        font-weight: normal;
+        display: block;
+        letter-spacing: 0.5px;
+      }
+
+      @media screen and (min-width: $screen-md) {
+        font-size: 4rem;
+        margin: 1em 0;
+
+        &__sub {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &-ul {
+    padding: 0;
+    &__li {
+      list-style: none;
+      margin-bottom: 0.5em;
+      position: relative;
+      padding-left: 2em;
+      &:before {
+        content: '</>';
+        display: inline-block;
+        width: 20px;
+        height: 14px;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        font-size: 8px;
+        background: #333;
+        color: #fff;
+        line-height: 8px;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &-projects {
+    &__client-name {
+      margin: 0;
+      @media screen and (min-width: $screen-md) {
+        margin: 1em 0 0.5em;
+      }
+    }
+    &__li {
+      margin: 2em 0;
+
+      &:before {
+        content: '';
+        background: $color-orange;
+      }
+      
+      &__period {
+        margin: 0;
+        font-style: italic;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        color: $grey-light;
+        @media screen and (min-width: $screen-md) {
+          position: absolute;
+          top: 0;
+          right: 0; 
+        }
+      }
+    }
   }
 }
-
-.position {
-	color: $grey-light;
-}
-
-body {
-	font: 16px museoslab, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	line-height: 24px;
-	background: url('../images/lightpaperfibers.png');
-}
-
-.clear { clear: both; }
-
-#page-wrap {
-	width: 800px;
-	margin: 40px auto 60px;
-}
-
-.portrait {
-	float: right;
-	width: 200px;
-	border-radius: 50%;
-}
-
-p { margin: 0 0 16px 0; }
-a {
-	color: $grey-light;
-	text-decoration: none;
-	border-bottom: 1px dotted $grey-light;
-	transition: color 0.2s;
-
-	&:hover {
-		border-bottom-style: solid;
-		color: black;
-	}
-}
-
-.url-company {
-	color: #ff9b4a;
-	border-bottom: none;
-	&:hover {
-		color: #333;
-	}
-}
-
-ul { margin: 0 0 32px 17px; }
-#objective {
-	width: 500px;
-	float: left;
-	p {
-		font-family: Georgia, Serif;
-		font-style: italic;
-		color: #666;
-	}
-}
-
-dt {
-	text-align: right;
-	padding: 0 26px 0 0;
-	width: 150px;
-	float: left;
-	height: 100px;
-	border-right: 1px solid $grey-light;
-}
-
-dd {
-	width: calc(100% - 177px);
-	float: right;
-	margin: 0;
-	padding-left: 26px;
-	box-sizing: border-box;
-
-	ul {
-		margin: 0 0 1rem;
-		list-style-position: inside;
-		padding: 0;
-	}
-
-	&.clear {
-		float: none;
-		margin: 0;
-		height: 15px;
-	}
-}
-

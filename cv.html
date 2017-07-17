@@ -2,118 +2,79 @@
 <html>
   <head>
     <meta charset="utf-8">
-
     <!-- Use title if it's in the page YAML frontmatter -->
     <title>CV /ee-vanh-uh/</title>
-
-    <meta name="description" content="I am a rocket scientist wannabe who's passionately in love with web stuff">
+    <meta name="description" content="I am a freelance front-end developer and rocket scientist wannabe who's passionately in love with web stuff">
     <meta name="author" content="Ivana Setiawan">
-
-    <!-- Always force latest IE rendering engine or request Chrome Frame -->
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-
     <meta name="viewport" content="width=device-width,initial-scale=1">
-
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/ico">
-
     <link href="assets/stylesheets/cv.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
 
-      <div id="page-wrap">
+      <main class="cv">
+          <header class="cv-header">
+            <img src="assets/images/ivana.jpg" alt="Ivana Setiawan" class="cv-header__avatar"/>
+            <h1 class="cv-header__title">
+              <small class="cv-header__title__sub">Freelance front-end developer</small>
+              Ivana Setiawan
+            </h1>
 
-          <img src="assets/images/ivana.jpg" alt="Ivana Setiawan" class="portrait"/>
+            <p class="cv-header__intro">
+              I am an outgoing and energetic young professional, seeking a feelance
+              project that fits my professional skills and personality. I am passionately in love with frontend shizzle and very much eager to learn new tools &amp; frameworks.
+              <br><br>
+              I have been writing code since 2009 and prefer to work with scrum methodology. I believe that TDD is the best way to keep your code bug free, super pretty &amp; easy to read (and accessible).
+            </p>
+          </header>
 
-          <div id="contact-info" class="vcard">
+          <article class="cv-skills">
+            <h2>Skills:</h2>
+            <ul class="cv-ul">
+              <li class="cv-ul__li">Modular Front-end code</li>
+              <li class="cv-ul__li">Web accessibility [Accessible Rich Internet Applications (ARIA)]</li>
+              <li class="cv-ul__li">Git</li>
+              <li class="cv-ul__li">ES6, jQuery</li>
+              <li class="cv-ul__li">Javascript Unit Testing (Mocha, Chai, Sinon)</li>
+              <li class="cv-ul__li">JS package manager, such as NPM &amp; Yarn</li>
+              <li class="cv-ul__li">Build automation tool, such as Gulp &amp; Grunt</li>
+              <li class="cv-ul__li">Continous deployment with Bamboo &amp; Docker</li>
+              <li class="cv-ul__li">Angularjs (Angular 2 in progress)</li>
+            </ul>
+          </article>
 
-              <!-- Microformats! -->
+          <article class="cv-projects">
+            <h2>Projects:</h2>
+            <ul class="cv-ul cv-projects__ul">
+              <li class="cv-ul__li cv-projects__li">
+                <h3 class="cv-projects__client-name">Funda</h3>
+                <p class="cv-projects__li__period">August 2015 - present</p>
+                <p>My role at funda is as frontend developer in the team New Business. We're the startup team of Funda; in short, our role as a team is to explore and build awesome projects outside the "normal" funda projects.</p>
+              </li>
 
-              <h1 class="fn">Ivana Setiawan</h1>
+              <li class="cv-ul__li cv-projects__li">
+                <h3 class="cv-projects__client-name">Venopi</h3>
+                <p class="cv-projects__li__period">April 2015 - present</p>
+                <p>As the technical consultant, my main responsibility is to ensure that Venopi delivers a great product. My ambition is to make impact by providing good service, while remaining humble.</p>
+              </li>
 
-              <p>
-                  Cell: <span class="tel" href="tel:+31621977967">06 1495 1438</span><br />
-                  Email: <a class="email" href="mailto:ivana.setiawan@gmail.com">ivana.setiawan@gmail.com</a>
-              </p>
-          </div>
+              <li class="cv-ul__li cv-projects__li">
+                <h3 class="cv-projects__client-name">Mangrove</h3>
+                <p class="cv-projects__li__period">April 2012 - July 2015</p>
+                <p>Front end coding for Mangrove clients such as Hartstichting, Omron, MyLaps, Ahrend, etc.</p>
+              </li>
 
-          <div id="objective">
-              <p>
-                  I am an outgoing and energetic young professional, seeking a feelance
-                  project that fits my professional skills and personality. I am passionately in love with frontend shizzle and very much eager to learn new tools &amp; frameworks.
-                  <br><br>
-                  I work with scrum methodology (and sometimes kanban, depending on the project) &amp; believe that TDD is the best way to keep your code bug free, super pretty &amp; easy to read (and refactor).
-              </p>
-          </div>
-
-          <div class="clear"></div>
-
-          <dl>
-              <dd class="clear"></dd>
-
-              <dt>Skills</dt>
-              <dd>
-                <ul>
-                  <li>Semantic HTML5</li>
-                  <li>Modular SASS/SCSS</li>
-                  <li>Frontend accessibility</li>
-                  <li>Cross browser testing</li>
-                  <li>Git</li>
-                  <li>ES6, jQuery</li>
-                  <li>Javascript Unit Testing (Mocha, Chai, Sinon)</li>
-                  <li>Package manager for JS such as NPM &amp; Yarn</li>
-                  <li>Build automation tools such as Gulp and Grunt</li>
-                  <li>Continous deployment with Bamboo &amp; Docker (basic knowlegde)</li>
-                  <li>Angularjs (Angular 2 in progress)</li>
-                </ul>
-              </dd>
-
-              <dd class="clear"></dd>
-
-              <dt>Experience</dt>
-              <dd>
-                  <h2><a href="http://www.funda.nl/" target="_blank" class="url-company">Funda</a> (Amsterdam) <span>August 2015 - present</span></h2>
-                  <p class="position">Software developer</p>
-                  <p>My role at funda is as frontend developer in the team New Business. We're the startup team of Funda; in short, our role as a team is to explore and build awesome projects outside the normal funda projects.</p>
-
-                  <h2><a href="https://www.venopi.com/" target="_blank" class="url-company">Venopi</a> (Amsterdam) <span>April 2015 - present</span></h2>
-                  <p class="position">Senior Technical Counsultant</p>
-                  <p>As the technical consultant, my main responsibility is to ensure that Venopi delivers a great product. My ambition is to make impact by providing good service, while remaining humble.</p>
-
-                  <h2><a href="http://www.ivanasetiawan.com/" target="_blank" class="url-company">Freelance</a> (Amsterdam) <span>April 2015 - present</span></h2>
-                  <p class="position">Software developer</p>
-                  <p>I do frontend projects for selected clients from time to time &amp; now I'd like to take it to another level. Some of my clients are <a href="https://www.cargobase.com/" target="_blank">Cargobase</a>, <a href="http://www.itsjustdelusionoftouch.com/" target="_blank">Mehraneh Atashi</a>, <a href="http://falcongrove.com/" target="_blank">Falcon Grove production</a>.</p>
-
-                  <h2><a href="https://www.mangrove.com/en" target="_blank" class="url-company">Mangrove</a> (Rotterdam) <span>April 2012 - July 2015</span></h2>
-                  <p class="position">Software developer</p>
-                  <p>Front end coding for Mangrove clients such as Hartstichting, Omron, MyLaps, Ahrend, etc.</p>
-
-                  <h2><a href="http://www.80beans.com/" target="_blank" class="url-company">80beans</a> (Amsterdam) <span>April 2010 - April 2012</span></h2>
-                  <p class="position">Software developer</p>
-                  <p>Front end coding for web apps (Ruby on Rails) and <a href="" target="_blank">slicecraft's</a> clients.</p>
-              </dd>
-
-              <dd class="clear"></dd>
-
-              <dt>Hobbies</dt>
-              <dd>
-                <ul>
-                  <li>Exploring new frontend tools</li>
-                  <li>Reading books (mostly physics for kids, turns out it's still complicated)</li>
-                  <li>Sports</li>
-                </ul>
-              </dd>
-
-              <dd class="clear"></dd>
-
-              <dt>References</dt>
-              <dd>Available on request. Cannot wait? please go to my <a href="https://www.linkedin.com/in/ivanasetiawan/" taregt="_blank">linkedin profile</a> and read some of my recommendations.</dd>
-
-              <dd class="clear"></dd>
-          </dl>
-
-          <div class="clear"></div>
-
-      </div>
-
+              <li class="cv-ul__li cv-projects__li">
+                <h3 class="cv-projects__client-name">80beans</h3>
+                <p class="cv-projects__li__period">April 2010 - April 2012</p>
+                <p>Front end coding for web apps (Ruby on Rails) and slicecraft's clients.</p>
+              </li>
+            </ul>
+          </article>
+      </main>
+      <footer>
+        
+      </footer>
   </body>
 </html>
