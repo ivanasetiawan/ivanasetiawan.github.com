@@ -53,11 +53,11 @@ a {
   text-decoration: none;
   color: $grey;
   text-shadow: none;
-  transition: opacity 0.3s;
+  transition: color 0.2s;
   outline: none;
 
   &:hover {
-    opacity: 0.6;
+    color: $orange;
   }
   
   &.external-url {
@@ -310,7 +310,10 @@ h2,
       padding: 0;
     }
 
-    a { color: white; }
+    a { 
+      color: white; 
+      &:hover { color: $orange; }
+    }
     
     &__ul {
       overflow: hidden;
