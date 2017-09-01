@@ -294,7 +294,7 @@ h2,
         color: $grey-light;
         @media screen and (min-width: $screen-md) {
           position: absolute;
-          top: 0;
+          top: 14px;
           right: 0;
         }
       }
@@ -355,6 +355,27 @@ h2,
           margin-left: 1.5em;
         }
       }
+    }
+  }
+
+  &-download {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+    margin: 0;
+
+    &__link {
+      display: inline-block;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 0;
+      top: 4px;
     }
   }
 }
