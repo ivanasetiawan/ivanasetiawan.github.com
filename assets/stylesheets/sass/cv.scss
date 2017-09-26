@@ -1,6 +1,7 @@
 // Base screen
-$screen-md: 1024px;
-$screen-sm: 780px;
+$screen-lg: 1024px;
+$screen-md: 780px;
+$screen-sm: 520px;
 $grey: #333;
 $grey-light: #999;
 $grey-lightest: #f4f4f4;
@@ -34,6 +35,12 @@ $blue: #232c3b;
        url('../fonts/merriweather-regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+%tag {
+  padding: 4px 8px;
+  font-family: monospace, 'Courier';
+  box-sizing: border-box;
 }
 
 body {
@@ -111,22 +118,22 @@ h2,
   font-weight: normal;
   margin: 0;
   letter-spacing: 0.5px;
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-lg) {
     font-size: rem(24px);
   }
 }
 
 .wrapper {
-  max-width: $screen-sm;
+  max-width: $screen-md;
   margin: 0 auto;
   padding: 2rem 0;
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-lg) {
     padding: 3rem 0;
   }
 }
 
 .cv {
-  @media screen and (min-width: $screen-md) {
+  @media screen and (min-width: $screen-lg) {
     &:before,
     &:after {
       content: '';
@@ -153,9 +160,9 @@ h2,
   &-skills,
   &-projects {
     margin: 2rem auto;
-    max-width: $screen-sm;
+    max-width: $screen-md;
     padding: 0 0.875rem;
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-lg) {
       margin: 3rem auto;
       padding: 0;
     }
@@ -166,7 +173,7 @@ h2,
     color: white;
     padding: 0 0.875rem;
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-lg) {
       padding: 0;
       &:before,
       &:after {
@@ -197,15 +204,31 @@ h2,
 
     &__avatar,
     &__title {
-      @media screen and (min-width: $screen-md) {
-        margin-top: 1rem;
+      @media screen and (min-width: $screen-sm) {
         float: left;
+      }
+
+      @media screen and (min-width: $screen-lg) {
+        margin-top: 1rem;
       }
     }
 
-    &__intro {
-      @media screen and (min-width: $screen-md) {
-        clear: both;
+    &__intro,
+    &__availability {
+      clear: both;
+    }
+
+    &__availability {
+      @extend %tag;
+      font-size: 16px;
+      display: inline-block;
+      margin: 0;
+      background-color: darken($orange, 10%);
+
+      @media screen and (min-width: $screen-sm) and (max-width: $screen-lg - 1px) {
+        float: left;
+        width: 100%;
+        margin: 2rem 0 1rem;
       }
     }
 
@@ -213,7 +236,7 @@ h2,
       width: 100px;
       height: 100px;
       border-radius: 4px;
-      @media screen and (min-width: $screen-md) {
+      @media screen and (min-width: $screen-sm) {
         margin-right: 1em;
       }
     }
@@ -231,9 +254,9 @@ h2,
         letter-spacing: 0.5px;
       }
 
-      @media screen and (min-width: $screen-md) {
+      @media screen and (min-width: $screen-lg) {
         font-size: 4rem;
-        margin: 0.6rem 0 1em;
+        margin: 0.6rem 0 0.8em;
 
         &__sub {
           font-size: 1.5rem;
@@ -270,14 +293,14 @@ h2,
   &-projects {
     &__client-name {
       margin: 0;
-      @media screen and (min-width: $screen-md) {
+      @media screen and (min-width: $screen-lg) {
         margin: 1em 0 0.5em;
       }
     }
     &__li {
       margin: 2em 0;
 
-      @media screen and (min-width: $screen-md) {
+      @media screen and (min-width: $screen-lg) {
         margin: 2.5em 0;
       }
 
@@ -294,7 +317,7 @@ h2,
       font-size: 14px;
       letter-spacing: 0.5px;
       color: $grey-light;
-      @media screen and (min-width: $screen-md) {
+      @media screen and (min-width: $screen-lg) {
         position: absolute;
         top: 14px;
         right: 0;
@@ -307,13 +330,12 @@ h2,
     }
 
     &__keywords {
-      display: block;
+      @extend %tag;
       color: white;
-      margin-top: 1rem;
-      padding: 4px 8px;
       background-color: $grey;
-      font-family: monospace, 'Courier';
       font-size: 14px;
+      display: block;
+      margin-top: 1rem;
     }
   }
 
@@ -322,7 +344,7 @@ h2,
     color: white;
     padding: 0 0.875rem;
 
-    @media screen and (min-width: $screen-md) {
+    @media screen and (min-width: $screen-lg) {
       padding: 0;
     }
 
@@ -365,7 +387,7 @@ h2,
           content: url('../images/linkedin.svg');
         }
       }
-      @media screen and (min-width: $screen-md) {
+      @media screen and (min-width: $screen-lg) {
         float: left;
         &:not(:first-child) {
           margin-left: 1.5em;
