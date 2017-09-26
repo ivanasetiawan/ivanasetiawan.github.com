@@ -3,6 +3,7 @@ $screen-md: 1024px;
 $screen-sm: 780px;
 $grey: #333;
 $grey-light: #999;
+$grey-lightest: #f4f4f4;
 $orange: #ff9b4a;
 $blue: #232c3b;
 
@@ -285,19 +286,34 @@ h2,
         width: 20px;
         background: none;
       }
+    }
 
-      &__period {
-        margin: 0;
-        font-style: italic;
-        font-size: 14px;
-        letter-spacing: 0.5px;
-        color: $grey-light;
-        @media screen and (min-width: $screen-md) {
-          position: absolute;
-          top: 14px;
-          right: 0;
-        }
+    &__period {
+      margin: 0;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      color: $grey-light;
+      @media screen and (min-width: $screen-md) {
+        position: absolute;
+        top: 14px;
+        right: 0;
       }
+    }
+
+    &__position {
+      padding: 4px 8px 8px;
+      background-color: $grey-lightest;
+    }
+
+    &__keywords {
+      display: block;
+      color: white;
+      margin-top: 1rem;
+      padding: 4px 8px;
+      background-color: $grey;
+      font-family: monospace, 'Courier';
+      font-size: 14px;
     }
   }
 
