@@ -158,7 +158,8 @@ h2,
   }
 
   &-skills,
-  &-projects {
+  &-projects,
+  &-code {
     margin: 2rem auto;
     max-width: $screen-md;
     padding: 0 0.875rem;
@@ -392,6 +393,52 @@ h2,
         &:not(:first-child) {
           margin-left: 1.5em;
         }
+      }
+    }
+  }
+
+  &-code {
+    &__lists {
+      padding: 0;
+    }
+
+    &__item {
+      list-style: none;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    &__link {
+      display: block;
+      background-color: $grey-lightest;
+      padding: 10px;
+      font-size: 14px;
+      border: solid 1px transparent;
+      transition: background-color 0.2s, border 0.3s;
+
+      &:hover {
+        color: $grey;
+        border-color: $blue;
+        background-color: #fff;
+      }
+    }
+
+    &__icon {
+      height: 50px;
+      vertical-align: middle;
+      display: block;
+      margin: 0 auto 4px;
+    }
+
+    @media screen and (min-width: $screen-lg) {
+      &__lists {
+        display: flex;
+        margin: 1.25em 0 0;
+      }
+
+      &__item {
+        width: 180px;
+        margin-right: 4px;
       }
     }
   }
