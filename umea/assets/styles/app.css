@@ -489,6 +489,30 @@ html {
   line-height: 1.4;
   color: #2F446A; }
 
+.btn {
+  display: inline-block;
+  padding: 6px 16px 5px;
+  background-color: #288D85;
+  border-radius: 3px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0 auto;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: background-color 0.2s; }
+  .btn:hover {
+    background-color: #0c2a27; }
+  .btn--border {
+    background-color: transparent;
+    border: solid 2px #288D85;
+    color: #288D85; }
+    .btn--border:hover {
+      background-color: #288D85;
+      color: #fff; }
+
+.centered {
+  text-align: center; }
+
 .h-clearlist {
   list-style: none;
   margin: 0;
@@ -786,7 +810,8 @@ html {
     .user__item {
       padding-left: 130px; }
       .user__item--sm {
-        padding-left: 90px; } }
+        padding-left: 90px;
+        margin: 4em 0; } }
 .user__imgbox {
   border-radius: 50%;
   line-height: 100px;
