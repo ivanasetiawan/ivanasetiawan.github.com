@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Stove</title>
+  <path data-name="layer3"
+  fill="#fff" d="M6 2h52v14H6z"></path>
+  <path data-name="layer4" fill="#7c8cb0" d="M6 16v38h52V16"></path>
+  <path data-name="layer3" fill="#fff" d="M6 54v8h52v-8"></path>
+  <path data-name="opacity" fill="#101129" opacity=".25" d="M6 14h52v1.99H6zm0 45v3h52v-3"></path>
+  <rect data-name="layer2" x="14" y="24" width="36" height="22" rx="4"
+  ry="4" fill="#475c80"></rect>
+  <circle data-name="layer1" cx="41" cy="9" r="1" fill="#f26950"></circle>
+  <circle data-name="layer1" cx="49" cy="9" r="1" fill="#f26950"></circle>
+  <path data-name="opacity" fill="#fff" opacity=".25" d="M50 36.9v-6.8L43.9 24h-6.8L50 36.9zM23.3 24l22 22h.7a4 4 0 0 0 4-4v-.3L32.3 24z"></path>
+  <path data-name="stroke" fill="none" stroke="#2f446a" stroke-linecap="round"
+  stroke-linejoin="round" stroke-width="2" d="M6 2h52v14H6zm0 14v38h52V16M6 54v8h52v-8"></path>
+  <rect data-name="stroke" x="14" y="24" width="36" height="22" rx="4"
+  ry="4" fill="none" stroke="#2f446a" stroke-linecap="round" stroke-linejoin="round"
+  stroke-width="2"></rect>
+  <circle data-name="stroke" cx="41" cy="9" r="1" fill="none" stroke="#2f446a"
+  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
+  <circle data-name="stroke" cx="49" cy="9" r="1" fill="none" stroke="#2f446a"
+  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
+  <path data-name="stroke" fill="none" stroke="#2f446a" stroke-linecap="round"
+  stroke-linejoin="round" stroke-width="2" d="M14 10h8"></path>
+</svg>

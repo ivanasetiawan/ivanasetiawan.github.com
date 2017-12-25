@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title"
+aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Star</title>
+  <path d="M31 47.245L12.457 61l7.141-22.174L1 25h22.953L31 3l7.045 22H61L42.398 38.826 49.539 61 31 47.245z"
+  fill="#fc6" data-name="layer1"></path>
+  <path d="M23.953 25H1l18.598 13.826L12.457 61 31 47.245V3l-7.047 22z"
+  opacity=".15" fill="#000064" data-name="opacity"></path>
+  <path d="M31 47.245L12.457 61l7.141-22.174L1 25h22.953L31 3l7.045 22H61L42.398 38.826 49.539 61 31 47.245z"
+  stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke="#2e4369"
+  fill="none" data-name="stroke"></path>
+</svg>

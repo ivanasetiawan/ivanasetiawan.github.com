@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Paper Plane</title>
+  <path data-name="layer2"
+  fill="none" stroke="#2f446a" stroke-miterlimit="10" stroke-width="2" d="M26 38v21l10.3-14.6"
+  stroke-linejoin="round" stroke-linecap="round"></path>
+  <path data-name="layer1" fill="none" stroke="#2f446a" stroke-miterlimit="10"
+  stroke-width="2" d="M3 29L59 5l-9 48-24-15-23-9zM59 5L26 38" stroke-linejoin="round"
+  stroke-linecap="round"></path>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Baking</title>
+  <path data-name="layer1"
+  fill="#de9473" d="M5.863 44.374L44.329 5.908l13.746 13.746L19.61 58.12z"></path>
+  <path data-name="layer1" d="M15.5 54l-6.9 6.9a3.9 3.9 0 0 1-5.5 0 3.9 3.9 0 0 1 0-5.5l6.9-6.9m44-33l6.9-6.9a3.9 3.9 0 0 0 0-5.5 3.9 3.9 0 0 0-5.5 0L48.5 10"
+  fill="#de9473"></path>
+  <path data-name="opacity" d="M10 48.5l-2 2 3.5 3.5-6.9 6.9-.7.6a3.9 3.9 0 0 0 4.8-.6l6.8-6.9zM60.9 3.1a3.8 3.8 0 0 0-1.2-.8 3.9 3.9 0 0 1-.8 4.3L52 13.5l2 2 6.9-6.9a3.9 3.9 0 0 0 0-5.5zm-2.8 16.5L54 15.5 15.5 54l4.1 4.1 38.5-38.5z"
+  fill="#101129" opacity=".25"></path>
+  <path data-name="opacity" fill="#fff" opacity=".25" d="M5.958 44.373L44.425 5.906l2.128 2.128L8.087 46.501z"></path>
+  <path data-name="stroke" fill="none" stroke="#2f446a" stroke-linecap="round"
+  stroke-linejoin="round" stroke-width="2" d="M5.863 44.374L44.329 5.908l13.746 13.746L19.61 58.12z"></path>
+  <path data-name="stroke" d="M15.5 54l-6.9 6.9a3.9 3.9 0 0 1-5.5 0 3.9 3.9 0 0 1 0-5.5l6.9-6.9m44-33l6.9-6.9a3.9 3.9 0 0 0 0-5.5 3.9 3.9 0 0 0-5.5 0L48.5 10"
+  fill="none" stroke="#2f446a" stroke-linecap="round" stroke-linejoin="round"
+  stroke-width="2"></path>
+</svg>

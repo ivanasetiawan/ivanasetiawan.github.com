@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title"
+aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Like</title>
+  <path fill="#e8d4d4"
+  d="M53 33h2a4 4 0 0 0 0-8H33a81.014 81.014 0 0 0 2-18 4 4 0 1 0-8 0S23 29 9 29H3v24h10c4 0 12 4 16 4h20a4 4 0 0 0 0-8h2a4 4 0 0 0 0-8h2a4 4 0 0 0 0-8"
+  data-name="layer1"></path>
+  <path opacity=".1" data-name="opacity" fill="#000064" d="M31.77 3.077A3.987 3.987 0 0 0 27 7s-1.546 8.492-6.075 14.924c7.058-4.58 10.051-15.406 10.845-18.847zM34 52c-4 0-12-4-16-4H8V29H3v24h10c4 0 12 4 16 4h20a4 4 0 0 0 4-4c0-.347-.058-1-.142-1z"></path>
+  <path stroke-width="2" stroke-linejoin="miter" stroke-linecap="round"
+  stroke="#2e4369" fill="none" d="M53 33h2a4 4 0 0 0 0-8H33a81.014 81.014 0 0 0 2-18 4 4 0 1 0-8 0S23 29 9 29H3v24h10c4 0 12 4 16 4h20a4 4 0 0 0 0-8h2a4 4 0 0 0 0-8h2a4 4 0 0 0 0-8"
+  data-name="stroke"></path>
+</svg>

@@ -1,0 +1,76 @@
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 800;
+  color: $color-dark;
+  line-height: 1.2;
+}
+
+h1,
+.h1 {
+  font-size: 36px;
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 30px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 34px;
+  }
+}
+
+h3,
+.h3 {
+  font-size: 28px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+  }
+}
+
+h4,
+.h4 {
+  font-size: 26px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+h5,
+.h5 {
+  font-size: 18px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.highlight {
+  border-left: solid 3px $color-mint-dark;
+  background-color: $color-mint;
+  padding: 1em 1em 1em 2em;
+  margin: 1.5em 2em;
+}
+
+strong {
+  font-weight: bold;
+  text-decoration: underline;
+}
