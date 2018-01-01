@@ -85,7 +85,7 @@ html {
 
 .mainheader {
   background-image: url('../images/bg.jpg');
-  background-position: center;
+  background-position: 0 27%;
   background-size: cover;
   color: $color-dark; 
   padding: 3em 0;
@@ -118,26 +118,12 @@ html {
   }
   
   &__sub {
-    font-weight: 400;
+    font-size: 40px;
     position: relative;
     text-shadow: 1px 1px 2px $color-mint;
-  }
-
-  &__logobox {
-    background-color: lighten($color-mint, 10%);
-    width: 140px;
-    height: 140px;
-    line-height: 124px;
-    margin: 0 auto;
-    border-radius: 50%;
-    border: solid 4px $color-dark;
-    opacity: 0.9;
-    display: none;
-  }
-
-  &__logo {
-    max-width: 100px;
-    vertical-align: middle;
+    margin: 1.4em 0 1.4em;
+    font-family: 'caveat';
+    font-weight: 300;
   }
   
   &__name {
@@ -162,8 +148,8 @@ html {
       content: '';
       display: block;
       width: 100%;
-      height: 2px;
-      background-color: lighten($color-dark, 30%);
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.3);
       position: absolute;
       top: 8px;
     }
@@ -184,38 +170,40 @@ html {
   }
 }
 
-// .menu {
-//   background-color: $color-dark;
-//   border-top: solid 8px $color-red;
-//   position: fixed;
-//   top: 0;
-//   width: 100%;
-//   z-index: 9;
+.menu-fixed {
+  background-color: $color-dark;
+  border-top: solid 8px $color-mint-dark;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
 
-//   &__item {
-//     display: inline-block;
-//   }
+  &__item {
+    display: inline-block;
+  }
 
-//   &__link {
-//     color: $color-white;
-//     display: block;
-//     font-weight: 600;
-//     letter-spacing: 1px;
-//     padding: 8px 14px;
-//     text-transform: uppercase;
-//     transition: background-color 0.2s;
+  &__link {
+    color: $color-white;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 8px 14px;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
 
-//     &:hover,
-//     &.active {
-//       background-color: $color-red;
-//     }
-//   }
-// }
+    &:hover,
+    &.active {
+      background-color: $color-mint-dark;
+      color: $color-dark;
+    }
+  }
+}
 
 .menu-header {
   position: relative;
-  font-family: 'Dosis', sans-serif;
-  font-weight: 800;
+  font-family: 'caveat', sans-serif;
+  font-weight: 700;
+  
 
   &__item {
     display: inline-block;
@@ -224,7 +212,7 @@ html {
   &__link {
     color: $color-dark;
     display: block;
-    letter-spacing: 1px;
+    letter-spacing: 1.4px;
     padding: 8px 14px;
     text-transform: uppercase;
     transition: background-color 0.2s;
@@ -287,8 +275,7 @@ html {
     font-weight: 800;
     position: absolute;
     right: 0;
-    top: 20px;
-    font-family: 'Dosis', sans-serif;
+    top: 17px;
   }
 
   &__extra {
@@ -354,7 +341,7 @@ html {
       border-radius: 50%;
       position: absolute;
       right: -35px;
-      top: 27px;
+      top: 17px;
       opacity: 0;
       transition: opacity 0.2s;
 
@@ -426,6 +413,7 @@ html {
     margin: 0;
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   &__content {
@@ -511,6 +499,7 @@ html {
     overflow: hidden;
     width: 100px;
     height: 100px;
+    background-color: $color-white;
 
     &--sm {
       width: 60px;

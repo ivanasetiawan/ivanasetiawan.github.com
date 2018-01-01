@@ -24,21 +24,21 @@
 }
 
 
-// @font-face {
-//     font-family: 'dosis';
-//     src: url('../fonts/dosis-regular-webfont.woff2') format('woff2'),
-//          url('../fonts/dosis-regular-webfont.woff') format('woff');
-//     font-weight: 300;
-//     font-style: normal;
-// }
-
 @font-face {
     font-family: 'dosis';
-    src: url('../fonts/dosis-medium-webfont.woff2') format('woff2'),
-         url('../fonts/dosis-medium-webfont.woff') format('woff');
-    font-weight: 400;
+    src: url('../fonts/dosis-regular-webfont.woff2') format('woff2'),
+         url('../fonts/dosis-regular-webfont.woff') format('woff');
+    font-weight: 300;
     font-style: normal;
 }
+
+// @font-face {
+//     font-family: 'dosis';
+//     src: url('../fonts/dosis-medium-webfont.woff2') format('woff2'),
+//          url('../fonts/dosis-medium-webfont.woff') format('woff');
+//     font-weight: 400;
+//     font-style: normal;
+// }
 
 // @font-face {
 //     font-family: 'dosis';
@@ -57,12 +57,20 @@
 
 }
 
-// @font-face {
-//     font-family: 'dosis';
-//     src: url('../fonts/dosis-extrabold-webfont.woff2') format('woff2'),
-//          url('../fonts/dosis-extrabold-webfont.woff') format('woff');
-//     font-weight: 900;
-//     font-style: normal;
+@font-face {
+    font-family: 'caveat';
+    src: url('../fonts/caveat-bold-webfont.woff2') format('woff2'),
+         url('../fonts/caveat-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
 
-// }
+}
 
+@font-face {
+    font-family: 'caveat';
+    src: url('../fonts/caveat-regular-webfont.woff2') format('woff2'),
+         url('../fonts/caveat-regular-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+
+}

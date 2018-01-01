@@ -399,8 +399,8 @@ h4,
 .h4,
 h5,
 .h5 {
-  font-family: 'Dosis', sans-serif;
-  font-weight: 800;
+  font-family: 'caveat';
+  font-weight: 700;
   color: #2F446A;
   line-height: 1.2; }
 
@@ -474,13 +474,23 @@ strong {
   font-style: normal; }
 @font-face {
   font-family: 'dosis';
-  src: url("../fonts/dosis-medium-webfont.woff2") format("woff2"), url("../fonts/dosis-medium-webfont.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/dosis-regular-webfont.woff2") format("woff2"), url("../fonts/dosis-regular-webfont.woff") format("woff");
+  font-weight: 300;
   font-style: normal; }
 @font-face {
   font-family: 'dosis';
   src: url("../fonts/dosis-bold-webfont.woff2") format("woff2"), url("../fonts/dosis-bold-webfont.woff") format("woff");
   font-weight: 800;
+  font-style: normal; }
+@font-face {
+  font-family: 'caveat';
+  src: url("../fonts/caveat-bold-webfont.woff2") format("woff2"), url("../fonts/caveat-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal; }
+@font-face {
+  font-family: 'caveat';
+  src: url("../fonts/caveat-regular-webfont.woff2") format("woff2"), url("../fonts/caveat-regular-webfont.woff") format("woff");
+  font-weight: 300;
   font-style: normal; }
 body,
 html {
@@ -546,7 +556,7 @@ html {
 
 .mainheader {
   background-image: url("../images/bg.jpg");
-  background-position: center;
+  background-position: 0 27%;
   background-size: cover;
   color: #2F446A;
   padding: 3em 0;
@@ -573,22 +583,12 @@ html {
       .mainheader__title {
         font-size: 56px; } }
   .mainheader__sub {
-    font-weight: 400;
+    font-size: 40px;
     position: relative;
-    text-shadow: 1px 1px 2px #cfffdd; }
-  .mainheader__logobox {
-    background-color: white;
-    width: 140px;
-    height: 140px;
-    line-height: 124px;
-    margin: 0 auto;
-    border-radius: 50%;
-    border: solid 4px #2F446A;
-    opacity: 0.9;
-    display: none; }
-  .mainheader__logo {
-    max-width: 100px;
-    vertical-align: middle; }
+    text-shadow: 1px 1px 2px #cfffdd;
+    margin: 1.4em 0 1.4em;
+    font-family: 'caveat';
+    font-weight: 300; }
   .mainheader__name {
     display: inline-block;
     position: relative;
@@ -607,8 +607,8 @@ html {
       content: '';
       display: block;
       width: 100%;
-      height: 2px;
-      background-color: #728ec0;
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.3);
       position: absolute;
       top: 8px; }
     .mainheader__subname:before {
@@ -621,16 +621,37 @@ html {
     position: relative;
     text-shadow: 1px 1px 2px #cfffdd; }
 
+.menu-fixed {
+  background-color: #2F446A;
+  border-top: solid 8px #B9D9B4;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9; }
+  .menu-fixed__item {
+    display: inline-block; }
+  .menu-fixed__link {
+    color: #fff;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 8px 14px;
+    text-transform: uppercase;
+    transition: background-color 0.2s; }
+    .menu-fixed__link:hover, .menu-fixed__link.active {
+      background-color: #B9D9B4;
+      color: #2F446A; }
+
 .menu-header {
   position: relative;
-  font-family: 'Dosis', sans-serif;
-  font-weight: 800; }
+  font-family: 'caveat', sans-serif;
+  font-weight: 700; }
   .menu-header__item {
     display: inline-block; }
   .menu-header__link {
     color: #2F446A;
     display: block;
-    letter-spacing: 1px;
+    letter-spacing: 1.4px;
     padding: 8px 14px;
     text-transform: uppercase;
     transition: background-color 0.2s;
@@ -667,8 +688,7 @@ html {
   font-weight: 800;
   position: absolute;
   right: 0;
-  top: 20px;
-  font-family: 'Dosis', sans-serif; }
+  top: 17px; }
 .menulist__extra {
   display: inline-block;
   padding: 4px 8px 0;
@@ -719,7 +739,7 @@ html {
       border-radius: 50%;
       position: absolute;
       right: -35px;
-      top: 27px;
+      top: 17px;
       opacity: 0;
       transition: opacity 0.2s; }
       .menulist__add-order__text {
@@ -762,7 +782,8 @@ html {
   .block__title {
     margin: 0;
     text-align: center;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    letter-spacing: 1px; }
   .block__content {
     margin: 0 auto;
     max-width: 636px;
@@ -818,7 +839,8 @@ html {
   margin: 2em auto;
   overflow: hidden;
   width: 100px;
-  height: 100px; }
+  height: 100px;
+  background-color: #fff; }
   .user__imgbox--sm {
     width: 60px;
     height: 60px; }
