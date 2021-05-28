@@ -225,6 +225,7 @@ h2,
       display: inline-block;
       margin: 0;
       background-color: darken($orange, 10%);
+      border-radius: 4px;
 
       @media screen and (min-width: $screen-sm) and (max-width: $screen-lg - 1px) {
         float: left;
@@ -326,7 +327,8 @@ h2,
     }
 
     &__position {
-      padding: 4px 8px 8px;
+      padding: 4px 9px 9px;
+      border-radius: 4px;
       background-color: $grey-lightest;
     }
 
@@ -337,6 +339,7 @@ h2,
       font-size: 14px;
       display: block;
       margin-top: 1rem;
+      border-radius: 3px;
     }
   }
 
