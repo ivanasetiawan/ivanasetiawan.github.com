@@ -1,0 +1,44 @@
+.blog-content {
+	padding: 1rem;
+	box-sizing: border-box;
+	background-color: rgba(0,0,0,0.3);
+	
+	p { line-height: 1.5; max-width: $screen-sm; }
+
+	time {
+		font-family: $italic-font;
+		font-style: italic;
+		margin-bottom: rem(20px);
+		padding: rem(5px) 0 rem(15px);
+		display: block;
+		border-bottom: solid 1px $border-color;
+	}
+
+	time ~ p { clear: both; }
+}
+
+.blog-content-header {
+	margin: 0;
+	font-size: rem(24px);
+	@media screen and (min-width: $screen-md) {
+		font-size: rem(32px);
+	}
+}
+
+input {
+	border: solid 1px #333;
+	padding: rem(5px) rem(10px);
+	color: #333;
+}
+
+button[type="submit"] {
+	background-color: $light-color;
+	color: #fff;
+	border: 0;
+	padding: rem(5px) rem(10px);
+	transition: color 0.2s, background-color 0.1s;
+	&:hover {
+		background-color: $font-color;
+		color: #333;
+	}
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title><%= current_page.data.title || "/ee-vanh-uh/" %></title>
+
+    <meta name="description" content="I am a rocket scientist wannabe who's passionately in love with web stuff">
+    <meta name="author" content="Ivana Setiawan">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/ico">
+
+    <%= stylesheet_link_tag "assets/stylesheets/sass/site" %>
+    <%= javascript_include_tag  "assets/js/modernizr" %>
+  </head>
+
+  <body class="<%= page_classes %>">
+    <%= yield %>
+    <%= partial "footer" %>
+    <%= javascript_include_tag  "assets/js/jquery", "assets/js/application" %>
+  </body>
+</html>

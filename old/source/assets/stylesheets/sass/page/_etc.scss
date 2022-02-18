@@ -1,0 +1,183 @@
+.about-ivana h1,
+.contact-ivana h1,
+aside h2 {
+  font-size: 1.875em;
+  font-family: $handwriting;
+  border: 0;
+}
+
+.about-ivana,
+.contact-ivana,
+#blog {
+  padding: 20px;
+  margin-top: 0;
+  line-height: 1.375em;
+  background: rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+
+  p {
+    margin-bottom: 15px;
+    line-height: 1.5em;
+  }
+
+  @media screen and (min-width: $screen-sm) {
+    width: 65%;
+    float: left;
+  }
+
+}
+
+.story {
+  padding: 25px 0 10px;
+  border-top: dashed 1px $border-color;
+
+  h2 {
+    margin-bottom: 15px;
+    font-family: $handwriting;
+    font-size: 1.5em;
+  }
+
+  ul { margin: 15px 0; }
+
+  li {
+    margin: 10px 0 0 20px;
+    list-style: outside disc;
+    &:first-child { margin-top: 0; }
+  }
+}
+
+.note {
+  margin-bottom: rem(15px);
+  font-size: rem(12px);
+}
+
+.ball {
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  margin-right: rem(15px);
+  line-height: rem(24px);
+  text-align: center;
+  font-family: $museo;
+  font-size: rem(15px);
+  color: $dark-color;
+  background-color: $light-color;
+  border-radius: 50%;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    background-color: $font-color;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+  }
+
+  span { position: relative; z-index: 2; }
+}
+
+.mainaside {
+  padding: 20px;
+  line-height: 1.375em;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  .interests h2 { margin: 0; }
+
+  @media screen and (min-width: $screen-sm) {
+    position: relative;
+    width: calc(35% - 2px);
+    float: right;
+    padding: 20px 10px;
+    margin-left: 1px;
+    margin-top: 25px;
+  }
+
+  @media screen and (min-width: $screen-md) {
+    width: 35%;
+    margin-top: 40px;
+    margin-left: 0; 
+  
+    .interests { 
+      margin-left: rem(18px); 
+      h2 { margin: 1.5rem 0; }
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      width: 0; 
+      height: 0;
+      position: absolute;
+      left: 0;
+    }
+
+    &:before {
+      border-top: 15px solid transparent;
+      border-bottom: 0px solid transparent; 
+      border-left: 15px solid #000;
+      top: -15px;
+    }
+
+    &:after {
+      border-top: 15px solid transparent;
+      border-bottom: 0px solid transparent; 
+      border-left: 15px solid #293133;
+      bottom: 0;
+    }
+  }
+
+  time {
+    @include italic;
+    font-size: 1.35em;
+  }
+
+  h3 {
+    margin: 20px 0;
+    @include italic;
+    font-size: 1.35em;
+  }
+
+  ul {
+    font-size: 0.9em;
+    margin-left: 20px; 
+  }
+  
+  ul:not(:last-child) { margin-bottom: 30px; }
+}
+
+.signature {
+  margin-top: rem(30px);
+  text-align: right;
+
+  span {
+    display: block;
+    font-family: $handwriting;
+    font-size: rem(20px);
+    color: $light-color;
+  }
+}
+
+.contact-ivana-btn { @extend %btn; }
+
+h1.blog-header {
+  text-align: right;
+  font-size: 2em;
+  font-family: $museo;
+  color: $light-color;
+  
+  span {
+    color: #fff;
+
+    &.star-note {
+      display: block;
+      margin-top: 20px;
+      font-family: $museo;
+      font-size: 0.46875em;
+    }
+  }
+}
