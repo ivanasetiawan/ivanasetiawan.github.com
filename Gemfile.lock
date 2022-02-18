@@ -33,7 +33,7 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.8)
     execjs (2.5.2)
-    ffi (1.9.10)
+    ffi (1.15.5)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
