@@ -1,0 +1,469 @@
+// Base screen
+$screen-lg: 1024px;
+$screen-md: 780px;
+$screen-sm: 520px;
+$grey: #333;
+$grey-light: #999;
+$grey-lightest: #f4f4f4;
+$orange: #ff9b4a;
+$blue: #232c3b;
+
+@function rem($target, $base:16px) {
+  @return ($target / $base) + rem;
+}
+
+// Font face
+@font-face {
+  font-family: 'merriweatherbold';
+  src: url('../fonts/merriweather-bold.woff2') format('woff2'),
+       url('../fonts/merriweather-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'merriweatheritalic';
+  src: url('../fonts/merriweather-italic.woff2') format('woff2'),
+       url('../fonts/merriweather-italic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'merriweatherregular';
+  src: url('../fonts/merriweather-regular.woff2') format('woff2'),
+       url('../fonts/merriweather-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+%tag {
+  padding: 4px 8px;
+  font-family: monospace, 'Courier';
+  box-sizing: border-box;
+}
+
+body {
+  font: 20px 'merriweatherregular', 'HelveticaNeue-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  color: $grey;
+}
+
+a {
+  text-decoration: none;
+  color: $grey;
+  text-shadow: none;
+  transition: color 0.2s;
+  outline: none;
+
+  &:hover {
+    color: $orange;
+  }
+
+  &.external-url {
+    padding-right: 22px;
+    position: relative;
+    display: inline-block;
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus {
+      color: $orange;
+      opacity: 1;
+
+      &:before {
+        background-color: #FFE6D1;
+      }
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -3px;
+      transition: background-color 0.2s;
+    }
+
+    &:before {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      background-color: #f4f4f4;
+    }
+
+    &:after {
+      width: 14px;
+      height: 14px;
+      margin-top: -2px;
+      background-size: cover;
+      right: 1px;
+      background-image: url('../images/external-url.svg');
+    }
+  }
+}
+
+small { color: $grey-light; }
+
+h2,
+.h2 {
+  font-size: rem(20px);
+  font-family: 'merriweatheritalic';
+  font-weight: normal;
+  margin: 0;
+  letter-spacing: 0.5px;
+  @media screen and (min-width: $screen-lg) {
+    font-size: rem(24px);
+  }
+}
+
+.wrapper {
+  max-width: $screen-md;
+  margin: 0 auto;
+  padding: 2rem 0;
+  @media screen and (min-width: $screen-lg) {
+    padding: 3rem 0;
+  }
+}
+
+.cv {
+  @media screen and (min-width: $screen-lg) {
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      background-color: $blue;
+      position: fixed;
+      z-index: 9;
+    }
+
+    &:before {
+      width: 100%;
+      height: 8px;
+      bottom: 0;
+    }
+
+    &:after {
+      width: 8px;
+      height: 100%;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &-skills,
+  &-projects,
+  &-code {
+    margin: 2rem auto;
+    max-width: $screen-md;
+    padding: 0 0.875rem;
+    @media screen and (min-width: $screen-lg) {
+      margin: 3rem auto;
+      padding: 0;
+    }
+  }
+
+  &-header {
+    background-color: $blue;
+    color: white;
+    padding: 0 0.875rem;
+
+    @media screen and (min-width: $screen-lg) {
+      padding: 0;
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+        background-color: $blue;
+        position: fixed;
+        z-index: 9;
+      }
+
+      &:before {
+        width: 100%;
+        height: 8px;
+        top: 0;
+      }
+
+      &:after {
+        width: 8px;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    a {
+      color: white;
+    }
+
+    &__avatar,
+    &__title {
+      @media screen and (min-width: $screen-sm) {
+        float: left;
+      }
+
+      @media screen and (min-width: $screen-lg) {
+        margin-top: 1rem;
+      }
+    }
+
+    &__intro,
+    &__availability {
+      clear: both;
+    }
+
+    &__availability {
+      @extend %tag;
+      font-size: 16px;
+      display: inline-block;
+      margin: 0;
+      background-color: darken($orange, 10%);
+      border-radius: 4px;
+
+      @media screen and (min-width: $screen-sm) and (max-width: $screen-lg - 1px) {
+        float: left;
+        width: 100%;
+        margin: 2rem 0 1rem;
+      }
+    }
+
+    &__avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 4px;
+      @media screen and (min-width: $screen-sm) {
+        margin-right: 1em;
+      }
+    }
+
+    &__title {
+      line-height: 1;
+      font-size: 2rem;
+      letter-spacing: 2px;
+
+      &__sub {
+        font-size: 1rem;
+        font-family: 'merriweatheritalic';
+        font-weight: normal;
+        display: block;
+        letter-spacing: 0.5px;
+      }
+
+      @media screen and (min-width: $screen-lg) {
+        font-size: 4rem;
+        margin: 0.6rem 0 0.8em;
+
+        &__sub {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &-ul {
+    padding: 0;
+    &__li {
+      list-style: none;
+      margin-bottom: 0.5em;
+      position: relative;
+      padding-left: 2em;
+      &:before {
+        content: '</>';
+        display: inline-block;
+        width: 20px;
+        height: 14px;
+        position: absolute;
+        top: 15px;
+        left: 0;
+        font-size: 8px;
+        background: $grey;
+        color: white;
+        line-height: 8px;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &-projects {
+    &__client-name {
+      margin: 0;
+      @media screen and (min-width: $screen-lg) {
+        margin: 1em 0 0.5em;
+      }
+    }
+    &__li {
+      margin: 2em 0;
+
+      @media screen and (min-width: $screen-lg) {
+        margin: 2.5em 0;
+      }
+
+      &:before {
+        content: url('../images/connectionpeople.svg');
+        width: 20px;
+        background: none;
+      }
+    }
+
+    &__period {
+      margin: 0;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      color: $grey-light;
+      @media screen and (min-width: $screen-lg) {
+        position: absolute;
+        top: 14px;
+        right: 0;
+      }
+    }
+
+    &__position {
+      padding: 4px 9px 9px;
+      border-radius: 4px;
+      background-color: $grey-lightest;
+    }
+
+    &__keywords {
+      @extend %tag;
+      color: white;
+      background-color: $grey;
+      font-size: 14px;
+      display: block;
+      margin-top: 1rem;
+      border-radius: 3px;
+    }
+  }
+
+  &-footer {
+    background-color: $blue;
+    color: white;
+    padding: 0 0.875rem;
+
+    @media screen and (min-width: $screen-lg) {
+      padding: 0;
+    }
+
+    a {
+      color: white;
+      &:hover { color: $orange; }
+    }
+
+    &__ul {
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+
+    &__data {
+      font-size: 14px;
+    }
+
+    &__li {
+      padding-left: 1.4em;
+      &:before {
+        background: none;
+        width: 16px;
+      }
+
+      &--call {
+        &:before {
+          top: 16px;
+          content: url('../images/phone.svg');
+        }
+      }
+      &--mail {
+        &:before {
+          top: 16px;
+          content: url('../images/empthydrawer.svg');
+        }
+      }
+      &--linkedin {
+        &:before {
+          top: 13px;
+          content: url('../images/linkedin.svg');
+        }
+      }
+      @media screen and (min-width: $screen-lg) {
+        float: left;
+        &:not(:first-child) {
+          margin-left: 1.5em;
+        }
+      }
+    }
+  }
+
+  &-code {
+    &__lists {
+      padding: 0;
+    }
+
+    &__item {
+      list-style: none;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    &__link {
+      display: block;
+      background-color: $grey-lightest;
+      padding: 10px;
+      font-size: 14px;
+      border: solid 1px transparent;
+      transition: background-color 0.2s, border 0.3s;
+
+      &:hover {
+        color: $grey;
+        border-color: $blue;
+        background-color: #fff;
+      }
+    }
+
+    &__icon {
+      height: 50px;
+      vertical-align: middle;
+      display: block;
+      margin: 0 auto 4px;
+    }
+
+    @media screen and (min-width: $screen-lg) {
+      &__lists {
+        display: flex;
+        margin: 1.25em 0 0;
+      }
+
+      &__item {
+        width: 180px;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  &-download {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+    margin: 0;
+
+    &__link {
+      display: inline-block;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 0;
+      top: 4px;
+    }
+  }
+}
