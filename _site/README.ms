@@ -11,13 +11,23 @@ https://www.venopi.com ~ http://ivanasetiawan.com
 
 ## Usage
 
-Make sure to be in the `gh-pages` branch. To run the project
+To run the project, install jekyll & then bundle install to install all the dependency:
 ```bash
-gco gh-pages
+gem install bundler jekyll
+bundle install
+```
+
+Run the project:
+```bash
 bundle exec jekyll serve
 ```
 
-Run tailwind for styling
+Draft blog:
+```bash
+bundle exec jekyll serve --draft
+```
+
+Run tailwind for styling:
 ```bash
 npx tailwindcss -i ./assets/main.css -o ./assets/dist/main.css --watch
 ```

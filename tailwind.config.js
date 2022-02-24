@@ -1,12 +1,12 @@
 module.exports = {
-  purge: [
+  content: [
     './_includes/**/*.html',
     './_layouts/**/*.html',
-    './_posts/*.md',
+    './_posts/*.html',
     './*.html',
     './*.md',
   ],
-  darkMode: false,
+  darkMode: 'class',
   theme: {
     fontFamily: {
       tpr: "tpr, open sans, sans-serif",
