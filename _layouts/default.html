@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" class="dark">
 
 {%- include head.html -%}
 
-<body class="font-tpr">
-  <!-- {%- include header.html -%} -->
+<body class="font-tpr tracking-wide">
+  <header class="px-4 py-6 bg-slate-900 text-white fixed w-full z-10 top-0">
+    <div class="max-w-screen-lg mx-auto px-4 flex font-monospace justify-between">
+      <h1 class="mr-4 md:mr-6 tracking-wide">n*rd*nc*d</h1>
+      <nav>
+        <ul class="flex">
+          <li class="ml-4 md:ml-6 tracking-wide"><a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4" href="/">Home</a></li>
+          <li class="ml-4 md:ml-6 tracking-wide"><a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4" href="/blog/">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <main aria-label="Content">
     {{ content }}
   </main>

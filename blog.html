@@ -1,0 +1,35 @@
+---
+layout: default
+permalink: /blog/
+---
+
+<section class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-9" itemscope
+  itemtype="https://schema.org/Blog">
+
+  <div class="max-w-screen-lg mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen">
+    {%- if site.posts.size > 0 -%}
+      <h1 class="font-semibold text-4xl mb-4 lg:mb-9">{{ page.list_title | default: "Blog posts" }}</h1>
+
+      <ul class="">
+        {%- for post in site.posts -%}
+        <li>
+          <article class="p-4 bg-white mb-9 rounded-md">
+            <h2 class="mb-2">
+              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500" href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+              </a>
+            </h2>
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            <span class="text-gray-500">{{ post.date | date: date_format }}</span>
+            {%- if site.show_excerpts -%}
+              {{ post.excerpt }}
+            {%- endif -%}
+          </article>
+        </li>
+        {%- endfor -%}
+      </ul>
+      <!-- <p>subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
+    {%- endif -%}
+  </div>
+
+</section>
