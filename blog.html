@@ -3,19 +3,22 @@ layout: default
 permalink: /blog/
 ---
 
-<section class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-9" itemscope
+<section class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-9 dark:bg-gradient-to-tr dark:from-slate-800 dark:to-slate-900 dark:text-yellow-50" itemscope
   itemtype="https://schema.org/Blog">
 
   <div class="max-w-screen-lg mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen">
     {%- if site.posts.size > 0 -%}
-      <h1 class="font-semibold text-4xl mb-4 lg:mb-9">{{ page.list_title | default: "Blog posts" }}</h1>
+      <header class="flex justify-between">
+        <h1 class="font-semibold text-4xl mb-4 lg:mb-9">{{ page.list_title | default: "Blog posts" }}</h1>
+        {%- include togglemode.html -%}
+      </header>
 
       <ul class="">
         {%- for post in site.posts -%}
         <li>
-          <article class="p-4 bg-white mb-9 rounded-md">
+          <article class="p-4 bg-white mb-9 rounded-md dark:bg-slate-300">
             <h2 class="mb-2">
-              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500" href="{{ post.url | relative_url }}">
+              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500 dark:hover:text-orange-900" href="{{ post.url | relative_url }}">
                 {{ post.title | escape }}
               </a>
             </h2>

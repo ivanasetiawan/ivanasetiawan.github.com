@@ -47,18 +47,15 @@
     <div class="mb-9 flex justify-between items-center">
       <div>
         <a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4" href="/blog/"><i class="fa-solid fa-arrow-left mr-1"></i> Blog</a>
-      </div>
+      </div><div>
+  <button onclick="setMode('light')" id="mode-light" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-300 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-sun-bright text-xl mr-1.5"></i> <span class="cursor-pointer">Light mode</span>
+  </button>
 
-      <div>
-        <button onclick="setMode('light')" id="mode-light" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-200 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
-          <i class="cursor-pointer fa-solid fa-sun-bright text-xl mr-1.5"></i> <span class="cursor-pointer">Light mode</span>
-        </button>
-    
-        <button onclick="setMode('dark')" id="mode-dark" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-200 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
-          <i class="cursor-pointer fa-solid fa-moon text-xl mr-1.5"></i> <span class="cursor-pointer">Dark mode</span>
-        </button>
-      </div>
-    </div>
+  <button onclick="setMode('dark')" id="mode-dark" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-200 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-moon text-xl mr-1.5"></i> <span class="cursor-pointer">Dark mode</span>
+  </button>
+</div></div>
     
     <article itemscope itemtype="http://schema.org/BlogPosting">
       <header class="mb-4 md:mb-9">
@@ -111,8 +108,20 @@
     </article><a class="u-url" href="/jekyll/update/2022/02/18/welcome-to-jekyll.html" hidden></a>
   </div>
 </section>
-
-<script>
+  </main><footer class="">
+  <div class="text-xl max-w-screen-lg mx-auto px-4 py-10 text-gray-500 text-sm">
+    <ul class="md:flex md:gap-6 md:justify-center">
+      <li class="my-2 md:my-0"><a href="https://www.linkedin.com/in/ivanasetiawan/" target="_blank"
+          class="text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500"><i
+            class="fa-brands fa-linkedin mr-2"></i>ivanasetiawan</a>
+      </li>
+      <li class="my-2 md:my-0"><i class="fa-solid fa-id-card-clip mr-2"></i>KVK#: 62163566
+      </li>
+      <li class="my-2 md:my-0"><i class="fa-solid fa-hashtag mr-2"></i>VAT: NL002450150B24
+      </li>
+    </ul>
+  </div>
+</footer><script>
   const currentMode = localStorage.getItem('mode') ? localStorage.getItem('mode') : 'light';
   setMode();
 
@@ -133,20 +142,6 @@
     document.getElementById('mode-light').classList.add('hidden');
     document.getElementById('mode-dark').classList.remove('hidden');
   }
-</script>
-  </main><footer class="">
-  <div class="text-xl max-w-screen-lg mx-auto px-4 py-10 text-gray-500 text-sm">
-    <ul class="md:flex md:gap-6 md:justify-center">
-      <li class="my-2 md:my-0"><a href="https://www.linkedin.com/in/ivanasetiawan/" target="_blank"
-          class="text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500"><i
-            class="fa-brands fa-linkedin mr-2"></i>ivanasetiawan</a>
-      </li>
-      <li class="my-2 md:my-0"><i class="fa-solid fa-id-card-clip mr-2"></i>KVK#: 62163566
-      </li>
-      <li class="my-2 md:my-0"><i class="fa-solid fa-hashtag mr-2"></i>VAT: NL002450150B24
-      </li>
-    </ul>
-  </div>
-</footer></body>
+</script></body>
 
 </html>
