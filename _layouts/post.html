@@ -10,15 +10,7 @@ layout: default
         <a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4" href="/blog/"><i class="fa-solid fa-arrow-left mr-1"></i> Blog</a>
       </div>
 
-      <div>
-        <button onclick="setMode('light')" id="mode-light" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-200 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
-          <i class="cursor-pointer fa-solid fa-sun-bright text-xl mr-1.5"></i> <span class="cursor-pointer">Light mode</span>
-        </button>
-    
-        <button onclick="setMode('dark')" id="mode-dark" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-200 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
-          <i class="cursor-pointer fa-solid fa-moon text-xl mr-1.5"></i> <span class="cursor-pointer">Dark mode</span>
-        </button>
-      </div>
+      {%- include togglemode.html -%}
     </div>
     
     <article itemscope itemtype="http://schema.org/BlogPosting">
@@ -54,26 +46,3 @@ layout: default
     <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
   </div>
 </section>
-
-<script>
-  const currentMode = localStorage.getItem('mode') ? localStorage.getItem('mode') : 'light';
-  setMode();
-
-  function setMode(mode = currentMode) {
-    mode === 'light' ?  lightMode() : darkMode() ;
-  }
-
-  function darkMode() {
-    document.querySelector('html').classList.add('dark');
-    localStorage.setItem('mode', 'dark');
-    document.getElementById('mode-dark').classList.add('hidden');
-    document.getElementById('mode-light').classList.remove('hidden');
-  }
-
-  function lightMode() {
-    document.querySelector('html').classList.remove('dark');
-    localStorage.setItem('mode', 'light');
-    document.getElementById('mode-light').classList.add('hidden');
-    document.getElementById('mode-dark').classList.remove('hidden');
-  }
-</script>

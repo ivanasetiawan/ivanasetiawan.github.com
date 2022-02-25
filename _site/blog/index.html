@@ -39,36 +39,45 @@
   </header>
 
   <main aria-label="Content">
-    <section class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-9" itemscope
+    <section class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-9 dark:bg-gradient-to-tr dark:from-slate-800 dark:to-slate-900 dark:text-yellow-50" itemscope
   itemtype="https://schema.org/Blog">
 
-  <div class="max-w-screen-lg mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen"><h1 class="font-semibold text-4xl mb-4 lg:mb-9">Blog posts</h1>
+  <div class="max-w-screen-lg mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen"><header class="flex justify-between">
+        <h1 class="font-semibold text-4xl mb-4 lg:mb-9">Blog posts</h1><div>
+  <button onclick="setMode('light')" id="mode-light" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-300 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-sun-bright text-xl mr-1.5"></i> <span class="cursor-pointer">Light mode</span>
+  </button>
+
+  <button onclick="setMode('dark')" id="mode-dark" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-200 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-moon text-xl mr-1.5"></i> <span class="cursor-pointer">Dark mode</span>
+  </button>
+</div></header>
 
       <ul class=""><li>
-          <article class="p-4 bg-white mb-9 rounded-md">
+          <article class="p-4 bg-white mb-9 rounded-md dark:bg-slate-300">
             <h2 class="mb-2">
-              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500" href="/journal/2022/02/24/why-ivana-writes.html">
+              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500 dark:hover:text-orange-900" href="/journal/2022/02/24/why-ivana-writes.html">
                 Why Ivana writes
               </a>
             </h2><span class="text-gray-500">Feb 24, 2022</span></article>
         </li><li>
-          <article class="p-4 bg-white mb-9 rounded-md">
+          <article class="p-4 bg-white mb-9 rounded-md dark:bg-slate-300">
             <h2 class="mb-2">
-              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500" href="/micro/frontend/architecture/nuxt.js/vue/2022/02/21/micro-frontend-architecture-with-nuxt.html">
+              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500 dark:hover:text-orange-900" href="/micro/frontend/architecture/nuxt.js/vue/2022/02/21/micro-frontend-architecture-with-nuxt.html">
                 Micro frontend architecture with nuxt
               </a>
             </h2><span class="text-gray-500">Feb 21, 2022</span></article>
         </li><li>
-          <article class="p-4 bg-white mb-9 rounded-md">
+          <article class="p-4 bg-white mb-9 rounded-md dark:bg-slate-300">
             <h2 class="mb-2">
-              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500" href="/frontend/2022/02/20/micro-frontend.html">
+              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500 dark:hover:text-orange-900" href="/frontend/2022/02/20/micro-frontend.html">
                 Explain Like I&#39;m Five: Micro frontends
               </a>
             </h2><span class="text-gray-500">Feb 20, 2022</span></article>
         </li><li>
-          <article class="p-4 bg-white mb-9 rounded-md">
+          <article class="p-4 bg-white mb-9 rounded-md dark:bg-slate-300">
             <h2 class="mb-2">
-              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500" href="/jekyll/update/2022/02/18/welcome-to-jekyll.html">
+              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500 dark:hover:text-orange-900" href="/jekyll/update/2022/02/18/welcome-to-jekyll.html">
                 This is coming from gh-hey!
               </a>
             </h2><span class="text-gray-500">Feb 18, 2022</span></article>
@@ -89,6 +98,27 @@
       </li>
     </ul>
   </div>
-</footer></body>
+</footer><script>
+  const currentMode = localStorage.getItem('mode') ? localStorage.getItem('mode') : 'light';
+  setMode();
+
+  function setMode(mode = currentMode) {
+    mode === 'light' ?  lightMode() : darkMode() ;
+  }
+
+  function darkMode() {
+    document.querySelector('html').classList.add('dark');
+    localStorage.setItem('mode', 'dark');
+    document.getElementById('mode-dark').classList.add('hidden');
+    document.getElementById('mode-light').classList.remove('hidden');
+  }
+
+  function lightMode() {
+    document.querySelector('html').classList.remove('dark');
+    localStorage.setItem('mode', 'light');
+    document.getElementById('mode-light').classList.add('hidden');
+    document.getElementById('mode-dark').classList.remove('hidden');
+  }
+</script></body>
 
 </html>
