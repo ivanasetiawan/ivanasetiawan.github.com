@@ -28,4 +28,12 @@
   }
 }
 
+@layer components {
+  .textlink {
+    @apply text-violet-500 dark:text-violet-300 underline underline-offset-8 hover:decoration-dotted hover:text-orange-500;
+  }
 
+  .precode {
+    @apply text-sm bg-slate-900 text-white my-4 leading-relaxed rounded-xl leading-7 overflow-auto;
+  }
+}

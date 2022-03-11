@@ -1,0 +1,223 @@
+---
+layout: post
+title:  "How to create the Datadog Vue plugin"
+excerpt: Monitor JavaScript console logs and user activity with Datadog on your Vue or Nuxt.js project
+date:   2022-03-03 18:24:27 +0100
+categories: code
+tags: code tips frontend vue plugin
+---
+
+<h2 class="text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6">What is Datadog?</h2>
+<p class="mb-4 md:mb-6"><a class="textlink" target="_blank" href="https://www.datadoghq.com/">Datadog</a> is the essential monitoring and security platform for cloud applications. They bring together end-to-end traces, metrics, and logs to make your applications, infrastructure, and third-party services entirely observable. These capabilities help businesses secure their systems, avoid downtime, and ensure customers are getting the best user experience.</p>
+<p class="text-sky-600">TL;DR? Basically a tool that can monitor services such as servers, databases and tools. You can categorise your events to `Emergency`, `Error`, `Warn`, `Info` and monitor them closely.</p>
+
+<h2 class="text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6">Why use Datadog?</h2>
+<p class="mb-4 md:mb-6">Say you have a platform with many features, tools and users. Using Datadog, you can put loggers (`Emergency`, `Error`, `Warn`, `Info`) on your codebase so when something goes wrong, the logger will send the event(s) to Datadog.
+On Datadog, you can filter based on various things (service name, logger type, url, etc) and on each log, you can zoom in to learn more about the origin and other useful log infos.
+This can save you and your team a lot of time when you need to find and fix errors.</p>
+<p class="text-sky-600 mb-4 md:mb-6">TL;DR? When sh*t goes wrong (this kind of tool like an insurance right? we mostly care when things go wrong) they can help you finding the wrongs and where they are originated. It saves time for as long as you log properly.</p>
+<p class="mb-4 md:mb-6">In this blogpost, I want to share step by step how I created the Datadog Vue plugin. I hope this will help other developers 😀</p>
+
+<h2 class="text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6">01. Project setup</h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue-plugin/tree/feat/setup" target="_blank" class="textlink">repo [branch: feat/setup]</a></p>
+
+<p>Create a basic package.json</p>
+<pre class="precode">
+  <code>
+    {
+      "name": "@project/datadog-vue-plugin", <span class="text-lime-500">// name of the package</span>
+      "version": "1.0.0", <span class="text-lime-500">// package version</span>
+      "description": "Datadog Vue plugin", <span class="text-lime-500">// package description</span>
+      "main": "index.js", <span class="text-lime-500">// the main file, aka the brain of this package</span>
+      "author": "Ivana Setiawan", <span class="text-lime-500">// your name</span>
+      "license": "ISC", <span class="text-lime-500">// licensing. <a href="" target="_blank">Learn more</a>.</span>
+    }
+  </code>
+</pre>
+The package.json above is pretty empty. It doesn't do much. My personal preference is to add these devDependencies that includes <a href="" class="">Babel</a>, <a href="" class="textlink">Eslint</a>, and <a href="" class="textlink">Jest</a>:
+<pre class="precode">
+  <code>
+    "devDependencies": {
+      "@babel/core": "^7.15.0",
+      "@babel/preset-env": "^7.15.0",
+      "@testing-library/vue": "^5.8.2",
+      "@vue/test-utils": "^1.2.2",
+      "babel-core": "^7.0.0-bridge.0",
+      "babel-jest": "^27.0.6",
+      "eslint": "^7.18.0",
+      "eslint-config-prettier": "^7.2.0",
+      "eslint-plugin-jest-playwright": "^0.3.3",
+      "eslint-plugin-nuxt": "^2.0.0",
+      "eslint-plugin-prettier": "^3.3.1",
+      "jest": "^27.0.6",
+      "jest-serializer-vue": "^2.0.2",
+      "vue-jest": "^3.0.7"
+    },
+  </code>
+</pre>
+To check if everything goes as planned, run <code class="precode px-2.5 py-1">npm install</code> on the root of your project. You should see a <code class="precode px-2.5 py-1">package-lock.json</code> and a folder called <code class="precode px-2.5 py-1">node_modules</code> are created.
+
+
+<h2 class="text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6">02. Datadog integration</h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue-plugin/tree/feat/integration" target="_blank" class="textlink">repo [branch: feat/integration]</a></p>
+
+<p>Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my plugin.
+In my head, I want the flow to work like:</p>
+<ul class="mb-6 md:mb-9 list-disc list-inside md:ml-6">
+  <li>To install, run `npm install`</li>
+  <li>Dev should be able to pass client token <span class="text-sky-600">(Client tokens are used to send events and logs from your user’s web and mobile applications.)</span> and service name to easily filter the team logs</li>
+</ul>
+
+<p class="my-4 md:my-6">Let's get into it!</p>
+
+<p>Install <a href="https://www.npmjs.com/package/@datadog/browser-logs" class="textlink" target="_blank">`@datadog/browser-logs`</a> and start building the plugin.</p>
+<pre class="precode">
+  <code>
+    npm i @datadog/browser-logs
+  </code>
+</pre>
+<p>When this is done, you should see this under dependencies on your `package.json`</p>
+<pre class="precode">
+  <code>
+    <span class="text-lime-500">File: package.json</span>
+    "dependencies": {
+      "@datadog/browser-logs": "^4.6.1"
+    }    
+  </code>
+</pre>
+
+<p class="mt-9">As mentioned above, there are two options that we want to pass for the Datadog plugin:</p>
+<pre class="precode">
+  <code>
+    <span class="text-lime-500">// Client Token from Datadog</span>
+    clientToken: process.env.CLIENT_TOKEN,
+    <span class="text-lime-500">// Service name (tip: use your project or team name)</span>
+    service: process.env.SERVICE,
+  </code>
+</pre>
+<p>It will look something like above code, but don't worry about it now - we will use it later 👍🏽</p>
+
+<p class="mt-9">Let's start making the plugin, on `index.js`:</p>
+<pre class="precode">
+  <code>
+    import { datadogLogs } from '@datadog/browser-logs';
+
+    export default {
+      install(Vue, options) {
+        <span class="text-lime-500">
+        /**
+         * Rules: 
+         * - Enable in client only
+         * - Not disabled
+         */
+        </span>
+        const isNotExecutable = !process.browser || options.disabled;
+        if (isNotExecutable) return;
+
+        <span class="text-lime-500">
+        /**
+         * Check before executing the plugin:
+         * - Client token must exist and not empty
+         * - Service name must exist and not empty
+         * Show warning (loggingWarn) if the condition is not met.
+         */
+        </span>
+        const initialCheck =
+            (!options.clientToken || options.clientToken.length === 0) &&
+            (!options.service || options.service.length === 0);
+        const loggingWarn = () => {
+            /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+            console.warn(
+                'You are not using Datadog vue plugin. If you want to, you can enter a Datadog client token'
+            );
+            return;
+        };
+        initialCheck ? loggingWarn() : null;
+      }
+    }
+  </code>
+</pre>
+
+<p>Let's initialise Datadog! For more info for the init, check out <a href="https://docs.datadoghq.com/logs/log_collection/javascript/" target="_blank">Datadog log collection</a>.</p>
+<pre class="precode">
+  <code>
+    <span class="text-lime-500">
+    /**
+    * Initialising datadogLogs!
+    * See the params <a target="_blank" class="textlink" href="https://docs.datadoghq.com/logs/log_collection/javascript/#initialization-parameters">here</a>
+    * Required: clientToken & site
+    */
+  </span>
+    datadogLogs
+    ? datadogLogs.init({
+          clientToken: options.clientToken, // REQUIRED
+          site: 'datadoghq.eu', // REQUIRED
+          forwardErrorsToLogs: true,
+          sampleRate: 100,
+          service: options.service,
+          env: process.env.NODE_ENV,
+      })
+    : null;
+    
+    <span class="text-lime-500">
+    /**
+    * Add a context to all your loggers
+    * See addLoggerGlobalContext <a target="_blank" class="textlink" href="https://docs.datadoghq.com/logs/log_collection/javascript/#global-context">here</a>
+    */
+    </span>
+    datadogLogs.addLoggerGlobalContext('Site', options.service);
+  </code>
+</pre>
+
+<p>After the installation, we want create a simple log function to enable developers to log any of their events to Datadog. (see: commit <a href="" class="textlink" target="_blank">2ea6e3d58</a>)</p>
+<pre class="precode">
+  <code>
+    <span class="text-lime-500">
+    /**
+     * Log functionality to Datadog
+     * @param  {String} message The message of your log that is fully indexed by Datadog.
+     * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the <MESSAGE>
+     * @param {String} status The status of your log; accepted status values are `debug`, `info`, `warn`, or `error`.
+     */
+    </span>
+     $log: function (
+        message = 'Empty message',
+        messageContext = { function: 'messageContextMissing' },
+        status = 'error'
+    ) {
+        datadogLogs.logger.log(
+            message,
+            {
+                context: {
+                    stack_trace: new Error().stack,
+                    ...messageContext,
+                },
+            },
+            status
+        );
+    },
+  </code>
+</pre>
+
+<p>So far so good! but how do we know it works?<br>Let's create a playground folder to test this plugin 😉</p>
+
+<h2 class="text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6">03. Playground</h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue-plugin/tree/feat/playground" target="_blank" class="textlink">repo [branch: feat/playground]</a></p>
+
+<p>Install Vue CLI</p>
+https://cli.vuejs.org/guide/installation.html
+https://cli.vuejs.org/guide/creating-a-project.html
+
+<p>Update the package.json on root</p>
+
+
+
+
+<br>
+<br>
+<br>
+
+Sources:
+- https://docs.datadoghq.com/logs/log_collection/javascript/
+- https://www.datadoghq.com/blog/monitor-javascript-console-logs/
+- https://github.com/DataDog/browser-sdk

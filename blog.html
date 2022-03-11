@@ -16,18 +16,14 @@ permalink: /blog/
       <ul class="">
         {%- for post in site.posts -%}
         <li>
-          <article class="p-4 bg-white mb-9 rounded-md dark:bg-slate-300">
-            <h2 class="mb-2">
-              <a class="text-xl font-medium text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500 dark:hover:text-orange-900" href="{{ post.url | relative_url }}">
-                {{ post.title | escape }}
-              </a>
+          <a href="{{ post.url | relative_url }}" class="block p-4 bg-white text-slate-900 mb-9 rounded-md hover:bg-yellow-50 dark:hover:bg-yellow-50">
+            <h2 class="mb-2 text-xl font-medium text-violet-900">
+              {{ post.title | escape }}
             </h2>
+            <p class="my-4">{{ post.excerpt | escape }}</p>
             {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-            <span class="text-gray-500">{{ post.date | date: date_format }}</span>
-            {%- if site.show_excerpts -%}
-              {{ post.excerpt }}
-            {%- endif -%}
-          </article>
+            <span class="text-gray-500 text-sm">{{ post.date | date: date_format }}</span>
+          </a>
         </li>
         {%- endfor -%}
       </ul>

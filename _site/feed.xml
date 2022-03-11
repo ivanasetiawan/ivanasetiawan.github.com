@@ -1,4 +1,217 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-02-25T06:32:56+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Why Ivana writes</title><link href="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html" rel="alternate" type="text/html" title="Why Ivana writes" /><published>2022-02-24T18:24:27+01:00</published><updated>2022-02-24T18:24:27+01:00</updated><id>http://localhost:4000/journal/2022/02/24/why-ivana-writes</id><content type="html" xml:base="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html">Hi I am Ivana. This is my first post on my blog. 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-11T17:01:50+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">How to create the Datadog Vue plugin</title><link href="http://localhost:4000/code/2022/03/03/how-to-create-datadog-vue-plugin.html" rel="alternate" type="text/html" title="How to create the Datadog Vue plugin" /><published>2022-03-03T18:24:27+01:00</published><updated>2022-03-03T18:24:27+01:00</updated><id>http://localhost:4000/code/2022/03/03/how-to-create-datadog-vue-plugin</id><content type="html" xml:base="http://localhost:4000/code/2022/03/03/how-to-create-datadog-vue-plugin.html">&lt;h2 class=&quot;text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is Datadog?&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://www.datadoghq.com/&quot;&gt;Datadog&lt;/a&gt; is the essential monitoring and security platform for cloud applications. They bring together end-to-end traces, metrics, and logs to make your applications, infrastructure, and third-party services entirely observable. These capabilities help businesses secure their systems, avoid downtime, and ensure customers are getting the best user experience.&lt;/p&gt;
+&lt;p class=&quot;text-sky-600&quot;&gt;TL;DR? Basically a tool that can monitor services such as servers, databases and tools. You can categorise your events to `Emergency`, `Error`, `Warn`, `Info` and monitor them closely.&lt;/p&gt;
+
+&lt;h2 class=&quot;text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Why use Datadog?&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Say you have a platform with many features, tools and users. Using Datadog, you can put loggers (`Emergency`, `Error`, `Warn`, `Info`) on your codebase so when something goes wrong, the logger will send the event(s) to Datadog.
+On Datadog, you can filter based on various things (service name, logger type, url, etc) and on each log, you can zoom in to learn more about the origin and other useful log infos.
+This can save you and your team a lot of time when you need to find and fix errors.&lt;/p&gt;
+&lt;p class=&quot;text-sky-600 mb-4 md:mb-6&quot;&gt;TL;DR? When sh*t goes wrong (this kind of tool like an insurance right? we mostly care when things go wrong) they can help you finding the wrongs and where they are originated. It saves time for as long as you log properly.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;In this blogpost, I want to share step by step how I created the Datadog Vue plugin. I hope this will help other developers 😀&lt;/p&gt;
+
+&lt;h2 class=&quot;text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;01. Project setup&lt;/h2&gt;
+&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue-plugin/tree/feat/setup&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/setup]&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Create a basic package.json&lt;/p&gt;
+&lt;pre class=&quot;precode&quot;&gt;
+  &lt;code&gt;
+    {
+      &quot;name&quot;: &quot;@project/datadog-vue-plugin&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// name of the package&lt;/span&gt;
+      &quot;version&quot;: &quot;1.0.0&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// package version&lt;/span&gt;
+      &quot;description&quot;: &quot;Datadog Vue plugin&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// package description&lt;/span&gt;
+      &quot;main&quot;: &quot;index.js&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// the main file, aka the brain of this package&lt;/span&gt;
+      &quot;author&quot;: &quot;Ivana Setiawan&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// your name&lt;/span&gt;
+      &quot;license&quot;: &quot;ISC&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// licensing. &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;Learn more&lt;/a&gt;.&lt;/span&gt;
+    }
+  &lt;/code&gt;
+&lt;/pre&gt;
+The package.json above is pretty empty. It doesn't do much. My personal preference is to add these devDependencies that includes &lt;a href=&quot;&quot; class=&quot;&quot;&gt;Babel&lt;/a&gt;, &lt;a href=&quot;&quot; class=&quot;textlink&quot;&gt;Eslint&lt;/a&gt;, and &lt;a href=&quot;&quot; class=&quot;textlink&quot;&gt;Jest&lt;/a&gt;:
+&lt;pre class=&quot;precode&quot;&gt;
+  &lt;code&gt;
+    &quot;devDependencies&quot;: {
+      &quot;@babel/core&quot;: &quot;^7.15.0&quot;,
+      &quot;@babel/preset-env&quot;: &quot;^7.15.0&quot;,
+      &quot;@testing-library/vue&quot;: &quot;^5.8.2&quot;,
+      &quot;@vue/test-utils&quot;: &quot;^1.2.2&quot;,
+      &quot;babel-core&quot;: &quot;^7.0.0-bridge.0&quot;,
+      &quot;babel-jest&quot;: &quot;^27.0.6&quot;,
+      &quot;eslint&quot;: &quot;^7.18.0&quot;,
+      &quot;eslint-config-prettier&quot;: &quot;^7.2.0&quot;,
+      &quot;eslint-plugin-jest-playwright&quot;: &quot;^0.3.3&quot;,
+      &quot;eslint-plugin-nuxt&quot;: &quot;^2.0.0&quot;,
+      &quot;eslint-plugin-prettier&quot;: &quot;^3.3.1&quot;,
+      &quot;jest&quot;: &quot;^27.0.6&quot;,
+      &quot;jest-serializer-vue&quot;: &quot;^2.0.2&quot;,
+      &quot;vue-jest&quot;: &quot;^3.0.7&quot;
+    },
+  &lt;/code&gt;
+&lt;/pre&gt;
+To check if everything goes as planned, run &lt;code class=&quot;precode px-2.5 py-1&quot;&gt;npm install&lt;/code&gt; on the root of your project. You should see a &lt;code class=&quot;precode px-2.5 py-1&quot;&gt;package-lock.json&lt;/code&gt; and a folder called &lt;code class=&quot;precode px-2.5 py-1&quot;&gt;node_modules&lt;/code&gt; are created.
+
+
+&lt;h2 class=&quot;text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;02. Datadog integration&lt;/h2&gt;
+&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue-plugin/tree/feat/integration&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/integration]&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my plugin.
+In my head, I want the flow to work like:&lt;/p&gt;
+&lt;ul class=&quot;mb-6 md:mb-9 list-disc list-inside md:ml-6&quot;&gt;
+  &lt;li&gt;To install, run `npm install`&lt;/li&gt;
+  &lt;li&gt;Dev should be able to pass client token &lt;span class=&quot;text-sky-600&quot;&gt;(Client tokens are used to send events and logs from your user’s web and mobile applications.)&lt;/span&gt; and service name to easily filter the team logs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p class=&quot;my-4 md:my-6&quot;&gt;Let's get into it!&lt;/p&gt;
+
+&lt;p&gt;Install &lt;a href=&quot;https://www.npmjs.com/package/@datadog/browser-logs&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;`@datadog/browser-logs`&lt;/a&gt; and start building the plugin.&lt;/p&gt;
+&lt;pre class=&quot;precode&quot;&gt;
+  &lt;code&gt;
+    npm i @datadog/browser-logs
+  &lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;When this is done, you should see this under dependencies on your `package.json`&lt;/p&gt;
+&lt;pre class=&quot;precode&quot;&gt;
+  &lt;code&gt;
+    &lt;span class=&quot;text-lime-500&quot;&gt;File: package.json&lt;/span&gt;
+    &quot;dependencies&quot;: {
+      &quot;@datadog/browser-logs&quot;: &quot;^4.6.1&quot;
+    }    
+  &lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&quot;mt-9&quot;&gt;As mentioned above, there are two options that we want to pass for the Datadog plugin:&lt;/p&gt;
+&lt;pre class=&quot;precode&quot;&gt;
+  &lt;code&gt;
+    &lt;span class=&quot;text-lime-500&quot;&gt;// Client Token from Datadog&lt;/span&gt;
+    clientToken: process.env.CLIENT_TOKEN,
+    &lt;span class=&quot;text-lime-500&quot;&gt;// Service name (tip: use your project or team name)&lt;/span&gt;
+    service: process.env.SERVICE,
+  &lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;It will look something like above code, but don't worry about it now - we will use it later 👍🏽&lt;/p&gt;
+
+&lt;p class=&quot;mt-9&quot;&gt;Let's start making the plugin, on `index.js`:&lt;/p&gt;
+&lt;pre class=&quot;precode&quot;&gt;
+  &lt;code&gt;
+    import { datadogLogs } from '@datadog/browser-logs';
+
+    export default {
+      install(Vue, options) {
+        &lt;span class=&quot;text-lime-500&quot;&gt;
+        /**
+         * Rules: 
+         * - Enable in client only
+         * - Not disabled
+         */
+        &lt;/span&gt;
+        const isNotExecutable = !process.browser || options.disabled;
+        if (isNotExecutable) return;
+
+        &lt;span class=&quot;text-lime-500&quot;&gt;
+        /**
+         * Check before executing the plugin:
+         * - Client token must exist and not empty
+         * - Service name must exist and not empty
+         * Show warning (loggingWarn) if the condition is not met.
+         */
+        &lt;/span&gt;
+        const initialCheck =
+            (!options.clientToken || options.clientToken.length === 0) &amp;&amp;
+            (!options.service || options.service.length === 0);
+        const loggingWarn = () =&gt; {
+            /* eslint no-console: [&quot;error&quot;, { allow: [&quot;warn&quot;, &quot;error&quot;] }] */
+            console.warn(
+                'You are not using Datadog vue plugin. If you want to, you can enter a Datadog client token'
+            );
+            return;
+        };
+        initialCheck ? loggingWarn() : null;
+      }
+    }
+  &lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;Let's initialise Datadog! For more info for the init, check out &lt;a href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/&quot; target=&quot;_blank&quot;&gt;Datadog log collection&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&quot;precode&quot;&gt;
+  &lt;code&gt;
+    &lt;span class=&quot;text-lime-500&quot;&gt;
+    /**
+    * Initialising datadogLogs!
+    * See the params &lt;a target=&quot;_blank&quot; class=&quot;textlink&quot; href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/#initialization-parameters&quot;&gt;here&lt;/a&gt;
+    * Required: clientToken &amp; site
+    */
+  &lt;/span&gt;
+    datadogLogs
+    ? datadogLogs.init({
+          clientToken: options.clientToken, // REQUIRED
+          site: 'datadoghq.eu', // REQUIRED
+          forwardErrorsToLogs: true,
+          sampleRate: 100,
+          service: options.service,
+          env: process.env.NODE_ENV,
+      })
+    : null;
+    
+    &lt;span class=&quot;text-lime-500&quot;&gt;
+    /**
+    * Add a context to all your loggers
+    * See addLoggerGlobalContext &lt;a target=&quot;_blank&quot; class=&quot;textlink&quot; href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/#global-context&quot;&gt;here&lt;/a&gt;
+    */
+    &lt;/span&gt;
+    datadogLogs.addLoggerGlobalContext('Site', options.service);
+  &lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;After the installation, we want create a simple log function to enable developers to log any of their events to Datadog. (see: commit &lt;a href=&quot;&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;2ea6e3d58&lt;/a&gt;)&lt;/p&gt;
+&lt;pre class=&quot;precode&quot;&gt;
+  &lt;code&gt;
+    &lt;span class=&quot;text-lime-500&quot;&gt;
+    /**
+     * Log functionality to Datadog
+     * @param  {String} message The message of your log that is fully indexed by Datadog.
+     * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &lt;MESSAGE&gt;
+     * @param {String} status The status of your log; accepted status values are `debug`, `info`, `warn`, or `error`.
+     */
+    &lt;/span&gt;
+     $log: function (
+        message = 'Empty message',
+        messageContext = { function: 'messageContextMissing' },
+        status = 'error'
+    ) {
+        datadogLogs.logger.log(
+            message,
+            {
+                context: {
+                    stack_trace: new Error().stack,
+                    ...messageContext,
+                },
+            },
+            status
+        );
+    },
+  &lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;So far so good! but how do we know it works?&lt;br&gt;Let's create a playground folder to test this plugin 😉&lt;/p&gt;
+
+&lt;h2 class=&quot;text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;03. Playground&lt;/h2&gt;
+&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue-plugin/tree/feat/playground&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/playground]&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Install Vue CLI&lt;/p&gt;
+https://cli.vuejs.org/guide/installation.html
+https://cli.vuejs.org/guide/creating-a-project.html
+
+&lt;p&gt;Update the package.json on root&lt;/p&gt;
+
+
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+Sources:
+- https://docs.datadoghq.com/logs/log_collection/javascript/
+- https://www.datadoghq.com/blog/monitor-javascript-console-logs/
+- https://github.com/DataDog/browser-sdk</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="frontend" /><category term="vue" /><category term="plugin" /><summary type="html">Monitor JavaScript console logs and user activity with Datadog on your Vue or Nuxt.js project</summary></entry><entry><title type="html">Why Ivana writes</title><link href="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html" rel="alternate" type="text/html" title="Why Ivana writes" /><published>2022-02-24T18:24:27+01:00</published><updated>2022-02-24T18:24:27+01:00</updated><id>http://localhost:4000/journal/2022/02/24/why-ivana-writes</id><content type="html" xml:base="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html">Hi I am Ivana. This is my first post on my blog. 
 &lt;br&gt;&lt;br&gt;
 As a self-taught engineer, I am always interested in using simple words to explain complex jargon. This is important and very personal for me because I used to feel embarrassed and discouraged whenever other proper engineers say cool stuff like:
 &quot;Exponential backoff algorithm&quot;, &quot;Ternary Operator&quot;, &quot;Memory Leak&quot;, &quot;Garbage Collection&quot;, &quot;Service Bus&quot;, ... Wait, there's a bus? is it for the garbage?
@@ -25,20 +238,4 @@ I mean it when I said, &quot;I am always interested in using simple words to exp
 &lt;br&gt;&lt;br&gt;
 I want to write a journal so future me can look back and re-read, re-visit and re-learn my past thought process. 
 &lt;br&gt;&lt;br&gt;
-Hopefully, I could help other people who are looking for the things that I solved or stumbled upon.</content><author><name></name></author><category term="journal" /><category term="personal" /><category term="notes" /><summary type="html">Hi I am Ivana. This is my first post on my blog. As a self-taught engineer, I am always interested in using simple words to explain complex jargon. This is important and very personal for me because I used to feel embarrassed and discouraged whenever other proper engineers say cool stuff like: &quot;Exponential backoff algorithm&quot;, &quot;Ternary Operator&quot;, &quot;Memory Leak&quot;, &quot;Garbage Collection&quot;, &quot;Service Bus&quot;, ... Wait, there's a bus? is it for the garbage? I always looked at them and said: &quot;OK, speak English, I studied music&quot;. It didn't end there, because when I google, I feel stupider. That's the beauty of knowledge though, the more you know - the more you realize you don't know much... yadi yadi ya.. and ten minutes later I spiraled deep into mathematics algorithm history, which has so little to do with what I was looking for, so I ended up watching puppies videos out of desperation. True story. Looking back, there were several moments in my life when I feel so hopeless, stupid, and incompetent. Little voices in my head telling me to pick something more pragmatic since I am an immigrant, so I really needed to have a job to stay in the Netherlands and I didn't have the money to go to IT school (I used to work seven days per week at two different Tokos while cleaning and cooking for four different families to be able to pay for my tuition and living cost. Long story short, it was fucking hell with zero personal time). Keep in mind, this was fifteen+ years ago, there was no code Bootcamp, no Codeacademy, no Udemy, and Youtube barely had any useful videos. How did I learn? Github was my library and open source code was my genesis. I taught myself by reading developers' code, line by line, out loud to myself while explaining every line of code to myself, or at least what my understanding was. Later on, I figured out what I did call: &quot;rubber duck debugging&quot;. I didn't know how I could have the time with all the jobs I had to juggle, I guess it was the love and I had no friends, so it kinda helped me focus. I fell in love with code, I didn't care if I was good or not, nor if I ever could be good at it. I just love it so much and it's like playing. Fast forward, today, I still feel very stupid. Happily stupid and I don't feel embarrassed if I don't know some jargon, I love learning. My love for coding spreads to various rando-kinda-related topics. I started as a frontend developer and designer, then I got to know Javascript. When learning JS, I got interested in cybersecurity, then I stumbled upon Python (my project, Venopi is using Python + Django), then I got interested in Web3 so I am teaching myself to be a blockchain developer (Solidity). I am also interested in philosophy, physics, spirituality, and economics; I read as much as I can about these topics before I go to bed. We are in the era of an abundance of information and resources. What I mean is, the problem is not getting the information but asking the right questions and staying interested and persistent to get the answers. So why write? I mean it when I said, &quot;I am always interested in using simple words to explain complex jargon&quot;. I want to challenge myself to simplify complex ideas or things into digestible information. I want to write a journal so future me can look back and re-read, re-visit and re-learn my past thought process. Hopefully, I could help other people who are looking for the things that I solved or stumbled upon.</summary></entry><entry><title type="html">Micro frontend architecture with nuxt</title><link href="http://localhost:4000/micro/frontend/architecture/nuxt.js/vue/2022/02/21/micro-frontend-architecture-with-nuxt.html" rel="alternate" type="text/html" title="Micro frontend architecture with nuxt" /><published>2022-02-21T00:00:00+01:00</published><updated>2022-02-21T00:00:00+01:00</updated><id>http://localhost:4000/micro/frontend/architecture/nuxt.js/vue/2022/02/21/micro-frontend-architecture-with-nuxt</id><content type="html" xml:base="http://localhost:4000/micro/frontend/architecture/nuxt.js/vue/2022/02/21/micro-frontend-architecture-with-nuxt.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;</content><author><name></name></author><category term="micro" /><category term="frontend" /><category term="architecture" /><category term="nuxt.js" /><category term="vue" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Explain Like I’m Five: Micro frontends</title><link href="http://localhost:4000/frontend/2022/02/20/micro-frontend.html" rel="alternate" type="text/html" title="Explain Like I’m Five: Micro frontends" /><published>2022-02-20T18:20:27+01:00</published><updated>2022-02-20T18:20:27+01:00</updated><id>http://localhost:4000/frontend/2022/02/20/micro-frontend</id><content type="html" xml:base="http://localhost:4000/frontend/2022/02/20/micro-frontend.html">&lt;p&gt;As a self-taught engineer&lt;/p&gt;</content><author><name></name></author><category term="frontend" /><category term="micro" /><category term="frontend" /><category term="architecture" /><category term="nuxt.js" /><category term="vue" /><summary type="html">As a self-taught engineer</summary></entry><entry><title type="html">This is coming from gh-hey!</title><link href="http://localhost:4000/jekyll/update/2022/02/18/welcome-to-jekyll.html" rel="alternate" type="text/html" title="This is coming from gh-hey!" /><published>2022-02-18T18:20:27+01:00</published><updated>2022-02-18T18:20:27+01:00</updated><id>http://localhost:4000/jekyll/update/2022/02/18/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/02/18/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+Hopefully, I could help other people who are looking for the things that I solved or stumbled upon.</content><author><name></name></author><category term="journal" /><category term="personal" /><category term="notes" /><summary type="html">A post about why I want to write a journal so future me can look back and re-read, re-visit and re-learn my past thought process.</summary></entry></feed>
