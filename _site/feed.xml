@@ -1,234 +1,484 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-11T17:01:50+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">How to create the Datadog Vue plugin</title><link href="http://localhost:4000/code/2022/03/03/how-to-create-datadog-vue-plugin.html" rel="alternate" type="text/html" title="How to create the Datadog Vue plugin" /><published>2022-03-03T18:24:27+01:00</published><updated>2022-03-03T18:24:27+01:00</updated><id>http://localhost:4000/code/2022/03/03/how-to-create-datadog-vue-plugin</id><content type="html" xml:base="http://localhost:4000/code/2022/03/03/how-to-create-datadog-vue-plugin.html">&lt;h2 class=&quot;text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is Datadog?&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://www.datadoghq.com/&quot;&gt;Datadog&lt;/a&gt; is the essential monitoring and security platform for cloud applications. They bring together end-to-end traces, metrics, and logs to make your applications, infrastructure, and third-party services entirely observable. These capabilities help businesses secure their systems, avoid downtime, and ensure customers are getting the best user experience.&lt;/p&gt;
-&lt;p class=&quot;text-sky-600&quot;&gt;TL;DR? Basically a tool that can monitor services such as servers, databases and tools. You can categorise your events to `Emergency`, `Error`, `Warn`, `Info` and monitor them closely.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-15T20:11:23+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">How I created Datadog Vue.js plugin</title><link href="http://localhost:4000/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html" rel="alternate" type="text/html" title="How I created Datadog Vue.js plugin" /><published>2022-03-15T20:11:00+01:00</published><updated>2022-03-15T20:11:00+01:00</updated><id>http://localhost:4000/code/2022/03/15/how-i-created-datadog-vuejs-plugin</id><content type="html" xml:base="http://localhost:4000/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is Datadog?&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://www.datadoghq.com/&quot;&gt;Datadog&lt;/a&gt; is the
+  essential monitoring and security platform for cloud applications. They bring together end-to-end traces, metrics, and
+  logs to make your applications, infrastructure, and third-party services entirely observable. These capabilities help
+  businesses secure their systems, avoid downtime, and ensure customers are getting the best user experience.&lt;/p&gt;
+&lt;p class=&quot;text-sky-600&quot;&gt;TL;DR? Basically a tool that can monitor services such as servers, databases and tools. You can
+  categorise your events to `Emergency`, `Error`, `Warn`, `Info` and monitor them closely.&lt;/p&gt;
 
-&lt;h2 class=&quot;text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Why use Datadog?&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Say you have a platform with many features, tools and users. Using Datadog, you can put loggers (`Emergency`, `Error`, `Warn`, `Info`) on your codebase so when something goes wrong, the logger will send the event(s) to Datadog.
-On Datadog, you can filter based on various things (service name, logger type, url, etc) and on each log, you can zoom in to learn more about the origin and other useful log infos.
-This can save you and your team a lot of time when you need to find and fix errors.&lt;/p&gt;
-&lt;p class=&quot;text-sky-600 mb-4 md:mb-6&quot;&gt;TL;DR? When sh*t goes wrong (this kind of tool like an insurance right? we mostly care when things go wrong) they can help you finding the wrongs and where they are originated. It saves time for as long as you log properly.&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;In this blogpost, I want to share step by step how I created the Datadog Vue plugin. I hope this will help other developers 😀&lt;/p&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Why use Datadog?&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Say you have a platform with many features, tools and users. Using Datadog, you can put loggers
+  (`Emergency`, `Error`, `Warn`, `Info`) on your codebase so when something goes wrong, the logger will send the
+  event(s) to Datadog.
+  On Datadog, you can filter based on various things (service name, logger type, url, etc) and on each log, you can zoom
+  in to learn more about the origin and other useful log infos.
+  This can save you and your team a lot of time when you need to find and fix errors.&lt;/p&gt;
+&lt;p class=&quot;text-sky-600 mb-4 md:mb-6&quot;&gt;TL;DR? When sh*t goes wrong (this kind of tool like an insurance right? we mostly
+  care when things go wrong) they can help you finding the wrongs and where they are originated. It saves time for as
+  long as you log properly.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;In this blogpost, I want to share step by step how I created the Datadog Vue plugin. I hope this
+  will help other developers 😀&lt;/p&gt;
 
-&lt;h2 class=&quot;text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;01. Project setup&lt;/h2&gt;
-&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue-plugin/tree/feat/setup&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/setup]&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;01. Project setup&lt;/h2&gt;
+&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/tree/feat/01-setup&quot;
+    target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/01-setup]&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Create a basic package.json&lt;/p&gt;
+&lt;p&gt;Create a basic package.json (commit &lt;a
+    href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/70429097556a82f29aaefe1d6f24ec092bf23087&quot; class=&quot;textlink&quot;
+    target=&quot;_blank&quot;&gt;70429097556a82f29aaefe1d6f24ec092bf23087&lt;/a&gt;)&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
   &lt;code&gt;
     {
-      &quot;name&quot;: &quot;@project/datadog-vue-plugin&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// name of the package&lt;/span&gt;
+      &quot;name&quot;: &quot;datadog-vue&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// name of the package&lt;/span&gt;
       &quot;version&quot;: &quot;1.0.0&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// package version&lt;/span&gt;
       &quot;description&quot;: &quot;Datadog Vue plugin&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// package description&lt;/span&gt;
       &quot;main&quot;: &quot;index.js&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// the main file, aka the brain of this package&lt;/span&gt;
       &quot;author&quot;: &quot;Ivana Setiawan&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// your name&lt;/span&gt;
-      &quot;license&quot;: &quot;ISC&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// licensing. &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;Learn more&lt;/a&gt;.&lt;/span&gt;
+      &quot;license&quot;: &quot;MIT&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// licensing. &lt;a href=&quot;https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;Learn more&lt;/a&gt;&lt;/span&gt;
     }
   &lt;/code&gt;
 &lt;/pre&gt;
-The package.json above is pretty empty. It doesn't do much. My personal preference is to add these devDependencies that includes &lt;a href=&quot;&quot; class=&quot;&quot;&gt;Babel&lt;/a&gt;, &lt;a href=&quot;&quot; class=&quot;textlink&quot;&gt;Eslint&lt;/a&gt;, and &lt;a href=&quot;&quot; class=&quot;textlink&quot;&gt;Jest&lt;/a&gt;:
+&lt;p&gt;The package.json above is pretty empty. It doesn&apos;t do much. My personal preference is to at least add &lt;a
+    href=&quot;https://babeljs.io/docs/en/usage&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Babel&lt;/a&gt; and &lt;a href=&quot;&quot; target=&quot;_blank&quot;
+    class=&quot;textlink&quot;&gt;Eslint&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;Install Babel&lt;/p&gt;
+&lt;p&gt;(commit &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/9bd05f70152172c69fc9d30f67e8ab5fbe555e3f&quot;
+    class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;9bd05f70152172c69fc9d30f67e8ab5fbe555e3f&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Babel is a a toolchain that will compile your JavaScript application code that uses ES2015+ syntax into code that
+  works
+  in current browsers or environments.&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
   &lt;code&gt;
-    &quot;devDependencies&quot;: {
-      &quot;@babel/core&quot;: &quot;^7.15.0&quot;,
-      &quot;@babel/preset-env&quot;: &quot;^7.15.0&quot;,
-      &quot;@testing-library/vue&quot;: &quot;^5.8.2&quot;,
-      &quot;@vue/test-utils&quot;: &quot;^1.2.2&quot;,
-      &quot;babel-core&quot;: &quot;^7.0.0-bridge.0&quot;,
-      &quot;babel-jest&quot;: &quot;^27.0.6&quot;,
-      &quot;eslint&quot;: &quot;^7.18.0&quot;,
-      &quot;eslint-config-prettier&quot;: &quot;^7.2.0&quot;,
-      &quot;eslint-plugin-jest-playwright&quot;: &quot;^0.3.3&quot;,
-      &quot;eslint-plugin-nuxt&quot;: &quot;^2.0.0&quot;,
-      &quot;eslint-plugin-prettier&quot;: &quot;^3.3.1&quot;,
-      &quot;jest&quot;: &quot;^27.0.6&quot;,
-      &quot;jest-serializer-vue&quot;: &quot;^2.0.2&quot;,
-      &quot;vue-jest&quot;: &quot;^3.0.7&quot;
-    },
+    &lt;span class=&quot;text-lime-500&quot;&gt;// Run on your Shell&lt;/span&gt;
+    npm install --save-dev @babel/core @babel/cli @babel/preset-env
   &lt;/code&gt;
 &lt;/pre&gt;
-To check if everything goes as planned, run &lt;code class=&quot;precode px-2.5 py-1&quot;&gt;npm install&lt;/code&gt; on the root of your project. You should see a &lt;code class=&quot;precode px-2.5 py-1&quot;&gt;package-lock.json&lt;/code&gt; and a folder called &lt;code class=&quot;precode px-2.5 py-1&quot;&gt;node_modules&lt;/code&gt; are created.
+
+&lt;p&gt;Create a config file named `babel.config.json` (requires v7.8.0 and above) in the root of your project with this
+  content:&lt;/p&gt;
+&lt;pre class=&quot;precode&quot;&gt;
+  &lt;code&gt;
+    &lt;span class=&quot;text-lime-500&quot;&gt;// You can adapt the config below for the browsers you want to support.
+    // See &lt;a href=&quot;https://babeljs.io/docs/en/babel-preset-env&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;here&lt;/a&gt; for more @babel/preset-env options.&lt;/span&gt;
+    module.exports = {
+      presets: [
+        &apos;@vue/cli-plugin-babel/preset&apos;
+      ]
+    }
+  &lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;Install Eslint&lt;/p&gt;
+&lt;p&gt;(commit &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/ddbc3a83aca7c2982b4652fd25149da731f369a3&quot;
+    class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;ddbc3a83aca7c2982b4652fd25149da731f369a3&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Eslint is a static code analysis tool for identifying problematic patterns found in JavaScript code.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt; eslint eslint-plugin-vue
+
+// Optional, you can also create .eslintrc.js &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the root of your project
+npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;On `.eslintrc.js` (in the root of your project):&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// You can adapt the rules in the config below&amp;lt;/span&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;extends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;plugin:vue/recommended&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// override/add rules settings here, such as:&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// &apos;vue/no-unused-vars&apos;: &apos;error&apos;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;Is everything going well? check your `package.json`, it should looks like this:&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;datadog-vue&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Datadog Vue plugin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;index.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ivana Setiawan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MIT&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;@babel/cli&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.17.6&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;@babel/core&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.17.5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;@babel/preset-env&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.16.11&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;eslint&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^8.11.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;eslint-plugin-vue&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^8.5.0&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;You should also see a &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;package-lock.json&lt;/code&gt; and a folder called &lt;code
+    class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;node_modules&lt;/code&gt; in the root of your project. (commit &lt;a
+    href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/b3e737ae92862440afe9752fe87662f35da03682&quot; class=&quot;textlink&quot;
+    target=&quot;_blank&quot;&gt;b3e737ae92862440afe9752fe87662f35da03682&lt;/a&gt;)&lt;/p&gt;
 
 
-&lt;h2 class=&quot;text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;02. Datadog integration&lt;/h2&gt;
-&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue-plugin/tree/feat/integration&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/integration]&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my plugin.
-In my head, I want the flow to work like:&lt;/p&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;02. Datadog integration&lt;/h2&gt;
+&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/tree/feat/02-integration&quot;
+    target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/02-integration]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my
+  plugin.
+  In my head, I want the flow to work like:&lt;/p&gt;
 &lt;ul class=&quot;mb-6 md:mb-9 list-disc list-inside md:ml-6&quot;&gt;
-  &lt;li&gt;To install, run `npm install`&lt;/li&gt;
-  &lt;li&gt;Dev should be able to pass client token &lt;span class=&quot;text-sky-600&quot;&gt;(Client tokens are used to send events and logs from your user’s web and mobile applications.)&lt;/span&gt; and service name to easily filter the team logs&lt;/li&gt;
+  &lt;li&gt;To install, run &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm install datadog-vue&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Dev should be able to pass client token &lt;span class=&quot;text-sky-600&quot;&gt;(Client tokens are used to send events and logs
+      from your user’s web and mobile applications.)&lt;/span&gt; and service name to easily filter the team logs&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p class=&quot;my-4 md:my-6&quot;&gt;Let's get into it!&lt;/p&gt;
+&lt;p class=&quot;my-4 md:my-6 font-semibold&quot;&gt;Let&apos;s get into it!&lt;/p&gt;
 
-&lt;p&gt;Install &lt;a href=&quot;https://www.npmjs.com/package/@datadog/browser-logs&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;`@datadog/browser-logs`&lt;/a&gt; and start building the plugin.&lt;/p&gt;
+&lt;p&gt;Install &lt;a href=&quot;https://www.npmjs.com/package/@datadog/browser-logs&quot; class=&quot;textlink&quot;
+    target=&quot;_blank&quot;&gt;`@datadog/browser-logs`&lt;/a&gt; and start building the plugin.&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
   &lt;code&gt;
     npm i @datadog/browser-logs
   &lt;/code&gt;
 &lt;/pre&gt;
 &lt;p&gt;When this is done, you should see this under dependencies on your `package.json`&lt;/p&gt;
-&lt;pre class=&quot;precode&quot;&gt;
-  &lt;code&gt;
-    &lt;span class=&quot;text-lime-500&quot;&gt;File: package.json&lt;/span&gt;
-    &quot;dependencies&quot;: {
-      &quot;@datadog/browser-logs&quot;: &quot;^4.6.1&quot;
-    }    
-  &lt;/code&gt;
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// File: package.json&lt;/span&gt;
+&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@datadog/browser-logs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^4.6.1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/tree/feat/02-integration&quot;
+    target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/02-integration]&lt;/a&gt;&lt;/p&gt;
 
 &lt;p class=&quot;mt-9&quot;&gt;As mentioned above, there are two options that we want to pass for the Datadog plugin:&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;// Client Token from Datadog&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CLIENT_TOKEN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Service name (tip: use your project or team name)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SERVICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;It will look something like above code, but don&apos;t worry about it now - we will use it later 👍🏽&lt;/p&gt;
+
+&lt;p class=&quot;mt-9&quot;&gt;Let&apos;s start making the plugin, on `index.js`:&lt;/p&gt;
+&lt;p&gt;(commit &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/8e437d3fab67d5eca351b1e89f70a57f9f1ef98a&quot;
+    class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;8e437d3fab67d5eca351b1e89f70a57f9f1ef98a&lt;/a&gt;)&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@datadog/browser-logs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;cm&quot;&gt;/**
+      * Rules:
+      * - Enable in client only
+      * - Not disabled
+      */&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isNotExecutable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isNotExecutable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+      * Check before executing the plugin:
+      * - Client token must exist and not empty
+      * - Service name must exist and not empty
+      * Show warning (loggingWarn) if the condition is not met.
+      */&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initialCheck&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientToken&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loggingWarn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;You are not using Datadog vue plugin. If you want to, you can enter a Datadog client token&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;initialCheck&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loggingWarn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Let&apos;s initialise Datadog! For more info, check out &lt;a
+    href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Datadog log
+    collection&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;(commit &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/ab145f29e610d7107ae5718a868ab1d570ac1291&quot;
+    class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;ab145f29e610d7107ae5718a868ab1d570ac1291&lt;/a&gt;)&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**
+* Initialising datadogLogs!
+* See the params (https://docs.datadoghq.com/logs/log_collection/javascript/#initialization-parameters)
+* Required: clientToken &amp;amp; site
+*/&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// REQUIRED&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;datadoghq.eu&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// REQUIRED&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;forwardErrorsToLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;sampleRate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**
+* Add a context to all your loggers
+* See addLoggerGlobalContext (https://docs.datadoghq.com/logs/log_collection/javascript/#global-context)
+*/&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addLoggerGlobalContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Site&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;After the initialisation, we want create a simple log function to enable developers to log any of their events to
+  Datadog.&lt;/p&gt;
+&lt;p&gt;(commit &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/15bc28808d487b1116f8bf654902574f6eba1ebd&quot;
+    class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;15bc28808d487b1116f8bf654902574f6eba1ebd&lt;/a&gt;)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Log&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;functionality&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Datadog&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;param&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;that&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fully&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;indexed&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Datadog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;param&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;valid&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;which&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attributes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attached&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;MESSAGE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;param&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;accepted&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;values&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`debug`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`info`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`warn`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`error`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/span&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;No message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;noMessageContext&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+
+&lt;p&gt;So far so good! but how do we know it works?&lt;br&gt;Let&apos;s create a playground folder to test this plugin 😉&lt;/p&gt;
+
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;03. Playground&lt;/h2&gt;
+&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/tree/feat/03-playground&quot;
+    target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch:
+    feat/03-playground]&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 md:my-6 font-semibold&quot;&gt;Create a Vue CLI project as a plaground (commit &lt;a
+    href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Creating a Vue CLI project is easy!&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
   &lt;code&gt;
-    &lt;span class=&quot;text-lime-500&quot;&gt;// Client Token from Datadog&lt;/span&gt;
-    clientToken: process.env.CLIENT_TOKEN,
-    &lt;span class=&quot;text-lime-500&quot;&gt;// Service name (tip: use your project or team name)&lt;/span&gt;
-    service: process.env.SERVICE,
+    &lt;span class=&quot;text-lime-500&quot;&gt;// Install Vue CLI if you haven&apos;t
+    // learn more &lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://cli.vuejs.org/guide/installation.html&quot;&gt;here&lt;/a&gt;
+    &lt;/span&gt;npm install -g @vue/cli
+
+    &lt;span class=&quot;text-lime-500&quot;&gt;// Create a new project
+    // learn more &lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://cli.vuejs.org/guide/creating-a-project.html&quot;&gt;here&lt;/a&gt;&lt;/span&gt;
+    vue create playground
   &lt;/code&gt;
 &lt;/pre&gt;
-&lt;p&gt;It will look something like above code, but don't worry about it now - we will use it later 👍🏽&lt;/p&gt;
-
-&lt;p class=&quot;mt-9&quot;&gt;Let's start making the plugin, on `index.js`:&lt;/p&gt;
+&lt;p&gt;My Vue CLI preset is &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;Default ([Vue 2] babel, eslint)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;When the setup is done, make sure everything works:&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
   &lt;code&gt;
-    import { datadogLogs } from '@datadog/browser-logs';
-
-    export default {
-      install(Vue, options) {
-        &lt;span class=&quot;text-lime-500&quot;&gt;
-        /**
-         * Rules: 
-         * - Enable in client only
-         * - Not disabled
-         */
-        &lt;/span&gt;
-        const isNotExecutable = !process.browser || options.disabled;
-        if (isNotExecutable) return;
-
-        &lt;span class=&quot;text-lime-500&quot;&gt;
-        /**
-         * Check before executing the plugin:
-         * - Client token must exist and not empty
-         * - Service name must exist and not empty
-         * Show warning (loggingWarn) if the condition is not met.
-         */
-        &lt;/span&gt;
-        const initialCheck =
-            (!options.clientToken || options.clientToken.length === 0) &amp;&amp;
-            (!options.service || options.service.length === 0);
-        const loggingWarn = () =&gt; {
-            /* eslint no-console: [&quot;error&quot;, { allow: [&quot;warn&quot;, &quot;error&quot;] }] */
-            console.warn(
-                'You are not using Datadog vue plugin. If you want to, you can enter a Datadog client token'
-            );
-            return;
-        };
-        initialCheck ? loggingWarn() : null;
-      }
-    }
+    cd playground
+    npm run serve
+    &lt;span class=&quot;text-lime-500&quot;&gt;// Go to http://localhost:8080/ (check your terminal for the right port)
+    // You should see the app is running&lt;/span&gt;
   &lt;/code&gt;
 &lt;/pre&gt;
 
-&lt;p&gt;Let's initialise Datadog! For more info for the init, check out &lt;a href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/&quot; target=&quot;_blank&quot;&gt;Datadog log collection&lt;/a&gt;.&lt;/p&gt;
+&lt;p class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;Script&lt;/p&gt;
+&lt;p&gt;Wouldn&apos;t it be nice if a developer could go to the root of this repo then
+  run &lt;br&gt;&lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm
+    run playground&lt;/code&gt; and see the playground in action? I think that would be a great developer experience 😉&lt;/p&gt;
+&lt;p&gt;Let&apos;s add a new script on our package.json in the root of our project.&lt;/p&gt;
+&lt;p&gt;(commit &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/6a1211e525d409cf8a6e4e751a65bb2ce6b5a2da&quot;
+    class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;6a1211e525d409cf8a6e4e751a65bb2ce6b5a2da&lt;/a&gt;)&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
   &lt;code&gt;
-    &lt;span class=&quot;text-lime-500&quot;&gt;
-    /**
-    * Initialising datadogLogs!
-    * See the params &lt;a target=&quot;_blank&quot; class=&quot;textlink&quot; href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/#initialization-parameters&quot;&gt;here&lt;/a&gt;
-    * Required: clientToken &amp; site
-    */
-  &lt;/span&gt;
-    datadogLogs
-    ? datadogLogs.init({
-          clientToken: options.clientToken, // REQUIRED
-          site: 'datadoghq.eu', // REQUIRED
-          forwardErrorsToLogs: true,
-          sampleRate: 100,
-          service: options.service,
-          env: process.env.NODE_ENV,
-      })
-    : null;
-    
-    &lt;span class=&quot;text-lime-500&quot;&gt;
-    /**
-    * Add a context to all your loggers
-    * See addLoggerGlobalContext &lt;a target=&quot;_blank&quot; class=&quot;textlink&quot; href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/#global-context&quot;&gt;here&lt;/a&gt;
-    */
-    &lt;/span&gt;
-    datadogLogs.addLoggerGlobalContext('Site', options.service);
-  &lt;/code&gt;
-&lt;/pre&gt;
-
-&lt;p&gt;After the installation, we want create a simple log function to enable developers to log any of their events to Datadog. (see: commit &lt;a href=&quot;&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;2ea6e3d58&lt;/a&gt;)&lt;/p&gt;
-&lt;pre class=&quot;precode&quot;&gt;
-  &lt;code&gt;
-    &lt;span class=&quot;text-lime-500&quot;&gt;
-    /**
-     * Log functionality to Datadog
-     * @param  {String} message The message of your log that is fully indexed by Datadog.
-     * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &lt;MESSAGE&gt;
-     * @param {String} status The status of your log; accepted status values are `debug`, `info`, `warn`, or `error`.
-     */
-    &lt;/span&gt;
-     $log: function (
-        message = 'Empty message',
-        messageContext = { function: 'messageContextMissing' },
-        status = 'error'
-    ) {
-        datadogLogs.logger.log(
-            message,
-            {
-                context: {
-                    stack_trace: new Error().stack,
-                    ...messageContext,
-                },
-            },
-            status
-        );
+    &lt;span class=&quot;text-lime-500&quot;&gt;// package.json&lt;/span&gt;
+    &quot;scripts&quot;: {
+      &quot;playground&quot;: &quot;npm link &amp;&amp; cd playground &amp;&amp; npm i &amp;&amp; npm link datadog-vue &amp;&amp; npm run serve&quot;,
     },
   &lt;/code&gt;
 &lt;/pre&gt;
+&lt;p&gt;See it in action! type &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm
+    run playground&lt;/code&gt; on the root of your project and go to http://localhost:8080/&lt;/p&gt;
 
-&lt;p&gt;So far so good! but how do we know it works?&lt;br&gt;Let's create a playground folder to test this plugin 😉&lt;/p&gt;
+&lt;p class=&quot;my-4&quot;&gt;Helper: What is &lt;a href=&quot;https://docs.npmjs.com/cli/v6/commands/npm-link&quot; class=&quot;textlink&quot;
+    target=&quot;_blank&quot;&gt;npm
+    link&lt;/a&gt;?&lt;/p&gt;
 
-&lt;h2 class=&quot;text-2xl font-medium mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;03. Playground&lt;/h2&gt;
-&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue-plugin/tree/feat/playground&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/playground]&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;Use the plugin on the Playground&lt;/p&gt;
+&lt;p&gt;Go to playground/src/components/HelloWorld.vue and put some buttons that send events to Datadog using our datadog-vue
+  plugin.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vue&quot; data-lang=&quot;vue&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick(&apos;info&apos;, &lt;/span&gt;{ function: &apos;triggerInfo&apos; }, &apos;info&apos;)&quot;&amp;gt;
+      Click me for Info!
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick(&apos;warn&apos;, &lt;/span&gt;{ function: &apos;triggerWarn&apos; }, &apos;warn&apos;)&quot;&amp;gt;
+      Click me for Warn!
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick(&apos;error&apos;, &lt;/span&gt;{ function: &apos;triggerError&apos; }, &apos;error&apos;)&quot;&amp;gt;
+      Click me for Error!
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick(&apos;debug&apos;, &lt;/span&gt;{ function: &apos;triggerDebug&apos; }, &apos;debug&apos;)&quot;&amp;gt;
+      Click me for Debug!
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 
-&lt;p&gt;Install Vue CLI&lt;/p&gt;
-https://cli.vuejs.org/guide/installation.html
-https://cli.vuejs.org/guide/creating-a-project.html
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;datadog-vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-&lt;p&gt;Update the package.json on root&lt;/p&gt;
+  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1342889190&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;venopi&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;HelloWorld&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;How do I know if it works?&lt;/p&gt;
+&lt;p&gt;After you click some buttons on the demo, Go to your Datadog logs app and filter based on `localhost` and you should
+  see the logs appearing!&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 text-center&quot;&gt;
+  &lt;img src=&quot;/assets/images/datadog_sample.jpg&quot; alt=&quot;Datadog dashboard sample&quot;
+  class=&quot;w-full rounded-2xl overflow-hidden&quot; /&gt;
+  &lt;figcaption class=&quot;text-sm mt-2 md:mt-4&quot;&gt;Datadog dashboard sample&lt;/figcaption&gt;
+&lt;/figure&gt;
 
 
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;04. Bonus&lt;/h2&gt;
+&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/tree/feat/04-bonus&quot;
+  target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/04-bonus]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Since there are many types of logs, we want developers who are using our plugin to be able to log specifically the type
+  of log they want to send. As for now, you need to call $log and specify the type =&gt; &lt;code
+    class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;ddLog.$log(message,
+    messageContext, status);&lt;/code&gt;&lt;/p&gt;
+&lt;p class=&quot;my-4 md:my-6&quot;&gt;And we want something like:&lt;/p&gt;
+&lt;pre class=&quot;precode&quot;&gt;
+  &lt;code&gt;
+    ddLog.$info(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send info&lt;/span&gt;
+    ddLog.$debug(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send debug&lt;/span&gt;
+    ddLog.$warn(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send warn&lt;/span&gt;
+    ddLog.$error(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send error&lt;/span&gt;
+  &lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;But, before we start, since we&apos;re building client side&apos;s plugin, I want to make it clear by adding `.client` on our `index.js` file. (commit &lt;a
+  href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/0c63393b5844036b6d778ada0f0a6603cb36aefa&quot; class=&quot;textlink&quot;
+  target=&quot;_blank&quot;&gt;0c63393b5844036b6d778ada0f0a6603cb36aefa&lt;/a&gt;)&lt;/p&gt;
 
+&lt;p class=&quot;my-4 md:my-6 font-semibold&quot;&gt;Let&apos;s continue with our plugin!&lt;/p&gt;
+&lt;p&gt;Update the `index.client.js` to have info, debug, warn and error:&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**
+* Log the message with &quot;error&quot; flag to Datadog
+* @param  {String} message The message of your log that is fully indexed by Datadog.
+* @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &amp;lt;MESSAGE&amp;gt;
+*/&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
 
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+&lt;span class=&quot;cm&quot;&gt;/**
+* Log the message with &quot;warning&quot; flag to Datadog
+* @param  {String} message The message of your log that is fully indexed by Datadog.
+* @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &amp;lt;MESSAGE&amp;gt;
+*/&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$warn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/**
+* Log the message with &quot;info&quot; status to Datadog
+* @param  {String} message The message of your log that is fully indexed by Datadog.
+* @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &amp;lt;MESSAGE&amp;gt;
+*/&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/**
+* Log the message with &quot;debug&quot; status to Datadog
+* @param  {String} message The message of your log that is fully indexed by Datadog.
+* @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &amp;lt;MESSAGE&amp;gt;
+*/&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-Sources:
-- https://docs.datadoghq.com/logs/log_collection/javascript/
-- https://www.datadoghq.com/blog/monitor-javascript-console-logs/
-- https://github.com/DataDog/browser-sdk</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="frontend" /><category term="vue" /><category term="plugin" /><summary type="html">Monitor JavaScript console logs and user activity with Datadog on your Vue or Nuxt.js project</summary></entry><entry><title type="html">Why Ivana writes</title><link href="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html" rel="alternate" type="text/html" title="Why Ivana writes" /><published>2022-02-24T18:24:27+01:00</published><updated>2022-02-24T18:24:27+01:00</updated><id>http://localhost:4000/journal/2022/02/24/why-ivana-writes</id><content type="html" xml:base="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html">Hi I am Ivana. This is my first post on my blog. 
+&lt;p&gt;Awesome! now we can do something like:&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// When we want to send info&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// When we want to send debug&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$warn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// When we want to send warn&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// When we want to send error&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Any questions or suggestions? &lt;a href=&quot;mailto:ivana.setiawan@gmail.com&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;write to me&lt;/a&gt;.
+  &lt;br&gt;I love learning new things and enjoy getting to know people! &lt;/p&gt;
+
+&lt;p class=&quot;mt-9 md:mt-14 font-semibold&quot;&gt;Helpers:&lt;/p&gt;
+&lt;ul class=&quot;list-disc list-inside&quot;&gt;
+  &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://docs.datadoghq.com/logs/log_collection/javascript/&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://www.datadoghq.com/blog/monitor-javascript-console-logs/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://www.datadoghq.com/blog/monitor-javascript-console-logs/&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://github.com/DataDog/browser-sdk&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://github.com/DataDog/browser-sdk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="frontend" /><category term="vue" /><category term="plugin" /><summary type="html">Monitor JavaScript console logs and user activity with Datadog on your Vue.js or Nuxt.js project</summary></entry><entry><title type="html">Why Ivana writes</title><link href="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html" rel="alternate" type="text/html" title="Why Ivana writes" /><published>2022-02-24T18:24:27+01:00</published><updated>2022-02-24T18:24:27+01:00</updated><id>http://localhost:4000/journal/2022/02/24/why-ivana-writes</id><content type="html" xml:base="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html">Hi I am Ivana. This is my first post on my blog. 
 &lt;br&gt;&lt;br&gt;
 As a self-taught engineer, I am always interested in using simple words to explain complex jargon. This is important and very personal for me because I used to feel embarrassed and discouraged whenever other proper engineers say cool stuff like:
-&quot;Exponential backoff algorithm&quot;, &quot;Ternary Operator&quot;, &quot;Memory Leak&quot;, &quot;Garbage Collection&quot;, &quot;Service Bus&quot;, ... Wait, there's a bus? is it for the garbage?
+&quot;Exponential backoff algorithm&quot;, &quot;Ternary Operator&quot;, &quot;Memory Leak&quot;, &quot;Garbage Collection&quot;, &quot;Service Bus&quot;, ... Wait, there&apos;s a bus? is it for the garbage?
 &lt;br&gt;&lt;br&gt;
 I always looked at them and said: &quot;OK, speak English, I studied music&quot;. 
 &lt;br&gt;&lt;br&gt;
-It didn't end there, because when I google, I feel stupider. That's the beauty of knowledge though, the more you know - the more you realize you don't know much... yadi yadi ya..  and ten minutes later I spiraled deep into mathematics algorithm history, which has so little to do with what I was looking for, so I ended up watching puppies videos out of desperation. True story.
+It didn&apos;t end there, because when I google, I feel stupider. That&apos;s the beauty of knowledge though, the more you know - the more you realize you don&apos;t know much... yadi yadi ya..  and ten minutes later I spiraled deep into mathematics algorithm history, which has so little to do with what I was looking for, so I ended up watching puppies videos out of desperation. True story.
 &lt;br&gt;&lt;br&gt;
-Looking back, there were several moments in my life when I feel so hopeless, stupid, and incompetent. Little voices in my head telling me to pick something more pragmatic since I am an immigrant, so I really needed to have a job to stay in the Netherlands and I didn't have the money to go to IT school (I used to work seven days per week at two different Tokos while cleaning and cooking for four different families to be able to pay for my tuition and living cost. Long story short, it was fucking hell with zero personal time).  
+Looking back, there were several moments in my life when I feel so hopeless, stupid, and incompetent. Little voices in my head telling me to pick something more pragmatic since I am an immigrant, so I really needed to have a job to stay in the Netherlands and I didn&apos;t have the money to go to IT school (I used to work seven days per week at two different Tokos while cleaning and cooking for four different families to be able to pay for my tuition and living cost. Long story short, it was fucking hell with zero personal time).  
 &lt;br&gt;&lt;br&gt;
 Keep in mind, this was fifteen+ years ago, there was no code Bootcamp, no Codeacademy, no Udemy, and Youtube barely had any useful videos. 
 &lt;h2 class=&quot;text-2xl font-semibold mt-10 mb-4&quot;&gt;How did I learn?&lt;/h2&gt;
-Github was my library and open source code was my genesis. I taught myself by reading developers' code, line by line, out loud to myself while explaining every line of code to myself, or at least what my understanding was. Later on, I figured out what I did call: &quot;rubber duck debugging&quot;. 
+Github was my library and open source code was my genesis. I taught myself by reading developers&apos; code, line by line, out loud to myself while explaining every line of code to myself, or at least what my understanding was. Later on, I figured out what I did call: &quot;rubber duck debugging&quot;. 
 &lt;br&gt;&lt;br&gt;
-I didn't know how I could have the time with all the jobs I had to juggle, I guess it was the love and I had no friends, so it kinda helped me focus. I fell in love with code, I didn't care if I was good or not, nor if I ever could be good at it. I just love it so much and it's like playing. 
+I didn&apos;t know how I could have the time with all the jobs I had to juggle, I guess it was the love and I had no friends, so it kinda helped me focus. I fell in love with code, I didn&apos;t care if I was good or not, nor if I ever could be good at it. I just love it so much and it&apos;s like playing. 
 &lt;br&gt;&lt;br&gt;
-Fast forward, today, I still feel very stupid. Happily stupid and I don't feel embarrassed if I don't know some jargon, I love learning. 
+Fast forward, today, I still feel very stupid. Happily stupid and I don&apos;t feel embarrassed if I don&apos;t know some jargon, I love learning. 
 &lt;br&gt;&lt;br&gt;
 My love for coding spreads to various rando-kinda-related topics. I started as a frontend developer and designer, then I got to know Javascript. When learning JS, I got interested in cybersecurity, then I stumbled upon Python (my project, Venopi is using Python + Django), then I got interested in Web3 so I am teaching myself to be a blockchain developer (Solidity). I am also interested in philosophy, physics, spirituality, and economics; I read as much as I can about these topics before I go to bed. 
 &lt;br&gt;&lt;br&gt;

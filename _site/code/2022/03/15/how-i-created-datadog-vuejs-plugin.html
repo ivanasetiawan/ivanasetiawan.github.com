@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{Ivana} Front-end developer, UX Designer. JavaScript lover, Blockchain experimentalist and Web3 enthusiast
+  </title>
+  <meta name="description"
+    content="I am a freelance front-end developer/UX Designer and rocket scientist wannabe who's passionately in love with tech stuff">
+  <meta name="author" content="Ivana Setiawan">
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How I created Datadog Vue.js plugin | Ivana Setiawan</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="How I created Datadog Vue.js plugin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Monitor JavaScript console logs and user activity with Datadog on your Vue.js or Nuxt.js project" />
+<meta property="og:description" content="Monitor JavaScript console logs and user activity with Datadog on your Vue.js or Nuxt.js project" />
+<link rel="canonical" href="http://localhost:4000/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html" />
+<meta property="og:url" content="http://localhost:4000/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html" />
+<meta property="og:site_name" content="Ivana Setiawan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-15T20:11:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How I created Datadog Vue.js plugin" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html"},"url":"http://localhost:4000/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html","@type":"BlogPosting","description":"Monitor JavaScript console logs and user activity with Datadog on your Vue.js or Nuxt.js project","headline":"How I created Datadog Vue.js plugin","dateModified":"2022-03-15T20:11:00+01:00","datePublished":"2022-03-15T20:11:00+01:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/dist/main.css">
+  <script src="https://kit.fontawesome.com/823d655421.js" crossorigin="anonymous"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ivana Setiawan" /></head><body class="font-tpr tracking-wide">
+  <header class="px-4 py-6 bg-slate-900 text-white fixed w-full z-10 top-0">
+    <div class="max-w-screen-lg mx-auto px-4 flex font-monospace justify-between">
+      <h1 class="mr-4 md:mr-6 tracking-widest">
+        <a href="/" class="group">
+          n<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-orange-500">3</span>rd<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-violet-500">0</span>nc<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-lime-500">1</span>d
+        </a>
+      </h1>
+      <nav>
+        <ul class="flex">
+          <li class="ml-4 md:ml-6 tracking-wide"><a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4" href="/blog/">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main aria-label="Content">
+    <section
+  class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-16 dark:bg-gradient-to-tr dark:from-slate-800 dark:to-slate-900 dark:text-yellow-50"
+  itemscope itemtype="https://schema.org/Blog">
+  <div class="max-w-screen-md mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen">
+    <div class="mb-9 flex justify-between items-center">
+      <div>
+        <a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4"
+          href="/blog/"><i class="fa-solid fa-arrow-left mr-1"></i> Blog</a>
+      </div><div>
+  <button onclick="setMode('light')" id="mode-light" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-300 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-sun-bright text-xl mr-1.5"></i> <span class="cursor-pointer">Light mode</span>
+  </button>
+
+  <button onclick="setMode('dark')" id="mode-dark" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-200 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-moon text-xl mr-1.5"></i> <span class="cursor-pointer">Dark mode</span>
+  </button>
+</div></div>
+
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="mb-4 md:mb-9">
+        <h1 class="font-semibold text-4xl mb-4 leading-snug" itemprop="name headline">How I created Datadog Vue.js plugin</h1>
+        <p class="text-gray-500">
+          <time class="" datetime="2022-03-15T20:11:00+01:00" itemprop="datePublished">Mar 15, 2022
+          </time></p>
+      </header>
+
+      <div class="leading-relaxed text-lg" itemprop="articleBody">
+        <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">What is Datadog?</h2>
+<p class="mb-4 md:mb-6"><a class="textlink" target="_blank" href="https://www.datadoghq.com/">Datadog</a> is the
+  essential monitoring and security platform for cloud applications. They bring together end-to-end traces, metrics, and
+  logs to make your applications, infrastructure, and third-party services entirely observable. These capabilities help
+  businesses secure their systems, avoid downtime, and ensure customers are getting the best user experience.</p>
+<p class="text-sky-600">TL;DR? Basically a tool that can monitor services such as servers, databases and tools. You can
+  categorise your events to `Emergency`, `Error`, `Warn`, `Info` and monitor them closely.</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Why use Datadog?</h2>
+<p class="mb-4 md:mb-6">Say you have a platform with many features, tools and users. Using Datadog, you can put loggers
+  (`Emergency`, `Error`, `Warn`, `Info`) on your codebase so when something goes wrong, the logger will send the
+  event(s) to Datadog.
+  On Datadog, you can filter based on various things (service name, logger type, url, etc) and on each log, you can zoom
+  in to learn more about the origin and other useful log infos.
+  This can save you and your team a lot of time when you need to find and fix errors.</p>
+<p class="text-sky-600 mb-4 md:mb-6">TL;DR? When sh*t goes wrong (this kind of tool like an insurance right? we mostly
+  care when things go wrong) they can help you finding the wrongs and where they are originated. It saves time for as
+  long as you log properly.</p>
+<p class="mb-4 md:mb-6">In this blogpost, I want to share step by step how I created the Datadog Vue plugin. I hope this
+  will help other developers 😀</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">01. Project setup</h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/01-setup"
+    target="_blank" class="textlink">repo [branch: feat/01-setup]</a></p>
+
+<p>Create a basic package.json (commit <a
+    href="https://github.com/ivanasetiawan/datadog-vue/commit/70429097556a82f29aaefe1d6f24ec092bf23087" class="textlink"
+    target="_blank">70429097556a82f29aaefe1d6f24ec092bf23087</a>)</p>
+<pre class="precode">
+  <code>
+    {
+      "name": "datadog-vue", <span class="text-lime-500">// name of the package</span>
+      "version": "1.0.0", <span class="text-lime-500">// package version</span>
+      "description": "Datadog Vue plugin", <span class="text-lime-500">// package description</span>
+      "main": "index.js", <span class="text-lime-500">// the main file, aka the brain of this package</span>
+      "author": "Ivana Setiawan", <span class="text-lime-500">// your name</span>
+      "license": "MIT", <span class="text-lime-500">// licensing. <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" class="textlink" target="_blank">Learn more</a></span>
+    }
+  </code>
+</pre>
+<p>The package.json above is pretty empty. It doesn't do much. My personal preference is to at least add <a
+    href="https://babeljs.io/docs/en/usage" target="_blank" class="textlink">Babel</a> and <a href="" target="_blank"
+    class="textlink">Eslint</a>:</p>
+
+<p class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">Install Babel</p>
+<p>(commit <a href="https://github.com/ivanasetiawan/datadog-vue/commit/9bd05f70152172c69fc9d30f67e8ab5fbe555e3f"
+    class="textlink" target="_blank">9bd05f70152172c69fc9d30f67e8ab5fbe555e3f</a>)</p>
+<p>Babel is a a toolchain that will compile your JavaScript application code that uses ES2015+ syntax into code that
+  works
+  in current browsers or environments.</p>
+<pre class="precode">
+  <code>
+    <span class="text-lime-500">// Run on your Shell</span>
+    npm install --save-dev @babel/core @babel/cli @babel/preset-env
+  </code>
+</pre>
+
+<p>Create a config file named `babel.config.json` (requires v7.8.0 and above) in the root of your project with this
+  content:</p>
+<pre class="precode">
+  <code>
+    <span class="text-lime-500">// You can adapt the config below for the browsers you want to support.
+    // See <a href="https://babeljs.io/docs/en/babel-preset-env" target="_blank" class="textlink">here</a> for more @babel/preset-env options.</span>
+    module.exports = {
+      presets: [
+        '@vue/cli-plugin-babel/preset'
+      ]
+    }
+  </code>
+</pre>
+
+<p class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">Install Eslint</p>
+<p>(commit <a href="https://github.com/ivanasetiawan/datadog-vue/commit/ddbc3a83aca7c2982b4652fd25149da731f369a3"
+    class="textlink" target="_blank">ddbc3a83aca7c2982b4652fd25149da731f369a3</a>)</p>
+<p>Eslint is a static code analysis tool for identifying problematic patterns found in JavaScript code.</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">npm <span class="nb">install</span> <span class="nt">--save-dev</span> eslint eslint-plugin-vue
+
+// Optional, you can also create .eslintrc.js <span class="k">in </span>the root of your project
+npm init @eslint/config</code></pre></figure>
+
+<p>On `.eslintrc.js` (in the root of your project):</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// You can adapt the rules in the config below&lt;/span&gt;</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">extends</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">plugin:vue/recommended</span><span class="dl">'</span>
+  <span class="p">],</span>
+  <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// override/add rules settings here, such as:</span>
+    <span class="c1">// 'vue/no-unused-vars': 'error'</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+<p>Is everything going well? check your `package.json`, it should looks like this:</p>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datadog-vue"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Datadog Vue plugin"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.js"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ivana Setiawan"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIT"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@babel/cli"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.17.6"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"@babel/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.17.5"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"@babel/preset-env"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.16.11"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.11.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint-plugin-vue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.5.0"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+<p>You should also see a <code class="precode px-2.5 py-1 mx-1">package-lock.json</code> and a folder called <code
+    class="precode px-2.5 py-1 mx-1">node_modules</code> in the root of your project. (commit <a
+    href="https://github.com/ivanasetiawan/datadog-vue/commit/b3e737ae92862440afe9752fe87662f35da03682" class="textlink"
+    target="_blank">b3e737ae92862440afe9752fe87662f35da03682</a>)</p>
+
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">02. Datadog integration</h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/02-integration"
+    target="_blank" class="textlink">repo [branch: feat/02-integration]</a></p>
+<p>Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my
+  plugin.
+  In my head, I want the flow to work like:</p>
+<ul class="mb-6 md:mb-9 list-disc list-inside md:ml-6">
+  <li>To install, run <code class="precode px-2.5 py-1 mx-1">npm install datadog-vue</code></li>
+  <li>Dev should be able to pass client token <span class="text-sky-600">(Client tokens are used to send events and logs
+      from your user’s web and mobile applications.)</span> and service name to easily filter the team logs</li>
+</ul>
+
+<p class="my-4 md:my-6 font-semibold">Let's get into it!</p>
+
+<p>Install <a href="https://www.npmjs.com/package/@datadog/browser-logs" class="textlink"
+    target="_blank">`@datadog/browser-logs`</a> and start building the plugin.</p>
+<pre class="precode">
+  <code>
+    npm i @datadog/browser-logs
+  </code>
+</pre>
+<p>When this is done, you should see this under dependencies on your `package.json`</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// File: package.json</span>
+<span class="dl">"</span><span class="s2">dependencies</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">@datadog/browser-logs</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^4.6.1</span><span class="dl">"</span>
+<span class="p">}</span></code></pre></figure>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/02-integration"
+    target="_blank" class="textlink">repo [branch: feat/02-integration]</a></p>
+
+<p class="mt-9">As mentioned above, there are two options that we want to pass for the Datadog plugin:</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="c1">// Client Token from Datadog</span>
+    <span class="nx">clientToken</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">CLIENT_TOKEN</span><span class="p">,</span>
+    <span class="c1">// Service name (tip: use your project or team name)</span>
+    <span class="nx">service</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SERVICE</span><span class="p">,</span></code></pre></figure>
+<p>It will look something like above code, but don't worry about it now - we will use it later 👍🏽</p>
+
+<p class="mt-9">Let's start making the plugin, on `index.js`:</p>
+<p>(commit <a href="https://github.com/ivanasetiawan/datadog-vue/commit/8e437d3fab67d5eca351b1e89f70a57f9f1ef98a"
+    class="textlink" target="_blank">8e437d3fab67d5eca351b1e89f70a57f9f1ef98a</a>)</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="p">{</span> <span class="nx">datadogLogs</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@datadog/browser-logs</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">install</span><span class="p">(</span><span class="nx">Vue</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/**
+      * Rules:
+      * - Enable in client only
+      * - Not disabled
+      */</span>
+    <span class="kd">const</span> <span class="nx">isNotExecutable</span> <span class="o">=</span> <span class="o">!</span><span class="nx">process</span><span class="p">.</span><span class="nx">browser</span> <span class="o">||</span> <span class="nx">options</span><span class="p">.</span><span class="nx">disabled</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">isNotExecutable</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+    <span class="cm">/**
+      * Check before executing the plugin:
+      * - Client token must exist and not empty
+      * - Service name must exist and not empty
+      * Show warning (loggingWarn) if the condition is not met.
+      */</span>
+    <span class="kd">const</span> <span class="nx">initialCheck</span> <span class="o">=</span>
+        <span class="p">(</span><span class="o">!</span><span class="nx">options</span><span class="p">.</span><span class="nx">clientToken</span> <span class="o">||</span> <span class="nx">options</span><span class="p">.</span><span class="nx">clientToken</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+        <span class="p">(</span><span class="o">!</span><span class="nx">options</span><span class="p">.</span><span class="nx">service</span> <span class="o">||</span> <span class="nx">options</span><span class="p">.</span><span class="nx">service</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">loggingWarn</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span>
+            <span class="dl">'</span><span class="s1">You are not using Datadog vue plugin. If you want to, you can enter a Datadog client token</span><span class="dl">'</span>
+        <span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">initialCheck</span> <span class="p">?</span> <span class="nx">loggingWarn</span><span class="p">()</span> <span class="p">:</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Let's initialise Datadog! For more info, check out <a
+    href="https://docs.datadoghq.com/logs/log_collection/javascript/" target="_blank" class="textlink">Datadog log
+    collection</a>.</p>
+<p>(commit <a href="https://github.com/ivanasetiawan/datadog-vue/commit/ab145f29e610d7107ae5718a868ab1d570ac1291"
+    class="textlink" target="_blank">ab145f29e610d7107ae5718a868ab1d570ac1291</a>)</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+* Initialising datadogLogs!
+* See the params (https://docs.datadoghq.com/logs/log_collection/javascript/#initialization-parameters)
+* Required: clientToken &amp; site
+*/</span>
+<span class="nx">datadogLogs</span>
+<span class="p">?</span> <span class="nx">datadogLogs</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+      <span class="na">clientToken</span><span class="p">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">clientToken</span><span class="p">,</span> <span class="c1">// REQUIRED</span>
+      <span class="na">site</span><span class="p">:</span> <span class="dl">'</span><span class="s1">datadoghq.eu</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// REQUIRED</span>
+      <span class="na">forwardErrorsToLogs</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">sampleRate</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="na">service</span><span class="p">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">service</span><span class="p">,</span>
+      <span class="na">env</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span><span class="p">,</span>
+  <span class="p">})</span>
+<span class="p">:</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="cm">/**
+* Add a context to all your loggers
+* See addLoggerGlobalContext (https://docs.datadoghq.com/logs/log_collection/javascript/#global-context)
+*/</span>
+<span class="nx">datadogLogs</span><span class="p">.</span><span class="nx">addLoggerGlobalContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">Site</span><span class="dl">'</span><span class="p">,</span> <span class="nx">options</span><span class="p">.</span><span class="nx">service</span><span class="p">);</span></code></pre></figure>
+
+<p>After the initialisation, we want create a simple log function to enable developers to log any of their events to
+  Datadog.</p>
+<p>(commit <a href="https://github.com/ivanasetiawan/datadog-vue/commit/15bc28808d487b1116f8bf654902574f6eba1ebd"
+    class="textlink" target="_blank">15bc28808d487b1116f8bf654902574f6eba1ebd</a>)</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">*</span> <span class="nx">Log</span> <span class="nx">functionality</span> <span class="nx">to</span> <span class="nx">Datadog</span>
+<span class="o">*</span> <span class="p">@</span><span class="nd">param</span>  <span class="p">{</span><span class="nb">String</span><span class="p">}</span> <span class="nx">message</span> <span class="nx">The</span> <span class="nx">message</span> <span class="k">of</span> <span class="nx">your</span> <span class="nx">log</span> <span class="nx">that</span> <span class="nx">is</span> <span class="nx">fully</span> <span class="nx">indexed</span> <span class="nx">by</span> <span class="nx">Datadog</span><span class="p">.</span>
+<span class="o">*</span> <span class="p">@</span><span class="nd">param</span>  <span class="p">{</span><span class="nb">Object</span><span class="p">}</span> <span class="nx">messageContext</span> <span class="nx">A</span> <span class="nx">valid</span> <span class="nx">JSON</span> <span class="nx">object</span><span class="p">,</span> <span class="nx">which</span> <span class="nx">includes</span> <span class="nx">all</span> <span class="nx">attributes</span> <span class="nx">attached</span> <span class="nx">to</span> <span class="nx">the</span> <span class="o">&lt;</span><span class="nx">MESSAGE</span><span class="o">&gt;</span>
+<span class="o">*</span> <span class="p">@</span><span class="nd">param</span> <span class="p">{</span><span class="nb">String</span><span class="p">}</span> <span class="nx">status</span> <span class="nx">The</span> <span class="nx">status</span> <span class="k">of</span> <span class="nx">your</span> <span class="nx">log</span><span class="p">;</span> <span class="nx">accepted</span> <span class="nx">status</span> <span class="nx">values</span> <span class="nx">are</span> <span class="s2">`debug`</span><span class="p">,</span> <span class="s2">`info`</span><span class="p">,</span> <span class="s2">`warn`</span><span class="p">,</span> <span class="nx">or</span> <span class="s2">`error`</span><span class="p">.</span>
+<span class="o">*</span><span class="sr">/</span><span class="err">
+</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span><span class="nx">$log</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span>
+  <span class="nx">message</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">No message</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">messageContext</span> <span class="o">=</span> <span class="p">{</span> <span class="na">function</span><span class="p">:</span> <span class="dl">'</span><span class="s1">noMessageContext</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="nx">status</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">error</span><span class="dl">'</span>
+<span class="p">)</span> <span class="p">{</span>
+  <span class="nx">datadogLogs</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="nx">message</span><span class="p">,</span>
+      <span class="p">{</span>
+        <span class="na">context</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">stack_trace</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">().</span><span class="nx">stack</span><span class="p">,</span>
+            <span class="p">...</span><span class="nx">messageContext</span><span class="p">,</span>
+        <span class="p">},</span>
+      <span class="p">},</span>
+    <span class="nx">status</span>
+  <span class="p">);</span>
+<span class="p">},</span></code></pre></figure>
+
+
+<p>So far so good! but how do we know it works?<br>Let's create a playground folder to test this plugin 😉</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">03. Playground</h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/03-playground"
+    target="_blank" class="textlink">repo [branch:
+    feat/03-playground]</a></p>
+<p class="my-4 md:my-6 font-semibold">Create a Vue CLI project as a plaground (commit <a
+    href="https://github.com/ivanasetiawan/datadog-vue/commit/" class="textlink" target="_blank"></a>)</p>
+<p>Creating a Vue CLI project is easy!</p>
+<pre class="precode">
+  <code>
+    <span class="text-lime-500">// Install Vue CLI if you haven't
+    // learn more <a class="textlink" target="_blank" href="https://cli.vuejs.org/guide/installation.html">here</a>
+    </span>npm install -g @vue/cli
+
+    <span class="text-lime-500">// Create a new project
+    // learn more <a class="textlink" target="_blank" href="https://cli.vuejs.org/guide/creating-a-project.html">here</a></span>
+    vue create playground
+  </code>
+</pre>
+<p>My Vue CLI preset is <code class="precode px-2.5 py-1 mx-1">Default ([Vue 2] babel, eslint)</code></p>
+<p>When the setup is done, make sure everything works:</p>
+<pre class="precode">
+  <code>
+    cd playground
+    npm run serve
+    <span class="text-lime-500">// Go to http://localhost:8080/ (check your terminal for the right port)
+    // You should see the app is running</span>
+  </code>
+</pre>
+
+<p class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">Script</p>
+<p>Wouldn't it be nice if a developer could go to the root of this repo then
+  run <br><code class="precode px-2.5 py-1 mx-1">npm
+    run playground</code> and see the playground in action? I think that would be a great developer experience 😉</p>
+<p>Let's add a new script on our package.json in the root of our project.</p>
+<p>(commit <a href="https://github.com/ivanasetiawan/datadog-vue/commit/6a1211e525d409cf8a6e4e751a65bb2ce6b5a2da"
+    class="textlink" target="_blank">6a1211e525d409cf8a6e4e751a65bb2ce6b5a2da</a>)</p>
+<pre class="precode">
+  <code>
+    <span class="text-lime-500">// package.json</span>
+    "scripts": {
+      "playground": "npm link && cd playground && npm i && npm link datadog-vue && npm run serve",
+    },
+  </code>
+</pre>
+<p>See it in action! type <code class="precode px-2.5 py-1 mx-1">npm
+    run playground</code> on the root of your project and go to http://localhost:8080/</p>
+
+<p class="my-4">Helper: What is <a href="https://docs.npmjs.com/cli/v6/commands/npm-link" class="textlink"
+    target="_blank">npm
+    link</a>?</p>
+
+<p class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">Use the plugin on the Playground</p>
+<p>Go to playground/src/components/HelloWorld.vue and put some buttons that send events to Datadog using our datadog-vue
+  plugin.</p>
+<figure class="highlight"><pre><code class="language-vue" data-lang="vue"><span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hello"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;&lt;/h1&gt;</span>
+    <span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"handleClick('info', </span>{ function: 'triggerInfo' }, 'info')"&gt;
+      Click me for Info!
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"handleClick('warn', </span>{ function: 'triggerWarn' }, 'warn')"&gt;
+      Click me for Warn!
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"handleClick('error', </span>{ function: 'triggerError' }, 'error')"&gt;
+      Click me for Error!
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"handleClick('debug', </span>{ function: 'triggerDebug' }, 'debug')"&gt;
+      Click me for Debug!
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+  <span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">vue</span><span class="dl">"</span><span class="p">;</span>
+  <span class="k">import</span> <span class="nx">ddLog</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">datadog-vue</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="k">new</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">ddLog</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">clientToken</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1342889190</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">service</span><span class="p">:</span> <span class="dl">"</span><span class="s2">venopi</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">});</span>
+
+  <span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">HelloWorld</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">msg</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nx">handleClick</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">messageContext</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">ddLog</span><span class="p">.</span><span class="nx">$log</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">messageContext</span><span class="p">,</span> <span class="nx">status</span><span class="p">);</span>
+      <span class="p">},</span>
+    <span class="p">},</span>
+  <span class="p">};</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span></code></pre></figure>
+
+<p class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">How do I know if it works?</p>
+<p>After you click some buttons on the demo, Go to your Datadog logs app and filter based on `localhost` and you should
+  see the logs appearing!</p>
+<figure class="my-4 md:my-6 text-center">
+  <img src="/assets/images/datadog_sample.jpg" alt="Datadog dashboard sample"
+  class="w-full rounded-2xl overflow-hidden" />
+  <figcaption class="text-sm mt-2 md:mt-4">Datadog dashboard sample</figcaption>
+</figure>
+
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">04. Bonus</h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/04-bonus"
+  target="_blank" class="textlink">repo [branch: feat/04-bonus]</a></p>
+<p>Since there are many types of logs, we want developers who are using our plugin to be able to log specifically the type
+  of log they want to send. As for now, you need to call $log and specify the type => <code
+    class="precode px-2.5 py-1 mx-1">ddLog.$log(message,
+    messageContext, status);</code></p>
+<p class="my-4 md:my-6">And we want something like:</p>
+<pre class="precode">
+  <code>
+    ddLog.$info(...) <span class="text-lime-500">// Send info</span>
+    ddLog.$debug(...) <span class="text-lime-500">// Send debug</span>
+    ddLog.$warn(...) <span class="text-lime-500">// Send warn</span>
+    ddLog.$error(...) <span class="text-lime-500">// Send error</span>
+  </code>
+</pre>
+<p>But, before we start, since we're building client side's plugin, I want to make it clear by adding `.client` on our `index.js` file. (commit <a
+  href="https://github.com/ivanasetiawan/datadog-vue/commit/0c63393b5844036b6d778ada0f0a6603cb36aefa" class="textlink"
+  target="_blank">0c63393b5844036b6d778ada0f0a6603cb36aefa</a>)</p>
+
+<p class="my-4 md:my-6 font-semibold">Let's continue with our plugin!</p>
+<p>Update the `index.client.js` to have info, debug, warn and error:</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+* Log the message with "error" flag to Datadog
+* @param  {String} message The message of your log that is fully indexed by Datadog.
+* @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &lt;MESSAGE&gt;
+*/</span>
+<span class="nx">$error</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span>
+  <span class="nx">message</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Empty message</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">messageContext</span> <span class="o">=</span> <span class="p">{</span> <span class="na">function</span><span class="p">:</span> <span class="dl">"</span><span class="s2">messageContextMissing</span><span class="dl">"</span> <span class="p">}</span>
+<span class="p">)</span> <span class="p">{</span>
+  <span class="nx">datadogLogs</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="nx">message</span><span class="p">,</span>
+    <span class="p">{</span>
+    <span class="na">context</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">stack_trace</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">().</span><span class="nx">stack</span><span class="p">,</span>
+      <span class="p">...</span><span class="nx">messageContext</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span>
+  <span class="p">);</span>
+<span class="p">},</span>
+
+<span class="cm">/**
+* Log the message with "warning" flag to Datadog
+* @param  {String} message The message of your log that is fully indexed by Datadog.
+* @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &lt;MESSAGE&gt;
+*/</span>
+<span class="nx">$warn</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span>
+  <span class="nx">message</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Empty message</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">messageContext</span> <span class="o">=</span> <span class="p">{</span> <span class="na">function</span><span class="p">:</span> <span class="dl">"</span><span class="s2">messageContextMissing</span><span class="dl">"</span> <span class="p">}</span>
+<span class="p">)</span> <span class="p">{</span>
+  <span class="nx">datadogLogs</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="nx">message</span><span class="p">,</span>
+    <span class="p">{</span>
+    <span class="na">context</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">stack_trace</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">().</span><span class="nx">stack</span><span class="p">,</span>
+      <span class="p">...</span><span class="nx">messageContext</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">warn</span><span class="dl">"</span>
+  <span class="p">);</span>
+<span class="p">},</span>
+<span class="cm">/**
+* Log the message with "info" status to Datadog
+* @param  {String} message The message of your log that is fully indexed by Datadog.
+* @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &lt;MESSAGE&gt;
+*/</span>
+<span class="nx">$info</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span>
+  <span class="nx">message</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Empty message</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">messageContext</span> <span class="o">=</span> <span class="p">{</span> <span class="na">function</span><span class="p">:</span> <span class="dl">"</span><span class="s2">messageContextMissing</span><span class="dl">"</span> <span class="p">}</span>
+<span class="p">)</span> <span class="p">{</span>
+<span class="nx">datadogLogs</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+  <span class="nx">message</span><span class="p">,</span>
+  <span class="p">{</span>
+  <span class="na">context</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">stack_trace</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">().</span><span class="nx">stack</span><span class="p">,</span>
+    <span class="p">...</span><span class="nx">messageContext</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">info</span><span class="dl">"</span>
+<span class="p">);</span>
+<span class="p">},</span>
+<span class="cm">/**
+* Log the message with "debug" status to Datadog
+* @param  {String} message The message of your log that is fully indexed by Datadog.
+* @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &lt;MESSAGE&gt;
+*/</span>
+<span class="nx">$debug</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span>
+  <span class="nx">message</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Empty message</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">messageContext</span> <span class="o">=</span> <span class="p">{</span> <span class="na">function</span><span class="p">:</span> <span class="dl">"</span><span class="s2">messageContextMissing</span><span class="dl">"</span> <span class="p">}</span>
+<span class="p">)</span> <span class="p">{</span>
+<span class="nx">datadogLogs</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+  <span class="nx">message</span><span class="p">,</span>
+  <span class="p">{</span>
+  <span class="na">context</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">stack_trace</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">().</span><span class="nx">stack</span><span class="p">,</span>
+    <span class="p">...</span><span class="nx">messageContext</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">debug</span><span class="dl">"</span>
+<span class="p">);</span>
+<span class="p">},</span></code></pre></figure>
+
+<p>Awesome! now we can do something like:</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ddLog</span><span class="p">.</span><span class="nx">$info</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">messageContext</span><span class="p">);</span> <span class="c1">// When we want to send info</span>
+<span class="nx">ddLog</span><span class="p">.</span><span class="nx">$debug</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">messageContext</span><span class="p">);</span> <span class="c1">// When we want to send debug</span>
+<span class="nx">ddLog</span><span class="p">.</span><span class="nx">$warn</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">messageContext</span><span class="p">);</span> <span class="c1">// When we want to send warn</span>
+<span class="nx">ddLog</span><span class="p">.</span><span class="nx">$error</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">messageContext</span><span class="p">);</span> <span class="c1">// When we want to send error</span></code></pre></figure>
+
+<p>Any questions or suggestions? <a href="mailto:ivana.setiawan@gmail.com" target="_blank" class="textlink">write to me</a>.
+  <br>I love learning new things and enjoy getting to know people! </p>
+
+<p class="mt-9 md:mt-14 font-semibold">Helpers:</p>
+<ul class="list-disc list-inside">
+  <li class="mb-2"><a href="https://docs.datadoghq.com/logs/log_collection/javascript/" target="_blank" class="textlink">https://docs.datadoghq.com/logs/log_collection/javascript/</a></li>
+  <li class="mb-2"><a href="https://www.datadoghq.com/blog/monitor-javascript-console-logs/" target="_blank" class="textlink">https://www.datadoghq.com/blog/monitor-javascript-console-logs/</a></li>
+  <li class="mb-2"><a href="https://github.com/DataDog/browser-sdk" target="_blank" class="textlink">https://github.com/DataDog/browser-sdk</a></li>
+</ul>
+      </div>
+
+      <!-- <div class="my-10 py-10 border-t border-gray-300 dark:border-gray-700">
+        <h3 class="mb-4">Tags: </h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">personal</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">notes</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">code</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tips</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">frontend</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">vue</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">plugin</h3>
+        
+      </div> -->
+    </article><a class="u-url" href="/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html" hidden></a>
+  </div>
+</section>
+
+<link rel="stylesheet" href="http://127.0.0.1:4000/assets/syntax.css" type="text/css">
+  </main><footer class="">
+  <div class="text-xl max-w-screen-lg mx-auto px-4 py-10 text-gray-500 text-sm">
+    <ul class="md:flex md:gap-6 md:justify-center">
+      <li class="my-2 md:my-0"><a href="https://www.linkedin.com/in/ivanasetiawan/" target="_blank"
+          class="text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500"><i
+            class="fa-brands fa-linkedin mr-2"></i>ivanasetiawan</a>
+      </li>
+      <li class="my-2 md:my-0"><i class="fa-solid fa-id-card-clip mr-2"></i>KVK#: 62163566
+      </li>
+      <li class="my-2 md:my-0"><i class="fa-solid fa-hashtag mr-2"></i>VAT: NL002450150B24
+      </li>
+    </ul>
+  </div>
+</footer><script>
+  const currentMode = localStorage.getItem('mode') ? localStorage.getItem('mode') : 'light';
+  setMode();
+
+  function setMode(mode = currentMode) {
+    mode === 'light' ?  lightMode() : darkMode() ;
+  }
+
+  function darkMode() {
+    document.querySelector('html').classList.add('dark');
+    localStorage.setItem('mode', 'dark');
+    document.getElementById('mode-dark').classList.add('hidden');
+    document.getElementById('mode-light').classList.remove('hidden');
+  }
+
+  function lightMode() {
+    document.querySelector('html').classList.remove('dark');
+    localStorage.setItem('mode', 'light');
+    document.getElementById('mode-light').classList.add('hidden');
+    document.getElementById('mode-dark').classList.remove('hidden');
+  }
+</script></body>
+
+</html>
