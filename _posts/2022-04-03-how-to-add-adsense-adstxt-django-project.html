@@ -1,0 +1,77 @@
+---
+layout: post
+title:  "How to add Adsense ads.txt on your Django project"
+excerpt: Fix ads.txt file issues to avoid severe impact to your revenue on Google Adsense
+date:   2022-04-03 11:13:00 +0100
+categories: code
+tags: code tips django python adsense
+---
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Why is it necessary to add ads.txt?</h2>
+<p class="mb-4 md:mb-6">
+<a href="https://iabtechlab.com/ads-txt/" target="_blank" class="textlink">Authorized Digital Sellers</a> (aka ads.txt) is an IAB Tech Lab initiative that helps ensure that your digital ad inventory is only sold through sellers (such as AdSense) who you've identified as authorized.
+</p>
+<p class="mb-4 md:mb-6">
+Creating your own ads.txt file gives you more control over who's allowed to sell ads on your site and helps prevent counterfeit inventory from being presented to advertisers.
+</p>
+<p class="mb-4 md:mb-6">
+The requirement is as simple as, download the ads.txt file and then drop it on your root. This file must be accessible when you go to www.venopi.com/ads.txt (Venopi is my startup, so we're using this as sample).
+However, it doesn't work like that on your Django project. Simply dropping this ads.txt file on your root doesn't automagically mean that it's accessible on www.venopi.com/ads.txt - So how?
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">But of course, download your ads.txt file</h2>
+<figure class="my-4 md:my-6 text-center">
+	<img src="{{ "/assets/images/adsense.png" | relative_url }}" alt="Download ads.txt"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Download ads.txt</figcaption>
+</figure>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Solution: Put ads.txt on your static folder and redirect</h2>
+<p class="mb-4 md:mb-6">
+Go to your static folder and drop ads.txt file there. If you cannot find your static folder, check your `settings.py` and search for the static path:
+</p>
+<pre class="precode">
+	<code>
+		STATIC_URL = '/static/'
+		STATICFILES_DIRS = (
+			os.path.join(BASE_DIR, "static"),
+		)
+	</code>
+</pre>
+<p class="mb-4 md:mb-6">When you do this, you can already access the ads.txt file when you go to www.venopi.com/static/ads.txt. However as mentioned on the Adsense documentation, the right path where Adsense will check is www.venopi.com/ads.txt </p>
+{% highlight python %}
+from django.views.generic import TemplateView, RedirectView
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.conf.urls import include, url
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+	//...
+	url(r'^ads.txt', RedirectView.as_view(url=staticfiles_storage.url("ads.txt"))),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \
+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+You can now try to visit www.venopi.com/ads.txt and you will be redirected to  www.venopi.com/static/ads.txt 🎉
+<br><br>
+Don't like the redirect solution? OK, we have another solution!
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Solution: Create a new View</h2>
+<p class="mb-4 md:mb-6">Create a new class inside one of your views. It doesn't matter where, as long as you reference it correctly on your `urls.py`</p>
+{% highlight python %}
+class Adsense(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('google.com, pub-REPLACE_WITH_YOUR_PUB_ID, DIRECT, f08c47fec0942fa0')
+{% endhighlight %}
+<p class="mb-4 md:mb-6">On `urls.py`, you need to import the `Adsense class` like so:</p>
+{% highlight python %}
+from common.views import Adsense
+
+urlpatterns = [
+	//...
+	url(r'ads.txt', Adsense.as_view()),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \
+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+{% endhighlight %}
+<p class="mb-4 md:mb-6">Any questions or suggestions for better implementations? Write to me 😀</p>

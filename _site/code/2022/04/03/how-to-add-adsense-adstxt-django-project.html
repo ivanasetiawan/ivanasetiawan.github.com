@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{Ivana} Front-end developer, UX Designer. JavaScript lover, Blockchain experimentalist and Web3 enthusiast
+  </title>
+  <meta name="description"
+    content="I am a freelance front-end developer/UX Designer and rocket scientist wannabe who's passionately in love with tech stuff">
+  <meta name="author" content="Ivana Setiawan">
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How to add Adsense ads.txt on your Django project | Ivana Setiawan</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="How to add Adsense ads.txt on your Django project" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Fix ads.txt file issues to avoid severe impact to your revenue on Google Adsense" />
+<meta property="og:description" content="Fix ads.txt file issues to avoid severe impact to your revenue on Google Adsense" />
+<link rel="canonical" href="http://localhost:4000/code/2022/04/03/how-to-add-adsense-adstxt-django-project.html" />
+<meta property="og:url" content="http://localhost:4000/code/2022/04/03/how-to-add-adsense-adstxt-django-project.html" />
+<meta property="og:site_name" content="Ivana Setiawan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-03T12:13:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to add Adsense ads.txt on your Django project" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/code/2022/04/03/how-to-add-adsense-adstxt-django-project.html"},"url":"http://localhost:4000/code/2022/04/03/how-to-add-adsense-adstxt-django-project.html","@type":"BlogPosting","description":"Fix ads.txt file issues to avoid severe impact to your revenue on Google Adsense","headline":"How to add Adsense ads.txt on your Django project","dateModified":"2022-04-03T12:13:00+02:00","datePublished":"2022-04-03T12:13:00+02:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/dist/main.css">
+  <script src="https://kit.fontawesome.com/823d655421.js" crossorigin="anonymous"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ivana Setiawan" /></head><body class="font-tpr tracking-wide">
+  <header class="px-4 py-6 bg-slate-900 text-white fixed w-full z-10 top-0">
+    <div class="max-w-screen-lg mx-auto px-4 flex font-monospace justify-between">
+      <h1 class="mr-4 md:mr-6 tracking-widest">
+        <a href="/" class="group">
+          n<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-orange-500">3</span>rd<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-violet-500">0</span>nc<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-lime-500">1</span>d
+        </a>
+      </h1>
+      <nav>
+        <ul class="flex">
+          <li class="ml-4 md:ml-6 tracking-wide"><a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4" href="/blog/">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main aria-label="Content">
+    <section
+  class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-16 dark:bg-gradient-to-tr dark:from-slate-800 dark:to-slate-900 dark:text-yellow-50"
+  itemscope itemtype="https://schema.org/Blog">
+  <div class="max-w-screen-md mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen">
+    <div class="mb-9 flex justify-between items-center">
+      <div>
+        <a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4"
+          href="/blog/"><i class="fa-solid fa-arrow-left mr-1"></i> Blog</a>
+      </div><div>
+  <button onclick="setMode('light')" id="mode-light" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-300 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-sun-bright text-xl mr-1.5"></i> <span class="cursor-pointer">Light mode</span>
+  </button>
+
+  <button onclick="setMode('dark')" id="mode-dark" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-200 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-moon text-xl mr-1.5"></i> <span class="cursor-pointer">Dark mode</span>
+  </button>
+</div></div>
+
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="mb-4 md:mb-9">
+        <h1 class="font-semibold text-4xl mb-4 leading-snug" itemprop="name headline">How to add Adsense ads.txt on your Django project</h1>
+        <p class="text-gray-500">
+          <time class="" datetime="2022-04-03T12:13:00+02:00" itemprop="datePublished">Apr 3, 2022
+          </time></p>
+      </header>
+
+      <div class="leading-relaxed text-lg" itemprop="articleBody">
+        <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Why is it necessary to add ads.txt?</h2>
+<p class="mb-4 md:mb-6">
+<a href="https://iabtechlab.com/ads-txt/" target="_blank" class="textlink">Authorized Digital Sellers</a> (aka ads.txt) is an IAB Tech Lab initiative that helps ensure that your digital ad inventory is only sold through sellers (such as AdSense) who you've identified as authorized.
+</p>
+<p class="mb-4 md:mb-6">
+Creating your own ads.txt file gives you more control over who's allowed to sell ads on your site and helps prevent counterfeit inventory from being presented to advertisers.
+</p>
+<p class="mb-4 md:mb-6">
+The requirement is as simple as, download the ads.txt file and then drop it on your root. This file must be accessible when you go to www.venopi.com/ads.txt (Venopi is my startup, so we're using this as sample).
+However, it doesn't work like that on your Django project. Simply dropping this ads.txt file on your root doesn't automagically mean that it's accessible on www.venopi.com/ads.txt - So how?
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">But of course, download your ads.txt file</h2>
+<figure class="my-4 md:my-6 text-center">
+	<img src="/assets/images/adsense.png" alt="Download ads.txt"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Download ads.txt</figcaption>
+</figure>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Solution: Put ads.txt on your static folder and redirect</h2>
+<p class="mb-4 md:mb-6">
+Go to your static folder and drop ads.txt file there. If you cannot find your static folder, check your `settings.py` and search for the static path:
+</p>
+<pre class="precode">
+	<code>
+		STATIC_URL = '/static/'
+		STATICFILES_DIRS = (
+			os.path.join(BASE_DIR, "static"),
+		)
+	</code>
+</pre>
+<p class="mb-4 md:mb-6">When you do this, you can already access the ads.txt file when you go to www.venopi.com/static/ads.txt. However as mentioned on the Adsense documentation, the right path where Adsense will check is www.venopi.com/ads.txt </p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span><span class="p">,</span> <span class="n">RedirectView</span>
+<span class="kn">from</span> <span class="nn">django.contrib.staticfiles.storage</span> <span class="kn">import</span> <span class="n">staticfiles_storage</span>
+<span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">django.conf.urls.static</span> <span class="kn">import</span> <span class="n">static</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="o">//</span><span class="p">...</span>
+	<span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s">'^ads.txt'</span><span class="p">,</span> <span class="n">RedirectView</span><span class="p">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">staticfiles_storage</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">"ads.txt"</span><span class="p">))),</span>
+<span class="p">]</span> <span class="o">+</span> <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="p">.</span><span class="n">STATIC_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="p">.</span><span class="n">STATIC_ROOT</span><span class="p">)</span> <span class="o">+</span> \
+<span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="p">.</span><span class="n">MEDIA_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="p">.</span><span class="n">MEDIA_ROOT</span><span class="p">)</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+You can now try to visit www.venopi.com/ads.txt and you will be redirected to  www.venopi.com/static/ads.txt 🎉
+<br><br>
+Don't like the redirect solution? OK, we have another solution!
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Solution: Create a new View</h2>
+<p class="mb-4 md:mb-6">Create a new class inside one of your views. It doesn't matter where, as long as you reference it correctly on your `urls.py`</p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Adsense</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">'google.com, pub-REPLACE_WITH_YOUR_PUB_ID, DIRECT, f08c47fec0942fa0'</span><span class="p">)</span></code></pre></figure>
+<p class="mb-4 md:mb-6">On `urls.py`, you need to import the `Adsense class` like so:</p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">common.views</span> <span class="kn">import</span> <span class="n">Adsense</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="o">//</span><span class="p">...</span>
+	<span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s">'ads.txt'</span><span class="p">,</span> <span class="n">Adsense</span><span class="p">.</span><span class="n">as_view</span><span class="p">()),</span>
+<span class="p">]</span> <span class="o">+</span> <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="p">.</span><span class="n">STATIC_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="p">.</span><span class="n">STATIC_ROOT</span><span class="p">)</span> <span class="o">+</span> \
+<span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="p">.</span><span class="n">MEDIA_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="p">.</span><span class="n">MEDIA_ROOT</span><span class="p">)</span></code></pre></figure>
+<p class="mb-4 md:mb-6">Any questions or suggestions for better implementations? Write to me 😀</p>
+      </div>
+
+      <!-- <div class="my-10 py-10 border-t border-gray-300 dark:border-gray-700">
+        <h3 class="mb-4">Tags: </h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">personal</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">notes</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">code</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tips</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">frontend</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">vue</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">plugin</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">django</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">python</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">adsense</h3>
+        
+      </div> -->
+    </article><a class="u-url" href="/code/2022/04/03/how-to-add-adsense-adstxt-django-project.html" hidden></a>
+  </div>
+</section>
+
+<link rel="stylesheet" href="/assets/syntax.css" type="text/css">
+  </main><footer class="">
+  <div class="text-xl max-w-screen-lg mx-auto px-4 py-10 text-gray-500 text-sm">
+    <ul class="md:flex md:gap-6 md:justify-center">
+      <li class="my-2 md:my-0"><a href="https://www.linkedin.com/in/ivanasetiawan/" target="_blank"
+          class="text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500"><i
+            class="fa-brands fa-linkedin mr-2"></i>ivanasetiawan</a>
+      </li>
+      <li class="my-2 md:my-0"><i class="fa-solid fa-id-card-clip mr-2"></i>KVK#: 62163566
+      </li>
+      <li class="my-2 md:my-0"><i class="fa-solid fa-hashtag mr-2"></i>VAT: NL002450150B24
+      </li>
+    </ul>
+  </div>
+</footer><script>
+  const currentMode = localStorage.getItem('mode') ? localStorage.getItem('mode') : 'light';
+  setMode();
+
+  function setMode(mode = currentMode) {
+    mode === 'light' ?  lightMode() : darkMode() ;
+  }
+
+  function darkMode() {
+    document.querySelector('html').classList.add('dark');
+    localStorage.setItem('mode', 'dark');
+    document.getElementById('mode-dark').classList.add('hidden');
+    document.getElementById('mode-light').classList.remove('hidden');
+  }
+
+  function lightMode() {
+    document.querySelector('html').classList.remove('dark');
+    localStorage.setItem('mode', 'light');
+    document.getElementById('mode-light').classList.add('hidden');
+    document.getElementById('mode-dark').classList.remove('hidden');
+  }
+</script></body>
+
+</html>
