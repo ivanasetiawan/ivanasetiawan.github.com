@@ -39,14 +39,14 @@ Go to your static folder and drop ads.txt file there. If you cannot find your st
 </pre>
 <p class="mb-4 md:mb-6">When you do this, you can already access the ads.txt file when you go to www.venopi.com/static/ads.txt. However as mentioned on the Adsense documentation, the right path where Adsense will check is www.venopi.com/ads.txt </p>
 {% highlight python %}
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import RedirectView
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.conf.urls import include, url
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-	//...
+	// other urls...
 	url(r'^ads.txt', RedirectView.as_view(url=staticfiles_storage.url("ads.txt"))),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \
 static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
@@ -60,6 +60,7 @@ Don't like the redirect solution? OK, we have another solution!
 <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Solution: Create a new View</h2>
 <p class="mb-4 md:mb-6">Create a new class inside one of your views. It doesn't matter where, as long as you reference it correctly on your `urls.py`</p>
 {% highlight python %}
+from django.views.generic import View
 class Adsense(View):
     def get(self, request, *args, **kwargs):
         return HttpResponse('google.com, pub-REPLACE_WITH_YOUR_PUB_ID, DIRECT, f08c47fec0942fa0')
@@ -69,7 +70,7 @@ class Adsense(View):
 from common.views import Adsense
 
 urlpatterns = [
-	//...
+	// other urls...
 	url(r'ads.txt', Adsense.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \
 static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
