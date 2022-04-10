@@ -9,15 +9,15 @@ permalink: /blog/
   <div class="max-w-screen-lg mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen">
     {%- if site.posts.size > 0 -%}
       <header class="flex justify-between">
-        <h1 class="font-semibold text-4xl mb-4 lg:mb-9">{{ page.list_title | default: "Blog posts" }}</h1>
+        <h1 class="font-semibold text-4xl mb-4 lg:mb-9 leading-snug">{{ page.list_title | default: "Blog posts" }}</h1>
         {%- include togglemode.html -%}
       </header>
 
       <ul class="">
         {%- for post in site.posts -%}
         <li>
-          <a href="{{ post.url | relative_url }}" class="block p-4 bg-white text-slate-900 mb-9 rounded-md hover:bg-yellow-50 dark:hover:bg-yellow-50">
-            <h2 class="mb-2 text-xl font-medium text-violet-900">
+          <a href="{{ post.url | relative_url }}" class="block p-4 bg-white text-slate-900 mb-9 border rounded-md hover:bg-violet-50 hover:shadow-md hover:border-violet-300">
+            <h2 class="mb-2 text-xl font-semibold g-text-violet-pink">
               {{ post.title | escape }}
             </h2>
             <p class="my-4">{{ post.excerpt | escape }}</p>

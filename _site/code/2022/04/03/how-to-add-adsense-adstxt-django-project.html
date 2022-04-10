@@ -30,14 +30,14 @@
   <script src="https://kit.fontawesome.com/823d655421.js" crossorigin="anonymous"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ivana Setiawan" /></head><body class="font-tpr tracking-wide">
   <header class="px-4 py-6 bg-slate-900 text-white fixed w-full z-10 top-0">
     <div class="max-w-screen-lg mx-auto px-4 flex font-monospace justify-between">
-      <h1 class="mr-4 md:mr-6 tracking-widest">
+      <h1 class="mr-4 md:mr-6 tracking-widest text-xl font-semibold">
         <a href="/" class="group">
           n<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-orange-500">3</span>rd<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-violet-500">0</span>nc<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-lime-500">1</span>d
         </a>
       </h1>
       <nav>
         <ul class="flex">
-          <li class="ml-4 md:ml-6 tracking-wide"><a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4" href="/blog/">Blog</a></li>
+          <li class="ml-4 md:ml-6 tracking-wide"><a class="text-xl hover-g-violet-pink font-semibold" href="/blog/">blog</a></li>
         </ul>
       </nav>
     </div>
@@ -64,7 +64,7 @@
 
     <article itemscope itemtype="http://schema.org/BlogPosting">
       <header class="mb-4 md:mb-9">
-        <h1 class="font-semibold text-4xl mb-4 leading-snug" itemprop="name headline">How to add Adsense ads.txt on your Django project</h1>
+        <h1 class="font-semibold text-4xl mb-4 leading-snug g-text-violet-pink" itemprop="name headline">How to add Adsense ads.txt on your Django project</h1>
         <p class="text-gray-500">
           <time class="" datetime="2022-04-03T12:13:00+02:00" itemprop="datePublished">Apr 3, 2022
           </time></p>
@@ -103,14 +103,14 @@ Go to your static folder and drop ads.txt file there. If you cannot find your st
 	</code>
 </pre>
 <p class="mb-4 md:mb-6">When you do this, you can already access the ads.txt file when you go to www.venopi.com/static/ads.txt. However as mentioned on the Adsense documentation, the right path where Adsense will check is www.venopi.com/ads.txt </p>
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">TemplateView</span><span class="p">,</span> <span class="n">RedirectView</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">RedirectView</span>
 <span class="kn">from</span> <span class="nn">django.contrib.staticfiles.storage</span> <span class="kn">import</span> <span class="n">staticfiles_storage</span>
 <span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
 <span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span>
 <span class="kn">from</span> <span class="nn">django.conf.urls.static</span> <span class="kn">import</span> <span class="n">static</span>
 
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-	<span class="o">//</span><span class="p">...</span>
+	<span class="o">//</span> <span class="n">other</span> <span class="n">urls</span><span class="p">...</span>
 	<span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s">'^ads.txt'</span><span class="p">,</span> <span class="n">RedirectView</span><span class="p">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">staticfiles_storage</span><span class="p">.</span><span class="n">url</span><span class="p">(</span><span class="s">"ads.txt"</span><span class="p">))),</span>
 <span class="p">]</span> <span class="o">+</span> <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="p">.</span><span class="n">STATIC_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="p">.</span><span class="n">STATIC_ROOT</span><span class="p">)</span> <span class="o">+</span> \
 <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="p">.</span><span class="n">MEDIA_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="p">.</span><span class="n">MEDIA_ROOT</span><span class="p">)</span></code></pre></figure>
@@ -122,14 +122,15 @@ Don't like the redirect solution? OK, we have another solution!
 
 <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Solution: Create a new View</h2>
 <p class="mb-4 md:mb-6">Create a new class inside one of your views. It doesn't matter where, as long as you reference it correctly on your `urls.py`</p>
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Adsense</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">View</span>
+<span class="k">class</span> <span class="nc">Adsense</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">'google.com, pub-REPLACE_WITH_YOUR_PUB_ID, DIRECT, f08c47fec0942fa0'</span><span class="p">)</span></code></pre></figure>
 <p class="mb-4 md:mb-6">On `urls.py`, you need to import the `Adsense class` like so:</p>
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">common.views</span> <span class="kn">import</span> <span class="n">Adsense</span>
 
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-	<span class="o">//</span><span class="p">...</span>
+	<span class="o">//</span> <span class="n">other</span> <span class="n">urls</span><span class="p">...</span>
 	<span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s">'ads.txt'</span><span class="p">,</span> <span class="n">Adsense</span><span class="p">.</span><span class="n">as_view</span><span class="p">()),</span>
 <span class="p">]</span> <span class="o">+</span> <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="p">.</span><span class="n">STATIC_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="p">.</span><span class="n">STATIC_ROOT</span><span class="p">)</span> <span class="o">+</span> \
 <span class="n">static</span><span class="p">(</span><span class="n">settings</span><span class="p">.</span><span class="n">MEDIA_URL</span><span class="p">,</span> <span class="n">document_root</span><span class="o">=</span><span class="n">settings</span><span class="p">.</span><span class="n">MEDIA_ROOT</span><span class="p">)</span></code></pre></figure>
@@ -158,6 +159,16 @@ Don't like the redirect solution? OK, we have another solution!
           <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">python</h3>
         
           <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">adsense</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">npm</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">package</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">google</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">one</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tap</h3>
         
       </div> -->
     </article><a class="u-url" href="/code/2022/04/03/how-to-add-adsense-adstxt-django-project.html" hidden></a>

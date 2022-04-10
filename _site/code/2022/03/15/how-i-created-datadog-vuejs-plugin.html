@@ -30,14 +30,14 @@
   <script src="https://kit.fontawesome.com/823d655421.js" crossorigin="anonymous"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ivana Setiawan" /></head><body class="font-tpr tracking-wide">
   <header class="px-4 py-6 bg-slate-900 text-white fixed w-full z-10 top-0">
     <div class="max-w-screen-lg mx-auto px-4 flex font-monospace justify-between">
-      <h1 class="mr-4 md:mr-6 tracking-widest">
+      <h1 class="mr-4 md:mr-6 tracking-widest text-xl font-semibold">
         <a href="/" class="group">
           n<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-orange-500">3</span>rd<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-violet-500">0</span>nc<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-lime-500">1</span>d
         </a>
       </h1>
       <nav>
         <ul class="flex">
-          <li class="ml-4 md:ml-6 tracking-wide"><a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4" href="/blog/">Blog</a></li>
+          <li class="ml-4 md:ml-6 tracking-wide"><a class="text-xl hover-g-violet-pink font-semibold" href="/blog/">blog</a></li>
         </ul>
       </nav>
     </div>
@@ -64,7 +64,7 @@
 
     <article itemscope itemtype="http://schema.org/BlogPosting">
       <header class="mb-4 md:mb-9">
-        <h1 class="font-semibold text-4xl mb-4 leading-snug" itemprop="name headline">How I created Datadog Vue.js plugin</h1>
+        <h1 class="font-semibold text-4xl mb-4 leading-snug g-text-violet-pink" itemprop="name headline">How I created Datadog Vue.js plugin</h1>
         <p class="text-gray-500">
           <time class="" datetime="2022-03-15T20:11:00+01:00" itemprop="datePublished">Mar 15, 2022
           </time></p>
@@ -92,7 +92,7 @@
 <p class="mb-4 md:mb-6">In this blogpost, I want to share step by step how I created the Datadog Vue plugin. I hope this
   will help other developers 😀</p>
 
-<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">01. Project setup</h2>
+<h2 id="project-setup" class="text-2xl font-semibold mb-4 pt-24 md:mb-6"><a href="/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html#project-setup">01. Project setup</a></h2>
 <p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/01-setup"
     target="_blank" class="textlink">repo [branch: feat/01-setup]</a></p>
 
@@ -183,8 +183,7 @@ npm init @eslint/config</code></pre></figure>
     href="https://github.com/ivanasetiawan/datadog-vue/commit/b3e737ae92862440afe9752fe87662f35da03682" class="textlink"
     target="_blank">b3e737ae92862440afe9752fe87662f35da03682</a>)</p>
 
-
-<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">02. Datadog integration</h2>
+<h2 id="datadog-integration" class="text-2xl font-semibold mb-4 pt-24 md:mb-6"><a href="/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html#datadog-integration">02. Datadog integration</a></h2>
 <p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/02-integration"
     target="_blank" class="textlink">repo [branch: feat/02-integration]</a></p>
 <p>Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my
@@ -312,7 +311,7 @@ npm init @eslint/config</code></pre></figure>
 
 <p>So far so good! but how do we know it works?<br>Let's create a playground folder to test this plugin 😉</p>
 
-<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">03. Playground</h2>
+<h2 id="create-playground" class="text-2xl font-semibold mb-4 pt-24 md:mb-6"><a href="/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html#create-playground">03. Playground</a></h2>
 <p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/03-playground"
     target="_blank" class="textlink">repo [branch:
     feat/03-playground]</a></p>
@@ -559,6 +558,16 @@ npm init @eslint/config</code></pre></figure>
           <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">python</h3>
         
           <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">adsense</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">npm</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">package</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">google</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">one</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tap</h3>
         
       </div> -->
     </article><a class="u-url" href="/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html" hidden></a>

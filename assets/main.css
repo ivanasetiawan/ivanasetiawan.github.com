@@ -70,6 +70,18 @@ body::-webkit-scrollbar-thumb {
     @apply text-violet-500 dark:text-violet-300 underline underline-offset-8 hover:decoration-dotted hover:text-orange-500;
   }
 
+  .g-text-violet-pink {
+    @apply text-transparent bg-clip-text bg-gradient-to-br from-violet-500 to-pink-600;
+  }
+
+  .g-text-slate {
+    @apply text-transparent bg-clip-text bg-gradient-to-br from-slate-200 to-slate-600;
+  }
+
+  .hover-g-violet-pink {
+    @apply hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-violet-500 hover:to-pink-600;
+  }
+
   .precode {
     @apply text-sm bg-slate-900 text-white my-4 rounded-xl leading-7 overflow-auto;
   }

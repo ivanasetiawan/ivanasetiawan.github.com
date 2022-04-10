@@ -1,0 +1,418 @@
+---
+layout: post
+title:  "How to create Google One Tap plugin for your project"
+excerpt: Learn how to create a Google One Tap NPM package for your project
+date:   2022-04-10 20:11:00 +0100
+categories: code
+tags: code tips npm package google one tap
+---
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">What is GOT?</h2>
+<p class="mb-4 md:mb-6">
+It's not Game of Thrones. It is Google One Tap.
+</p>
+<p class="mb-4 md:mb-6">
+One Tap is the new cross-platform sign-in mechanism from Google that supports and streamlines multiple types of credentials.
+</p>
+<p class="mb-4 md:mb-6">
+You can quickly and easily manage user authentication and sign in to your website using One Tap. Users sign into a Google Account, provide their consent and securely share their profile information with your platform.
+</p>
+<p class="mb-4 md:mb-6">
+Many organisations have started using this method to increase their user retention score. After reading this blog post, you will be able to create a Google One Tap package plugin for any of your projects. Let's go!
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">But of course, create your Google OAuth credential from <a href="https://console.developers.google.com/apis" target="_blank" class="textlink">Google APIs console</a></h2>
+<h3 class="text-lg font-semibold mt-6 mb-2">Step 1: Create OAuth Client ID</h3>
+<p class="mb-4 md:mb-6">
+Go to "Credentials" => Click "Create Credentials" then "OAuth Client ID".
+</p>
+<figure class="my-4 md:my-6 text-center">
+	<img src="{{ "/assets/images/GOT/1.GOT.png" | relative_url }}" alt="Create OAuth Client ID"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Credentials => Create Credentials > OAuth Client ID</figcaption>
+</figure>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Step 2: Fill in details</h3>
+<p class="mb-4 md:mb-6">
+Fill in the details of your project to create Client ID for the Web Application.
+</p>
+<p class="mb-4 md:mb-6">
+IMPORTANT: Include your site's domain in the Authorized JavaScript origins box. Please note that Google One Tap can only be displayed in HTTPS domains.
+</p>
+<p class="mb-4 md:mb-6">
+When you perform local tests or development, you must add both <span class="text-orange-500">http://localhost</span> and <span class="text-orange-500">http://localhost:port_number</span> to the Authorized JavaScript origins box. In my case, I added <span class="text-orange-500">http://localhost</span> and <span class="text-orange-500">http://localhost:3000</span>.
+</p>
+<figure class="my-4 md:my-6 text-center">
+	<img src="{{ "/assets/images/GOT/2.GOT.png" | relative_url }}" alt="Step 2 Fill in details"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Fill in details</figcaption>
+</figure>
+
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Step 3: Get your Client ID</h3>
+<p class="mb-4 md:mb-6">
+Yes! you have your Client ID ready to be used! Make sure to save it, we will use this Client ID on our plugin 👍
+</p>
+<p class="mb-4 md:mb-6">
+IMPORTANT: Do not share your Client Secret to anyone.
+</p>
+<figure class="my-4 md:my-6 text-center">
+	<img src="{{ "/assets/images/GOT/3.GOT.png" | relative_url }}" alt="Step 2 Fill in details"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Credentials => Create Credentials > OAuth Client ID</figcaption>
+</figure>
+
+<h2 id="project-setup" class="text-2xl font-semibold pt-24 mb-4 md:mb-6"><a href="/code/2022/04/10/how-to-create-google-one-tap-plugin.html#project-setup">01. Project setup</a></h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/google-one-tap/tree/feat/01-setup" target="_blank" class="textlink">repo [branch: feat/01-setup]</a></p>
+<p class="mb-4 md:mb-6">
+Before we write our code, I'd like setup our project with eslint, jest, and playground. Let's start with setting up our `package.json`.
+</p>
+{% highlight javascript %}
+// File: package.json
+{
+	"name": "one-tap-login",
+	"version": "1.0.0",
+	"description": "Google One Tap Login plugin",
+	"main": "onetaplogin.js",
+	"author": "Ivana Setiawan",
+	"license": "MIT",
+	"scripts": {
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"lint": "eslint --fix --ext \".js,.vue\" ."
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.17.6",
+		"@babel/core": "^7.17.9",
+		"@babel/preset-env": "^7.16.11",
+		"@vue/test-utils": "^1.3.0",
+		"babel-jest": "^27.5.1",
+		"eslint": "^8.11.0",
+		"eslint-plugin-vue": "^8.5.0",
+		"jest": "^27.5.1",
+		"jest-junit": "^13.0.0",
+		"vue-jest": "^3.0.7"
+	}
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+Then install all the dependencies by running <span class="text-orange-500">npm install</span> on your terminal. Afterwards, we need to setup the Babel, ESLint and Jest config:
+</p>
+{% highlight javascript %}
+// Create a new file .eslintrc.js
+module.exports = {
+	extends: [
+	  // add more generic rulesets here, such as:
+	  // 'eslint:recommended',
+	  // 'plugin:vue/vue3-recommended',
+	  'plugin:vue/recommended' // Use this if you are using Vue.js 2.x.
+	],
+	rules: {
+	  // override/add rules settings here, such as:
+	  // 'vue/no-unused-vars': 'error'
+	}
+}
+{% endhighlight %}
+
+{% highlight javascript %}
+// Create a new file babel.config.js
+module.exports = {
+	env: {
+		test: {
+			presets: [['@babel/preset-env', { targets: { node: 'current' } }]],
+		},
+	},
+};
+{% endhighlight %}
+
+{% highlight javascript %}
+// Create a new file jest.preset.js
+module.exports = {
+	moduleFileExtensions: ['js'],
+	moduleNameMapper: {
+		'^~/(.*)$': '<rootDir>/$1',
+		'^~~/(.*)$': '<rootDir>/$1',
+		'^@/(.*)$': '<rootDir>/$1',
+	},
+	transform: {
+		'^.+\\.js$': 'babel-jest',
+		'.*\\.(vue)$': 'vue-jest',
+	},
+	reporters: ['default', 'jest-junit'],
+};
+{% endhighlight %}
+
+{% highlight javascript %}
+// Create a new file jest.config.js
+module.exports = {
+	name: 'onetaplogin',
+	displayName: 'one-tap-login',
+	...require('./jest.preset'),
+	testEnvironment: 'jsdom',
+};
+{% endhighlight %}
+
+<p class="mb-4 md:mb-6">
+When it's done, you see a new `node_modules` folder and `package-lock.json`. To check if everything is OK, run these commands on your terminal without any errors:
+</p>
+{% highlight javascript %}
+npm run lint
+npm run test
+{% endhighlight %}
+
+<p class="mb-4 md:mb-6">
+When the setup is done, we are gonna create the `playground` for our project so we can test our plugin later on. To create a playground, follow <a target="_blank" href="/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html#create-playground" class="textlink">this steps</a>.<br>
+You can also check out this <a href="https://github.com/ivanasetiawan/google-one-tap/commit/252f2e3cef452a52a488a3aaa7d3933b4cfcf76d" target="_blank" class="textlink">commit ...fcf76d</a>.
+</p>
+
+<h2 id="create-plugin" class="text-2xl font-semibold mb-4 pt-24 md:mb-6"><a href="/code/2022/04/10/how-to-create-google-one-tap-plugin.html#create-plugin">02. Build Google One Tap plugin</a></h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/google-one-tap/tree/feat/02-build-got"
+    target="_blank" class="textlink">repo [branch: feat/02-build-got]</a></p>
+<p>Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my plugin.
+In my head, I want the flow to work like:</p>
+<ul class="mb-6 md:mb-9 list-disc list-inside md:ml-6">
+	<li>To install, run <code class="precode px-2.5 py-1 mx-1">npm install google-one-tap</code></li>
+	<li>Developers should be able to pass client ID, context and logged in status to determine the visibility of the GOT.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Create `onetaplogin.js` and start with install plugin. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/c1246a90f7129a251ba26dc3246ccb9743b6914c" target="_blank" class="textlink">commit ...43b6914c</a>
+</h3>
+{% highlight javascript %}
+/*
+* options (Object):
+*   - isLoggedIn (Boolean): Logged in status
+*   - clientId (String): Your Google's credential client ID
+* callback (Function)
+*
+* Usage:
+* new Vue.use(OneTapLogin, {
+*   id: 'Client ID',
+*   isLoggedIn: false,
+* }, callback);
+*/
+
+export default {
+    install(_, options, callback) {
+        this.options = options;
+        this.callback = callback;
+        this.isLoaded = false;
+
+        /**
+         * Rules to not execute:
+         * User is already logged in, or client ID is not defined.
+         */
+        const rules =
+            this.options?.isLoggedIn || !this.options?.clientId;
+        this._checkExecutable(rules);
+    },
+};
+{% endhighlight %}
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Check if the pluging is executable based on the `rules`. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/d02eb179abe487660fb490986e1fbd98f0d5434f" target="_blank" class="textlink">commit ...d5434f</a>
+</h3>
+{% highlight javascript %}
+export default {
+	...
+
+	/**
+     * Check if the plugin is executable based on the `rules`.
+     */
+    _checkExecutable(rules) {
+        if (rules) return;
+        this._load();
+    },
+};
+{% endhighlight %}
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Load method to check if the plugin is not yet loaded. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/db37c3737a25ae1e1c3916cc884c8bd6311215e7" target="_blank" class="textlink">commit ...215e7</a>
+</h3>
+{% highlight javascript %}
+export default {
+	...
+
+    /**
+     * Load method to check if the plugin is not yet loaded.
+     * If not yet, load the library,
+     * If already loaded, do not load the library
+     */
+    _load() {
+        return !this.isLoaded ? this._loadLibrary() : null;
+    },
+};
+{% endhighlight %}
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Load method to check if the plugin is not yet loaded. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/8b4aacd3f65c16698ffc07d972d888b8004d88f0" target="_blank" class="textlink">commit ...4d88f0</a>
+</h3>
+{% highlight javascript %}
+export default {
+	...
+
+    /**
+     * Load the library method.
+     * Based on this: https://developers.google.com/identity/gsi/web/guides/client-library
+     */
+    _loadLibrary() {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://accounts.google.com/gsi/client';
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
+        script.addEventListener('load', () => {
+            this.isLoaded = true;
+        });
+        this._init();
+    },
+};
+{% endhighlight %}
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Initialise the Google One Tap. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/525722b79014a1ae2ca02f8dcd000cd3099183f9" target="_blank" class="textlink">commit ...9183f9</a>
+</h3>
+{% highlight javascript %}
+export default {
+	...
+
+    /**
+     * Initialise the Google One Tap
+     */
+    _init() {
+        const ctx = this.options?.context || 'signin'; // eslint-disable-line
+        const context = ['signin', 'signup', 'use'].includes(ctx)
+            ? ctx
+            : 'signin';
+        const callback = this.callback;
+        /* eslint-disable */
+        const client_id = this.options?.clientId; // eslint-disable-line
+        window.onload = function () {
+            window.google.accounts.id.initialize({
+                client_id,
+                cancel_on_tap_outside: false,
+                context,
+                callback,
+            });
+            window.google.accounts.id.prompt();
+        };
+        /* eslint-enable */
+    },
+};
+{% endhighlight %}
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Test your Google One Tap plugin on the plaground. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/1449fd5c400eec6f155f258ab89214273130a66e" target="_blank" class="textlink">commit ...0a66e</a>
+</h3>
+{% highlight javascript %}
+import Vue from "vue";
+import OneTapLogin from 'one-tap-login';
+const callback = () => {
+    const redirectUrl = 'https://www.venopi.com';
+    window.location.assign(redirectUrl);
+};
+new Vue.use(OneTapLogin, {
+	// Get the Client Id from your OAuth credential
+	clientId: '410358638264-egs2qtqe6i9mn19c56lhnscblfnuols4.apps.googleusercontent.com',
+
+	// Should set dynamically, depending on your user logged in status
+	isLoggedIn: false,
+}, callback);
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+Let's run <code class="precode px-2.5 py-1 mx-1">npm run playground</code> and go to localhost:8080. You should see One Tap login shows up like this:
+</p>
+<figure class="my-4 md:my-6 text-center">
+	<img src="{{ "/assets/images/GOT/4.GOT.png" | relative_url }}" alt="Google One Tap on your website"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Google One Tap on your website</figcaption>
+</figure>
+<p class="mb-4 md:mb-6">Check your "Authorized JavaScript origins" on your <a href="https://console.developers.google.com/apis" target="_blank" class="textlink">Google API Console</a> if you see this error on your browser console => <span class="text-red-500">[GSI_LOGGER]: The given origin is not allowed for the given client ID.</span></p>
+
+<h2 id="unit-test" class="text-2xl font-semibold pt-24 mb-4 md:mb-6"><a href="/code/2022/04/10/how-to-create-google-one-tap-plugin.html#unit-test">03. Unit Testing</a></h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/google-one-tap/tree/feat/03-test" target="_blank" class="textlink">repo [branch: feat/03-test]</a></p>
+<p class="mb-4 md:mb-6">
+Based on our `onetaplogin.js`, I think we need create a test that covers:
+</p>
+<ul>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should be installed properly</li>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should check the rules condition before loading the client library</li>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should not load the client library from google if rules to not execute is true</li>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should load the client library from google if rules to not execute is false</li>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should load the client library from google</li>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should append cookie law script on the document body</li>
+</ul>
+
+<p class="mb-4 md:mb-6">Let's write this test!</p>
+{% highlight javascript %}
+import { createLocalVue } from '@vue/test-utils';
+import OneTapLogin from './onetaplogin';
+
+describe('One Tap Login', () => {
+    const localVue = createLocalVue();
+    let _loadSpy;
+    let _loadLibrarySpy;
+    let _checkExecutableSpy;
+    let appendChild;
+
+    beforeEach(() => {
+        document.body.innerHTML = '<body><script></script></body>';
+        _checkExecutableSpy = jest.spyOn(OneTapLogin, '_checkExecutable');
+        _loadSpy = jest.spyOn(OneTapLogin, '_load');
+        _loadLibrarySpy = jest.spyOn(OneTapLogin, '_loadLibrary');
+        appendChild = jest.spyOn(document.body, 'appendChild');
+        localVue.use(OneTapLogin);
+    });
+
+    test('should be installed properly', () => {
+        expect(typeof localVue._installedPlugins[0].install).toBe('function');
+    });
+
+    test('should check the rules condition before loading the client library', () => {
+        const rulesMock = true;
+        expect(_checkExecutableSpy).toBeCalledWith(rulesMock);
+    });
+
+    test('should not load the client library from google if rules to not execute is true', () => {
+        const rulesMock = true;
+        OneTapLogin._checkExecutable(rulesMock);
+        expect(_loadSpy).not.toBeCalled();
+    });
+
+    test('should load the client library from google if rules to not execute is false', () => {
+        const rulesMock = false;
+        OneTapLogin._checkExecutable(rulesMock);
+        expect(_loadSpy).toBeCalled();
+    });
+
+    test('should load the client library from google', () => {
+        expect(_loadLibrarySpy).toBeCalled();
+    });
+
+    test('should append cookie law script on the document body', () => {
+        expect(appendChild).toBeCalledWith(
+            expect.objectContaining({
+                type: 'text/javascript',
+                src: 'https://accounts.google.com/gsi/client',
+                async: true,
+                defer: true,
+            })
+        );
+    });
+});
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+Let's run <code class="precode px-2.5 py-1 mx-1">npm run test</code> on our terminal. You should see the tests are passing, like this:
+</p>
+<figure class="my-4 md:my-6 text-center">
+	<img src="{{ "/assets/images/GOT/5.GOT.png" | relative_url }}" alt="Unit testing for our Google One Tap plugin"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Unit testing for our Google One Tap plugin</figcaption>
+</figure>
+
+<h2 id="alternative" class="text-2xl font-semibold pt-24 mb-4 md:mb-6"><a href="/code/2022/04/10/how-to-create-google-one-tap-plugin.html#alternative">04. Alternative plugin</a></h2>
+<p class="mb-4 md:mb-6">
+Coming soon: Alternative way to write the plugin.
+</p>
+
+<p class="mb-4 md:mb-6">Any questions or suggestions for better implementations? Write to me 😀</p>
