@@ -975,6 +975,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 4rem;
 }
 
+.pt-6 {
+  padding-top: 1.5rem;
+}
+
+.pt-24 {
+  padding-top: 6rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1083,6 +1091,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-lime-500 {
   --tw-text-opacity: 1;
   color: rgb(132 204 22 / var(--tw-text-opacity));
+}
+
+.text-orange-500 {
+  --tw-text-opacity: 1;
+  color: rgb(249 115 22 / var(--tw-text-opacity));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -1269,6 +1287,10 @@ body::-webkit-scrollbar-thumb {
     margin-top: 3.5rem;
   }
 
+  .md\:mt-24 {
+    margin-top: 6rem;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -1288,6 +1310,18 @@ body::-webkit-scrollbar-thumb {
   .md\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }
+
+  .md\:pt-9 {
+    padding-top: 2.25rem;
+  }
+
+  .md\:pt-20 {
+    padding-top: 5rem;
+  }
+
+  .md\:pt-24 {
+    padding-top: 6rem;
   }
 
   .md\:text-4xl {

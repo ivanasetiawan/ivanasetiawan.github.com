@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{Ivana} Front-end developer, UX Designer. JavaScript lover, Blockchain experimentalist and Web3 enthusiast
+  </title>
+  <meta name="description"
+    content="I am a freelance front-end developer/UX Designer and rocket scientist wannabe who's passionately in love with tech stuff">
+  <meta name="author" content="Ivana Setiawan">
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How to create Google One Tap plugin for your project | Ivana Setiawan</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="How to create Google One Tap plugin for your project" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learn how to create a Google One Tap NPM package for your project" />
+<meta property="og:description" content="Learn how to create a Google One Tap NPM package for your project" />
+<link rel="canonical" href="http://localhost:4000/code/2022/04/10/how-to-create-google-one-tap-plugin.html" />
+<meta property="og:url" content="http://localhost:4000/code/2022/04/10/how-to-create-google-one-tap-plugin.html" />
+<meta property="og:site_name" content="Ivana Setiawan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-10T21:11:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to create Google One Tap plugin for your project" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/code/2022/04/10/how-to-create-google-one-tap-plugin.html"},"url":"http://localhost:4000/code/2022/04/10/how-to-create-google-one-tap-plugin.html","@type":"BlogPosting","description":"Learn how to create a Google One Tap NPM package for your project","headline":"How to create Google One Tap plugin for your project","dateModified":"2022-04-10T21:11:00+02:00","datePublished":"2022-04-10T21:11:00+02:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/dist/main.css">
+  <script src="https://kit.fontawesome.com/823d655421.js" crossorigin="anonymous"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ivana Setiawan" /></head><body class="font-tpr tracking-wide">
+  <header class="px-4 py-6 bg-slate-900 text-white fixed w-full z-10 top-0">
+    <div class="max-w-screen-lg mx-auto px-4 flex font-monospace justify-between">
+      <h1 class="mr-4 md:mr-6 tracking-widest text-xl font-semibold">
+        <a href="/" class="group">
+          n<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-orange-500">3</span>rd<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-violet-500">0</span>nc<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-lime-500">1</span>d
+        </a>
+      </h1>
+      <nav>
+        <ul class="flex">
+          <li class="ml-4 md:ml-6 tracking-wide"><a class="text-xl hover-g-violet-pink font-semibold" href="/blog/">blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main aria-label="Content">
+    <section
+  class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-16 dark:bg-gradient-to-tr dark:from-slate-800 dark:to-slate-900 dark:text-yellow-50"
+  itemscope itemtype="https://schema.org/Blog">
+  <div class="max-w-screen-md mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen">
+    <div class="mb-9 flex justify-between items-center">
+      <div>
+        <a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4"
+          href="/blog/"><i class="fa-solid fa-arrow-left mr-1"></i> Blog</a>
+      </div><div>
+  <button onclick="setMode('light')" id="mode-light" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-300 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-sun-bright text-xl mr-1.5"></i> <span class="cursor-pointer">Light mode</span>
+  </button>
+
+  <button onclick="setMode('dark')" id="mode-dark" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-200 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-moon text-xl mr-1.5"></i> <span class="cursor-pointer">Dark mode</span>
+  </button>
+</div></div>
+
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="mb-4 md:mb-9">
+        <h1 class="font-semibold text-4xl mb-4 leading-snug g-text-violet-pink" itemprop="name headline">How to create Google One Tap plugin for your project</h1>
+        <p class="text-gray-500">
+          <time class="" datetime="2022-04-10T21:11:00+02:00" itemprop="datePublished">Apr 10, 2022
+          </time></p>
+      </header>
+
+      <div class="leading-relaxed text-lg" itemprop="articleBody">
+        <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">What is GOT?</h2>
+<p class="mb-4 md:mb-6">
+It's not Game of Thrones. It is Google One Tap.
+</p>
+<p class="mb-4 md:mb-6">
+One Tap is the new cross-platform sign-in mechanism from Google that supports and streamlines multiple types of credentials.
+</p>
+<p class="mb-4 md:mb-6">
+You can quickly and easily manage user authentication and sign in to your website using One Tap. Users sign into a Google Account, provide their consent and securely share their profile information with your platform.
+</p>
+<p class="mb-4 md:mb-6">
+Many organisations have started using this method to increase their user retention score. After reading this blog post, you will be able to create a Google One Tap package plugin for any of your projects. Let's go!
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">But of course, create your Google OAuth credential from <a href="https://console.developers.google.com/apis" target="_blank" class="textlink">Google APIs console</a></h2>
+<h3 class="text-lg font-semibold mt-6 mb-2">Step 1: Create OAuth Client ID</h3>
+<p class="mb-4 md:mb-6">
+Go to "Credentials" => Click "Create Credentials" then "OAuth Client ID".
+</p>
+<figure class="my-4 md:my-6 text-center">
+	<img src="/assets/images/GOT/1.GOT.png" alt="Create OAuth Client ID"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Credentials => Create Credentials > OAuth Client ID</figcaption>
+</figure>
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Step 2: Fill in details</h3>
+<p class="mb-4 md:mb-6">
+Fill in the details of your project to create Client ID for the Web Application.
+</p>
+<p class="mb-4 md:mb-6">
+IMPORTANT: Include your site's domain in the Authorized JavaScript origins box. Please note that Google One Tap can only be displayed in HTTPS domains.
+</p>
+<p class="mb-4 md:mb-6">
+When you perform local tests or development, you must add both <span class="text-orange-500">http://localhost</span> and <span class="text-orange-500">http://localhost:port_number</span> to the Authorized JavaScript origins box. In my case, I added <span class="text-orange-500">http://localhost</span> and <span class="text-orange-500">http://localhost:3000</span>.
+</p>
+<figure class="my-4 md:my-6 text-center">
+	<img src="/assets/images/GOT/2.GOT.png" alt="Step 2 Fill in details"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Fill in details</figcaption>
+</figure>
+
+
+<h3 class="text-lg font-semibold mt-6 mb-2">Step 3: Get your Client ID</h3>
+<p class="mb-4 md:mb-6">
+Yes! you have your Client ID ready to be used! Make sure to save it, we will use this Client ID on our plugin 👍
+</p>
+<p class="mb-4 md:mb-6">
+IMPORTANT: Do not share your Client Secret to anyone.
+</p>
+<figure class="my-4 md:my-6 text-center">
+	<img src="/assets/images/GOT/3.GOT.png" alt="Step 2 Fill in details"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Credentials => Create Credentials > OAuth Client ID</figcaption>
+</figure>
+
+<h2 id="project-setup" class="text-2xl font-semibold pt-24 mb-4 md:mb-6"><a href="/code/2022/04/10/how-to-create-google-one-tap-plugin.html#project-setup">01. Project setup</a></h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/google-one-tap/tree/feat/01-setup" target="_blank" class="textlink">repo [branch: feat/01-setup]</a></p>
+<p class="mb-4 md:mb-6">
+Before we write our code, I'd like setup our project with eslint, jest, and playground. Let's start with setting up our `package.json`.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// File: package.json</span>
+<span class="p">{</span>
+	<span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">one-tap-login</span><span class="dl">"</span><span class="p">,</span>
+	<span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.0.0</span><span class="dl">"</span><span class="p">,</span>
+	<span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Google One Tap Login plugin</span><span class="dl">"</span><span class="p">,</span>
+	<span class="dl">"</span><span class="s2">main</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">onetaplogin.js</span><span class="dl">"</span><span class="p">,</span>
+	<span class="dl">"</span><span class="s2">author</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Ivana Setiawan</span><span class="dl">"</span><span class="p">,</span>
+	<span class="dl">"</span><span class="s2">license</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MIT</span><span class="dl">"</span><span class="p">,</span>
+	<span class="dl">"</span><span class="s2">scripts</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+		<span class="dl">"</span><span class="s2">test</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">jest</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">test:watch</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">jest --watch</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">lint</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eslint --fix --ext </span><span class="se">\"</span><span class="s2">.js,.vue</span><span class="se">\"</span><span class="s2"> .</span><span class="dl">"</span>
+	<span class="p">},</span>
+	<span class="dl">"</span><span class="s2">devDependencies</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+		<span class="dl">"</span><span class="s2">@babel/cli</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^7.17.6</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">@babel/core</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^7.17.9</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">@babel/preset-env</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^7.16.11</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">@vue/test-utils</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^1.3.0</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">babel-jest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^27.5.1</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">eslint</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^8.11.0</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">eslint-plugin-vue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^8.5.0</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">jest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^27.5.1</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">jest-junit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^13.0.0</span><span class="dl">"</span><span class="p">,</span>
+		<span class="dl">"</span><span class="s2">vue-jest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">^3.0.7</span><span class="dl">"</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+Then install all the dependencies by running <span class="text-orange-500">npm install</span> on your terminal. Afterwards, we need to setup the Babel, ESLint and Jest config:
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Create a new file .eslintrc.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">extends</span><span class="p">:</span> <span class="p">[</span>
+	  <span class="c1">// add more generic rulesets here, such as:</span>
+	  <span class="c1">// 'eslint:recommended',</span>
+	  <span class="c1">// 'plugin:vue/vue3-recommended',</span>
+	  <span class="dl">'</span><span class="s1">plugin:vue/recommended</span><span class="dl">'</span> <span class="c1">// Use this if you are using Vue.js 2.x.</span>
+	<span class="p">],</span>
+	<span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+	  <span class="c1">// override/add rules settings here, such as:</span>
+	  <span class="c1">// 'vue/no-unused-vars': 'error'</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Create a new file babel.config.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">env</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">test</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">presets</span><span class="p">:</span> <span class="p">[[</span><span class="dl">'</span><span class="s1">@babel/preset-env</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">targets</span><span class="p">:</span> <span class="p">{</span> <span class="na">node</span><span class="p">:</span> <span class="dl">'</span><span class="s1">current</span><span class="dl">'</span> <span class="p">}</span> <span class="p">}]],</span>
+		<span class="p">},</span>
+	<span class="p">},</span>
+<span class="p">};</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Create a new file jest.preset.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">moduleFileExtensions</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">js</span><span class="dl">'</span><span class="p">],</span>
+	<span class="na">moduleNameMapper</span><span class="p">:</span> <span class="p">{</span>
+		<span class="dl">'</span><span class="s1">^~/(.*)$</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;rootDir&gt;/$1</span><span class="dl">'</span><span class="p">,</span>
+		<span class="dl">'</span><span class="s1">^~~/(.*)$</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;rootDir&gt;/$1</span><span class="dl">'</span><span class="p">,</span>
+		<span class="dl">'</span><span class="s1">^@/(.*)$</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;rootDir&gt;/$1</span><span class="dl">'</span><span class="p">,</span>
+	<span class="p">},</span>
+	<span class="na">transform</span><span class="p">:</span> <span class="p">{</span>
+		<span class="dl">'</span><span class="s1">^.+</span><span class="se">\\</span><span class="s1">.js$</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">babel-jest</span><span class="dl">'</span><span class="p">,</span>
+		<span class="dl">'</span><span class="s1">.*</span><span class="se">\\</span><span class="s1">.(vue)$</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">vue-jest</span><span class="dl">'</span><span class="p">,</span>
+	<span class="p">},</span>
+	<span class="na">reporters</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">default</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">jest-junit</span><span class="dl">'</span><span class="p">],</span>
+<span class="p">};</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Create a new file jest.config.js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">onetaplogin</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">displayName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">one-tap-login</span><span class="dl">'</span><span class="p">,</span>
+	<span class="p">...</span><span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./jest.preset</span><span class="dl">'</span><span class="p">),</span>
+	<span class="na">testEnvironment</span><span class="p">:</span> <span class="dl">'</span><span class="s1">jsdom</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">};</span></code></pre></figure>
+
+<p class="mb-4 md:mb-6">
+When it's done, you see a new `node_modules` folder and `package-lock.json`. To check if everything is OK, run these commands on your terminal without any errors:
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">npm</span> <span class="nx">run</span> <span class="nx">lint</span>
+<span class="nx">npm</span> <span class="nx">run</span> <span class="nx">test</span></code></pre></figure>
+
+<p class="mb-4 md:mb-6">
+When the setup is done, we are gonna create the `playground` for our project so we can test our plugin later on. To create a playground, follow <a target="_blank" href="/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html#create-playground" class="textlink">this steps</a>.<br>
+You can also check out this <a href="https://github.com/ivanasetiawan/google-one-tap/commit/252f2e3cef452a52a488a3aaa7d3933b4cfcf76d" target="_blank" class="textlink">commit ...fcf76d</a>.
+</p>
+
+<h2 id="create-plugin" class="text-2xl font-semibold mb-4 pt-24 md:mb-6"><a href="/code/2022/04/10/how-to-create-google-one-tap-plugin.html#create-plugin">02. Build Google One Tap plugin</a></h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/google-one-tap/tree/feat/02-build-got"
+    target="_blank" class="textlink">repo [branch: feat/02-build-got]</a></p>
+<p>Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my plugin.
+In my head, I want the flow to work like:</p>
+<ul class="mb-6 md:mb-9 list-disc list-inside md:ml-6">
+	<li>To install, run <code class="precode px-2.5 py-1 mx-1">npm install google-one-tap</code></li>
+	<li>Developers should be able to pass client ID, context and logged in status to determine the visibility of the GOT.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Create `onetaplogin.js` and start with install plugin. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/c1246a90f7129a251ba26dc3246ccb9743b6914c" target="_blank" class="textlink">commit ...43b6914c</a>
+</h3>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/*
+* options (Object):
+*   - isLoggedIn (Boolean): Logged in status
+*   - clientId (String): Your Google's credential client ID
+* callback (Function)
+*
+* Usage:
+* new Vue.use(OneTapLogin, {
+*   id: 'Client ID',
+*   isLoggedIn: false,
+* }, callback);
+*/</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="nx">install</span><span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">options</span> <span class="o">=</span> <span class="nx">options</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">callback</span> <span class="o">=</span> <span class="nx">callback</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">isLoaded</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+        <span class="cm">/**
+         * Rules to not execute:
+         * User is already logged in, or client ID is not defined.
+         */</span>
+        <span class="kd">const</span> <span class="nx">rules</span> <span class="o">=</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">?.</span><span class="nx">isLoggedIn</span> <span class="o">||</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">?.</span><span class="nx">clientId</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_checkExecutable</span><span class="p">(</span><span class="nx">rules</span><span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">};</span></code></pre></figure>
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Check if the pluging is executable based on the `rules`. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/d02eb179abe487660fb490986e1fbd98f0d5434f" target="_blank" class="textlink">commit ...d5434f</a>
+</h3>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+	<span class="p">...</span>
+
+	<span class="cm">/**
+     * Check if the plugin is executable based on the `rules`.
+     */</span>
+    <span class="nx">_checkExecutable</span><span class="p">(</span><span class="nx">rules</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">rules</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_load</span><span class="p">();</span>
+    <span class="p">},</span>
+<span class="p">};</span></code></pre></figure>
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Load method to check if the plugin is not yet loaded. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/db37c3737a25ae1e1c3916cc884c8bd6311215e7" target="_blank" class="textlink">commit ...215e7</a>
+</h3>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+	<span class="p">...</span>
+
+    <span class="cm">/**
+     * Load method to check if the plugin is not yet loaded.
+     * If not yet, load the library,
+     * If already loaded, do not load the library
+     */</span>
+    <span class="nx">_load</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">isLoaded</span> <span class="p">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">_loadLibrary</span><span class="p">()</span> <span class="p">:</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">},</span>
+<span class="p">};</span></code></pre></figure>
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Load method to check if the plugin is not yet loaded. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/8b4aacd3f65c16698ffc07d972d888b8004d88f0" target="_blank" class="textlink">commit ...4d88f0</a>
+</h3>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+	<span class="p">...</span>
+
+    <span class="cm">/**
+     * Load the library method.
+     * Based on this: https://developers.google.com/identity/gsi/web/guides/client-library
+     */</span>
+    <span class="nx">_loadLibrary</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">script</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">text/javascript</span><span class="dl">'</span><span class="p">;</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://accounts.google.com/gsi/client</span><span class="dl">'</span><span class="p">;</span>
+        <span class="nx">script</span><span class="p">.</span><span class="k">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">defer</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">load</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">isLoaded</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">});</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_init</span><span class="p">();</span>
+    <span class="p">},</span>
+<span class="p">};</span></code></pre></figure>
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Initialise the Google One Tap. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/525722b79014a1ae2ca02f8dcd000cd3099183f9" target="_blank" class="textlink">commit ...9183f9</a>
+</h3>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+	<span class="p">...</span>
+
+    <span class="cm">/**
+     * Initialise the Google One Tap
+     */</span>
+    <span class="nx">_init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">?.</span><span class="nx">context</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">signin</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// eslint-disable-line</span>
+        <span class="kd">const</span> <span class="nx">context</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">signin</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">signup</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">use</span><span class="dl">'</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
+            <span class="p">?</span> <span class="nx">ctx</span>
+            <span class="p">:</span> <span class="dl">'</span><span class="s1">signin</span><span class="dl">'</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">callback</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">callback</span><span class="p">;</span>
+        <span class="cm">/* eslint-disable */</span>
+        <span class="kd">const</span> <span class="nx">client_id</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">?.</span><span class="nx">clientId</span><span class="p">;</span> <span class="c1">// eslint-disable-line</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span>
+                <span class="nx">client_id</span><span class="p">,</span>
+                <span class="na">cancel_on_tap_outside</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">context</span><span class="p">,</span>
+                <span class="nx">callback</span><span class="p">,</span>
+            <span class="p">});</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">google</span><span class="p">.</span><span class="nx">accounts</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">prompt</span><span class="p">();</span>
+        <span class="p">};</span>
+        <span class="cm">/* eslint-enable */</span>
+    <span class="p">},</span>
+<span class="p">};</span></code></pre></figure>
+
+<h3 class="text-lg font-semibold mt-10 mb-2">
+Test your Google One Tap plugin on the plaground. See <a href="https://github.com/ivanasetiawan/google-one-tap/commit/1449fd5c400eec6f155f258ab89214273130a66e" target="_blank" class="textlink">commit ...0a66e</a>
+</h3>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">vue</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">OneTapLogin</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">one-tap-login</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">callback</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">redirectUrl</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://www.venopi.com</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">redirectUrl</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="k">new</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">OneTapLogin</span><span class="p">,</span> <span class="p">{</span>
+	<span class="c1">// Get the Client Id from your OAuth credential</span>
+	<span class="na">clientId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">410358638264-egs2qtqe6i9mn19c56lhnscblfnuols4.apps.googleusercontent.com</span><span class="dl">'</span><span class="p">,</span>
+
+	<span class="c1">// Should set dynamically, depending on your user logged in status</span>
+	<span class="na">isLoggedIn</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="p">},</span> <span class="nx">callback</span><span class="p">);</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+Let's run <code class="precode px-2.5 py-1 mx-1">npm run playground</code> and go to localhost:8080. You should see One Tap login shows up like this:
+</p>
+<figure class="my-4 md:my-6 text-center">
+	<img src="/assets/images/GOT/4.GOT.png" alt="Google One Tap on your website"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Google One Tap on your website</figcaption>
+</figure>
+<p class="mb-4 md:mb-6">Check your "Authorized JavaScript origins" on your <a href="https://console.developers.google.com/apis" target="_blank" class="textlink">Google API Console</a> if you see this error on your browser console => <span class="text-red-500">[GSI_LOGGER]: The given origin is not allowed for the given client ID.</span></p>
+
+<h2 id="unit-test" class="text-2xl font-semibold pt-24 mb-4 md:mb-6"><a href="/code/2022/04/10/how-to-create-google-one-tap-plugin.html#unit-test">03. Unit Testing</a></h2>
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/google-one-tap/tree/feat/03-test" target="_blank" class="textlink">repo [branch: feat/03-test]</a></p>
+<p class="mb-4 md:mb-6">
+Based on our `onetaplogin.js`, I think we need create a test that covers:
+</p>
+<ul>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should be installed properly</li>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should check the rules condition before loading the client library</li>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should not load the client library from google if rules to not execute is true</li>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should load the client library from google if rules to not execute is false</li>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should load the client library from google</li>
+	<li class="mb-2"><span class="inline-block mr-2">🧪</span> The plugin should append cookie law script on the document body</li>
+</ul>
+
+<p class="mb-4 md:mb-6">Let's write this test!</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="p">{</span> <span class="nx">createLocalVue</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@vue/test-utils</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">OneTapLogin</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./onetaplogin</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">One Tap Login</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">localVue</span> <span class="o">=</span> <span class="nx">createLocalVue</span><span class="p">();</span>
+    <span class="kd">let</span> <span class="nx">_loadSpy</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">_loadLibrarySpy</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">_checkExecutableSpy</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">appendChild</span><span class="p">;</span>
+
+    <span class="nx">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">&lt;body&gt;&lt;script&gt;&lt;/script&gt;&lt;/body&gt;</span><span class="dl">'</span><span class="p">;</span>
+        <span class="nx">_checkExecutableSpy</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">spyOn</span><span class="p">(</span><span class="nx">OneTapLogin</span><span class="p">,</span> <span class="dl">'</span><span class="s1">_checkExecutable</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">_loadSpy</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">spyOn</span><span class="p">(</span><span class="nx">OneTapLogin</span><span class="p">,</span> <span class="dl">'</span><span class="s1">_load</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">_loadLibrarySpy</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">spyOn</span><span class="p">(</span><span class="nx">OneTapLogin</span><span class="p">,</span> <span class="dl">'</span><span class="s1">_loadLibrary</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">appendChild</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">spyOn</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span> <span class="dl">'</span><span class="s1">appendChild</span><span class="dl">'</span><span class="p">);</span>
+        <span class="nx">localVue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">OneTapLogin</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">should be installed properly</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">localVue</span><span class="p">.</span><span class="nx">_installedPlugins</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">install</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="dl">'</span><span class="s1">function</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">should check the rules condition before loading the client library</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">rulesMock</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">_checkExecutableSpy</span><span class="p">).</span><span class="nx">toBeCalledWith</span><span class="p">(</span><span class="nx">rulesMock</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">should not load the client library from google if rules to not execute is true</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">rulesMock</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nx">OneTapLogin</span><span class="p">.</span><span class="nx">_checkExecutable</span><span class="p">(</span><span class="nx">rulesMock</span><span class="p">);</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">_loadSpy</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBeCalled</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">should load the client library from google if rules to not execute is false</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">rulesMock</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="nx">OneTapLogin</span><span class="p">.</span><span class="nx">_checkExecutable</span><span class="p">(</span><span class="nx">rulesMock</span><span class="p">);</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">_loadSpy</span><span class="p">).</span><span class="nx">toBeCalled</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">should load the client library from google</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">_loadLibrarySpy</span><span class="p">).</span><span class="nx">toBeCalled</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">should append cookie law script on the document body</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="nx">appendChild</span><span class="p">).</span><span class="nx">toBeCalledWith</span><span class="p">(</span>
+            <span class="nx">expect</span><span class="p">.</span><span class="nx">objectContaining</span><span class="p">({</span>
+                <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">text/javascript</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">src</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://accounts.google.com/gsi/client</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">async</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="na">defer</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="p">})</span>
+        <span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+Let's run <code class="precode px-2.5 py-1 mx-1">npm run test</code> on our terminal. You should see the tests are passing, like this:
+</p>
+<figure class="my-4 md:my-6 text-center">
+	<img src="/assets/images/GOT/5.GOT.png" alt="Unit testing for our Google One Tap plugin"
+	class="w-full rounded-2xl overflow-hidden" />
+	<figcaption class="text-sm mt-2 md:mt-4">Unit testing for our Google One Tap plugin</figcaption>
+</figure>
+<p class="mb-4 md:mb-6">Any questions or suggestions for better implementations? Write to me 😀</p>
+      </div>
+
+      <!-- <div class="my-10 py-10 border-t border-gray-300 dark:border-gray-700">
+        <h3 class="mb-4">Tags: </h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">personal</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">notes</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">code</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tips</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">frontend</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">vue</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">plugin</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">django</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">python</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">adsense</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">npm</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">package</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">google</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">one</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tap</h3>
+        
+      </div> -->
+    </article><a class="u-url" href="/code/2022/04/10/how-to-create-google-one-tap-plugin.html" hidden></a>
+  </div>
+</section>
+
+<link rel="stylesheet" href="/assets/syntax.css" type="text/css">
+  </main><footer class="">
+  <div class="text-xl max-w-screen-lg mx-auto px-4 py-10 text-gray-500 text-sm">
+    <ul class="md:flex md:gap-6 md:justify-center">
+      <li class="my-2 md:my-0"><a href="https://www.linkedin.com/in/ivanasetiawan/" target="_blank"
+          class="text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500"><i
+            class="fa-brands fa-linkedin mr-2"></i>ivanasetiawan</a>
+      </li>
+      <li class="my-2 md:my-0"><i class="fa-solid fa-id-card-clip mr-2"></i>KVK#: 62163566
+      </li>
+      <li class="my-2 md:my-0"><i class="fa-solid fa-hashtag mr-2"></i>VAT: NL002450150B24
+      </li>
+    </ul>
+  </div>
+</footer><script>
+  const currentMode = localStorage.getItem('mode') ? localStorage.getItem('mode') : 'light';
+  setMode();
+
+  function setMode(mode = currentMode) {
+    mode === 'light' ?  lightMode() : darkMode() ;
+  }
+
+  function darkMode() {
+    document.querySelector('html').classList.add('dark');
+    localStorage.setItem('mode', 'dark');
+    document.getElementById('mode-dark').classList.add('hidden');
+    document.getElementById('mode-light').classList.remove('hidden');
+  }
+
+  function lightMode() {
+    document.querySelector('html').classList.remove('dark');
+    localStorage.setItem('mode', 'light');
+    document.getElementById('mode-light').classList.add('hidden');
+    document.getElementById('mode-dark').classList.remove('hidden');
+  }
+</script></body>
+
+</html>
