@@ -1,0 +1,155 @@
+---
+layout: post
+title:  "Timeout Limit to Asynchronous JavaScript Functions"
+excerpt: How to set a time limit on Asynchronous functions in JavaScript? Explained in simple words using real case scenario.
+date: 2022-05-04 11:35:00 +0100
+categories: code
+tags: code tips javascript async await promise
+---
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">The case</h2>
+<p class="mb-4 md:mb-6">
+I have a page that gets data from an API (<a href="https://swapi.dev/api/planets/9" target="_blank" class="textlink">Swapi</a>). I want to make an asynchronous call to fetch the data but I don't want the users to wait too long.
+</p>
+<p class="mb-4 md:mb-6">
+Ideally, the maximum waiting time would be 500ms and if nothing happens, I will show the "fallback" data. How can we tackle this?
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">The Solution</h2>
+<p class="mb-4 md:mb-6">
+Let's start with the basic function that supposedly takes a while to be fetched (1sec). We will be using <a href="https://deelay.me/" target="_blank" class="textlink">Deelay.me</a> to slow loading the API.
+</p>
+{% highlight javascript %}
+async function getPlanets() {
+	const response = await fetch('https://deelay.me/1000/https://swapi.dev/api/planets/9/?format=json', {
+		method: 'GET',
+	});
+	return response.json();
+}
+{% endhighlight %}
+
+<p class="mb-4 md:mb-6">
+We agreed that 1 second is too long. The acceptable waiting time is 500 ms. So let's create a timeLimit function to set the max waiting time.
+</p>
+{% highlight javascript %}
+function timeLimit(cb, interval) {
+    return new Promise(resolve => setTimeout(() => cb(resolve), interval))
+  }
+{% endhighlight %}
+
+<p class="mb-4 md:mb-6">
+We need to make sure to provide the fallback response or data, should the async `getPlanets` function takes over 500ms to complete the task. Let's use the `timeLimit` function above on the `onApiTimeout` function and provide the fallback.
+</p>
+{% highlight javascript %}
+function onApiTimeout() {
+    const fallbackplanet = {
+    	"name": "Fallback Coruscant",
+        "rotation_period": "24",
+        "orbital_period": "368",
+        "diameter": "12240",
+        "climate": "temperate",
+        "gravity": "1 standard",
+    }
+	return timeLimit((resolve) => resolve(fallbackplanet), 500);
+}
+{% endhighlight %}
+
+<p class="mb-4 md:mb-6">
+Now we need to make sure that the `getPlanets` adhere the time limit rule. If `getPlanets` takes longer than 500ms, we will give the fallback response instead of the one from the API. The key here is to use `Promise.race`.
+</p>
+<p class="mb-4 md:mb-6">
+The Promise.race() method returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or reason from that promise. <a class="textlink" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race" target="_blank">Learn more here</a>.
+</p>
+{% highlight javascript %}
+async function getPlanetsWithTimeLimit() {
+	const response = await Promise.race([
+			getPlanets(),
+			onApiTimeout(),
+	]);
+	return response;
+};
+{% endhighlight %}
+
+<p class="mb-4 md:mb-6">
+Finally, let's create a async function called `initGetPlanets` where we can try to get `planets` from `getPlanetsWithTimeLimit` and catch if there's an error to the request.
+</p>
+{% highlight javascript %}
+let planets;
+async function initGetPlanets() {
+    try {
+        planets = await getPlanetsWithTimeLimit();
+    } catch (e) {
+        if (e.response.status !== 404) throw e;
+    }
+    console.log('PLANETS >>>', planets);
+};
+initGetPlanets();
+{% endhighlight %}
+
+<p class="mb-4 md:mb-6">
+To test if the concept works, we can adjust the `deelay` on `getPlanets` function and/or the `timeLimit` inside the `onApiTimeout` function.
+</p>
+{% highlight javascript %}
+async function getPlanets() {
+    // Make the deelay shorter than 500ms
+	const response = await fetch('https://deelay.me/100/https://swapi.dev/api/planets/9/?format=json', {
+		method: 'GET',
+	});
+	return response.json();
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+If you check out the console, you will see that the `planets` is coming from the Swapi API.
+</p>
+{% highlight json %}
+"PLANETS >>>"
+{
+    "name": "Coruscant", 
+    "rotation_period": "24", 
+    "orbital_period": "368", 
+    "diameter": "12240", 
+    "climate": "temperate", 
+    "gravity": "1 standard", 
+    "terrain": "cityscape, mountains", 
+    "surface_water": "unknown", 
+    "population": "1000000000000", 
+    "residents": [
+        "https://swapi.dev/api/people/34/", 
+        "https://swapi.dev/api/people/55/", 
+        "https://swapi.dev/api/people/74/"
+    ], 
+    "films": [
+        "https://swapi.dev/api/films/3/", 
+        "https://swapi.dev/api/films/4/", 
+        "https://swapi.dev/api/films/5/", 
+        "https://swapi.dev/api/films/6/"
+    ], 
+    "created": "2014-12-10T11:54:13.921000Z", 
+    "edited": "2014-12-20T20:58:18.432000Z", 
+    "url": "https://swapi.dev/api/planets/9/"
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+If you adjust the `deelay` to larger than 500ms, you will get the fallback inside planets variable.
+</p>
+{% highlight javascript %}
+async function getPlanets() {
+    // Make the deelay larger than 500ms
+	const response = await fetch('https://deelay.me/1000/https://swapi.dev/api/planets/9/?format=json', {
+		method: 'GET',
+	});
+	return response.json();
+}
+{% endhighlight %}
+{% highlight json %}
+"PLANETS >>>"
+{
+    "name": "Fallback Coruscant",
+    "rotation_period": "24",
+    "orbital_period": "368",
+    "diameter": "12240",
+    "climate": "temperate",
+    "gravity": "1 standard",
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">To see this concept in action, you can go to <a href="https://codepen.io/ivanasetiawan/pen/qBxdqNw" target="_blank" class="textlink">this Codepen</a>.</p>
+<p class="mb-4 md:mb-6">Any questions or suggestions for better implementations? Write to me 😀</p>
