@@ -1015,11 +1015,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.25rem;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1033,6 +1028,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
 }
 
 .font-semibold {
@@ -1302,6 +1312,10 @@ body::-webkit-scrollbar-thumb {
     margin-top: 3.5rem;
   }
 
+  .md\:inline-block {
+    display: inline-block;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -1321,6 +1335,11 @@ body::-webkit-scrollbar-thumb {
   .md\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }
+
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 
   .md\:text-4xl {
@@ -1349,6 +1368,10 @@ body::-webkit-scrollbar-thumb {
 
   .lg\:mr-6 {
     margin-right: 1.5rem;
+  }
+
+  .lg\:inline-block {
+    display: inline-block;
   }
 
   .lg\:h-36 {
