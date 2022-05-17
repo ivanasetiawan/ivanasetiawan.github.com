@@ -611,10 +611,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .left-1 {
   left: 0.25rem;
 }
@@ -631,6 +627,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 0.5rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -638,16 +638,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-
-.my-10 {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
 }
 
 .my-4 {
@@ -665,24 +655,58 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0.5rem;
 }
 
-.mr-4 {
-  margin-right: 1rem;
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.ml-4 {
-  margin-left: 1rem;
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .mb-9 {
   margin-bottom: 2.25rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .mr-1 {
   margin-right: 0.25rem;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mr-1\.5 {
+  margin-right: 0.375rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .mt-6 {
@@ -693,32 +717,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1.5rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
 .mt-9 {
   margin-top: 2.25rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.mr-1\.5 {
-  margin-right: 0.375rem;
 }
 
 .block {
@@ -745,24 +745,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   min-height: 100vh;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .w-28 {
   width: 7rem;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .max-w-screen-lg {
   max-width: 1024px;
 }
 
-.max-w-screen-md {
-  max-width: 768px;
-}
-
 .max-w-screen-xl {
   max-width: 1280px;
+}
+
+.max-w-screen-md {
+  max-width: 768px;
 }
 
 .transform {
@@ -797,16 +797,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 0.375rem;
 }
 
-.rounded-2xl {
-  border-radius: 1rem;
-}
-
 .rounded-xl {
   border-radius: 0.75rem;
 }
 
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
 }
 
 .border {
@@ -817,14 +817,34 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-top-width: 1px;
 }
 
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.border-white {
+.border-gray-600 {
   --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-pink-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
 }
 
 .bg-slate-900 {
@@ -837,29 +857,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-slate-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
-}
-
 .bg-slate-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
-}
-
-.bg-violet-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(139 92 246 / var(--tw-bg-opacity));
-}
-
-.bg-pink-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-tr {
@@ -901,34 +901,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 1rem;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
 
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.px-2\.5 {
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
-}
-
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .px-3 {
@@ -941,24 +926,31 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.375rem;
 }
 
-.pt-16 {
-  padding-top: 4rem;
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
-.pt-1 {
-  padding-top: 0.25rem;
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
+.pt-9 {
+  padding-top: 2.25rem;
 }
 
 .pb-2 {
   padding-bottom: 0.5rem;
 }
 
-.pt-24 {
-  padding-top: 6rem;
-}
-
-.pt-9 {
-  padding-top: 2.25rem;
+.pt-1 {
+  padding-top: 0.25rem;
 }
 
 .pb-1\.5 {
@@ -989,21 +981,28 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 2rem;
 }
 
-.text-center {
-  text-align: center;
+.pt-16 {
+  padding-top: 4rem;
 }
 
-.font-tpr {
-  font-family: tpr, open sans, sans-serif;
+.pt-24 {
+  padding-top: 6rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .font-monospace {
   font-family: monospace, 'Courier';
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+.font-tpr {
+  font-family: tpr, open sans, sans-serif;
 }
 
 .text-4xl {
@@ -1011,14 +1010,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2.5rem;
 }
 
-.text-lg {
-  font-size: 1.125rem;
+.text-xl {
+  font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 
 .text-sm {
@@ -1031,9 +1025,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-semibold {
@@ -1064,9 +1068,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   letter-spacing: 0.1em;
 }
 
-.text-white {
+.text-slate-900 {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(15 23 42 / var(--tw-text-opacity));
 }
 
 .text-gray-500 {
@@ -1074,9 +1078,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
-.text-slate-900 {
+.text-white {
   --tw-text-opacity: 1;
-  color: rgb(15 23 42 / var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-violet-900 {
+  --tw-text-opacity: 1;
+  color: rgb(76 29 149 / var(--tw-text-opacity));
+}
+
+.text-violet-500 {
+  --tw-text-opacity: 1;
+  color: rgb(139 92 246 / var(--tw-text-opacity));
 }
 
 .text-sky-600 {
@@ -1097,16 +1111,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
-}
-
-.text-violet-900 {
-  --tw-text-opacity: 1;
-  color: rgb(76 29 149 / var(--tw-text-opacity));
-}
-
-.text-violet-500 {
-  --tw-text-opacity: 1;
-  color: rgb(139 92 246 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -1181,12 +1185,12 @@ body::-webkit-scrollbar-thumb {
           text-decoration-style: dotted;
 }
 
-.hover\:underline-offset-4:hover {
-  text-underline-offset: 4px;
-}
-
 .hover\:underline-offset-8:hover {
   text-underline-offset: 8px;
+}
+
+.hover\:underline-offset-4:hover {
+  text-underline-offset: 4px;
 }
 
 .hover\:shadow-md:hover {
@@ -1223,6 +1227,11 @@ body::-webkit-scrollbar-thumb {
   border-color: rgb(55 65 81 / var(--tw-border-opacity));
 }
 
+.dark .dark\:border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity));
+}
+
 .dark .dark\:bg-slate-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(148 163 184 / var(--tw-bg-opacity));
@@ -1257,6 +1266,10 @@ body::-webkit-scrollbar-thumb {
     margin-bottom: 0px;
   }
 
+  .md\:mb-14 {
+    margin-bottom: 3.5rem;
+  }
+
   .md\:mr-6 {
     margin-right: 1.5rem;
   }
@@ -1287,10 +1300,6 @@ body::-webkit-scrollbar-thumb {
 
   .md\:mt-14 {
     margin-top: 3.5rem;
-  }
-
-  .md\:mb-14 {
-    margin-bottom: 3.5rem;
   }
 
   .md\:flex {
