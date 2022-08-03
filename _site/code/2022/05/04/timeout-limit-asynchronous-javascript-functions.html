@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Timeout Limit to Asynchronous JavaScript Functions | Ivana Setiawan</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Timeout Limit to Asynchronous JavaScript Functions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How to set a time limit on Asynchronous functions in JavaScript? Explained in simple words using real case scenario." />
+<meta property="og:description" content="How to set a time limit on Asynchronous functions in JavaScript? Explained in simple words using real case scenario." />
+<link rel="canonical" href="http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html" />
+<meta property="og:url" content="http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html" />
+<meta property="og:site_name" content="Ivana Setiawan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-04T12:35:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Timeout Limit to Asynchronous JavaScript Functions" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html"},"@type":"BlogPosting","description":"How to set a time limit on Asynchronous functions in JavaScript? Explained in simple words using real case scenario.","headline":"Timeout Limit to Asynchronous JavaScript Functions","url":"http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html","datePublished":"2022-05-04T12:35:00+02:00","dateModified":"2022-05-04T12:35:00+02:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{Ivana} Front-end developer, UX Designer. JavaScript lover, Blockchain experimentalist and Web3 enthusiast
+  </title>
+  <meta name="description"
+    content="I am a freelance front-end developer/UX Designer and rocket scientist wannabe who's passionately in love with tech stuff">
+  <meta name="author" content="Ivana Setiawan">
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/dist/main.css">
+  <script src="https://kit.fontawesome.com/823d655421.js" crossorigin="anonymous"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ivana Setiawan" /></head><body class="font-tpr tracking-wide">
+  <header class="px-4 py-6 bg-slate-900 text-white fixed w-full z-10 top-0">
+    <div class="max-w-screen-lg mx-auto px-4 flex font-monospace justify-between">
+      <h1 class="mr-4 md:mr-6 tracking-widest text-xl font-semibold">
+        <a href="/" class="group">
+          n<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-orange-500">3</span>rd<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-violet-500">0</span>nc<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-lime-500">1</span>d
+        </a>
+      </h1>
+      <nav>
+        <ul class="flex">
+          <li class="ml-4 md:ml-6 tracking-wide"><a class="text-xl hover-g-violet-pink font-semibold" href="/journal/2022/02/24/why-ivana-writes.html">about</a></li>
+          <li class="ml-4 md:ml-6 tracking-wide"><a class="text-xl hover-g-violet-pink font-semibold" href="/blog/">blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main aria-label="Content">
+    <section
+  class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-16 dark:bg-gradient-to-tr dark:from-slate-800 dark:to-slate-900 dark:text-yellow-50"
+  itemscope itemtype="https://schema.org/Blog">
+  <div class="max-w-screen-md mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen">
+    <div class="mb-9 flex justify-between items-center">
+      <div>
+        <a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4"
+          href="/blog/"><i class="fa-solid fa-arrow-left mr-1"></i> Blog</a>
+      </div><div>
+  <button onclick="setMode('light')" id="mode-light" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-300 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-sun-bright text-xl mr-1.5"></i> <span class="cursor-pointer">Light mode</span>
+  </button>
+
+  <button onclick="setMode('dark')" id="mode-dark" type="button" class="inline-block cursor-pointer px-3 flex items-center py-1.5 bg-slate-200 text-slate-900 rounded-full hover:bg-slate-900 hover:text-slate-200">
+    <i class="cursor-pointer fa-solid fa-moon text-xl mr-1.5"></i> <span class="cursor-pointer">Dark mode</span>
+  </button>
+</div></div>
+
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="mb-4 md:mb-9">
+        <h1 class="font-semibold text-4xl mb-4 leading-snug g-text-violet-pink" itemprop="name headline">Timeout Limit to Asynchronous JavaScript Functions</h1>
+        <p class="text-gray-500">
+          <time class="" datetime="2022-05-04T12:35:00+02:00" itemprop="datePublished">May 4, 2022
+          </time></p>
+      </header>
+
+      <div class="leading-relaxed text-lg" itemprop="articleBody">
+        <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">The case</h2>
+<p class="mb-4 md:mb-6">
+I have a page that gets data from an API (<a href="https://swapi.dev/api/planets/9" target="_blank" class="textlink">Swapi</a>). I want to make an asynchronous call to fetch the data but I don't want the users to wait too long.
+</p>
+<p class="mb-4 md:mb-6">
+Ideally, the maximum waiting time would be 500ms and if nothing happens, I will show the "fallback" data. How can we tackle this?
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">The Solution</h2>
+<p class="mb-4 md:mb-6">
+Let's start with the basic function that supposedly takes a while to be fetched (1sec). We will be using <a href="https://deelay.me/" target="_blank" class="textlink">Deelay.me</a> to slow loading the API.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">async</span> <span class="kd">function</span> <span class="nx">getPlanets</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://deelay.me/1000/https://swapi.dev/api/planets/9/?format=json</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+		<span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+	<span class="p">});</span>
+	<span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
+
+<p class="mb-4 md:mb-6">
+We agreed that 1 second is too long. The acceptable waiting time is 500 ms. So let's create a timeLimit function to set the max waiting time.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">timeLimit</span><span class="p">(</span><span class="nx">cb</span><span class="p">,</span> <span class="nx">interval</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">cb</span><span class="p">(</span><span class="nx">resolve</span><span class="p">),</span> <span class="nx">interval</span><span class="p">))</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p class="mb-4 md:mb-6">
+We need to make sure to provide the fallback response or data, should the async `getPlanets` function takes over 500ms to complete the task. Let's use the `timeLimit` function above on the `onApiTimeout` function and provide the fallback.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">onApiTimeout</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">fallbackplanet</span> <span class="o">=</span> <span class="p">{</span>
+    	<span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Fallback Coruscant</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">rotation_period</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orbital_period</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">368</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">diameter</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12240</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">climate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">temperate</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">gravity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1 standard</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">}</span>
+	<span class="k">return</span> <span class="nx">timeLimit</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="nx">fallbackplanet</span><span class="p">),</span> <span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p class="mb-4 md:mb-6">
+Now we need to make sure that the `getPlanets` adhere the time limit rule. If `getPlanets` takes longer than 500ms, we will give the fallback response instead of the one from the API. The key here is to use `Promise.race`.
+</p>
+<p class="mb-4 md:mb-6">
+The Promise.race() method returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or reason from that promise. <a class="textlink" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race" target="_blank">Learn more here</a>.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">async</span> <span class="kd">function</span> <span class="nx">getPlanetsWithTimeLimit</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span>
+			<span class="nx">getPlanets</span><span class="p">(),</span>
+			<span class="nx">onApiTimeout</span><span class="p">(),</span>
+	<span class="p">]);</span>
+	<span class="k">return</span> <span class="nx">response</span><span class="p">;</span>
+<span class="p">};</span></code></pre></figure>
+
+<p class="mb-4 md:mb-6">
+Finally, let's create a async function called `initGetPlanets` where we can try to get `planets` from `getPlanetsWithTimeLimit` and catch if there's an error to the request.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">planets</span><span class="p">;</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nx">initGetPlanets</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="nx">planets</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getPlanetsWithTimeLimit</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!==</span> <span class="mi">404</span><span class="p">)</span> <span class="k">throw</span> <span class="nx">e</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">PLANETS &gt;&gt;&gt;</span><span class="dl">'</span><span class="p">,</span> <span class="nx">planets</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="nx">initGetPlanets</span><span class="p">();</span></code></pre></figure>
+
+<p class="mb-4 md:mb-6">
+To test if the concept works, we can adjust the `deelay` on `getPlanets` function and/or the `timeLimit` inside the `onApiTimeout` function.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">async</span> <span class="kd">function</span> <span class="nx">getPlanets</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Make the deelay shorter than 500ms</span>
+	<span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://deelay.me/100/https://swapi.dev/api/planets/9/?format=json</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+		<span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+	<span class="p">});</span>
+	<span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+If you check out the console, you will see that the `planets` is coming from the Swapi API.
+</p>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">"PLANETS &gt;&gt;&gt;"</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coruscant"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"rotation_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"orbital_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"368"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"diameter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12240"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"climate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"temperate"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"gravity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 standard"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"terrain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cityscape, mountains"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"surface_water"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"population"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000000000"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"residents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"https://swapi.dev/api/people/34/"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"https://swapi.dev/api/people/55/"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"https://swapi.dev/api/people/74/"</span><span class="w">
+    </span><span class="p">],</span><span class="w"> 
+    </span><span class="nl">"films"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"https://swapi.dev/api/films/3/"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"https://swapi.dev/api/films/4/"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"https://swapi.dev/api/films/5/"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"https://swapi.dev/api/films/6/"</span><span class="w">
+    </span><span class="p">],</span><span class="w"> 
+    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-10T11:54:13.921000Z"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"edited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-20T20:58:18.432000Z"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapi.dev/api/planets/9/"</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+If you adjust the `deelay` to larger than 500ms, you will get the fallback inside planets variable.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">async</span> <span class="kd">function</span> <span class="nx">getPlanets</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Make the deelay larger than 500ms</span>
+	<span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://deelay.me/1000/https://swapi.dev/api/planets/9/?format=json</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+		<span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span>
+	<span class="p">});</span>
+	<span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">"PLANETS &gt;&gt;&gt;"</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fallback Coruscant"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rotation_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"orbital_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"368"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"diameter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12240"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"climate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"temperate"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"gravity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 standard"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">To see this concept in action, you can go to <a href="https://codepen.io/ivanasetiawan/pen/qBxdqNw" target="_blank" class="textlink">this Codepen</a>.</p>
+<p class="mb-4 md:mb-6">Any questions or suggestions for better implementations? Write to me 😀</p>
+      </div>
+
+      <!-- <div class="my-10 py-10 border-t border-gray-300 dark:border-gray-700">
+        <h3 class="mb-4">Tags: </h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">personal</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">notes</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">code</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tips</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">frontend</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">vue</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">plugin</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">django</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">python</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">adsense</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">npm</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">package</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">google</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">one</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tap</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">javascript</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">async</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">await</h3>
+        
+          <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">promise</h3>
+        
+      </div> -->
+    </article><a class="u-url" href="/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html" hidden></a>
+  </div>
+</section>
+
+<link rel="stylesheet" href="/assets/syntax.css" type="text/css">
+  </main><footer class="">
+  <div class="text-xl max-w-screen-lg mx-auto px-4 py-10 text-gray-500 text-sm">
+    <ul class="md:flex md:gap-6 md:justify-center">
+      <li class="my-2 md:my-0"><a href="https://www.linkedin.com/in/ivanasetiawan/" target="_blank"
+          class="text-violet-900 hover:underline hover:underline-offset-8 hover:decoration-dotted hover:text-orange-500"><i
+            class="fa-brands fa-linkedin mr-2"></i>ivanasetiawan</a>
+      </li>
+      <li class="my-2 md:my-0"><i class="fa-solid fa-id-card-clip mr-2"></i>KVK#: 62163566
+      </li>
+      <li class="my-2 md:my-0"><i class="fa-solid fa-hashtag mr-2"></i>VAT: NL002450150B24
+      </li>
+    </ul>
+  </div>
+</footer><script>
+  const currentMode = localStorage.getItem('mode') ? localStorage.getItem('mode') : 'light';
+  setMode();
+
+  function setMode(mode = currentMode) {
+    mode === 'light' ?  lightMode() : darkMode() ;
+  }
+
+  function darkMode() {
+    document.querySelector('html').classList.add('dark');
+    localStorage.setItem('mode', 'dark');
+    document.getElementById('mode-dark').classList.add('hidden');
+    document.getElementById('mode-light').classList.remove('hidden');
+  }
+
+  function lightMode() {
+    document.querySelector('html').classList.remove('dark');
+    localStorage.setItem('mode', 'light');
+    document.getElementById('mode-light').classList.add('hidden');
+    document.getElementById('mode-dark').classList.remove('hidden');
+  }
+</script></body>
+
+</html>
