@@ -1,4 +1,4 @@
-module.exports = {
+>module.exports = {
   content: [
     './_includes/**/*.html',
     './_layouts/**/*.html',

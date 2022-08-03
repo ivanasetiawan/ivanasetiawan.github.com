@@ -33,4 +33,6 @@ npx tailwindcss -i ./assets/main.css -o ./assets/dist/main.css --watch
 ```
 
 ## Roadmap
-- Create blog (code, security, Blockchain, JS)
+- Web3 101: Smart contract setup for your local development
+- Solidity: the basic value types you need to know to write your first smart contract
+- Solidity: let's create a simple smart contract together!
