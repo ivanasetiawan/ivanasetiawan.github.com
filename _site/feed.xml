@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-16T08:37:45+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Peer to peer network in Blockchain</title><link href="http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain.html" rel="alternate" type="text/html" title="Peer to peer network in Blockchain" /><published>2022-09-16T07:34:00+02:00</published><updated>2022-09-16T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is peer to peer?&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-16T13:15:55+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Peer to peer network in Blockchain</title><link href="http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain.html" rel="alternate" type="text/html" title="Peer to peer network in Blockchain" /><published>2022-09-16T07:34:00+02:00</published><updated>2022-09-16T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain.html">&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    This article is a continuation of &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;&quot;What is Blockchain?&quot;&lt;/a&gt;. I'd highly recommend you to read that first.
+&lt;/p&gt;
 
-&lt;h3 class=&quot;text-lg font-semibold mt-4 md:mt-6 mb-2 md:mb-3&quot;&gt;Even more secure!&lt;/h3&gt;
+&lt;p class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;
+    The Bridge
+    &lt;small class=&quot;font-normal text-slate-500 text-base&quot;&gt;- No, not the TV show&lt;/small&gt;
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    So our trio, Eki, Dwi and Tri, has figured out a way to secure their chaining blocks using cryptography, but it doesn't end there.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The trio realised early on that it doesn't matter how secure and tamper-proof the protocol is. If this data only has one source of truth, they would be fucked anyway if the computer is lost or hacked.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Hm... What if many computers have identical data? Yes! Peer-to-peer network should do the job!
+&lt;/p&gt;
+
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Peer to peer!&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Blockchain is stored in an extensive network of computers called a peer-to-peer network. On this network, we call each computer a node and every node has a copy of the blockchain.
 &lt;/p&gt;
