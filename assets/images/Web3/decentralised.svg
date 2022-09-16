@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="768px" height="713px" viewBox="0 0 768 713" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 2</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(3.000000, 3.000000)" stroke="#417158" stroke-width="6">
+            <line x1="148.5" y1="61.5" x2="148.5" y2="140.5" id="Line" stroke-linecap="square"></line>
+            <line x1="240.5" y1="123.5" x2="178.5" y2="170.5" id="Line" stroke-linecap="square"></line>
+            <line x1="117.5" y1="171.5" x2="61.5" y2="155.5" id="Line" stroke-linecap="square"></line>
+            <line x1="599.5" y1="611.5" x2="611.5" y2="646.5" id="Line" stroke-linecap="square"></line>
+            <line x1="566.5" y1="606.5" x2="520.5" y2="645.5" id="Line" stroke-linecap="square"></line>
+            <line x1="154.5" y1="591.5" x2="88.5" y2="591.5" id="Line" stroke-linecap="square"></line>
+            <line x1="167.5" y1="611.5" x2="151.5" y2="647.5" id="Line" stroke-linecap="square"></line>
+            <line x1="334.5" y1="387.5" x2="195.5" y2="562.5" id="Line" stroke-linecap="square"></line>
+            <circle id="Oval" fill="#ABCFBC" cx="147.5" cy="170.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="178.5" cy="585.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="57.5" cy="585.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="136.5" cy="668.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="278.5" cy="658.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="147.5" cy="30.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="265.5" cy="109.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="30.5" cy="147.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="496.5" cy="646.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="701.5" cy="591.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="618.5" cy="676.5" r="30.5"></circle>
+            <line x1="619.5" y1="591.5" x2="670.5" y2="591.5" id="Line" stroke-linecap="square"></line>
+            <line x1="167.5" y1="195.5" x2="313.5" y2="340.5" id="Line" stroke-linecap="square"></line>
+            <line x1="402.5" y1="395.5" x2="566.5" y2="569.5" id="Line" stroke-linecap="square"></line>
+            <line x1="427.5" y1="347.5" x2="589.5" y2="273.5" id="Line" stroke-linecap="square"></line>
+            <line x1="634.5" y1="230.5" x2="649.5" y2="171.5" id="Line" stroke-linecap="square"></line>
+            <line x1="650.5" y1="268.5" x2="701.5" y2="268.5" id="Line" stroke-linecap="square"></line>
+            <line x1="624.5" y1="290.5" x2="642.5" y2="332.5" id="Line" stroke-linecap="square"></line>
+            <circle id="Oval" fill="#ABCFBC" cx="588.5" cy="585.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="619.5" cy="259.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="650.5" cy="140.5" r="30.5"></circle>
+            <circle id="Oval-Copy" fill="#ABCFBC" cx="731.5" cy="268.5" r="30.5"></circle>
+            <circle id="Oval-Copy" fill="#ABCFBC" cx="649.5" cy="362.5" r="30.5"></circle>
+            <circle id="Oval" fill="#ABCFBC" cx="370" cy="347" r="57"></circle>
+            <line x1="251.5" y1="642.5" x2="203.5" y2="606.5" id="Line" stroke-linecap="square"></line>
+        </g>
+    </g>
+</svg>

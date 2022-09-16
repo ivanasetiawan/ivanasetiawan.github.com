@@ -1,7 +1,407 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-08-10T10:32:46+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Your first smart contract</title><link href="http://localhost:4000/code/2022/08/09/your-first-smart-contract.html" rel="alternate" type="text/html" title="Your first smart contract" /><published>2022-08-09T12:35:00+02:00</published><updated>2022-08-09T12:35:00+02:00</updated><id>http://localhost:4000/code/2022/08/09/your-first-smart-contract</id><content type="html" xml:base="http://localhost:4000/code/2022/08/09/your-first-smart-contract.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Backstory&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-16T08:37:45+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Peer to peer network in Blockchain</title><link href="http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain.html" rel="alternate" type="text/html" title="Peer to peer network in Blockchain" /><published>2022-09-16T07:34:00+02:00</published><updated>2022-09-16T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is peer to peer?&lt;/h2&gt;
+
+&lt;h3 class=&quot;text-lg font-semibold mt-4 md:mt-6 mb-2 md:mb-3&quot;&gt;Even more secure!&lt;/h3&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    I have a page that gets data from an API (&lt;a href=&quot;https://swapi.dev/api/planets/9&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Swapi&lt;/a&gt;). I want to make an asynchronous call to fetch the data but I don't want the users to wait too long.
-&lt;/p&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="smart" /><category term="contract" /><category term="solidity" /><summary type="html">How to set a time limit on Asynchronous functions in JavaScript? Explained in simple words using real case scenario.</summary></entry><entry><title type="html">Timeout Limit to Asynchronous JavaScript Functions</title><link href="http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html" rel="alternate" type="text/html" title="Timeout Limit to Asynchronous JavaScript Functions" /><published>2022-05-04T12:35:00+02:00</published><updated>2022-05-04T12:35:00+02:00</updated><id>http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions</id><content type="html" xml:base="http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The case&lt;/h2&gt;
+    Blockchain is stored in an extensive network of computers called a peer-to-peer network. On this network, we call each computer a node and every node has a copy of the blockchain.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    In the case of Eki, Dwi, and Tri, imagine that their chaining blocks of data are not just available on one person's computer but on many more computers.
+&lt;/p&gt;
+
+
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/web3/peer-to-peer_example.svg&quot; alt=&quot;Example peer to peer&quot; class=&quot;max-w-lg mx-auto&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;mt-4 text-sm text-center italic&quot;&gt;
+        Blockchain is stored in an extensive network of computers called a peer-to-peer network
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="Web3" /><summary type="html">What and how does peer to peer network work in Blockchain?</summary></entry><entry><title type="html">What is a ‘blockchain’?</title><link href="http://localhost:4000/web3/2022/09/13/what-is-blockchain.html" rel="alternate" type="text/html" title="What is a ‘blockchain’?" /><published>2022-09-13T12:34:00+02:00</published><updated>2022-09-13T12:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/13/what-is-blockchain</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/13/what-is-blockchain.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The beginning&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Suppose you are still confused after googling the word 'blockchain'. This article will hopefully help you because I aim to help you understand the word's meaning!
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    If you wanna know more about &quot;blockchain&quot;, you must have heard of &quot;Bitcoin&quot;. It's one of the first digital currencies that uses blockchain as its protocol.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;a href=&quot;/assets/images/Web3/bitcoin-whitepaper.pdf&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Bitcoin white paper&lt;/a&gt; (released in 2008) is unique and revolutionary because it outlines how Bitcoin can make a peer-to-peer transaction in a decentralised network. The protocol was considered radical compared to the centralised network we were and are primarily in today.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Wait, you might ask - what is the centralised and decentralised system? Why is it a big deal?! Good question. &lt;a href=&quot;/web3/2022/09/08/centralised-vs-decentralised-system.html&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Here is an article that should help you 🦊&lt;/a&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Blockchain definition&lt;/h2&gt;
+&lt;figure class=&quot;border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6&quot;&gt;
+    &lt;blockquote class=&quot;mb-4 text-xl leading-relaxed&quot;&gt;
+        A blockchain is a type of Digital Ledger Technology that consists of a growing list of records, called blocks, that are securely linked together using cryptography.
+    &lt;/blockquote&gt;
+    &lt;figcaption&gt;
+        &lt;cite&gt;— &lt;i class=&quot;fa-brands fa-wikipedia-w mr-1.5&quot;&gt;&lt;/i&gt; Wikipedia&lt;/cite&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;img src=&quot;/assets/images/huh-heh.gif&quot; alt=&quot;Heh?&quot; width=&quot;340&quot; /&gt;
+&lt;p class=&quot;my-4 md:my-6&quot;&gt;
+    Wait, what is Digital Ledger Technology? A growing list of records for what? And why linked? Cryptography is something like Benedict Cumberbatch did at The Imitation Game, right?
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    So many questions in one paragraph, some people get this right away, and some don't. This article is for those who don't because I can relate with them so much.
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Story&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Ok, so forget about all the jargon and imagine this...
+&lt;/p&gt;
+&lt;h3 class=&quot;text-lg font-semibold mt-4 mb-2 md:mt-6 md:mb-3&quot;&gt;It was the year 2008...&lt;/h3&gt;
+&lt;!-- This house will allow them to live together yet separately. They will have their own space and privacy, a shared community space where they can connect, a big garden to grow their food, a library to keep their minds sharp, and a 360° health + security system. --&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    There are three best friends named Eki, Dwi, and Tri. They dream of building a fancy shared house where they will grow old together. Yes, they got it all figured out 🌈
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    So starting January 1st 2008, they pledge to give 10% of their monthly income to their joined account. Mind that they are entrepreneurs, so their monthly payments are never the same, and they don't want to involve any banks because they have been hearing about this financial crisis that might push banks to go to shitholes. &lt;span class=&quot;text-pink-500&quot;&gt;Spoiler alert, they were right. Banks did go to shitholes, and lots of people lost money.&lt;/span&gt;
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Before they started saving, the trio mulled the security aspect of protecting their assets without the bank and devised three rules. These rules are simple yet robust:
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li class=&quot;relative pl-9 mb-4 md:mb-6&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database text-pink-500&quot;&gt;&lt;/i&gt; &lt;strong class=&quot;text-pink-500&quot;&gt;Data of transactions&lt;/strong&gt;
+        &lt;p&gt;Purpose: Keep track of who gives how much, the flow of the money, etc&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-4 md:mb-6&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint text-pink-500&quot;&gt;&lt;/i&gt; &lt;strong class=&quot;text-pink-500&quot;&gt;Fingerprint hash&lt;/strong&gt;
+        &lt;p&gt;Purpose: Hide the data they store above using fingerprint recognition and cryptographic methods&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-4 md:mb-6&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint text-pink-500&quot;&gt;&lt;/i&gt; &lt;strong class=&quot;text-pink-500&quot;&gt;Fingerprint hash from the previous block&lt;/strong&gt;
+        &lt;p&gt;Purpose: To form a chain history and to make sure that everything matches as it should be (tamper-resistance)&lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;text-lg font-semibold mt-4 mb-2 md:mt-6 md:mb-3&quot;&gt;Fingerprint hash?!&lt;/h3&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    What the heck is &quot;fingerprint recognition and cryptographic methods&quot;?
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    It's just a fancy way of saying &lt;strong&gt;when you type something, it will encrypt your data into something unreadable to humans&lt;/strong&gt;.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    As an example, if you put data:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;n&quot;&gt;Eki&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;€&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Dwi&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;€&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;199&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Tri&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;€&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    It will be encrypted to hash:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;mi&quot;&gt;00000&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d8f25735dfa0c6c0a95cda7f612204fe5d2f2890f43b768bfbd1b8a4640&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    This hash will change if you change the data. Yes, even a slight change.&lt;br&gt;
+    &lt;i class=&quot;fa-duotone fa-seal-question mr-1&quot;&gt;&lt;/i&gt; `Eki` to `Eka`? Hash won't match.&lt;br&gt;
+    &lt;i class=&quot;fa-duotone fa-seal-question mr-1&quot;&gt;&lt;/i&gt; `€ 200` to `€ 201`? Hash won't match.&lt;br&gt;
+    You get my point.
+&lt;/p&gt;
+
+&lt;div class=&quot;my-4 md:my-6 border border-gray-400 dark:border-gray-200 bg-slate-50 rounded-lg&quot;&gt;
+    &lt;iframe src=&quot;http://127.0.0.1:4000/sha256-algorithm-demo&quot; class=&quot;w-full h-60&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The combination together of &lt;br&gt;
+    &lt;strong class=&quot;text-pink-500&quot;&gt;&lt;i class=&quot;fa-light fa-database mr-1&quot;&gt;&lt;/i&gt; Data of transactions&lt;/strong&gt;,&lt;br&gt;
+    &lt;strong class=&quot;text-pink-500&quot;&gt;&lt;i class=&quot;fa-light fa-fingerprint mr-1&quot;&gt;&lt;/i&gt; Fingerprint hash&lt;/strong&gt;, and&lt;br&gt;
+    &lt;strong class=&quot;text-pink-500&quot;&gt;&lt;i class=&quot;fa-light fa-fingerprint mr-1&quot;&gt;&lt;/i&gt; Fingerprint hash from the previous block&lt;/strong&gt;&lt;br&gt;
+    will look something like this:
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg lg:-mx-20 xl:-mx-40&quot;&gt;
+        &lt;img src=&quot;/assets/images/web3/blockchain_example.svg&quot; alt=&quot;Example Blockchain flow&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;mt-4 text-sm text-center italic&quot;&gt;
+        Each block contains the previous block's hash, forming a chain structure. Hence the name &quot;Blockchain&quot;.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;text-lg font-semibold mt-4 md:mt-6 mb-2 md:mb-3&quot;&gt;How is this secure?&lt;/h3&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Let's do this in a realistic case with Eki, Dwi, and Tri. Say they have been saving for years.
+&lt;/p&gt;
+&lt;div class=&quot;p-4 md:p-6 border border-gray-500 dark:border-gray-200 border-dashed text-sm leading-loose&quot;&gt;
+    &lt;p class=&quot;monospace&quot;&gt;&lt;i class=&quot;fa-duotone fa-cubes mr-1&quot;&gt;&lt;/i&gt; There are 120 blocks before this...&lt;/p&gt;
+    &lt;div class=&quot;relative pl-9&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;Latest hash:&lt;/strong&gt;
+        &lt;span class=&quot;bg-violet-200 text-slate-900&quot;&gt;8ff4f69bd4aa061d730be249cc4ec2d9d435280943cbf39dbd84a297678a5a56&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;i class=&quot;fa-thin fa-link-horizontal rotate-90 text-xl&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class=&quot;p-4 md:p-6 border border-gray-500 dark:border-gray-200 border-dashed relative text-sm leading-loose&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt; &lt;strong&gt;Data:&lt;/strong&gt;
+            Eki € 150, Dwi € 100, Tri € 105
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Previous hash:&lt;/strong&gt;
+            &lt;span class=&quot;bg-violet-200 text-slate-900&quot;&gt;8ff4f69bd4aa061d730be249cc4ec2d9d435280943cbf39dbd84a297678a5a56&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Hash:&lt;/strong&gt;
+            &lt;span class=&quot;bg-yellow-200 text-slate-900&quot;&gt;000075d7082edbcb33f29d7fa2130dab1824dc4327e457c5acc222971a18e06e&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span class=&quot;absolute top-0 right-0 inline-block ml-2 px-2 py-1 bg-gray-300 border-l-4 border-gray-600 text-slate-900 text-sm&quot;&gt;&lt;i class=&quot;fa-duotone fa-hammer-crash mr-1&quot;&gt;&lt;/i&gt; Block 121 Mined&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;i class=&quot;fa-thin fa-link-horizontal rotate-90 text-xl&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class=&quot;p-4 md:p-6 border border-gray-500 dark:border-gray-200 border-dashed relative text-sm leading-loose&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt; &lt;strong&gt;Data:&lt;/strong&gt;
+            Eki € 300, Dwi € 180, Tri € 250
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Previous hash:&lt;/strong&gt;
+            &lt;span class=&quot;bg-yellow-200 text-slate-900&quot;&gt;000075d7082edbcb33f29d7fa2130dab1824dc4327e457c5acc222971a18e06e&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Hash:&lt;/strong&gt;
+            &lt;span class=&quot;bg-green-200 text-slate-900&quot;&gt;9f4e1bcd0898ea6da1fba11c5e2611d56468cff8ba86a316541d09cb367b4870&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span class=&quot;absolute top-0 right-0 inline-block ml-2 px-2 py-1 bg-gray-300 border-l-4 border-gray-600 text-slate-900 text-sm&quot;&gt;&lt;i class=&quot;fa-duotone fa-hammer-crash mr-1&quot;&gt;&lt;/i&gt; Block 122 Mined&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;i class=&quot;fa-thin fa-link-horizontal rotate-90 text-xl&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class=&quot;p-4 md:p-6 border border-gray-500 dark:border-gray-200 border-dashed relative text-sm leading-loose&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt; &lt;strong&gt;Data:&lt;/strong&gt;
+            Eki € 100, Dwi € 280, Tri € 350
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Previous hash:&lt;/strong&gt; &lt;span class=&quot;bg-green-200 text-slate-900&quot;&gt;9f4e1bcd0898ea6da1fba11c5e2611d56468cff8ba86a316541d09cb367b4870&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Hash:&lt;/strong&gt; abb2ff08143b2b8f535605077c564f35ff5f0bca5b3316dd3518f5785d7f5d7e
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span class=&quot;absolute top-0 right-0 inline-block ml-2 px-2 py-1 bg-gray-300 border-l-4 border-gray-600 text-slate-900 text-sm&quot;&gt;&lt;i class=&quot;fa-duotone fa-hammer-crash mr-1&quot;&gt;&lt;/i&gt; Block 123 Mined&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;i class=&quot;fa-thin fa-link-horizontal rotate-90 text-xl&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class=&quot;p-4 md:p-6 border border-gray-500 dark:border-gray-200 border-dashed text-sm leading-loose mb-4 md:mb-6&quot;&gt;
+    &lt;p class=&quot;monospace&quot;&gt;&lt;i class=&quot;fa-duotone fa-cubes mr-1&quot;&gt;&lt;/i&gt; There are many more blocks coming...&lt;/p&gt;
+&lt;/div&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    For example, someone wants to cheat on block 121 and change the amount of money they contribute. The hashes won't match anymore, the block 121 and blocks chaining afterwards will become obsolete.
+&lt;/p&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;i class=&quot;fa-thin fa-link-horizontal rotate-90 text-xl&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class=&quot;p-4 md:p-6 border border-gray-500 dark:border-gray-200 border-dashed relative text-sm leading-loose&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt; &lt;strong&gt;Data:&lt;/strong&gt;
+            &lt;span class=&quot;line-through&quot;&gt;Eki € 150&lt;/span&gt; Eki € 300, Dwi € 100, Tri € 105
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Previous hash:&lt;/strong&gt;
+            8ff4f69bd4aa061d730be249cc4ec2d9d435280943cbf39dbd84a297678a5a56
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Hash:&lt;/strong&gt;
+            &lt;span class=&quot;line-through&quot;&gt;000075d7082edbcb33f29d7fa2130dab1824dc4327e457c5acc222971a18e06e&lt;/span&gt; 408265557989b2e71fc5877d86af90b809c9b45accddb803ec3ae892ff5eb574 &lt;span class=&quot;font-semibold text-red-600 ml-1&quot;&gt;&lt;i class=&quot;fa-duotone fa-bug&quot;&gt;&lt;/i&gt; Hash changes&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span class=&quot;absolute top-0 right-0 inline-block ml-2 px-2 py-1 bg-gray-300 border-l-4 border-gray-600 text-slate-900 text-sm&quot;&gt;&lt;i class=&quot;fa-duotone fa-hammer-crash mr-1&quot;&gt;&lt;/i&gt; Block 121 Mined&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;i class=&quot;fa-thin fa-link-horizontal rotate-90 text-xl&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class=&quot;p-4 md:p-6 border-2 border-red-800 border-dashed relative text-sm leading-loose&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt; &lt;strong&gt;Data:&lt;/strong&gt;
+            Eki € 300, Dwi € 180, Tri € 250
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Previous hash:&lt;/strong&gt;
+            &lt;span class=&quot;bg-red-200 text-red-800&quot;&gt;000075d7082edbcb33f29d7fa2130dab1824dc4327e457c5acc222971a18e06e &lt;i class=&quot;fa-duotone fa-bug ml-1&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Hash:&lt;/strong&gt;
+            &lt;span class=&quot;bg-green-200 text-slate-900&quot;&gt;9f4e1bcd0898ea6da1fba11c5e2611d56468cff8ba86a316541d09cb367b4870&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span class=&quot;font-semibold text-red-600 ml-1&quot;&gt;&lt;i class=&quot;fa-duotone fa-bug&quot;&gt;&lt;/i&gt; Prev hash is no match&lt;/span&gt;
+    &lt;span class=&quot;absolute top-0 right-0 inline-block ml-2 px-2 py-1 bg-red-300 border-l-4 border-red-600 text-red-800 text-sm&quot;&gt;&lt;i class=&quot;fa-duotone fa-hammer-crash mr-1&quot;&gt;&lt;/i&gt; Block 122 Mined&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;i class=&quot;fa-thin fa-link-horizontal rotate-90 text-xl&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class=&quot;p-4 md:p-6 border-2 border-red-800 border-dashed relative text-sm leading-loose&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt; &lt;strong&gt;Data:&lt;/strong&gt;
+            Eki € 100, Dwi € 280, Tri € 350
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Previous hash:&lt;/strong&gt; &lt;span class=&quot;bg-green-200 text-slate-900&quot;&gt;9f4e1bcd0898ea6da1fba11c5e2611d56468cff8ba86a316541d09cb367b4870&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;relative pl-9&quot;&gt;
+            &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint&quot;&gt;&lt;/i&gt;
+            &lt;strong&gt;Hash:&lt;/strong&gt; abb2ff08143b2b8f535605077c564f35ff5f0bca5b3316dd3518f5785d7f5d7e
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span class=&quot;font-semibold text-red-600 ml-1&quot;&gt;&lt;i class=&quot;fa-duotone fa-bug&quot;&gt;&lt;/i&gt; Prev block is corrupted&lt;/span&gt;
+    &lt;span class=&quot;absolute top-0 right-0 inline-block ml-2 px-2 py-1 bg-red-300 border-l-4 border-red-600 text-red-800 text-sm&quot;&gt;&lt;i class=&quot;fa-duotone fa-hammer-crash mr-1&quot;&gt;&lt;/i&gt; Block 123 Mined&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;text-center&quot;&gt;&lt;i class=&quot;fa-thin fa-link-horizontal rotate-90 text-xl&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class=&quot;p-4 md:p-6 border-2 border-red-800 border-dashed relative text-sm leading-loose text-red-600 font-semibold mb-4 md:mb-6&quot;&gt;
+    &lt;p class=&quot;monospace&quot;&gt;&lt;i class=&quot;fa-duotone fa-bug mr-1&quot;&gt;&lt;/i&gt; The rest of the blocks are no longer valid&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;So the only way a hacker/cheater wants to commit an offence successfully is by changing all the history related to the block they have corrupted. Not so easy right!&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;text-lg font-semibold mt-4 md:mt-6 mb-2 md:mb-3&quot;&gt;You got it!&lt;/h3&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;If you get this far, you have grasped the basic idea of Blockchain.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;A blockchain is a digital ledger consisting of a growing list of blocks. Each block contains encrypted data and is securely linked together using cryptography.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;It doesn't end here. This trio realised early on that it doesn't matter how secure and tamper-proof the protocol is. If this data only has one source of truth, they would be fucked anyway if the computer is lost or hacked. &lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;So... what if many computers have identical data? Yes! Peer-to-peer network should do the job!&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Coming soon:
+    &lt;strong class=&quot;font-semibold&quot;&gt;Peer to peer network in Blockchain&lt;/strong&gt;
+&lt;/p&gt;
+&lt;!-- &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Read next chapter:
+    &lt;a href=&quot;/web3/2022/09/16/peer-to-peer-network-in-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;Peer to peer network in Blockchain&lt;/a&gt;
+&lt;/p&gt; --&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="Web3" /><summary type="html">Bitcoin explanation in a simple plain english using a story to help you understand the meaning of 'blockchain technology'.</summary></entry><entry><title type="html">Centralised vs Decentralised system</title><link href="http://localhost:4000/web3/2022/09/08/centralised-vs-decentralised-system.html" rel="alternate" type="text/html" title="Centralised vs Decentralised system" /><published>2022-09-08T12:34:00+02:00</published><updated>2022-09-08T12:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/08/centralised-vs-decentralised-system</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/08/centralised-vs-decentralised-system.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is the centralised and decentralised system? Why is it a big deal?!&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    You must have heard of &quot;Blockchain&quot;, and the chance is you are reading this because you probably got confused about blockchain's &quot;decentralised&quot; strength and why people make such a massive deal about it.&lt;br&gt;&lt;br&gt;
+    Blockchain is often used for crypto related project (digital currency). However, I find it essential to understand the general interpretation of the word &quot;centralised&quot; vs &quot;decentralised&quot; because blockchain technology is not all about finance.
+&lt;/p&gt;
+
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Centralised system&lt;/h2&gt;
+&lt;img src=&quot;/assets/images/Web3/centralised.svg&quot; alt=&quot;Centralised&quot; width=&quot;140&quot; class=&quot;mb-6&quot; /&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Most of the things we use daily are centralised. &lt;br&gt;
+    Seriously.&lt;br&gt;
+    Your banks, social media (Facebook, Youtube, Instagram, TikTok, you name it), gadgets, and government could be centralised too.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The key is on &lt;strong&gt;'trust&lt;/strong&gt;'. If you have to trust another entity to confirm or verify your tasks, you are dealing with something centralised. A good example is when you want to send money to someone you have never met named &quot;Elie&quot;. Based on the information Elie gave you, you rely on the bank to confirm that this account exists in their database. Therefore you feel safe hitting the &quot;send&quot; button.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Oh, on top of that, you also trust the bank to hold your money. Although you don't discern it, you are asking permission from your bank whenever you withdraw your money. Banks can refuse cash withdrawals and freeze your account as they see fit.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Let's give another example—your YouTube account. When you create it, you provide your identity and give YouTube permission so you can use their services, and they can have the right to publish your content.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    When you upload a video, your content belongs on the YouTube database, managed by them. Their code is not open, you're not entitled to see the code or own your own data. They own the data. Your gain is that you unlock the potential of reaching billions of people with your content. You could make millions of dollars streaming your video. Still, they could also decide to ban your account, unpublish your content without your permission, or sell your data to whomever they see fit (yes, I am talking about ads).
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The bottom line is that you ultimately have to trust that these companies are doing things correctly and in your interest.
+&lt;/p&gt;
+
+&lt;div class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;p class=&quot;font-semibold mb-3&quot;&gt;Centralised system pros:&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Focused vision&lt;/li&gt;
+        &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Energy efficient (at least for now)&lt;/li&gt;
+        &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Clear chain of command, faster decision making&lt;/li&gt;
+        &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Dedicated resources&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Decentralised system&lt;/h2&gt;
+&lt;img src=&quot;/assets/images/Web3/decentralised.svg&quot; alt=&quot;Decentralised&quot; width=&quot;140&quot; class=&quot;mb-6&quot; /&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Is there anything decentralised these days? Yes, the Internet! The Internet is controlled by many. It consists of millions of devices linked together in an open network. No one can own, manage or switch it off for everyone.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Coincidence? No, this was very much a part of the design.  The inventors of the Web want all people to be able to create and access information. I can't imagine how the world would be today if a company, country or wealthy individual owned the Internet.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Anyone, literally anyone, can create a new website. When one website is down, others won't be affected. This architecture enables the Web to scale, facilitate innovation, and open the market.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Don't get confused. Some successful services have achieved near-monopoly status, but the Internet is not them, and they are not The Internet.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Anything that doesn't require an entity to allow or disallow you to do what you want when you want can be considered a decentralised system.&lt;/p&gt;
+
+&lt;div class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;p class=&quot;font-semibold mb-3&quot;&gt;Decentralised system pros:&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Scaling is easier&lt;/li&gt;
+        &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Peer-to-peer means no one node has supremacy over other nodes&lt;/li&gt;
+        &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;High availability since we're not dependant on one centralised node&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 lg:mt-12 md:mb-6&quot;&gt;TL;DR?&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    A clear distinction between a centralised and decentralised system can be illustrated in a case where a user named &quot;Ivana&quot; posts to a centralised system called Facebook.
+    &lt;br&gt;&lt;br&gt;
+    Facebook has one computer, and this &lt;span class=&quot;underline underline-offset-8&quot;&gt;one computer is responsible for verifying&lt;/span&gt; Ivana's updates. When confirmed, this one computer will update everywhere on the Facebook page where this new change is affecting.
+    &lt;br&gt;&lt;br&gt;
+    On the alternative side, &lt;span class=&quot;underline underline-offset-8&quot;&gt;hundreds of thousands of computers verify&lt;/span&gt; Ivana's change in a decentralised system.
+    &lt;br&gt;&lt;br&gt;
+    As a Web 3 enthusiast, I don't want everything to be decentralised. I believe the key is balance. What is the problem we are solving? What is the purpose of the project, and why?&lt;br&gt;&lt;br&gt;
+    Now we understand what centralised and decentralised are. How about reading more about &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;Blockchain&lt;/a&gt;?
+&lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="centralised" /><category term="decentralised" /><category term="technology" /><category term="organisation" /><category term="Web3" /><summary type="html">Understanding centralised and decentralised system, not only in finance but also in technology and organisation. Is one better than the other?</summary></entry><entry><title type="html">Timeout Limit to Asynchronous JavaScript Functions</title><link href="http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html" rel="alternate" type="text/html" title="Timeout Limit to Asynchronous JavaScript Functions" /><published>2022-05-04T12:35:00+02:00</published><updated>2022-05-04T12:35:00+02:00</updated><id>http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions</id><content type="html" xml:base="http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The case&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
 I have a page that gets data from an API (&lt;a href=&quot;https://swapi.dev/api/planets/9&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Swapi&lt;/a&gt;). I want to make an asynchronous call to fetch the data but I don't want the users to wait too long.
 &lt;/p&gt;
@@ -25,14 +425,14 @@ We agreed that 1 second is too long. The acceptable waiting time is 500 ms. So l
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeLimit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
 We need to make sure to provide the fallback response or data, should the async `getPlanets` function takes over 500ms to complete the task. Let's use the `timeLimit` function above on the `onApiTimeout` function and provide the fallback.
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onApiTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fallbackplanet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    	&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Fallback Coruscant&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Fallback Coruscant&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rotation_period&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;orbital_period&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;368&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;diameter&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;12240&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -85,28 +485,28 @@ If you check out the console, you will see that the `planets` is coming from the
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PLANETS &amp;gt;&amp;gt;&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Coruscant&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;rotation_period&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;24&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;orbital_period&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;368&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;diameter&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12240&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;climate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;temperate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;gravity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1 standard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;terrain&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cityscape, mountains&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;surface_water&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;unknown&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;population&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1000000000000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Coruscant&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;rotation_period&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;24&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;orbital_period&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;368&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;diameter&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12240&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;climate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;temperate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;gravity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1 standard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;terrain&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cityscape, mountains&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;surface_water&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;unknown&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;population&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1000000000000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;residents&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/people/34/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/people/55/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/people/34/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/people/55/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/people/74/&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;films&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/3/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/4/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/5/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/3/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/4/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/5/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/6/&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;created&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014-12-10T11:54:13.921000Z&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;edited&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014-12-20T20:58:18.432000Z&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;created&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014-12-10T11:54:13.921000Z&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;edited&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014-12-20T20:58:18.432000Z&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/planets/9/&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
@@ -576,25 +976,13 @@ Don't like the redirect solution? OK, we have another solution!
 &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STATIC_URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;document_root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STATIC_ROOT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; \
 &lt;span class=&quot;n&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MEDIA_URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;document_root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MEDIA_ROOT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Any questions or suggestions for better implementations? Write to me 😀&lt;/p&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="django" /><category term="python" /><category term="adsense" /><summary type="html">How to fix ads.txt file issues to avoid severe impact to your revenue on Google Adsense</summary></entry><entry><title type="html">How I created Datadog Vue.js plugin</title><link href="http://localhost:4000/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html" rel="alternate" type="text/html" title="How I created Datadog Vue.js plugin" /><published>2022-03-15T20:11:00+01:00</published><updated>2022-03-15T20:11:00+01:00</updated><id>http://localhost:4000/code/2022/03/15/how-i-created-datadog-vuejs-plugin</id><content type="html" xml:base="http://localhost:4000/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is Datadog?&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://www.datadoghq.com/&quot;&gt;Datadog&lt;/a&gt; is the
-  essential monitoring and security platform for cloud applications. They bring together end-to-end traces, metrics, and
-  logs to make your applications, infrastructure, and third-party services entirely observable. These capabilities help
-  businesses secure their systems, avoid downtime, and ensure customers are getting the best user experience.&lt;/p&gt;
-&lt;p class=&quot;text-sky-600&quot;&gt;TL;DR? Basically a tool that can monitor services such as servers, databases and tools. You can
-  categorise your events to `Emergency`, `Error`, `Warn`, `Info` and monitor them closely.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;&lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://www.datadoghq.com/&quot;&gt;Datadog&lt;/a&gt; is the essential monitoring and security platform for cloud applications. They bring together end-to-end traces, metrics, and logs to make your applications, infrastructure, and third-party services entirely observable. These capabilities help businesses secure their systems, avoid downtime, and ensure customers are getting the best user experience.&lt;/p&gt;
+&lt;p class=&quot;text-sky-600&quot;&gt;TL;DR? Basically a tool that can monitor services such as servers, databases and tools. You can categorise your events to `Emergency`, `Error`, `Warn`, `Info` and monitor them closely.&lt;/p&gt;
 
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Why use Datadog?&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Say you have a platform with many features, tools and users. Using Datadog, you can put loggers
-  (`Emergency`, `Error`, `Warn`, `Info`) on your codebase so when something goes wrong, the logger will send the
-  event(s) to Datadog.
-  On Datadog, you can filter based on various things (service name, logger type, url, etc) and on each log, you can zoom
-  in to learn more about the origin and other useful log infos.
-  This can save you and your team a lot of time when you need to find and fix errors.&lt;/p&gt;
-&lt;p class=&quot;text-sky-600 mb-4 md:mb-6&quot;&gt;TL;DR? When sh*t goes wrong (this kind of tool like an insurance right? we mostly
-  care when things go wrong) they can help you finding the wrongs and where they are originated. It saves time for as
-  long as you log properly.&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;In this blogpost, I want to share step by step how I created the Datadog Vue plugin. I hope this
-  will help other developers 😀&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Say you have a platform with many features, tools and users. Using Datadog, you can put loggers (`Emergency`, `Error`, `Warn`, `Info`) on your codebase so when something goes wrong, the logger will send the event(s) to Datadog. On Datadog, you can filter based on various things (service name, logger type, url, etc) and on each log, you can zoom in to learn more about the origin and other useful log infos. This can save you and your team a lot of time when you need to find and fix errors.&lt;/p&gt;
+&lt;p class=&quot;text-sky-600 mb-4 md:mb-6&quot;&gt;TL;DR? When sh*t goes wrong (this kind of tool like an insurance right? we mostly care when things go wrong) they can help you finding the wrongs and where they are originated. It saves time for as long as you log properly.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;In this blogpost, I want to share step by step how I created the Datadog Vue plugin. I hope this will help other developers 😀&lt;/p&gt;
 
 &lt;h2 id=&quot;project-setup&quot; class=&quot;text-2xl font-semibold mb-4 pt-24 md:mb-6&quot;&gt;&lt;a href=&quot;/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html#project-setup&quot;&gt;01. Project setup&lt;/a&gt;&lt;/h2&gt;
 &lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/tree/feat/01-setup&quot;
@@ -604,16 +992,16 @@ Don't like the redirect solution? OK, we have another solution!
     href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/70429097556a82f29aaefe1d6f24ec092bf23087&quot; class=&quot;textlink&quot;
     target=&quot;_blank&quot;&gt;70429097556a82f29aaefe1d6f24ec092bf23087&lt;/a&gt;)&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
-  &lt;code&gt;
-    {
-      &quot;name&quot;: &quot;datadog-vue&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// name of the package&lt;/span&gt;
-      &quot;version&quot;: &quot;1.0.0&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// package version&lt;/span&gt;
-      &quot;description&quot;: &quot;Datadog Vue plugin&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// package description&lt;/span&gt;
-      &quot;main&quot;: &quot;index.js&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// the main file, aka the brain of this package&lt;/span&gt;
-      &quot;author&quot;: &quot;Ivana Setiawan&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// your name&lt;/span&gt;
-      &quot;license&quot;: &quot;MIT&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// licensing. &lt;a href=&quot;https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;Learn more&lt;/a&gt;&lt;/span&gt;
-    }
-  &lt;/code&gt;
+    &lt;code&gt;
+        {
+        &quot;name&quot;: &quot;datadog-vue&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// name of the package&lt;/span&gt;
+        &quot;version&quot;: &quot;1.0.0&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// package version&lt;/span&gt;
+        &quot;description&quot;: &quot;Datadog Vue plugin&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// package description&lt;/span&gt;
+        &quot;main&quot;: &quot;index.js&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// the main file, aka the brain of this package&lt;/span&gt;
+        &quot;author&quot;: &quot;Ivana Setiawan&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// your name&lt;/span&gt;
+        &quot;license&quot;: &quot;MIT&quot;, &lt;span class=&quot;text-lime-500&quot;&gt;// licensing. &lt;a href=&quot;https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;Learn more&lt;/a&gt;&lt;/span&gt;
+        }
+    &lt;/code&gt;
 &lt;/pre&gt;
 &lt;p&gt;The package.json above is pretty empty. It doesn't do much. My personal preference is to at least add &lt;a
     href=&quot;https://babeljs.io/docs/en/usage&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Babel&lt;/a&gt; and &lt;a href=&quot;&quot; target=&quot;_blank&quot;
@@ -622,28 +1010,25 @@ Don't like the redirect solution? OK, we have another solution!
 &lt;p class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;Install Babel&lt;/p&gt;
 &lt;p&gt;(commit &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/9bd05f70152172c69fc9d30f67e8ab5fbe555e3f&quot;
     class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;9bd05f70152172c69fc9d30f67e8ab5fbe555e3f&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Babel is a a toolchain that will compile your JavaScript application code that uses ES2015+ syntax into code that
-  works
-  in current browsers or environments.&lt;/p&gt;
+&lt;p&gt;Babel is a a toolchain that will compile your JavaScript application code that uses ES2015+ syntax into code that works in current browsers or environments.&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
-  &lt;code&gt;
-    &lt;span class=&quot;text-lime-500&quot;&gt;// Run on your Shell&lt;/span&gt;
-    npm install --save-dev @babel/core @babel/cli @babel/preset-env
-  &lt;/code&gt;
+    &lt;code&gt;
+        &lt;span class=&quot;text-lime-500&quot;&gt;// Run on your Shell&lt;/span&gt;
+        npm install --save-dev @babel/core @babel/cli @babel/preset-env
+    &lt;/code&gt;
 &lt;/pre&gt;
 
-&lt;p&gt;Create a config file named `babel.config.json` (requires v7.8.0 and above) in the root of your project with this
-  content:&lt;/p&gt;
+&lt;p&gt;Create a config file named `babel.config.json` (requires v7.8.0 and above) in the root of your project with this content:&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
-  &lt;code&gt;
-    &lt;span class=&quot;text-lime-500&quot;&gt;// You can adapt the config below for the browsers you want to support.
-    // See &lt;a href=&quot;https://babeljs.io/docs/en/babel-preset-env&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;here&lt;/a&gt; for more @babel/preset-env options.&lt;/span&gt;
-    module.exports = {
-      presets: [
-        '@vue/cli-plugin-babel/preset'
-      ]
-    }
-  &lt;/code&gt;
+    &lt;code&gt;
+        &lt;span class=&quot;text-lime-500&quot;&gt;// You can adapt the config below for the browsers you want to support.
+        // See &lt;a href=&quot;https://babeljs.io/docs/en/babel-preset-env&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;here&lt;/a&gt; for more @babel/preset-env options.&lt;/span&gt;
+        module.exports = {
+            presets: [
+                '@vue/cli-plugin-babel/preset'
+            ]
+        }
+    &lt;/code&gt;
 &lt;/pre&gt;
 
 &lt;p class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;Install Eslint&lt;/p&gt;
@@ -658,29 +1043,29 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;On `.eslintrc.js` (in the root of your project):&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// You can adapt the rules in the config below&amp;lt;/span&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;extends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;plugin:vue/recommended&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// override/add rules settings here, such as:&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 'vue/no-unused-vars': 'error'&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;extends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;plugin:vue/recommended&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// override/add rules settings here, such as:&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 'vue/no-unused-vars': 'error'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;Is everything going well? check your `package.json`, it should looks like this:&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;datadog-vue&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Datadog Vue plugin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;index.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ivana Setiawan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MIT&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;@babel/cli&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.17.6&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;@babel/core&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.17.5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;@babel/preset-env&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.16.11&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;eslint&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^8.11.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;eslint-plugin-vue&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^8.5.0&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;datadog-vue&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Datadog Vue plugin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;index.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ivana Setiawan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MIT&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;@babel/cli&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.17.6&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;@babel/core&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.17.5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;@babel/preset-env&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.16.11&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;eslint&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^8.11.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;eslint-plugin-vue&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^8.5.0&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;You should also see a &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;package-lock.json&lt;/code&gt; and a folder called &lt;code
     class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;node_modules&lt;/code&gt; in the root of your project. (commit &lt;a
@@ -690,13 +1075,10 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;datadog-integration&quot; class=&quot;text-2xl font-semibold mb-4 pt-24 md:mb-6&quot;&gt;&lt;a href=&quot;/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html#datadog-integration&quot;&gt;02. Datadog integration&lt;/a&gt;&lt;/h2&gt;
 &lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/tree/feat/02-integration&quot;
     target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/02-integration]&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my
-  plugin.
-  In my head, I want the flow to work like:&lt;/p&gt;
+&lt;p&gt;Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my plugin. In my head, I want the flow to work like:&lt;/p&gt;
 &lt;ul class=&quot;mb-6 md:mb-9 list-disc list-inside md:ml-6&quot;&gt;
-  &lt;li&gt;To install, run &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm install datadog-vue&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Dev should be able to pass client token &lt;span class=&quot;text-sky-600&quot;&gt;(Client tokens are used to send events and logs
-      from your user’s web and mobile applications.)&lt;/span&gt; and service name to easily filter the team logs&lt;/li&gt;
+    &lt;li&gt;To install, run &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm install datadog-vue&lt;/code&gt;&lt;/li&gt;
+    &lt;li&gt;Dev should be able to pass client token &lt;span class=&quot;text-sky-600&quot;&gt;(Client tokens are used to send events and logs from your user’s web and mobile applications.)&lt;/span&gt; and service name to easily filter the team logs&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p class=&quot;my-4 md:my-6 font-semibold&quot;&gt;Let's get into it!&lt;/p&gt;
@@ -704,14 +1086,14 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;Install &lt;a href=&quot;https://www.npmjs.com/package/@datadog/browser-logs&quot; class=&quot;textlink&quot;
     target=&quot;_blank&quot;&gt;`@datadog/browser-logs`&lt;/a&gt; and start building the plugin.&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
-  &lt;code&gt;
-    npm i @datadog/browser-logs
-  &lt;/code&gt;
+    &lt;code&gt;
+        npm i @datadog/browser-logs
+    &lt;/code&gt;
 &lt;/pre&gt;
 &lt;p&gt;When this is done, you should see this under dependencies on your `package.json`&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// File: package.json&lt;/span&gt;
 &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@datadog/browser-logs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^4.6.1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@datadog/browser-logs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^4.6.1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/tree/feat/02-integration&quot;
     target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/02-integration]&lt;/a&gt;&lt;/p&gt;
@@ -729,32 +1111,32 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@datadog/browser-logs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;cm&quot;&gt;/**
-      * Rules:
-      * - Enable in client only
-      * - Not disabled
-      */&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isNotExecutable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isNotExecutable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;cm&quot;&gt;/**
+        * Rules:
+        * - Enable in client only
+        * - Not disabled
+        */&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isNotExecutable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;browser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isNotExecutable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-    &lt;span class=&quot;cm&quot;&gt;/**
-      * Check before executing the plugin:
-      * - Client token must exist and not empty
-      * - Service name must exist and not empty
-      * Show warning (loggingWarn) if the condition is not met.
-      */&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initialCheck&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientToken&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loggingWarn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-            &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;You are not using Datadog vue plugin. If you want to, you can enter a Datadog client token&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;initialCheck&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loggingWarn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;cm&quot;&gt;/**
+        * Check before executing the plugin:
+        * - Client token must exist and not empty
+        * - Service name must exist and not empty
+        * Show warning (loggingWarn) if the condition is not met.
+        */&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initialCheck&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientToken&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loggingWarn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;You are not using Datadog vue plugin. If you want to, you can enter a Datadog client token&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;initialCheck&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loggingWarn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Let's initialise Datadog! For more info, check out &lt;a
@@ -769,13 +1151,13 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 */&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// REQUIRED&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;datadoghq.eu&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// REQUIRED&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;forwardErrorsToLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;sampleRate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// REQUIRED&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;datadoghq.eu&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// REQUIRED&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;forwardErrorsToLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;sampleRate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;cm&quot;&gt;/**
@@ -784,8 +1166,7 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 */&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addLoggerGlobalContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Site&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;After the initialisation, we want create a simple log function to enable developers to log any of their events to
-  Datadog.&lt;/p&gt;
+&lt;p&gt;After the initialisation, we want create a simple log function to enable developers to log any of their events to Datadog.&lt;/p&gt;
 &lt;p&gt;(commit &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/15bc28808d487b1116f8bf654902574f6eba1ebd&quot;
     class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;15bc28808d487b1116f8bf654902574f6eba1ebd&lt;/a&gt;)&lt;/p&gt;
 
@@ -796,20 +1177,20 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/span&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
 &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;No message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;noMessageContext&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;No message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;noMessageContext&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 
@@ -823,41 +1204,41 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;Creating a Vue CLI project is easy!&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
-  &lt;code&gt;
-    &lt;span class=&quot;text-lime-500&quot;&gt;// Install Vue CLI if you haven't
-    // learn more &lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://cli.vuejs.org/guide/installation.html&quot;&gt;here&lt;/a&gt;
-    &lt;/span&gt;npm install -g @vue/cli
+    &lt;code&gt;
+        &lt;span class=&quot;text-lime-500&quot;&gt;// Install Vue CLI if you haven't
+        // learn more &lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://cli.vuejs.org/guide/installation.html&quot;&gt;here&lt;/a&gt;
+        &lt;/span&gt;npm install -g @vue/cli
 
-    &lt;span class=&quot;text-lime-500&quot;&gt;// Create a new project
-    // learn more &lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://cli.vuejs.org/guide/creating-a-project.html&quot;&gt;here&lt;/a&gt;&lt;/span&gt;
-    vue create playground
-  &lt;/code&gt;
+        &lt;span class=&quot;text-lime-500&quot;&gt;// Create a new project
+        // learn more &lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://cli.vuejs.org/guide/creating-a-project.html&quot;&gt;here&lt;/a&gt;&lt;/span&gt;
+        vue create playground
+    &lt;/code&gt;
 &lt;/pre&gt;
 &lt;p&gt;My Vue CLI preset is &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;Default ([Vue 2] babel, eslint)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;When the setup is done, make sure everything works:&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
-  &lt;code&gt;
-    cd playground
-    npm run serve
-    &lt;span class=&quot;text-lime-500&quot;&gt;// Go to http://localhost:8080/ (check your terminal for the right port)
-    // You should see the app is running&lt;/span&gt;
-  &lt;/code&gt;
+    &lt;code&gt;
+        cd playground
+        npm run serve
+        &lt;span class=&quot;text-lime-500&quot;&gt;// Go to http://localhost:8080/ (check your terminal for the right port)
+        // You should see the app is running&lt;/span&gt;
+    &lt;/code&gt;
 &lt;/pre&gt;
 
 &lt;p class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;Script&lt;/p&gt;
-&lt;p&gt;Wouldn't it be nice if a developer could go to the root of this repo then
-  run &lt;br&gt;&lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm
+&lt;p&gt;Wouldn't it be nice if a developer could go to the root of this repo then run &lt;br&gt;
+    &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm
     run playground&lt;/code&gt; and see the playground in action? I think that would be a great developer experience 😉&lt;/p&gt;
 &lt;p&gt;Let's add a new script on our package.json in the root of our project.&lt;/p&gt;
 &lt;p&gt;(commit &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/6a1211e525d409cf8a6e4e751a65bb2ce6b5a2da&quot;
     class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;6a1211e525d409cf8a6e4e751a65bb2ce6b5a2da&lt;/a&gt;)&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
-  &lt;code&gt;
-    &lt;span class=&quot;text-lime-500&quot;&gt;// package.json&lt;/span&gt;
-    &quot;scripts&quot;: {
-      &quot;playground&quot;: &quot;npm link &amp;&amp; cd playground &amp;&amp; npm i &amp;&amp; npm link datadog-vue &amp;&amp; npm run serve&quot;,
-    },
-  &lt;/code&gt;
+    &lt;code&gt;
+        &lt;span class=&quot;text-lime-500&quot;&gt;// package.json&lt;/span&gt;
+        &quot;scripts&quot;: {
+        &quot;playground&quot;: &quot;npm link &amp;&amp; cd playground &amp;&amp; npm i &amp;&amp; npm link datadog-vue &amp;&amp; npm run serve&quot;,
+        },
+    &lt;/code&gt;
 &lt;/pre&gt;
 &lt;p&gt;See it in action! type &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm
     run playground&lt;/code&gt; on the root of your project and go to http://localhost:8080/&lt;/p&gt;
@@ -867,77 +1248,70 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     link&lt;/a&gt;?&lt;/p&gt;
 
 &lt;p class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;Use the plugin on the Playground&lt;/p&gt;
-&lt;p&gt;Go to playground/src/components/HelloWorld.vue and put some buttons that send events to Datadog using our datadog-vue
-  plugin.&lt;/p&gt;
+&lt;p&gt;Go to playground/src/components/HelloWorld.vue and put some buttons that send events to Datadog using our datadog-vue plugin.&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vue&quot; data-lang=&quot;vue&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick('info', &lt;/span&gt;{ function: 'triggerInfo' }, 'info')&quot;&amp;gt;
-      Click me for Info!
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick('warn', &lt;/span&gt;{ function: 'triggerWarn' }, 'warn')&quot;&amp;gt;
-      Click me for Warn!
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick('error', &lt;/span&gt;{ function: 'triggerError' }, 'error')&quot;&amp;gt;
-      Click me for Error!
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick('debug', &lt;/span&gt;{ function: 'triggerDebug' }, 'debug')&quot;&amp;gt;
-      Click me for Debug!
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Some buttons&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick('info', &lt;/span&gt;{ function: 'triggerInfo' }, 'info')&quot;&amp;gt;
+            Click me for Info!
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick('warn', &lt;/span&gt;{ function: 'triggerWarn' }, 'warn')&quot;&amp;gt;
+            Click me for Warn!
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick('error', &lt;/span&gt;{ function: 'triggerError' }, 'error')&quot;&amp;gt;
+            Click me for Error!
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;handleClick('debug', &lt;/span&gt;{ function: 'triggerDebug' }, 'debug')&quot;&amp;gt;
+            Click me for Debug!
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;datadog-vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;datadog-vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1342889190&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;venopi&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;clientToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1342889190&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;service&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;venopi&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 
-  &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;HelloWorld&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;HelloWorld&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;How do I know if it works?&lt;/p&gt;
-&lt;p&gt;After you click some buttons on the demo, Go to your Datadog logs app and filter based on `localhost` and you should
-  see the logs appearing!&lt;/p&gt;
+&lt;p&gt;After you click some buttons on the demo, Go to your Datadog logs app and filter based on `localhost` and you should see the logs appearing!&lt;/p&gt;
 &lt;figure class=&quot;my-4 md:my-6 text-center&quot;&gt;
-  &lt;img src=&quot;/assets/images/datadog_sample.jpg&quot; alt=&quot;Datadog dashboard sample&quot;
-  class=&quot;w-full rounded-2xl overflow-hidden&quot; /&gt;
-  &lt;figcaption class=&quot;text-sm mt-2 md:mt-4&quot;&gt;Datadog dashboard sample&lt;/figcaption&gt;
+    &lt;img src=&quot;/assets/images/datadog_sample.jpg&quot; alt=&quot;Datadog dashboard sample&quot; class=&quot;w-full rounded-2xl overflow-hidden&quot; /&gt;
+    &lt;figcaption class=&quot;text-sm mt-2 md:mt-4&quot;&gt;Datadog dashboard sample&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;04. Bonus&lt;/h2&gt;
-&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/tree/feat/04-bonus&quot;
-  target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/04-bonus]&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Since there are many types of logs, we want developers who are using our plugin to be able to log specifically the type
-  of log they want to send. As for now, you need to call $log and specify the type =&gt; &lt;code
+&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/tree/feat/04-bonus&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/04-bonus]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Since there are many types of logs, we want developers who are using our plugin to be able to log specifically the type of log they want to send. As for now, you need to call $log and specify the type =&gt; &lt;code
     class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;ddLog.$log(message,
     messageContext, status);&lt;/code&gt;&lt;/p&gt;
 &lt;p class=&quot;my-4 md:my-6&quot;&gt;And we want something like:&lt;/p&gt;
 &lt;pre class=&quot;precode&quot;&gt;
-  &lt;code&gt;
-    ddLog.$info(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send info&lt;/span&gt;
-    ddLog.$debug(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send debug&lt;/span&gt;
-    ddLog.$warn(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send warn&lt;/span&gt;
-    ddLog.$error(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send error&lt;/span&gt;
-  &lt;/code&gt;
+    &lt;code&gt;
+        ddLog.$info(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send info&lt;/span&gt;
+        ddLog.$debug(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send debug&lt;/span&gt;
+        ddLog.$warn(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send warn&lt;/span&gt;
+        ddLog.$error(...) &lt;span class=&quot;text-lime-500&quot;&gt;// Send error&lt;/span&gt;
+    &lt;/code&gt;
 &lt;/pre&gt;
-&lt;p&gt;But, before we start, since we're building client side's plugin, I want to make it clear by adding `.client` on our `index.js` file. (commit &lt;a
-  href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/0c63393b5844036b6d778ada0f0a6603cb36aefa&quot; class=&quot;textlink&quot;
-  target=&quot;_blank&quot;&gt;0c63393b5844036b6d778ada0f0a6603cb36aefa&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;But, before we start, since we're building client side's plugin, I want to make it clear by adding `.client` on our `index.js` file. (commit &lt;a href=&quot;https://github.com/ivanasetiawan/datadog-vue/commit/0c63393b5844036b6d778ada0f0a6603cb36aefa&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;0c63393b5844036b6d778ada0f0a6603cb36aefa&lt;/a&gt;)&lt;/p&gt;
 
 &lt;p class=&quot;my-4 md:my-6 font-semibold&quot;&gt;Let's continue with our plugin!&lt;/p&gt;
 &lt;p&gt;Update the `index.client.js` to have info, debug, warn and error:&lt;/p&gt;
@@ -947,19 +1321,19 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &amp;lt;MESSAGE&amp;gt;
 */&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;$error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
 
 &lt;span class=&quot;cm&quot;&gt;/**
@@ -968,19 +1342,19 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &amp;lt;MESSAGE&amp;gt;
 */&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;$warn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt;/**
 * Log the message with &quot;info&quot; status to Datadog
@@ -988,18 +1362,18 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &amp;lt;MESSAGE&amp;gt;
 */&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;$info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt;/**
@@ -1008,18 +1382,18 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the &amp;lt;MESSAGE&amp;gt;
 */&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;$debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Empty message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;messageContextMissing&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;datadogLogs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;stack_trace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -1030,41 +1404,41 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;span class=&quot;nx&quot;&gt;ddLog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;messageContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// When we want to send error&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Any questions or suggestions? &lt;a href=&quot;mailto:ivana.setiawan@gmail.com&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;write to me&lt;/a&gt;.
-  &lt;br&gt;I love learning new things and enjoy getting to know people! &lt;/p&gt;
+    &lt;br&gt;I love learning new things and enjoy getting to know people! &lt;/p&gt;
 
 &lt;p class=&quot;mt-9 md:mt-14 font-semibold&quot;&gt;Helpers:&lt;/p&gt;
 &lt;ul class=&quot;list-disc list-inside&quot;&gt;
-  &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://docs.datadoghq.com/logs/log_collection/javascript/&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://www.datadoghq.com/blog/monitor-javascript-console-logs/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://www.datadoghq.com/blog/monitor-javascript-console-logs/&lt;/a&gt;&lt;/li&gt;
-  &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://github.com/DataDog/browser-sdk&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://github.com/DataDog/browser-sdk&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="frontend" /><category term="vue" /><category term="plugin" /><summary type="html">Monitor JavaScript console logs and user activity with Datadog on your Vue.js or Nuxt.js project</summary></entry><entry><title type="html">Why Ivana writes</title><link href="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html" rel="alternate" type="text/html" title="Why Ivana writes" /><published>2022-02-24T18:24:27+01:00</published><updated>2022-02-24T18:24:27+01:00</updated><id>http://localhost:4000/journal/2022/02/24/why-ivana-writes</id><content type="html" xml:base="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html">Hi I am Ivana. This is my first post on my blog. 
+    &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://docs.datadoghq.com/logs/log_collection/javascript/&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://www.datadoghq.com/blog/monitor-javascript-console-logs/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://www.datadoghq.com/blog/monitor-javascript-console-logs/&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://github.com/DataDog/browser-sdk&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://github.com/DataDog/browser-sdk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="frontend" /><category term="vue" /><category term="plugin" /><summary type="html">Monitor JavaScript console logs and user activity with Datadog on your Vue.js or Nuxt.js project</summary></entry><entry><title type="html">Why Ivana writes</title><link href="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html" rel="alternate" type="text/html" title="Why Ivana writes" /><published>2022-02-24T18:24:27+01:00</published><updated>2022-02-24T18:24:27+01:00</updated><id>http://localhost:4000/journal/2022/02/24/why-ivana-writes</id><content type="html" xml:base="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html">Hi I am Ivana. This is my first post on my blog.
 &lt;br&gt;&lt;br&gt;
 As a self-taught engineer, I am always interested in using simple words to explain complex jargon. This is important and very personal for me because I used to feel embarrassed and discouraged whenever other proper engineers say cool stuff like:
 &quot;Exponential backoff algorithm&quot;, &quot;Ternary Operator&quot;, &quot;Memory Leak&quot;, &quot;Garbage Collection&quot;, &quot;Service Bus&quot;, ... Wait, there's a bus? is it for the garbage?
 &lt;br&gt;&lt;br&gt;
-I always looked at them and said: &quot;OK, speak English, I studied music&quot;. 
+I always looked at them and said: &quot;OK, speak English, I studied music&quot;.
 &lt;br&gt;&lt;br&gt;
 It didn't end there, because when I google, I feel stupider. That's the beauty of knowledge though, the more you know - the more you realize you don't know much... yadi yadi ya..  and ten minutes later I spiraled deep into mathematics algorithm history, which has so little to do with what I was looking for, so I ended up watching puppies videos out of desperation. True story.
 &lt;br&gt;&lt;br&gt;
-Looking back, there were several moments in my life when I feel so hopeless, stupid, and incompetent. Little voices in my head telling me to pick something more pragmatic since I am an immigrant, so I really needed to have a job to stay in the Netherlands and I didn't have the money to go to IT school (I used to work seven days per week at two different Tokos while cleaning and cooking for four different families to be able to pay for my tuition and living cost. Long story short, it was fucking hell with zero personal time).  
+Looking back, there were several moments in my life when I feel so hopeless, stupid, and incompetent. Little voices in my head telling me to pick something more pragmatic since I am an immigrant, so I really needed to have a job to stay in the Netherlands and I didn't have the money to go to IT school (I used to work seven days per week at two different Tokos while cleaning and cooking for four different families to be able to pay for my tuition and living cost. Long story short, it was fucking hell with zero personal time).
 &lt;br&gt;&lt;br&gt;
-Keep in mind, this was fifteen+ years ago, there was no code Bootcamp, no Codeacademy, no Udemy, and Youtube barely had any useful videos. 
+Keep in mind, this was fifteen+ years ago, there was no code Bootcamp, no Codeacademy, no Udemy, and Youtube barely had any useful videos.
 &lt;h2 class=&quot;text-2xl font-semibold mt-10 mb-4&quot;&gt;How did I learn?&lt;/h2&gt;
-Github was my library and open source code was my genesis. I taught myself by reading developers' code, line by line, out loud to myself while explaining every line of code to myself, or at least what my understanding was. Later on, I figured out what I did call: &quot;rubber duck debugging&quot;. 
+Github was my library and open source code was my genesis. I taught myself by reading developers' code, line by line, out loud to myself while explaining every line of code to myself, or at least what my understanding was. Later on, I figured out what I did call: &quot;rubber duck debugging&quot;.
 &lt;br&gt;&lt;br&gt;
-I didn't know how I could have the time with all the jobs I had to juggle. I guess it was the love, my autism and I had no friends, so it kinda helped me focus. I fell in love with code, I didn't care if I was good or not, nor if I ever could be good at it. I just love it so much and it's like playing. 
+I didn't know how I could have the time with all the jobs I had to juggle. I guess it was the love, my autism and I had no friends, so it kinda helped me focus. I fell in love with code, I didn't care if I was good or not, nor if I ever could be good at it. I just love it so much and it's like playing.
 &lt;br&gt;&lt;br&gt;
-Fast forward, today, I still feel very stupid. Happily stupid and I don't feel embarrassed if I don't know some jargon, I love learning. 
+Fast forward, today, I still feel very stupid. Happily stupid and I don't feel embarrassed if I don't know some jargon, I love learning.
 &lt;br&gt;&lt;br&gt;
-My love for coding spreads to various rando-kinda-related topics. I started as a frontend developer and designer, then I got to know Javascript. When learning JS, I got interested in cybersecurity, then I stumbled upon Python (my project, Venopi is using Python + Django), then I got interested in Web3 so I am teaching myself to be a blockchain developer (Solidity). I am also interested in philosophy, physics, spirituality, and economics; I read as much as I can about these topics before I go to bed. 
+My love for coding spreads to various rando-kinda-related topics. I started as a frontend developer and designer, then I got to know Javascript. When learning JS, I got interested in cybersecurity, then I stumbled upon Python (my project, Venopi is using Python + Django), then I got interested in Web3 so I am teaching myself to be a blockchain developer (Solidity). I am also interested in philosophy, physics, spirituality, and economics; I read as much as I can about these topics before I go to bed.
 &lt;br&gt;&lt;br&gt;
 We are in the era of an abundance of information and resources. What I mean is, &lt;strong class=&quot;font-medium text-pink-500&quot;&gt;the problem is not getting the information but asking the right questions and staying interested and persistent to get the answers&lt;/strong&gt;.
 &lt;h2 class=&quot;text-2xl font-semibold mt-10 mb-4&quot;&gt;So why write?&lt;/h2&gt;
-I mean it when I said, &quot;I am always interested in using simple words to explain complex jargon&quot;. I want to challenge myself to simplify complex ideas or things into digestible information. 
+I mean it when I said, &quot;I am always interested in using simple words to explain complex jargon&quot;. I want to challenge myself to simplify complex ideas or things into digestible information.
 &lt;br&gt;&lt;br&gt;
-I want to write a journal so future me can look back and re-read, re-visit and re-learn my past thought process. 
+I want to write a journal so future me can look back and re-read, re-visit and re-learn my past thought process.
 &lt;br&gt;&lt;br&gt;
-Hopefully, I could help other people who are looking for the things that I solved or stumbled upon. 
+Hopefully, I could help other people who are looking for the things that I solved or stumbled upon.
 
 &lt;div class=&quot;mt-10 pt-10 border-t dark:border-gray-100 border-gray-400&quot;&gt;
   &lt;h2 class=&quot;text-2xl font-semibold mb-4&quot;&gt;Enjoy this post?&lt;/h2&gt;
