@@ -907,10 +907,6 @@ video {
   max-width: 768px;
 }
 
-.max-w-lg {
-  max-width: 32rem;
-}
-
 .grow {
   flex-grow: 1;
 }
@@ -1294,10 +1290,6 @@ video {
   font-weight: 500;
 }
 
-.font-normal {
-  font-weight: 400;
-}
-
 .italic {
   font-style: italic;
 }
@@ -1398,11 +1390,6 @@ video {
 .text-red-800 {
   --tw-text-opacity: 1;
   color: rgb(153 27 27 / var(--tw-text-opacity));
-}
-
-.text-slate-500 {
-  --tw-text-opacity: 1;
-  color: rgb(100 116 139 / var(--tw-text-opacity));
 }
 
 .underline {
