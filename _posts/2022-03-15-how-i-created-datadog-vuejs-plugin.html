@@ -8,25 +8,13 @@ tags: code tips frontend vue plugin
 ---
 
 <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">What is Datadog?</h2>
-<p class="mb-4 md:mb-6"><a class="textlink" target="_blank" href="https://www.datadoghq.com/">Datadog</a> is the
-  essential monitoring and security platform for cloud applications. They bring together end-to-end traces, metrics, and
-  logs to make your applications, infrastructure, and third-party services entirely observable. These capabilities help
-  businesses secure their systems, avoid downtime, and ensure customers are getting the best user experience.</p>
-<p class="text-sky-600">TL;DR? Basically a tool that can monitor services such as servers, databases and tools. You can
-  categorise your events to `Emergency`, `Error`, `Warn`, `Info` and monitor them closely.</p>
+<p class="mb-4 md:mb-6"><a class="textlink" target="_blank" href="https://www.datadoghq.com/">Datadog</a> is the essential monitoring and security platform for cloud applications. They bring together end-to-end traces, metrics, and logs to make your applications, infrastructure, and third-party services entirely observable. These capabilities help businesses secure their systems, avoid downtime, and ensure customers are getting the best user experience.</p>
+<p class="text-sky-600">TL;DR? Basically a tool that can monitor services such as servers, databases and tools. You can categorise your events to `Emergency`, `Error`, `Warn`, `Info` and monitor them closely.</p>
 
 <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Why use Datadog?</h2>
-<p class="mb-4 md:mb-6">Say you have a platform with many features, tools and users. Using Datadog, you can put loggers
-  (`Emergency`, `Error`, `Warn`, `Info`) on your codebase so when something goes wrong, the logger will send the
-  event(s) to Datadog.
-  On Datadog, you can filter based on various things (service name, logger type, url, etc) and on each log, you can zoom
-  in to learn more about the origin and other useful log infos.
-  This can save you and your team a lot of time when you need to find and fix errors.</p>
-<p class="text-sky-600 mb-4 md:mb-6">TL;DR? When sh*t goes wrong (this kind of tool like an insurance right? we mostly
-  care when things go wrong) they can help you finding the wrongs and where they are originated. It saves time for as
-  long as you log properly.</p>
-<p class="mb-4 md:mb-6">In this blogpost, I want to share step by step how I created the Datadog Vue plugin. I hope this
-  will help other developers 😀</p>
+<p class="mb-4 md:mb-6">Say you have a platform with many features, tools and users. Using Datadog, you can put loggers (`Emergency`, `Error`, `Warn`, `Info`) on your codebase so when something goes wrong, the logger will send the event(s) to Datadog. On Datadog, you can filter based on various things (service name, logger type, url, etc) and on each log, you can zoom in to learn more about the origin and other useful log infos. This can save you and your team a lot of time when you need to find and fix errors.</p>
+<p class="text-sky-600 mb-4 md:mb-6">TL;DR? When sh*t goes wrong (this kind of tool like an insurance right? we mostly care when things go wrong) they can help you finding the wrongs and where they are originated. It saves time for as long as you log properly.</p>
+<p class="mb-4 md:mb-6">In this blogpost, I want to share step by step how I created the Datadog Vue plugin. I hope this will help other developers 😀</p>
 
 <h2 id="project-setup" class="text-2xl font-semibold mb-4 pt-24 md:mb-6"><a href="/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html#project-setup">01. Project setup</a></h2>
 <p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/01-setup"
@@ -36,16 +24,16 @@ tags: code tips frontend vue plugin
     href="https://github.com/ivanasetiawan/datadog-vue/commit/70429097556a82f29aaefe1d6f24ec092bf23087" class="textlink"
     target="_blank">70429097556a82f29aaefe1d6f24ec092bf23087</a>)</p>
 <pre class="precode">
-  <code>
-    {
-      "name": "datadog-vue", <span class="text-lime-500">// name of the package</span>
-      "version": "1.0.0", <span class="text-lime-500">// package version</span>
-      "description": "Datadog Vue plugin", <span class="text-lime-500">// package description</span>
-      "main": "index.js", <span class="text-lime-500">// the main file, aka the brain of this package</span>
-      "author": "Ivana Setiawan", <span class="text-lime-500">// your name</span>
-      "license": "MIT", <span class="text-lime-500">// licensing. <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" class="textlink" target="_blank">Learn more</a></span>
-    }
-  </code>
+    <code>
+        {
+        "name": "datadog-vue", <span class="text-lime-500">// name of the package</span>
+        "version": "1.0.0", <span class="text-lime-500">// package version</span>
+        "description": "Datadog Vue plugin", <span class="text-lime-500">// package description</span>
+        "main": "index.js", <span class="text-lime-500">// the main file, aka the brain of this package</span>
+        "author": "Ivana Setiawan", <span class="text-lime-500">// your name</span>
+        "license": "MIT", <span class="text-lime-500">// licensing. <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" class="textlink" target="_blank">Learn more</a></span>
+        }
+    </code>
 </pre>
 <p>The package.json above is pretty empty. It doesn't do much. My personal preference is to at least add <a
     href="https://babeljs.io/docs/en/usage" target="_blank" class="textlink">Babel</a> and <a href="" target="_blank"
@@ -54,28 +42,25 @@ tags: code tips frontend vue plugin
 <p class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">Install Babel</p>
 <p>(commit <a href="https://github.com/ivanasetiawan/datadog-vue/commit/9bd05f70152172c69fc9d30f67e8ab5fbe555e3f"
     class="textlink" target="_blank">9bd05f70152172c69fc9d30f67e8ab5fbe555e3f</a>)</p>
-<p>Babel is a a toolchain that will compile your JavaScript application code that uses ES2015+ syntax into code that
-  works
-  in current browsers or environments.</p>
+<p>Babel is a a toolchain that will compile your JavaScript application code that uses ES2015+ syntax into code that works in current browsers or environments.</p>
 <pre class="precode">
-  <code>
-    <span class="text-lime-500">// Run on your Shell</span>
-    npm install --save-dev @babel/core @babel/cli @babel/preset-env
-  </code>
+    <code>
+        <span class="text-lime-500">// Run on your Shell</span>
+        npm install --save-dev @babel/core @babel/cli @babel/preset-env
+    </code>
 </pre>
 
-<p>Create a config file named `babel.config.json` (requires v7.8.0 and above) in the root of your project with this
-  content:</p>
+<p>Create a config file named `babel.config.json` (requires v7.8.0 and above) in the root of your project with this content:</p>
 <pre class="precode">
-  <code>
-    <span class="text-lime-500">// You can adapt the config below for the browsers you want to support.
-    // See <a href="https://babeljs.io/docs/en/babel-preset-env" target="_blank" class="textlink">here</a> for more @babel/preset-env options.</span>
-    module.exports = {
-      presets: [
-        '@vue/cli-plugin-babel/preset'
-      ]
-    }
-  </code>
+    <code>
+        <span class="text-lime-500">// You can adapt the config below for the browsers you want to support.
+        // See <a href="https://babeljs.io/docs/en/babel-preset-env" target="_blank" class="textlink">here</a> for more @babel/preset-env options.</span>
+        module.exports = {
+            presets: [
+                '@vue/cli-plugin-babel/preset'
+            ]
+        }
+    </code>
 </pre>
 
 <p class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">Install Eslint</p>
@@ -93,31 +78,31 @@ npm init @eslint/config
 {% highlight javascript %}
 // You can adapt the rules in the config below</span>
 module.exports = {
-  extends: [
-    'plugin:vue/recommended'
-  ],
-  rules: {
-    // override/add rules settings here, such as:
-    // 'vue/no-unused-vars': 'error'
-  }
+    extends: [
+        'plugin:vue/recommended'
+    ],
+    rules: {
+        // override/add rules settings here, such as:
+        // 'vue/no-unused-vars': 'error'
+    }
 }
 {% endhighlight %}
 <p>Is everything going well? check your `package.json`, it should looks like this:</p>
 {% highlight json %}
 {
-  "name": "datadog-vue",
-  "version": "1.0.0",
-  "description": "Datadog Vue plugin",
-  "main": "index.js",
-  "author": "Ivana Setiawan",
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.5",
-    "@babel/preset-env": "^7.16.11",
-    "eslint": "^8.11.0",
-    "eslint-plugin-vue": "^8.5.0"
-  }
+    "name": "datadog-vue",
+    "version": "1.0.0",
+    "description": "Datadog Vue plugin",
+    "main": "index.js",
+    "author": "Ivana Setiawan",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/cli": "^7.17.6",
+        "@babel/core": "^7.17.5",
+        "@babel/preset-env": "^7.16.11",
+        "eslint": "^8.11.0",
+        "eslint-plugin-vue": "^8.5.0"
+    }
 }
 {% endhighlight %}
 <p>You should also see a <code class="precode px-2.5 py-1 mx-1">package-lock.json</code> and a folder called <code
@@ -128,13 +113,10 @@ module.exports = {
 <h2 id="datadog-integration" class="text-2xl font-semibold mb-4 pt-24 md:mb-6"><a href="/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html#datadog-integration">02. Datadog integration</a></h2>
 <p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/02-integration"
     target="_blank" class="textlink">repo [branch: feat/02-integration]</a></p>
-<p>Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my
-  plugin.
-  In my head, I want the flow to work like:</p>
+<p>Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my plugin. In my head, I want the flow to work like:</p>
 <ul class="mb-6 md:mb-9 list-disc list-inside md:ml-6">
-  <li>To install, run <code class="precode px-2.5 py-1 mx-1">npm install datadog-vue</code></li>
-  <li>Dev should be able to pass client token <span class="text-sky-600">(Client tokens are used to send events and logs
-      from your user’s web and mobile applications.)</span> and service name to easily filter the team logs</li>
+    <li>To install, run <code class="precode px-2.5 py-1 mx-1">npm install datadog-vue</code></li>
+    <li>Dev should be able to pass client token <span class="text-sky-600">(Client tokens are used to send events and logs from your user’s web and mobile applications.)</span> and service name to easily filter the team logs</li>
 </ul>
 
 <p class="my-4 md:my-6 font-semibold">Let's get into it!</p>
@@ -142,15 +124,15 @@ module.exports = {
 <p>Install <a href="https://www.npmjs.com/package/@datadog/browser-logs" class="textlink"
     target="_blank">`@datadog/browser-logs`</a> and start building the plugin.</p>
 <pre class="precode">
-  <code>
-    npm i @datadog/browser-logs
-  </code>
+    <code>
+        npm i @datadog/browser-logs
+    </code>
 </pre>
 <p>When this is done, you should see this under dependencies on your `package.json`</p>
 {% highlight javascript %}
 // File: package.json
 "dependencies": {
-  "@datadog/browser-logs": "^4.6.1"
+    "@datadog/browser-logs": "^4.6.1"
 }
 {% endhighlight %}
 <p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/02-integration"
@@ -172,32 +154,32 @@ module.exports = {
 import { datadogLogs } from '@datadog/browser-logs';
 
 export default {
-  install(Vue, options) {
-    /**
-      * Rules:
-      * - Enable in client only
-      * - Not disabled
-      */
-    const isNotExecutable = !process.browser || options.disabled;
-    if (isNotExecutable) return;
+    install(Vue, options) {
+        /**
+        * Rules:
+        * - Enable in client only
+        * - Not disabled
+        */
+        const isNotExecutable = !process.browser || options.disabled;
+        if (isNotExecutable) return;
 
-    /**
-      * Check before executing the plugin:
-      * - Client token must exist and not empty
-      * - Service name must exist and not empty
-      * Show warning (loggingWarn) if the condition is not met.
-      */
-    const initialCheck =
-        (!options.clientToken || options.clientToken.length === 0) &&
-        (!options.service || options.service.length === 0);
-    const loggingWarn = () => {
-        console.warn(
-            'You are not using Datadog vue plugin. If you want to, you can enter a Datadog client token'
-        );
-        return;
-    };
-    initialCheck ? loggingWarn() : null;
-  }
+        /**
+        * Check before executing the plugin:
+        * - Client token must exist and not empty
+        * - Service name must exist and not empty
+        * Show warning (loggingWarn) if the condition is not met.
+        */
+        const initialCheck =
+            (!options.clientToken || options.clientToken.length === 0) &&
+            (!options.service || options.service.length === 0);
+        const loggingWarn = () => {
+            console.warn(
+                'You are not using Datadog vue plugin. If you want to, you can enter a Datadog client token'
+            );
+            return;
+        };
+        initialCheck ? loggingWarn() : null;
+    }
 }
 {% endhighlight %}
 
@@ -214,13 +196,13 @@ export default {
 */
 datadogLogs
 ? datadogLogs.init({
-      clientToken: options.clientToken, // REQUIRED
-      site: 'datadoghq.eu', // REQUIRED
-      forwardErrorsToLogs: true,
-      sampleRate: 100,
-      service: options.service,
-      env: process.env.NODE_ENV,
-  })
+        clientToken: options.clientToken, // REQUIRED
+        site: 'datadoghq.eu', // REQUIRED
+        forwardErrorsToLogs: true,
+        sampleRate: 100,
+        service: options.service,
+        env: process.env.NODE_ENV,
+})
 : null;
 
 /**
@@ -230,8 +212,7 @@ datadogLogs
 datadogLogs.addLoggerGlobalContext('Site', options.service);
 {% endhighlight %}
 
-<p>After the initialisation, we want create a simple log function to enable developers to log any of their events to
-  Datadog.</p>
+<p>After the initialisation, we want create a simple log function to enable developers to log any of their events to Datadog.</p>
 <p>(commit <a href="https://github.com/ivanasetiawan/datadog-vue/commit/15bc28808d487b1116f8bf654902574f6eba1ebd"
     class="textlink" target="_blank">15bc28808d487b1116f8bf654902574f6eba1ebd</a>)</p>
 
@@ -243,20 +224,20 @@ datadogLogs.addLoggerGlobalContext('Site', options.service);
 */
 </span>
 $log: function (
-  message = 'No message',
-  messageContext = { function: 'noMessageContext' },
-  status = 'error'
+    message = 'No message',
+    messageContext = { function: 'noMessageContext' },
+    status = 'error'
 ) {
-  datadogLogs.logger.log(
-    message,
-      {
-        context: {
-            stack_trace: new Error().stack,
-            ...messageContext,
+    datadogLogs.logger.log(
+        message,
+        {
+            context: {
+                stack_trace: new Error().stack,
+                ...messageContext,
+            },
         },
-      },
-    status
-  );
+        status
+    );
 },
 {% endhighlight %}
 
@@ -271,41 +252,41 @@ $log: function (
     href="https://github.com/ivanasetiawan/datadog-vue/commit/" class="textlink" target="_blank"></a>)</p>
 <p>Creating a Vue CLI project is easy!</p>
 <pre class="precode">
-  <code>
-    <span class="text-lime-500">// Install Vue CLI if you haven't
-    // learn more <a class="textlink" target="_blank" href="https://cli.vuejs.org/guide/installation.html">here</a>
-    </span>npm install -g @vue/cli
+    <code>
+        <span class="text-lime-500">// Install Vue CLI if you haven't
+        // learn more <a class="textlink" target="_blank" href="https://cli.vuejs.org/guide/installation.html">here</a>
+        </span>npm install -g @vue/cli
 
-    <span class="text-lime-500">// Create a new project
-    // learn more <a class="textlink" target="_blank" href="https://cli.vuejs.org/guide/creating-a-project.html">here</a></span>
-    vue create playground
-  </code>
+        <span class="text-lime-500">// Create a new project
+        // learn more <a class="textlink" target="_blank" href="https://cli.vuejs.org/guide/creating-a-project.html">here</a></span>
+        vue create playground
+    </code>
 </pre>
 <p>My Vue CLI preset is <code class="precode px-2.5 py-1 mx-1">Default ([Vue 2] babel, eslint)</code></p>
 <p>When the setup is done, make sure everything works:</p>
 <pre class="precode">
-  <code>
-    cd playground
-    npm run serve
-    <span class="text-lime-500">// Go to http://localhost:8080/ (check your terminal for the right port)
-    // You should see the app is running</span>
-  </code>
+    <code>
+        cd playground
+        npm run serve
+        <span class="text-lime-500">// Go to http://localhost:8080/ (check your terminal for the right port)
+        // You should see the app is running</span>
+    </code>
 </pre>
 
 <p class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">Script</p>
-<p>Wouldn't it be nice if a developer could go to the root of this repo then
-  run <br><code class="precode px-2.5 py-1 mx-1">npm
+<p>Wouldn't it be nice if a developer could go to the root of this repo then run <br>
+    <code class="precode px-2.5 py-1 mx-1">npm
     run playground</code> and see the playground in action? I think that would be a great developer experience 😉</p>
 <p>Let's add a new script on our package.json in the root of our project.</p>
 <p>(commit <a href="https://github.com/ivanasetiawan/datadog-vue/commit/6a1211e525d409cf8a6e4e751a65bb2ce6b5a2da"
     class="textlink" target="_blank">6a1211e525d409cf8a6e4e751a65bb2ce6b5a2da</a>)</p>
 <pre class="precode">
-  <code>
-    <span class="text-lime-500">// package.json</span>
-    "scripts": {
-      "playground": "npm link && cd playground && npm i && npm link datadog-vue && npm run serve",
-    },
-  </code>
+    <code>
+        <span class="text-lime-500">// package.json</span>
+        "scripts": {
+        "playground": "npm link && cd playground && npm i && npm link datadog-vue && npm run serve",
+        },
+    </code>
 </pre>
 <p>See it in action! type <code class="precode px-2.5 py-1 mx-1">npm
     run playground</code> on the root of your project and go to http://localhost:8080/</p>
@@ -315,79 +296,72 @@ $log: function (
     link</a>?</p>
 
 <p class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">Use the plugin on the Playground</p>
-<p>Go to playground/src/components/HelloWorld.vue and put some buttons that send events to Datadog using our datadog-vue
-  plugin.</p>
+<p>Go to playground/src/components/HelloWorld.vue and put some buttons that send events to Datadog using our datadog-vue plugin.</p>
 {% highlight Vue %}
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <button @click="handleClick('info', { function: 'triggerInfo' }, 'info')">
-      Click me for Info!
-    </button>
-    <button @click="handleClick('warn', { function: 'triggerWarn' }, 'warn')">
-      Click me for Warn!
-    </button>
-    <button @click="handleClick('error', { function: 'triggerError' }, 'error')">
-      Click me for Error!
-    </button>
-    <button @click="handleClick('debug', { function: 'triggerDebug' }, 'debug')">
-      Click me for Debug!
-    </button>
-  </div>
+    <div class="hello">
+        <h1>Some buttons</h1>
+        <button @click="handleClick('info', { function: 'triggerInfo' }, 'info')">
+            Click me for Info!
+        </button>
+        <button @click="handleClick('warn', { function: 'triggerWarn' }, 'warn')">
+            Click me for Warn!
+        </button>
+        <button @click="handleClick('error', { function: 'triggerError' }, 'error')">
+            Click me for Error!
+        </button>
+        <button @click="handleClick('debug', { function: 'triggerDebug' }, 'debug')">
+            Click me for Debug!
+        </button>
+    </div>
 </template>
 
 <script>
-  import Vue from "vue";
-  import ddLog from "datadog-vue";
+    import Vue from "vue";
+    import ddLog from "datadog-vue";
 
-  new Vue.use(ddLog, {
-    clientToken: "1342889190",
-    service: "venopi",
-  });
+    new Vue.use(ddLog, {
+        clientToken: "1342889190",
+        service: "venopi",
+    });
 
-  export default {
-    name: "HelloWorld",
-    props: {
-      msg: String,
-    },
-    methods: {
-      handleClick(message, messageContext, status) {
-        ddLog.$log(message, messageContext, status);
-      },
-    },
-  };
+    export default {
+        name: "HelloWorld",
+        props: {
+            msg: String,
+        },
+        methods: {
+            handleClick(message, messageContext, status) {
+                ddLog.$log(message, messageContext, status);
+            },
+        },
+    };
 </script>
 {% endhighlight %}
 
 <p class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">How do I know if it works?</p>
-<p>After you click some buttons on the demo, Go to your Datadog logs app and filter based on `localhost` and you should
-  see the logs appearing!</p>
+<p>After you click some buttons on the demo, Go to your Datadog logs app and filter based on `localhost` and you should see the logs appearing!</p>
 <figure class="my-4 md:my-6 text-center">
-  <img src="{{ "/assets/images/datadog_sample.jpg" | relative_url }}" alt="Datadog dashboard sample"
-  class="w-full rounded-2xl overflow-hidden" />
-  <figcaption class="text-sm mt-2 md:mt-4">Datadog dashboard sample</figcaption>
+    <img src="{{ "/assets/images/datadog_sample.jpg" | relative_url }}" alt="Datadog dashboard sample" class="w-full rounded-2xl overflow-hidden" />
+    <figcaption class="text-sm mt-2 md:mt-4">Datadog dashboard sample</figcaption>
 </figure>
 
 
 <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">04. Bonus</h2>
-<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/04-bonus"
-  target="_blank" class="textlink">repo [branch: feat/04-bonus]</a></p>
-<p>Since there are many types of logs, we want developers who are using our plugin to be able to log specifically the type
-  of log they want to send. As for now, you need to call $log and specify the type => <code
+<p class="mb-6 md:mb-9">This step is on: <a href="https://github.com/ivanasetiawan/datadog-vue/tree/feat/04-bonus" target="_blank" class="textlink">repo [branch: feat/04-bonus]</a></p>
+<p>Since there are many types of logs, we want developers who are using our plugin to be able to log specifically the type of log they want to send. As for now, you need to call $log and specify the type => <code
     class="precode px-2.5 py-1 mx-1">ddLog.$log(message,
     messageContext, status);</code></p>
 <p class="my-4 md:my-6">And we want something like:</p>
 <pre class="precode">
-  <code>
-    ddLog.$info(...) <span class="text-lime-500">// Send info</span>
-    ddLog.$debug(...) <span class="text-lime-500">// Send debug</span>
-    ddLog.$warn(...) <span class="text-lime-500">// Send warn</span>
-    ddLog.$error(...) <span class="text-lime-500">// Send error</span>
-  </code>
+    <code>
+        ddLog.$info(...) <span class="text-lime-500">// Send info</span>
+        ddLog.$debug(...) <span class="text-lime-500">// Send debug</span>
+        ddLog.$warn(...) <span class="text-lime-500">// Send warn</span>
+        ddLog.$error(...) <span class="text-lime-500">// Send error</span>
+    </code>
 </pre>
-<p>But, before we start, since we're building client side's plugin, I want to make it clear by adding `.client` on our `index.js` file. (commit <a
-  href="https://github.com/ivanasetiawan/datadog-vue/commit/0c63393b5844036b6d778ada0f0a6603cb36aefa" class="textlink"
-  target="_blank">0c63393b5844036b6d778ada0f0a6603cb36aefa</a>)</p>
+<p>But, before we start, since we're building client side's plugin, I want to make it clear by adding `.client` on our `index.js` file. (commit <a href="https://github.com/ivanasetiawan/datadog-vue/commit/0c63393b5844036b6d778ada0f0a6603cb36aefa" class="textlink" target="_blank">0c63393b5844036b6d778ada0f0a6603cb36aefa</a>)</p>
 
 <p class="my-4 md:my-6 font-semibold">Let's continue with our plugin!</p>
 <p>Update the `index.client.js` to have info, debug, warn and error:</p>
@@ -398,19 +372,19 @@ $log: function (
 * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the <MESSAGE>
 */
 $error: function (
-  message = "Empty message",
-  messageContext = { function: "messageContextMissing" }
+    message = "Empty message",
+    messageContext = { function: "messageContextMissing" }
 ) {
-  datadogLogs.logger.log(
-    message,
-    {
-    context: {
-      stack_trace: new Error().stack,
-      ...messageContext,
-    },
-    },
-    "error"
-  );
+    datadogLogs.logger.log(
+        message,
+        {
+            context: {
+                stack_trace: new Error().stack,
+                ...messageContext,
+            },
+        },
+        "error"
+    );
 },
 
 /**
@@ -419,19 +393,19 @@ $error: function (
 * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the <MESSAGE>
 */
 $warn: function (
-  message = "Empty message",
-  messageContext = { function: "messageContextMissing" }
+    message = "Empty message",
+    messageContext = { function: "messageContextMissing" }
 ) {
-  datadogLogs.logger.log(
-    message,
-    {
-    context: {
-      stack_trace: new Error().stack,
-      ...messageContext,
-    },
-    },
-    "warn"
-  );
+    datadogLogs.logger.log(
+        message,
+        {
+            context: {
+                stack_trace: new Error().stack,
+                ...messageContext,
+            },
+        },
+        "warn"
+    );
 },
 /**
 * Log the message with "info" status to Datadog
@@ -439,18 +413,18 @@ $warn: function (
 * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the <MESSAGE>
 */
 $info: function (
-  message = "Empty message",
-  messageContext = { function: "messageContextMissing" }
+    message = "Empty message",
+    messageContext = { function: "messageContextMissing" }
 ) {
 datadogLogs.logger.log(
-  message,
-  {
-  context: {
-    stack_trace: new Error().stack,
-    ...messageContext,
-  },
-  },
-  "info"
+    message,
+    {
+        context: {
+            stack_trace: new Error().stack,
+            ...messageContext,
+        },
+    },
+    "info"
 );
 },
 /**
@@ -459,18 +433,18 @@ datadogLogs.logger.log(
 * @param  {Object} messageContext A valid JSON object, which includes all attributes attached to the <MESSAGE>
 */
 $debug: function (
-  message = "Empty message",
-  messageContext = { function: "messageContextMissing" }
+    message = "Empty message",
+    messageContext = { function: "messageContextMissing" }
 ) {
 datadogLogs.logger.log(
-  message,
-  {
-  context: {
-    stack_trace: new Error().stack,
-    ...messageContext,
-  },
-  },
-  "debug"
+    message,
+    {
+        context: {
+            stack_trace: new Error().stack,
+            ...messageContext,
+        },
+    },
+    "debug"
 );
 },
 {% endhighlight %}
@@ -484,11 +458,11 @@ ddLog.$error(message, messageContext); // When we want to send error
 {% endhighlight %}
 
 <p>Any questions or suggestions? <a href="mailto:ivana.setiawan@gmail.com" target="_blank" class="textlink">write to me</a>.
-  <br>I love learning new things and enjoy getting to know people! </p>
+    <br>I love learning new things and enjoy getting to know people! </p>
 
 <p class="mt-9 md:mt-14 font-semibold">Helpers:</p>
 <ul class="list-disc list-inside">
-  <li class="mb-2"><a href="https://docs.datadoghq.com/logs/log_collection/javascript/" target="_blank" class="textlink">https://docs.datadoghq.com/logs/log_collection/javascript/</a></li>
-  <li class="mb-2"><a href="https://www.datadoghq.com/blog/monitor-javascript-console-logs/" target="_blank" class="textlink">https://www.datadoghq.com/blog/monitor-javascript-console-logs/</a></li>
-  <li class="mb-2"><a href="https://github.com/DataDog/browser-sdk" target="_blank" class="textlink">https://github.com/DataDog/browser-sdk</a></li>
+    <li class="mb-2"><a href="https://docs.datadoghq.com/logs/log_collection/javascript/" target="_blank" class="textlink">https://docs.datadoghq.com/logs/log_collection/javascript/</a></li>
+    <li class="mb-2"><a href="https://www.datadoghq.com/blog/monitor-javascript-console-logs/" target="_blank" class="textlink">https://www.datadoghq.com/blog/monitor-javascript-console-logs/</a></li>
+    <li class="mb-2"><a href="https://github.com/DataDog/browser-sdk" target="_blank" class="textlink">https://github.com/DataDog/browser-sdk</a></li>
 </ul>

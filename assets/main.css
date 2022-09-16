@@ -3,88 +3,101 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar {
-  width: 11px;
+    width: 11px;
 }
 
 body {
-  scrollbar-width: thin;
+    scrollbar-width: thin;
 }
 
 body::-webkit-scrollbar-track {
-  background: #fff;
+    background: #fff;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #f2f2f2;
-  border-radius: 9px;
-  border: 3px solid #fff;
+    background-color: #f2f2f2;
+    border-radius: 9px;
+    border: 3px solid #fff;
+}
+
+::selection {
+    color: #fff;
+    background: #d5a6f2;
+    text-shadow: 1px 1px 1px #c86ffc;
+}
+
+.monospace {
+    font-family: 'Courier';
 }
 
 @layer base {
-  @font-face {
-    font-family: 'tpr';
-    font-weight: 400;
-    src:
-      url('/assets/fonts/tpr-regular-webfont.woff2') format('woff2'),
-      url('/assets/fonts/tpr-regular-webfont.woff') format('woff');
-  }
+    @font-face {
+        font-family: 'tpr';
+        font-weight: 400;
+        src:
+        url('/assets/fonts/tpr-regular-webfont.woff2') format('woff2'),
+        url('/assets/fonts/tpr-regular-webfont.woff') format('woff');
+    }
 
-  @font-face {
-    font-family: 'tpr';
-    font-weight: 500;
-    src:
-      url('/assets/fonts/tpr-medi-webfont.woff2') format('woff2'),
-      url('/assets/fonts/tpr-medi-webfont.woff') format('woff');
-  }
+    @font-face {
+        font-family: 'tpr';
+        font-weight: 500;
+        src:
+        url('/assets/fonts/tpr-medi-webfont.woff2') format('woff2'),
+        url('/assets/fonts/tpr-medi-webfont.woff') format('woff');
+    }
 
-  @font-face {
-    font-family: 'tpr';
-    src:
-      url('/assets/fonts/tpr-bold-webfont.woff2') format('woff2'),
-      url('/assets/fonts/tpr-bold-webfont.woff') format('woff');
-    font-weight: 600;
-  }
+    @font-face {
+        font-family: 'tpr';
+        src:
+        url('/assets/fonts/tpr-bold-webfont.woff2') format('woff2'),
+        url('/assets/fonts/tpr-bold-webfont.woff') format('woff');
+        font-weight: 600;
+    }
 }
 
 @layer utilities {
 
-/* Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 
-.no-scrollbar {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
 }
 
 @layer components {
-  .textlink {
-    @apply text-violet-500 dark:text-violet-300 underline underline-offset-8 hover:decoration-dotted hover:text-orange-500;
-  }
+    .textlink {
+        @apply text-violet-600 dark:text-orange-500 dark:hover:text-pink-500 hover:text-pink-600 underline underline-offset-8 hover:decoration-dotted;
+    }
 
-  .g-text-violet-pink {
-    @apply text-transparent bg-clip-text bg-gradient-to-br from-violet-500 to-pink-600;
-  }
+    .g-text-violet-pink {
+        @apply text-transparent bg-clip-text bg-gradient-to-br from-violet-500 to-pink-600;
+    }
 
-  .g-text-slate {
-    @apply text-transparent bg-clip-text bg-gradient-to-br from-slate-200 to-slate-600;
-  }
+    .g-text-slate-light {
+        @apply text-transparent bg-clip-text bg-gradient-to-br from-slate-200 to-slate-600;
+    }
 
-  .hover-g-violet-pink {
-    @apply hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-violet-500 hover:to-pink-600;
-  }
+    .g-text-slate-dark {
+        @apply text-transparent bg-clip-text bg-gradient-to-br from-slate-400 via-slate-500 to-slate-600;
+    }
 
-  .precode {
-    @apply text-sm bg-slate-900 text-white my-4 rounded-xl leading-7 overflow-auto;
-  }
+    .hover-g-violet-pink {
+        @apply hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-violet-500 hover:to-pink-600;
+    }
 
+    .precode {
+        @apply text-sm bg-slate-900 text-white my-4 rounded-xl leading-7 overflow-auto;
+    }
 
 }

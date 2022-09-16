@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" class="dark">
+{% seo %}
+{%- include head.html -%}
+
+<body class="font-tpr tracking-wide">
+    <main aria-label="Content">
+        {{ content }}
+    </main>
+    {%- include script.html -%}
+</body>
+
+</html>
