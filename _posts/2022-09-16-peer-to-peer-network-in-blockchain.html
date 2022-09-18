@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Peer to peer network in Blockchain"
-excerpt: What and how does peer to peer network work in Blockchain?
+excerpt: What and how does peer to peer network work in Blockchain? Blockchain is stored in an extensive network of computers called a peer-to-peer network. On this network, we call each computer a node and every node has a copy of the blockchain.
 date: 2022-09-16 06:34:00 +0100
 categories: web3
 tags: knowlegde tips blockchain Web3
@@ -24,6 +24,7 @@ tags: knowlegde tips blockchain Web3
     Hm... What if many computers have identical data? Yes! Peer-to-peer network should do the job!
 </p>
 
+{%- include breathe.html -%}
 <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Peer to peer!</h2>
 <p class="mb-4 md:mb-6">
     Blockchain is stored in an extensive network of computers called a peer-to-peer network. On this network, we call each computer a node and every node has a copy of the blockchain.
@@ -32,10 +33,9 @@ tags: knowlegde tips blockchain Web3
     In the case of Eki, Dwi, and Tri, imagine that their chaining blocks of data are not just available on one person's computer but on many more computers.
 </p>
 
-
-<figure class="my-4 md:my-6 lg:my-8">
+<figure class="my-4 md:my-6 lg:my-8" id="consensus-peer-to-peer">
     <div class="p-4 bg-slate-50 rounded-lg">
-        <img src="{{ "/assets/images/web3/peer-to-peer_example.svg" | relative_url }}" alt="Example peer to peer" class="max-w-lg mx-auto" />
+        <img src="{{ "/assets/images/Web3/peer-to-peer_example.svg" | relative_url }}" alt="Example peer to peer" class="max-w-lg mx-auto w-full" />
     </div>
 
     <figcaption class="mt-4 text-sm text-center italic">
@@ -43,13 +43,116 @@ tags: knowlegde tips blockchain Web3
     </figcaption>
 </figure>
 
+<p class="mb-4 md:mb-6">
+    When a new block of data has to be added to a network, all nodes of this network must check and verify if all data in the block are valid. If all nodes in the network agree that all data are correct, then the new block will be added to every node on that specific Blockchain. The technical term for this is <strong>consensus</strong>.
+</p>
+<div class="border border-gray-500 dark:border-gray-200 border-dashed leading-loose overflow-x-auto mb-4 md:mb-6">
+    <div class="text-sm">
+        <p class="px-4 py-1 border-b border-gray-500 border-dashed font-semibold">Network A</p>
+        <div class="p-4 md:p-6 border-b border-gray-500 border-dashed flex justify-around">
+            <div>
+                <i class="text-3xl mr-4 fa-solid fa-user-vneck-hair-long"></i>
+            </div>
+            <div class="flex items-center">
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+            </div>
+            <div class="mx-2">
+                <i class="fa-regular fa-circle-check text-3xl text-green-500"></i>
+            </div>
+            <div>
+                <div class="py-1 px-1.5 bg-green-200 flex items-center rounded">
+                    <i class="fa-regular fa-plus text-base mr-1 md:mr-2 "></i>
+                    <i class="text-3xl fa-light fa-cube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 md:p-6 border-b border-gray-500 border-dashed flex justify-around">
+            <div>
+                <i class="text-3xl mr-4 fa-solid fa-user-hair-buns"></i>
+            </div>
+            <div class="flex items-center">
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+            </div>
+            <div class="mx-2">
+                <i class="fa-regular fa-circle-check text-3xl text-green-500"></i>
+            </div>
+            <div>
+                <div class="py-1 px-1.5 bg-green-200 flex items-center rounded">
+                    <i class="fa-regular fa-plus text-base mr-1 md:mr-2 "></i>
+                    <i class="text-3xl fa-light fa-cube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 md:p-6 border-b border-gray-500 border-dashed flex justify-around">
+            <div>
+                <i class="text-3xl mr-4 fa-solid fa-user-shakespeare"></i>
+            </div>
+            <div class="flex items-center">
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+            </div>
+            <div class="mx-2">
+                <i class="fa-regular fa-circle-check text-3xl text-green-500"></i>
+            </div>
+            <div>
+                <div class="py-1 px-1.5 bg-green-200 flex items-center rounded">
+                    <i class="fa-regular fa-plus text-base mr-1 md:mr-2 "></i>
+                    <i class="text-3xl fa-light fa-cube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 md:p-6 flex justify-around">
+            <div>
+                <i class="text-3xl mr-4 fa-solid fa-user-robot"></i>
+            </div>
+            <div class="flex items-center">
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+                <i class="text-sm mx-1 md:mx-2 fa-light fa-link-horizontal"></i>
+                <i class="text-3xl fa-light fa-cube"></i>
+            </div>
+            <div class="mx-2">
+                <i class="fa-regular fa-circle-check text-3xl text-green-500"></i>
+            </div>
+            <div>
+                <div class="py-1 px-1.5 bg-green-200 flex items-center rounded">
+                    <i class="fa-regular fa-plus text-base mr-1 md:mr-2 "></i>
+                    <i class="text-3xl fa-light fa-cube"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p class="mb-4 md:mb-6">
+    There are many different consensus mechanisms used in various types of Blockchains. We're not going to get into details of consensus, but this is how Blockchain demonstrates a secure method of storing data without a centralised party, like banks or corporates.
+</p>
 
-
-<p class="mb-4 md:mb-6"></p>
-<p class="mb-4 md:mb-6"></p>
-<p class="mb-4 md:mb-6"></p>
-<p class="mb-4 md:mb-6"></p>
-<p class="mb-4 md:mb-6"></p>
-<p class="mb-4 md:mb-6"></p>
-<p class="mb-4 md:mb-6"></p>
-<p class="mb-4 md:mb-6"></p>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">You got it!</h2>
+<p class="mb-4 md:mb-6">
+    Now you understand how and why Blockchain is a secure data storage method. But you might wonder... How do Eki, Dwi and Tri add a transaction to a Blockchain?
+</p>
+<p class="mb-4 md:mb-6">
+    Read next chapter:
+    <a href="{{ "/web3/2022/09/16/how-do-you-create-a-transaction-in-a-blockchain.html" | relative_url }}" class="font-semibold textlink">How do you create a transaction in a Blockchain?</a>
+</p>

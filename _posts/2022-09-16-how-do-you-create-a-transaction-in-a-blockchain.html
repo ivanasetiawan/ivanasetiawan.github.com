@@ -1,0 +1,170 @@
+---
+layout: post
+title:  "How do you create a transaction in a Blockchain?"
+excerpt: What and how does peer to peer network work in Blockchain?
+date: 2022-09-16 08:34:00 +0100
+categories: web3
+tags: knowlegde tips blockchain Web3
+---
+<p class="mb-4 md:mb-6">
+    This article is a continuation of <a href="{{ "/web3/2022/09/13/what-is-blockchain.html" | relative_url }}" class="font-semibold textlink">"What is Blockchain?"</a>. I'd highly recommend you to read that first.
+</p>
+
+<p class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">
+    The Bridge
+    <small class="font-normal text-slate-500 text-base">- No, not the TV show</small>
+</p>
+<p class="mb-4 md:mb-6">
+    We are at the last chapter of understanding Blockchain, following the journey of three best friends named Eki, Dwi, and Tri. We have learned how the blocks can chain each other and how it demonstrates a secure method of storing data without a centralised party, like banks or corporates.
+</p>
+<p class="mb-4 md:mb-6">
+    The next burning question is, How do Eki, Dwi, Tri and you add a transaction to a Blockchain?
+</p>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Lock and Key</h2>
+<p class="mb-4 md:mb-6">
+    Every user in a Blockchain will have a <strong>public</strong> and a <strong>private</strong> key. These public and private keys are generated automatically by the Blockchain software. They look like the hashes we discussed in the first chapter: <a target="_blank" href="{{ "/web3/2022/09/13/what-is-blockchain.html#fingerprint-hash" | relative_url }}" class="font-semibold textlink">Fingerprint hash</a>.
+</p>
+<div class="border border-gray-500 dark:border-gray-200 border-dashed leading-loose overflow-x-auto mb-4 md:mb-6 text-sm">
+    <p class="px-4 py-1 border-b border-gray-500 border-dashed font-semibold">User: Eki</p>
+    <div class="p-4 md:p-6 border-b border-gray-500 border-dashed flex items-center">
+        <div>
+            <i class="text-3xl mr-4 lg:mr-6 fa-regular fa-lock-keyhole"></i>
+        </div>
+        <div>
+            -----THIS IS YOUR DUMMY PUBLIC KEY-----<br>
+            MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgGpAAefcqtMn...AAE=<br>
+            -----END PUBLIC KEY-----
+        </div>
+    </div>
+    <div class="p-4 md:p-6 flex items-center">
+        <div>
+            <i class="text-3xl mr-4 lg:mr-6 fa-regular fa-key"></i>
+        </div>
+        <div>
+            -----THIS IS YOUR DUMMY RSA PRIVATE KEY-----<br>
+            MIICWwIBAAKBgGpAAefcqq2n29lhnSCyA/ThQtMnP<br>
+            lQ5x9BxNhOzzkr49G/rqZpwKFvkZ26v7GkVaepQNf21HxZ6I...0OA==<br>
+            -----END RSA PRIVATE KEY-----
+        </div>
+    </div>
+</div>
+<p class="mb-4 md:mb-6">
+    It would be best if you keep your private key private and secure. On the contrary, you can share the public key with everyone.
+</p>
+
+<p class="mb-4 md:mb-6">
+    A good illustration of this is your mailbox and your key. Your mailbox is your public key and the key to open your mailbox is your private key. You don't want anybody to access your mailbox and read all of your messages.
+</p>
+
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/Web3/public-private-key-chart.svg" | relative_url }}" alt="To create a digital signature you need a private key and <br>to verify the digital signature you need the corresponding public key." class="max-w-lg mx-auto w-full" />
+    </div>
+
+    <figcaption class="mt-4 text-sm text-center italic">
+        To create a digital signature you need a private key and <br>to verify the digital signature you need the corresponding public key.
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    We can use the private key to create a digital signature to sign any message. The digital signature can be verified using the corresponding public key.
+</p>
+<p class="mb-4 md:mb-6">
+    The combination of these layers of security is called <strong>cryptography in Blockchains</strong>.
+</p>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">What does this flow look like in real-world scenarios?</h2>
+<p class="mb-4 md:mb-6">
+    Eki wants to document the trio's latest savings on a Blockchain:
+</p>
+{% highlight solidity %}
+Eki € 2000, Dwi € 1900, Tri € 900
+{% endhighlight %}
+
+<ol>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">1</span> <p>Eki writes and signs the data using Eki's private key to create a digital signature. The data combined with the signature is a transaction.</p>
+
+        <figure class="my-4 md:my-6 lg:my-8">
+            <div class="p-4 bg-slate-50 rounded-lg">
+                <img src="{{ "/assets/images/Web3/public-private-key-1.svg" | relative_url }}" alt="Eki writes and signs the data using Eki's private key to create a digital signature. The data combined with the signature is a transaction" class="max-w-lg mx-auto w-full" />
+            </div>
+
+            <figcaption class="mt-4 text-sm text-center italic">
+                Creating a transaction using private key
+            </figcaption>
+        </figure>
+    </li>
+
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">2</span> <p>Eki broadcasts the transaction to everyone on the peer-to-peer network using the Blockchain software.</p>
+
+        <figure class="my-4 md:my-6 lg:my-8">
+            <div class="p-4 bg-slate-50 rounded-lg">
+                <img src="{{ "/assets/images/Web3/public-private-key-2.svg" | relative_url }}" alt="Eki broadcasts the transaction to everyone on the peer-to-peer network using the Blockchain software" class="max-w-lg mx-auto w-full" />
+            </div>
+
+            <figcaption class="mt-4 text-sm text-center italic">
+                Broadcasting the transaction to the peer-to-peer network
+            </figcaption>
+        </figure>
+    </li>
+
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">3</span> <p>Everyone in the peer-to-peer network verifies the new transaction signature using Eki's public key to confirm that Eki is the person who signed the transaction.</p>
+
+        <figure class="my-4 md:my-6 lg:my-8">
+            <div class="p-4 bg-slate-50 rounded-lg">
+                <img src="{{ "/assets/images/Web3/public-private-key-3.svg" | relative_url }}" alt="Everyone in the peer-to-peer network verifies the new transaction signature using Eki's public key to confirm that Eki is the person who signed the transaction" class="max-w-lg mx-auto w-full" />
+            </div>
+
+            <figcaption class="mt-4 text-sm text-center italic">
+                Everyone in the peer-to-peer network verifies the new transaction
+            </figcaption>
+        </figure>
+    </li>
+
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">4</span> <p>The peer-to-peer network will then include Eki's new verified transaction on a block in a Blockchain.</p>
+
+        <figure class="my-4 md:my-6 lg:my-8">
+            <div class="p-4 bg-slate-50 rounded-lg">
+                <img src="{{ "/assets/images/Web3/public-private-key-4.svg" | relative_url }}" alt="The peer-to-peer network will then include Eki's new verified transaction on a block in a Blockchain" class="max-w-lg mx-auto w-full" />
+            </div>
+
+            <figcaption class="mt-4 text-sm text-center italic">
+                Include Eki's new transaction on a block in a Blockchain
+            </figcaption>
+        </figure>
+    </li>
+
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">5</span> <p>After reaching <a href="{{ "/web3/2022/09/16/peer-to-peer-network-in-blockchain.html#consensus-peer-to-peer" | relative_url }}" target="_blank" class="font-semibold textlink">the consensus</a>, the peer-to-peer network will include Eki's new transaction in all nodes in the Blockchain.</p>
+
+        <figure class="my-4 md:my-6 lg:my-8">
+            <div class="p-4 bg-slate-50 rounded-lg">
+                <img src="{{ "/assets/images/Web3/public-private-key-5.svg" | relative_url }}" alt="After reaching the consensus, the peer-to-peer network will include Eki's new transaction in all nodes in the Blockchain" class="max-w-lg mx-auto w-full" />
+            </div>
+
+            <figcaption class="mt-4 text-sm text-center italic">
+                Consensus reached - Eki's new transaction will be added in all nodes in the Blockchain
+            </figcaption>
+        </figure>
+    </li>
+</ol>
+<p class="mb-4 md:mb-6">That's it! Now, this particular record is immutable and securely saved in the Blockchain.</p>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Whoa! This is it.</h2>
+<p class="mb-4 md:mb-6">
+    Clap.. Clap.. Clap 👏
+</p>
+<p class="mb-4 md:mb-6">
+    You stick to it! Now I hope you fully understand what and how Blockchain works.
+</p>
+<p class="mb-4 md:mb-6">
+    Need a refresher? Read the first chapter:
+    <a href="{{ "web3/2022/09/13/what-is-blockchain.html" | relative_url }}" class="font-semibold textlink">What is a 'Blockchain'?</a>
+</p>
