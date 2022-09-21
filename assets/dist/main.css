@@ -1013,6 +1013,10 @@ video {
   border-bottom-width: 1px;
 }
 
+.border-l-8 {
+  border-left-width: 8px;
+}
+
 .border-dashed {
   border-style: dashed;
 }
@@ -1807,6 +1811,10 @@ body::-webkit-scrollbar-thumb {
     padding-left: 2rem;
   }
 
+  .md\:pl-6 {
+    padding-left: 1.5rem;
+  }
+
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -1865,6 +1873,10 @@ body::-webkit-scrollbar-thumb {
     margin-top: 3rem;
   }
 
+  .lg\:ml-9 {
+    margin-left: 2.25rem;
+  }
+
   .lg\:h-36 {
     height: 9rem;
   }
@@ -1890,6 +1902,10 @@ body::-webkit-scrollbar-thumb {
 
   .lg\:pt-14 {
     padding-top: 3.5rem;
+  }
+
+  .lg\:pl-9 {
+    padding-left: 2.25rem;
   }
 
   .lg\:text-lg {
