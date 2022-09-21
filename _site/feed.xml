@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-21T16:57:40+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Web 3.0</title><link href="http://localhost:4000/web3/2022/09/21/web-3.0.html" rel="alternate" type="text/html" title="Web 3.0" /><published>2022-09-21T07:34:00+02:00</published><updated>2022-09-21T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/21/web-3.0</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/21/web-3.0.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Hello Web 3.0&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-21T17:18:37+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Web 3.0</title><link href="http://localhost:4000/web3/2022/09/21/web-3.0.html" rel="alternate" type="text/html" title="Web 3.0" /><published>2022-09-21T07:34:00+02:00</published><updated>2022-09-21T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/21/web-3.0</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/21/web-3.0.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Hello Web 3.0&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     I am sure you have heard about &quot;Web 3.0&quot;, but what exactly? Is it all about digital currencies, like Bitcoin, Ethereum, and Cardano? or the decentralisation of the Web? or is it something else entirely?
 &lt;/p&gt;
@@ -23,7 +23,7 @@
     Think about this, say you are a plumber in the era of Web 1.0 and successfully created your website with the URL &quot;www.awesome-plumber-robertsfors.com&quot;. How can people find you? They need to know your URL precisely; otherwise, forget about it. Now you can understand why search engine companies such as Google, Bing, or DuckDuckGo exist in the era of Web 2.0. Nowadays, it's easy to find plumbers ranging from highest to lowest rating or price in your area.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    The era was pretty disorganised and overwhelming, but necessary to pave the way for the Web 2.0 era.
+    Web 1.0 era was pretty disorganised and overwhelming, but necessary to pave the way for the Web 2.0 era.
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
@@ -50,7 +50,7 @@
 &lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
     &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Mobile&lt;/h3&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        Mobile connectivity to the Internet happened in the Web 2.0 era, allowing us to be online most of the time. In September 2022, there are 10.92 Billion mobile connections worldwide and 83,4% of the earth's population own smartphones. (Source: https://www.bankmycell.com/blog/how-many-phones-are-in-the-world)
+        Mobile connectivity to the Internet happened in the Web 2.0 era, allowing us to be online most of the time. In September 2022, there are 10.92 Billion mobile connections worldwide and 83,4% of the earth's population own smartphones. &lt;small&gt;(Source: https://www.bankmycell.com/blog/how-many-phones-are-in-the-world)&lt;/small&gt;
     &lt;/p&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
         The numbers are not shocking, considering smartphones are affordable and seen as a necessity instead of a luxury item. In developing countries, such as Indonesia, it's not uncommon for a person to own at least two smartphones but no laptop.
@@ -171,7 +171,10 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/div&gt;
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Web 3.0 is essential for our future. We are attempting to enable people to have complete control over their data and privacy on the Internet and less reliance on centralised organisations.
+    Web 3.0 is essential for our future. We are attempting to enable people to have complete control over their data and privacy on the Internet and less reliance on centralised organisations. On top of it, the IoT and advancement of edge computing sounds amazing.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    You can call me a dork, but I can see how people can book virtual DJs, hire a metaverse decorator, hire NFT artists to create and send NFT invitations and celebrate their events on a metaverse.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Some people I talked with are very sceptical about Web 3.0, and I understand why. There are too many noises with cryptocurrency pump-and-dump scams, counterfeit NFTs, and getting rich (or bankrupt) super fast and easy.
