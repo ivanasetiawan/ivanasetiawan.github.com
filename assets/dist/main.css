@@ -1013,10 +1013,6 @@ video {
   border-bottom-width: 1px;
 }
 
-.border-l-8 {
-  border-left-width: 8px;
-}
-
 .border-dashed {
   border-style: dashed;
 }
@@ -1871,10 +1867,6 @@ body::-webkit-scrollbar-thumb {
 
   .lg\:mt-12 {
     margin-top: 3rem;
-  }
-
-  .lg\:ml-9 {
-    margin-left: 2.25rem;
   }
 
   .lg\:h-36 {

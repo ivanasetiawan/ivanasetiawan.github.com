@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-21T17:18:37+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Web 3.0</title><link href="http://localhost:4000/web3/2022/09/21/web-3.0.html" rel="alternate" type="text/html" title="Web 3.0" /><published>2022-09-21T07:34:00+02:00</published><updated>2022-09-21T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/21/web-3.0</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/21/web-3.0.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Hello Web 3.0&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-21T17:22:08+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Web 3.0</title><link href="http://localhost:4000/web3/2022/09/21/web-3.0.html" rel="alternate" type="text/html" title="Web 3.0" /><published>2022-09-21T07:34:00+02:00</published><updated>2022-09-21T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/21/web-3.0</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/21/web-3.0.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Hello Web 3.0&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     I am sure you have heard about &quot;Web 3.0&quot;, but what exactly? Is it all about digital currencies, like Bitcoin, Ethereum, and Cardano? or the decentralisation of the Web? or is it something else entirely?
 &lt;/p&gt;
@@ -174,13 +174,13 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     Web 3.0 is essential for our future. We are attempting to enable people to have complete control over their data and privacy on the Internet and less reliance on centralised organisations. On top of it, the IoT and advancement of edge computing sounds amazing.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    You can call me a dork, but I can see how people can book virtual DJs, hire a metaverse decorator, hire NFT artists to create and send NFT invitations and celebrate their events on a metaverse.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Some people I talked with are very sceptical about Web 3.0, and I understand why. There are too many noises with cryptocurrency pump-and-dump scams, counterfeit NFTs, and getting rich (or bankrupt) super fast and easy.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     However, I think Web 3.0 is more profound than those noises. It's the future of the Web. I can see how I can buy my house or car entirely using smart contracts. Or how my smart watch can send data to my doctor's software every month to monitor my health and pay them using cryptocurrency, automatically executed using smart contracts.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    You can call me a dork, but I can see how people can book virtual DJs, hire a metaverse decorator, hire NFT artists to create and send NFT invitations and celebrate their events on a metaverse.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     I can see all the benefits Web 3.0 can give to the event industry and creative event vendors for my startup &lt;a href=&quot;https://www.venopi.com&quot; target=&quot;_blank&quot; class=&quot;font-semibold textlink&quot;&gt;Venopi&lt;/a&gt;. Even if I couldn't get funding for Venopi, I still want to work and contribute to the future of the Web. That's why I self-taught myself how to be a developer in Web 3.0.
