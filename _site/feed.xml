@@ -1,4 +1,328 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-21T17:22:08+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Web 3.0</title><link href="http://localhost:4000/web3/2022/09/21/web-3.0.html" rel="alternate" type="text/html" title="Web 3.0" /><published>2022-09-21T07:34:00+02:00</published><updated>2022-09-21T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/21/web-3.0</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/21/web-3.0.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Hello Web 3.0&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-30T16:40:06+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Let’s write our first Solidity contract</title><link href="http://localhost:4000/web3/2022/09/22/solidity-contract-1.html" rel="alternate" type="text/html" title="Let’s write our first Solidity contract" /><published>2022-09-22T07:34:00+02:00</published><updated>2022-09-22T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/22/solidity-contract-1</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/22/solidity-contract-1.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Why should you learn Solidity?&lt;/h2&gt;
+&lt;figure class=&quot;border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6&quot;&gt;
+    &lt;blockquote class=&quot;mb-4 text-xl leading-relaxed&quot;&gt;
+        Solidity is is an object-oriented programming language for implementing smart contracts on various blockchain platforms, most notably, Ethereum. Programs in Solidity run on Ethereum Virtual Machine.
+    &lt;/blockquote&gt;
+    &lt;figcaption&gt;
+        &lt;cite&gt;— &lt;i class=&quot;fa-brands fa-wikipedia-w mr-1.5&quot;&gt;&lt;/i&gt; Wikipedia&lt;/cite&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Mastering Solidity is a must for anyone who wants to be a Blockchain developer. Many prevalent cryptocurrencies and blockchain platforms such as Avalanche, Binance smart chain, Tron and Polkadot are compatible with Ethereum Virtual Machine (EVM). Thus Solidity works out of the box.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Even if you want to build a dApp on other blockchain platforms that don't use Solidity, your knowledge can be easily transferred to other smart contract languages.
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Let's use Remix&lt;/h2&gt;
+&lt;figure class=&quot;border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6&quot;&gt;
+    &lt;blockquote class=&quot;mb-4 text-xl leading-relaxed&quot;&gt;
+        Remix IDE allows developing, deploying and administering smart contracts for Ethereum like blockchains. It can also be used as a learning platform.
+    &lt;/blockquote&gt;
+    &lt;figcaption&gt;
+        &lt;cite&gt;— Remix project&lt;/cite&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Go to &lt;a href=&quot;https://remix.ethereum.org/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Remix IDE&lt;/a&gt; and clean up all the folders. Make sure to have a folder called `contracts`. Inside this folder, create a new file called &lt;strong&gt;UserStorage.sol&lt;/strong&gt;.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;At the top of your Solidity code, you must add the version of Solidity you are using. Solidity is constantly changing and updating the language. Therefore you need to state which version of Solidity you are using for this specific contract.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;The caret symbol `^` is to tell solidity that you want to use version 0.8.8 and above.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;This means you want to use a specific version.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;This means that any compiler between version 0.8.7 and 0.9.0 would work, but not 0.9.1.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Optionally you could also add `SPDX license identifier` to make licensing and sharing code easier. Some compiler might nag-warning you if you don't add this line of code. To learn more about software licenses, you can read &lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://snyk.io/learn/what-is-a-software-license/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;For this blog, I'd like to use Solidity ^0.8.8 and choose `MIT` to grant the software end user rights such as copying, modifying, merging, distributing, etc.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Great, let's write our first contract!&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;When you hit Cmd + S (Ctrl + S) on Remix, you will see that the Solidity tab compiler will show a green checkmark. That means you compile your first contract successfully!&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/Solidity/remix-green-compiler.png&quot; alt=&quot;green compiler remix ethereum&quot; class=&quot;mx-auto w-full&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Remix: Green checkmark means sucessfully compiled.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;You could deploy this contract, and it would be a valid contract. It would be a contract that doesn't really do anything, but technically speaking, you could.&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Solidity types&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Solidity has multiple different types. Boolean, uint, int, address, and bytes are the most basic types that are often used. To learn more, you can check out solidity's documentation about &lt;a target=&quot;_blank&quot; class=&quot;textlink&quot; href=&quot;https://docs.soliditylang.org/en/latest/types.html&quot;&gt;types&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
+    &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Boolean&lt;/h3&gt;
+    &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+        Returns `true` or `false`. You can use various operators to compare.
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
+    &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;String&lt;/h3&gt;
+    &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+        A string is actually a byte object but only for text.
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
+    &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Uint&lt;/h3&gt;
+    &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+        It's an unsigned integer, meaning it's a whole number that is not positive or negative. Just positive.
+        Type `uint` is unique because &lt;strong&gt;you can specify how many bits we want to allocate&lt;/strong&gt; for the value we keep in the variable from &lt;strong&gt;`uint8`&lt;/strong&gt; up to &lt;strong&gt;`uint256`&lt;/strong&gt;. If you don't specify the bits, it automatically &lt;span class=&quot;underline underline-offset-8&quot;&gt;defaults to 256&lt;/span&gt;.
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
+    &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Int&lt;/h3&gt;
+    &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+        It's a signed integer, meaning it's a wholly positive or negative number. Same as `uint`, you can allocate the number of bits from 8 to 256.
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
+    &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Address&lt;/h3&gt;
+    &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+        It's the address to which people can transfer and send values. An example is your Metamask address.
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
+    &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Bytes&lt;/h3&gt;
+    &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+        A byte is a unit of memory data equal to eight bits. A bit is the smallest form of data, and it can either be `0` or `1`. In Solidity, bytes are treated like an array, and you can decode the bytes in the front-end. This is good because less data is stored on the blockchain.
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;The reason why we have these types are to define different types of variables. &lt;strong&gt;Variables&lt;/strong&gt; are holders for different values.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isHuman&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;callMe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Ivana&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;favNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isAddress&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xa3E2836600fD72a5D20e9EB63F61838C610dF8D5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;bytes32&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spritAnimal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;fox&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Let's create a simple smart contract!&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;But first, let's talk about &lt;strong&gt;function&lt;/strong&gt;. Function (or method) is a block of reusable code that can take some input as arguments and returns an output.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Compile and deploy this contract on Remix:&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg lg:-mx-20 xl:-mx-40&quot;&gt;
+        &lt;img src=&quot;/assets/images/Solidity/remix-deploy.gif&quot; alt=&quot;Remix ethereum deploying a contract&quot; class=&quot;mx-auto w-full&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Remix: Deploy your contract, click the fourth icon from top &lt;i class=&quot;ml-1 fa-brands fa-ethereum&quot;&gt;&lt;/i&gt;.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    When you change a different value on the `show` function, you can see something happening to the contract, but you cannot see the new value yet. So how can you see that the transaction is executed successfully?
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The reason is that the visibility of our variable `luckyNumber` is set to private. To make our variable `luckyNumber` visible, we must set it to `public`.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    When we set the variable to `public`, you will see an extra button where you can see the value of `luckyNumber`.
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Visibility specifier&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;There are four types of visibility:&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;functionName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;visibility&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;specifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;returns&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;ul&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;Public&lt;/strong&gt;: visible externally and internally. This creates a getter function for storage/state variables.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;Private&lt;/strong&gt;: visible for the current contract and the only.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;External&lt;/strong&gt;: visible for external functions only. Only developers outside this `MyContract` can call the function set to `external`.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;Internal&lt;/strong&gt;: visible internally. Meaning only `MyContract` and its children can access it. When we don't specify a visibility specifier to a function or variable, they are &lt;span class=&quot;underline underline-offset-8&quot;&gt;automatically deployed as internal&lt;/span&gt;.
+    &lt;/li&gt;
+&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Transaction&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Remember that &lt;span class=&quot;underline underline-offset-8&quot;&gt;every time we change the state of the blockchain, we do a transaction&lt;/span&gt;. You can see all the details when you expand the transaction on the logging area of remix.
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg lg:-mx-20 xl:-mx-40&quot;&gt;
+        &lt;img src=&quot;/assets/images/Solidity/remix-transaction-expanded.png&quot; alt=&quot;Expand the transaction on the terminal&quot; class=&quot;mx-auto w-full&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Remix: Expand the transaction to see the breakdown of gas costs.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;The more complex the function, the more expensive the transaction will cost. You can easily prove this by adding more code to our function `show` and then compiling and redeploying the contract.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Transaction cost is 20402 gas
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Transaction cost is 44126 gas
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;showAndMultiply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;No gas: view and pure functions&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    In Solidity, there are two functions that can be called without spending gas on it. Those are &lt;span class=&quot;underline underline-offset-8&quot;&gt;view&lt;/span&gt; and &lt;span class=&quot;underline underline-offset-8&quot;&gt;pure&lt;/span&gt;.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    View and pure functions &lt;span class=&quot;underline underline-offset-8&quot;&gt;disallow modification of state on the blockchain&lt;/span&gt;. Pure function disallows reading from the blockchain state.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    For our case, we can use a `view` function to read the state of our `luckyNumber` for free.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// `view` =&amp;gt; Reading the value but not making any changes to the blockchain.
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;retrieve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;view&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;returns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/Solidity/remix-view-transaction.png&quot; alt=&quot;Remix: Blue button indicates no gas transaction cost.&quot; class=&quot;mx-auto w-full&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Remix: Blue button indicates no gas transaction cost.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    You might ask, why would anyone use a pure function if you cannot modify or read from the blockchain state?
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Example of pure function
+// calculate the cost based on price and amount
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getCost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;pure&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;returns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_price&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Generally speaking, pure functions are guaranteed to not have side effects. It is easier to read and maintain. You will see the benefits down the road of your programming journey, and we can go into detail in a different post about the whys. As for now, I just need you to be aware that pure function exists in Solidity.
+&lt;/p&gt;
+
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;However...&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    We are aware now that both view and pure function are gas free. However, if we have a &lt;span class=&quot;underline underline-offset-8&quot;&gt;gas cost function that calls view or pure function&lt;/span&gt;, this will cost us a gas fee.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Example of gas cost function that calls a pure function
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;returns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getCost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Pure function
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getCost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;pure&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;returns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_price&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Next...&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Following the steps above, you have officially written and deployed your first Solidity smart contract 👏👏👏
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    What's next? I will write more about arrays, structs, bytes, the front-end part of Web 3.0 and eventually a &quot;real world&quot; smart contract project (could be NFT or DAO.. we'll figure it out later together) 🌈
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Any tips, feedback, or recommendations? Don't hesitate to reach me. I love learning new things 🤓
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Helpers&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://remix.ethereum.org/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Remix IDE&lt;/a&gt;&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://docs.soliditylang.org/en/latest/types.html&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Different types&lt;/a&gt;&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://docs.soliditylang.org/en/latest/cheatsheet.html#function-visibility-specifiers&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Visibility specifier&lt;/a&gt;&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html#transactions&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Transactions on Blockchain&lt;/a&gt;&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://docs.soliditylang.org/en/latest/contracts.html#pure-functions&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Pure function&lt;/a&gt;&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://docs.soliditylang.org/en/latest/contracts.html#view-functions&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;View function&lt;/a&gt;&lt;/strong&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="blockchain" /><category term="Web3" /><category term="code" /><summary type="html">Solidity is is an object-oriented programming language for implementing smart contracts on various blockchain platforms, most notably, Ethereum.</summary></entry><entry><title type="html">Web 3.0</title><link href="http://localhost:4000/web3/2022/09/21/web-3.0.html" rel="alternate" type="text/html" title="Web 3.0" /><published>2022-09-21T07:34:00+02:00</published><updated>2022-09-21T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/21/web-3.0</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/21/web-3.0.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Hello Web 3.0&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     I am sure you have heard about &quot;Web 3.0&quot;, but what exactly? Is it all about digital currencies, like Bitcoin, Ethereum, and Cardano? or the decentralisation of the Web? or is it something else entirely?
 &lt;/p&gt;
@@ -249,7 +573,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
         &lt;img src=&quot;/assets/images/Web3/public-private-key-chart.svg&quot; alt=&quot;To create a digital signature you need a private key and &lt;br&gt;to verify the digital signature you need the corresponding public key.&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
     &lt;/div&gt;
 
-    &lt;figcaption class=&quot;mt-4 text-sm text-center italic&quot;&gt;
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
         To create a digital signature you need a private key and &lt;br&gt;to verify the digital signature you need the corresponding public key.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -281,7 +605,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
                 &lt;img src=&quot;/assets/images/Web3/public-private-key-1.svg&quot; alt=&quot;Eki writes and signs the data using Eki's private key to create a digital signature. The data combined with the signature is a transaction&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
             &lt;/div&gt;
 
-            &lt;figcaption class=&quot;mt-4 text-sm text-center italic&quot;&gt;
+            &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
                 Creating a transaction using private key
             &lt;/figcaption&gt;
         &lt;/figure&gt;
@@ -295,7 +619,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
                 &lt;img src=&quot;/assets/images/Web3/public-private-key-2.svg&quot; alt=&quot;Eki broadcasts the transaction to everyone on the peer-to-peer network using the Blockchain software&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
             &lt;/div&gt;
 
-            &lt;figcaption class=&quot;mt-4 text-sm text-center italic&quot;&gt;
+            &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
                 Broadcasting the transaction to the peer-to-peer network
             &lt;/figcaption&gt;
         &lt;/figure&gt;
@@ -309,7 +633,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
                 &lt;img src=&quot;/assets/images/Web3/public-private-key-3.svg&quot; alt=&quot;Everyone in the peer-to-peer network verifies the new transaction signature using Eki's public key to confirm that Eki is the person who signed the transaction&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
             &lt;/div&gt;
 
-            &lt;figcaption class=&quot;mt-4 text-sm text-center italic&quot;&gt;
+            &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
                 Everyone in the peer-to-peer network verifies the new transaction
             &lt;/figcaption&gt;
         &lt;/figure&gt;
@@ -323,7 +647,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
                 &lt;img src=&quot;/assets/images/Web3/public-private-key-4.svg&quot; alt=&quot;The peer-to-peer network will then include Eki's new verified transaction on a block in a Blockchain&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
             &lt;/div&gt;
 
-            &lt;figcaption class=&quot;mt-4 text-sm text-center italic&quot;&gt;
+            &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
                 Include Eki's new transaction on a block in a Blockchain
             &lt;/figcaption&gt;
         &lt;/figure&gt;
@@ -337,7 +661,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
                 &lt;img src=&quot;/assets/images/Web3/public-private-key-5.svg&quot; alt=&quot;After reaching the consensus, the peer-to-peer network will include Eki's new transaction in all nodes in the Blockchain&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
             &lt;/div&gt;
 
-            &lt;figcaption class=&quot;mt-4 text-sm text-center italic&quot;&gt;
+            &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
                 Consensus reached - Eki's new transaction will be added in all nodes in the Blockchain
             &lt;/figcaption&gt;
         &lt;/figure&gt;
@@ -398,7 +722,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
         &lt;img src=&quot;/assets/images/Web3/peer-to-peer_example.svg&quot; alt=&quot;Example peer to peer&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
     &lt;/div&gt;
 
-    &lt;figcaption class=&quot;mt-4 text-sm text-center italic&quot;&gt;
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
         Blockchain is stored in an extensive network of computers called a peer-to-peer network
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -640,7 +964,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
         &lt;img src=&quot;/assets/images/Web3/blockchain_example.svg&quot; alt=&quot;Example Blockchain flow&quot; /&gt;
     &lt;/div&gt;
 
-    &lt;figcaption class=&quot;mt-4 text-sm text-center italic&quot;&gt;
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
         Each block contains the previous block's hash, forming a chain structure. Hence the name &quot;Blockchain&quot;.
     &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
@@ -1916,72 +2240,4 @@ npm init @eslint/config&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://docs.datadoghq.com/logs/log_collection/javascript/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://docs.datadoghq.com/logs/log_collection/javascript/&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://www.datadoghq.com/blog/monitor-javascript-console-logs/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://www.datadoghq.com/blog/monitor-javascript-console-logs/&lt;/a&gt;&lt;/li&gt;
     &lt;li class=&quot;mb-2&quot;&gt;&lt;a href=&quot;https://github.com/DataDog/browser-sdk&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;https://github.com/DataDog/browser-sdk&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="frontend" /><category term="vue" /><category term="plugin" /><summary type="html">Monitor JavaScript console logs and user activity with Datadog on your Vue.js or Nuxt.js project</summary></entry><entry><title type="html">Why Ivana writes</title><link href="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html" rel="alternate" type="text/html" title="Why Ivana writes" /><published>2022-02-24T18:24:27+01:00</published><updated>2022-02-24T18:24:27+01:00</updated><id>http://localhost:4000/journal/2022/02/24/why-ivana-writes</id><content type="html" xml:base="http://localhost:4000/journal/2022/02/24/why-ivana-writes.html">&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Hi I am Ivana. This is my first post on my blog.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    As a self-taught engineer, I am always interested in using simple words to explain complex jargon. This is important and very personal for me because I used to feel embarrassed and discouraged whenever other proper engineers say cool stuff like: &quot;Exponential backoff algorithm&quot;, &quot;Ternary Operator&quot;, &quot;Memory Leak&quot;, &quot;Garbage Collection&quot;, &quot;Service Bus&quot;, ... Wait, there's a bus? is it for the garbage?
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    I always looked at them and said: &quot;OK, speak English, I studied music&quot;.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    It didn't end there, because when I google, I feel stupider. That's the beauty of knowledge though, the more you know - the more you realize you don't know much... yadi yadi ya..  and ten minutes later I spiraled deep into mathematics algorithm history, which has so little to do with what I was looking for, so I ended up watching puppies videos out of desperation. True story.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Looking back, there were several moments in my life when I feel so hopeless, stupid, and incompetent. Little voices in my head telling me to pick something more pragmatic since I am an immigrant, so I really needed to have a job to stay in the Netherlands and I didn't have the money to go to IT school (I used to work seven days per week at two different Tokos while cleaning and cooking for four different families to be able to pay for my tuition and living cost. Long story short, it was fucking hell with zero personal time).
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Keep in mind, this was fifteen+ years ago, there was no code Bootcamp, no Codeacademy, no Udemy, and Youtube barely had any useful videos.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
-    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
-		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
-			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
-			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
-		&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 class=&quot;text-2xl font-semibold mt-10 mb-4&quot;&gt;How did I learn?&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Github was my library and open source code was my genesis. I taught myself by reading developers' code, line by line, out loud to myself while explaining every line of code to myself, or at least what my understanding was. Later on, I figured out what I did call: &quot;rubber duck debugging&quot;.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    I didn't know how I could have the time with all the jobs I had to juggle. I guess it was the love, my autism and I had no friends, so it kinda helped me focus. I fell in love with code, I didn't care if I was good or not, nor if I ever could be good at it. I just love it so much and it's like playing.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Fast forward, today, I still feel very stupid. Happily stupid and I don't feel embarrassed if I don't know some jargon, I love learning.
-&lt;/p&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    My love for coding spreads to various rando-kinda-related topics. I started as a frontend developer and designer, then I got to know Javascript. When learning JS, I got interested in cybersecurity, then I stumbled upon Python (my project, Venopi is using Python + Django), then I got interested in Web3 so I am teaching myself to be a blockchain developer (Solidity). I am also interested in philosophy, physics, spirituality, and economics; I read as much as I can about these topics before I go to bed.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    We are in the era of an abundance of information and resources. What I mean is, &lt;strong class=&quot;font-medium text-pink-500&quot;&gt;the problem is not getting the information but asking the right questions and staying interested and persistent to get the answers&lt;/strong&gt;.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
-    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
-		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
-			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
-			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
-		&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 class=&quot;text-2xl font-semibold mt-10 mb-4&quot;&gt;So why write?&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    I mean it when I said, &quot;I am always interested in using simple words to explain complex jargon&quot;. I want to challenge myself to simplify complex ideas or things into digestible information.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    I want to write a journal so future me can look back and re-read, re-visit and re-learn my past thought process.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Hopefully, I could help other people who are looking for the things that I solved or stumbled upon.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
-    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
-		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
-			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
-			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
-		&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 class=&quot;text-2xl font-semibold mb-4&quot;&gt;Enjoy this post?&lt;/h2&gt;
-&lt;p class=&quot;mb-4&quot;&gt;Similar post I wrote for &lt;a href=&quot;https://elpha.com/&quot; target=&quot;_blank&quot; class=&quot;textlink font-medium&quot;&gt;Elpha&lt;/a&gt; (Elpha is where women succeed at work together)&lt;/p&gt;
-&lt;a href=&quot;https://elpha.com/posts/4wybg3w1/measuring-success-through-the-currency-of-positive-impact&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Measuring success through the currency of positive impact&lt;/a&gt; by Ivana</content><author><name></name></author><category term="journal" /><category term="personal" /><category term="notes" /><summary type="html">A post about why I want to write a journal so future me can look back and re-read, re-visit and re-learn my past thought process.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="frontend" /><category term="vue" /><category term="plugin" /><summary type="html">Monitor JavaScript console logs and user activity with Datadog on your Vue.js or Nuxt.js project</summary></entry></feed>
