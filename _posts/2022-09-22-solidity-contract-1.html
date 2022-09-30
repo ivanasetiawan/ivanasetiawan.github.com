@@ -1,0 +1,319 @@
+---
+layout: post
+title:  "Let's write our first Solidity contract"
+excerpt: Solidity is is an object-oriented programming language for implementing smart contracts on various blockchain platforms, most notably, Ethereum.
+date: 2022-09-22 06:34:00 +0100
+categories: web3
+tags: knowlegde blockchain Web3 code
+---
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Why should you learn Solidity?</h2>
+<figure class="border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6">
+    <blockquote class="mb-4 text-xl leading-relaxed">
+        Solidity is is an object-oriented programming language for implementing smart contracts on various blockchain platforms, most notably, Ethereum. Programs in Solidity run on Ethereum Virtual Machine.
+    </blockquote>
+    <figcaption>
+        <cite>— <i class="fa-brands fa-wikipedia-w mr-1.5"></i> Wikipedia</cite>
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    Mastering Solidity is a must for anyone who wants to be a Blockchain developer. Many prevalent cryptocurrencies and blockchain platforms such as Avalanche, Binance smart chain, Tron and Polkadot are compatible with Ethereum Virtual Machine (EVM). Thus Solidity works out of the box.
+</p>
+<p class="mb-4 md:mb-6">
+    Even if you want to build a dApp on other blockchain platforms that don't use Solidity, your knowledge can be easily transferred to other smart contract languages.
+</p>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Let's use Remix</h2>
+<figure class="border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6">
+    <blockquote class="mb-4 text-xl leading-relaxed">
+        Remix IDE allows developing, deploying and administering smart contracts for Ethereum like blockchains. It can also be used as a learning platform.
+    </blockquote>
+    <figcaption>
+        <cite>— Remix project</cite>
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    Go to <a href="https://remix.ethereum.org/" target="_blank" class="textlink">Remix IDE</a> and clean up all the folders. Make sure to have a folder called `contracts`. Inside this folder, create a new file called <strong>UserStorage.sol</strong>.
+</p>
+<p class="mb-4 md:mb-6">At the top of your Solidity code, you must add the version of Solidity you are using. Solidity is constantly changing and updating the language. Therefore you need to state which version of Solidity you are using for this specific contract.</p>
+{% highlight Solidity %}
+pragma solidity ^0.8.8;
+{% endhighlight %}
+<p class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">The caret symbol `^` is to tell solidity that you want to use version 0.8.8 and above.</p>
+{% highlight Solidity %}
+pragma solidity 0.8.8;
+{% endhighlight %}
+<p class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">This means you want to use a specific version.</p>
+{% highlight Solidity %}
+pragma solidity >=0.8.8 <=0.9.0;
+{% endhighlight %}
+<p class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">This means that any compiler between version 0.8.7 and 0.9.0 would work, but not 0.9.1.</p>
+<p class="mb-4 md:mb-6">Optionally you could also add `SPDX license identifier` to make licensing and sharing code easier. Some compiler might nag-warning you if you don't add this line of code. To learn more about software licenses, you can read <a class="textlink" target="_blank" href="https://snyk.io/learn/what-is-a-software-license/">here</a>.</p>
+<p class="mb-4 md:mb-6">For this blog, I'd like to use Solidity ^0.8.8 and choose `MIT` to grant the software end user rights such as copying, modifying, merging, distributing, etc.</p>
+{% highlight Solidity %}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+{% endhighlight %}
+<p class="mb-4 md:mb-6">Great, let's write our first contract!</p>
+{% highlight Solidity %}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+contract MyContract {}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">When you hit Cmd + S (Ctrl + S) on Remix, you will see that the Solidity tab compiler will show a green checkmark. That means you compile your first contract successfully!</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/Solidity/remix-green-compiler.png" | relative_url }}" alt="green compiler remix ethereum" class="mx-auto w-full" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Remix: Green checkmark means sucessfully compiled.
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">You could deploy this contract, and it would be a valid contract. It would be a contract that doesn't really do anything, but technically speaking, you could.</p>
+{%- include breathe.html -%}
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Solidity types</h2>
+<p class="mb-4 md:mb-6">Solidity has multiple different types. Boolean, uint, int, address, and bytes are the most basic types that are often used. To learn more, you can check out solidity's documentation about <a target="_blank" class="textlink" href="https://docs.soliditylang.org/en/latest/types.html">types</a>.</p>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Boolean</h3>
+    <p class="mb-4 md:mb-6">
+        Returns `true` or `false`. You can use various operators to compare.
+    </p>
+</div>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">String</h3>
+    <p class="mb-4 md:mb-6">
+        A string is actually a byte object but only for text.
+    </p>
+</div>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Uint</h3>
+    <p class="mb-4 md:mb-6">
+        It's an unsigned integer, meaning it's a whole number that is not positive or negative. Just positive.
+        Type `uint` is unique because <strong>you can specify how many bits we want to allocate</strong> for the value we keep in the variable from <strong>`uint8`</strong> up to <strong>`uint256`</strong>. If you don't specify the bits, it automatically <span class="underline underline-offset-8">defaults to 256</span>.
+    </p>
+</div>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Int</h3>
+    <p class="mb-4 md:mb-6">
+        It's a signed integer, meaning it's a wholly positive or negative number. Same as `uint`, you can allocate the number of bits from 8 to 256.
+    </p>
+</div>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Address</h3>
+    <p class="mb-4 md:mb-6">
+        It's the address to which people can transfer and send values. An example is your Metamask address.
+    </p>
+</div>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Bytes</h3>
+    <p class="mb-4 md:mb-6">
+        A byte is a unit of memory data equal to eight bits. A bit is the smallest form of data, and it can either be `0` or `1`. In Solidity, bytes are treated like an array, and you can decode the bytes in the front-end. This is good because less data is stored on the blockchain.
+    </p>
+</div>
+<p class="mb-4 md:mb-6">The reason why we have these types are to define different types of variables. <strong>Variables</strong> are holders for different values.</p>
+{% highlight Solidity %}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+contract MyContract {
+    bool isHuman = true;
+    string callMe = "Ivana";
+    uint256 luckyNumber = 9;
+    int256 favNumber = -4;
+    address isAddress = 0xa3E2836600fD72a5D20e9EB63F61838C610dF8D5;
+    bytes32 spritAnimal = "fox";
+}
+{% endhighlight %}
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Let's create a simple smart contract!</h2>
+<p class="mb-4 md:mb-6">But first, let's talk about <strong>function</strong>. Function (or method) is a block of reusable code that can take some input as arguments and returns an output.</p>
+{% highlight Solidity %}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+contract MyContract {
+    uint256 luckyNumber;
+
+    function show(uint256 _luckyNumber) public {
+        luckyNumber = _luckyNumber;
+    }
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">Compile and deploy this contract on Remix:</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg lg:-mx-20 xl:-mx-40">
+        <img src="{{ "/assets/images/Solidity/remix-deploy.gif" | relative_url }}" alt="Remix ethereum deploying a contract" class="mx-auto w-full" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Remix: Deploy your contract, click the fourth icon from top <i class="ml-1 fa-brands fa-ethereum"></i>.
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    When you change a different value on the `show` function, you can see something happening to the contract, but you cannot see the new value yet. So how can you see that the transaction is executed successfully?
+</p>
+<p class="mb-4 md:mb-6">
+    The reason is that the visibility of our variable `luckyNumber` is set to private. To make our variable `luckyNumber` visible, we must set it to `public`.
+</p>
+{% highlight Solidity %}
+...
+contract MyContract {
+    uint256 public luckyNumber;
+    ...
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    When we set the variable to `public`, you will see an extra button where you can see the value of `luckyNumber`.
+</p>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Visibility specifier</h2>
+<p class="mb-4 md:mb-6">There are four types of visibility:</p>
+{% highlight Solidity %}
+function functionName() <visibility specifier> returns (bool) {
+    ...
+}
+{% endhighlight %}
+<ul>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong>Public</strong>: visible externally and internally. This creates a getter function for storage/state variables.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong>Private</strong>: visible for the current contract and the only.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong>External</strong>: visible for external functions only. Only developers outside this `MyContract` can call the function set to `external`.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong>Internal</strong>: visible internally. Meaning only `MyContract` and its children can access it. When we don't specify a visibility specifier to a function or variable, they are <span class="underline underline-offset-8">automatically deployed as internal</span>.
+    </li>
+</ul>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Transaction</h2>
+<p class="mb-4 md:mb-6">
+    Remember that <span class="underline underline-offset-8">every time we change the state of the blockchain, we do a transaction</span>. You can see all the details when you expand the transaction on the logging area of remix.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg lg:-mx-20 xl:-mx-40">
+        <img src="{{ "/assets/images/Solidity/remix-transaction-expanded.png" | relative_url }}" alt="Expand the transaction on the terminal" class="mx-auto w-full" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Remix: Expand the transaction to see the breakdown of gas costs.
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">The more complex the function, the more expensive the transaction will cost. You can easily prove this by adding more code to our function `show` and then compiling and redeploying the contract.</p>
+{% highlight Solidity %}
+// Transaction cost is 20402 gas
+function show(uint256 _luckyNumber) public {
+    luckyNumber = _luckyNumber;
+}
+
+// Transaction cost is 44126 gas
+function showAndMultiply(uint256 _luckyNumber) public {
+    luckyNumber = _luckyNumber;
+    luckyNumber = luckyNumber * 9;
+}
+{% endhighlight %}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">No gas: view and pure functions</h2>
+<p class="mb-4 md:mb-6">
+    In Solidity, there are two functions that can be called without spending gas on it. Those are <span class="underline underline-offset-8">view</span> and <span class="underline underline-offset-8">pure</span>.
+</p>
+<p class="mb-4 md:mb-6">
+    View and pure functions <span class="underline underline-offset-8">disallow modification of state on the blockchain</span>. Pure function disallows reading from the blockchain state.
+</p>
+<p class="mb-4 md:mb-6">
+    For our case, we can use a `view` function to read the state of our `luckyNumber` for free.
+</p>
+{% highlight Solidity %}
+function show(uint256 _luckyNumber) public {
+    luckyNumber = _luckyNumber;
+}
+
+// `view` => Reading the value but not making any changes to the blockchain.
+function retrieve() public view returns(uint256) {
+    return luckyNumber;
+}
+{% endhighlight %}
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/Solidity/remix-view-transaction.png" | relative_url }}" alt="Remix: Blue button indicates no gas transaction cost." class="mx-auto w-full" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Remix: Blue button indicates no gas transaction cost.
+    </figcaption>
+</figure>
+
+<p class="mb-4 md:mb-6">
+    You might ask, why would anyone use a pure function if you cannot modify or read from the blockchain state?
+</p>
+{% highlight Solidity %}
+// Example of pure function
+// calculate the cost based on price and amount
+function getCost(uint256 _price, uint256 _amount) public pure returns(uint256 cost) {
+    cost = _price * _amount;
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Generally speaking, pure functions are guaranteed to not have side effects. It is easier to read and maintain. You will see the benefits down the road of your programming journey, and we can go into detail in a different post about the whys. As for now, I just need you to be aware that pure function exists in Solidity.
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">However...</h2>
+<p class="mb-4 md:mb-6">
+    We are aware now that both view and pure function are gas free. However, if we have a <span class="underline underline-offset-8">gas cost function that calls view or pure function</span>, this will cost us a gas fee.
+</p>
+{% highlight Solidity %}
+// Example of gas cost function that calls a pure function
+function show(uint256 _luckyNumber) public returns(uint256)  {
+    luckyNumber = getCost(4, _luckyNumber);
+    return luckyNumber;
+}
+
+// Pure function
+function getCost(uint256 _price, uint256 _amount) public pure returns(uint256 cost) {
+    cost = _price * _amount;
+}
+{% endhighlight %}
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Next...</h2>
+<p class="mb-4 md:mb-6">
+    Following the steps above, you have officially written and deployed your first Solidity smart contract 👏👏👏
+</p>
+<p class="mb-4 md:mb-6">
+    What's next? I will write more about arrays, structs, bytes, the front-end part of Web 3.0 and eventually a "real world" smart contract project (could be NFT or DAO.. we'll figure it out later together) 🌈
+</p>
+<p class="mb-4 md:mb-6">
+    Any tips, feedback, or recommendations? Don't hesitate to reach me. I love learning new things 🤓
+</p>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Helpers</h2>
+<ul>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://remix.ethereum.org/" target="_blank" class="textlink">Remix IDE</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.soliditylang.org/en/latest/types.html" target="_blank" class="textlink">Different types</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.soliditylang.org/en/latest/cheatsheet.html#function-visibility-specifiers" target="_blank" class="textlink">Visibility specifier</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html#transactions" target="_blank" class="textlink">Transactions on Blockchain</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.soliditylang.org/en/latest/contracts.html#pure-functions" target="_blank" class="textlink">Pure function</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.soliditylang.org/en/latest/contracts.html#view-functions" target="_blank" class="textlink">View function</a></strong>
+    </li>
+</ul>
