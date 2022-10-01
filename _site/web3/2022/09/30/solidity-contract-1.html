@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Let’s write our first Solidity contract | Ivana Setiawan</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Let’s write our first Solidity contract" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Solidity is is an object-oriented programming language for implementing smart contracts on various blockchain platforms, most notably, Ethereum." />
+<meta property="og:description" content="Solidity is is an object-oriented programming language for implementing smart contracts on various blockchain platforms, most notably, Ethereum." />
+<link rel="canonical" href="http://localhost:4000/web3/2022/09/30/solidity-contract-1.html" />
+<meta property="og:url" content="http://localhost:4000/web3/2022/09/30/solidity-contract-1.html" />
+<meta property="og:site_name" content="Ivana Setiawan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-30T07:34:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Let’s write our first Solidity contract" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/web3/2022/09/30/solidity-contract-1.html"},"@type":"BlogPosting","description":"Solidity is is an object-oriented programming language for implementing smart contracts on various blockchain platforms, most notably, Ethereum.","headline":"Let’s write our first Solidity contract","url":"http://localhost:4000/web3/2022/09/30/solidity-contract-1.html","datePublished":"2022-09-30T07:34:00+02:00","dateModified":"2022-09-30T07:34:00+02:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{Ivana} Software developer, UX Designer. JavaScript lover, Blockchain experimentalist and Web3 enthusiast
+    </title>
+    <meta name="description"
+        content="I am a self-taught aspie Software Engineer, mostly doing front-end stuff. A JavaScript lover, Python amateur, Hacker, Blockchain (Solidity) experimentalist and Web3 enthusiast. I also really enjoy UX Design. My ongoing project is Venopi.">
+    <meta name="author" content="Ivana Setiawan">
+    
+    <link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/assets/dist/main.css">
+    <script src="https://kit.fontawesome.com/823d655421.js" crossorigin="anonymous"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ivana Setiawan" /><!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4362998438441268" crossorigin="anonymous"></script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDGCG2WGVF"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-JDGCG2WGVF');
+</script>
+</head>
+<body class="font-tpr tracking-wide">
+    <header class="p-4 md:px-4 md:py-6 bg-slate-50 dark:bg-slate-900 dark:text-yellow-50 fixed w-full z-10 top-0 shadow md:shadow-none">
+        <div class="max-w-screen-lg mx-auto lg:px-4 flex items-center font-monospace justify-between">
+            <h1 class="mr-4 md:mr-6 tracking-widest text-sm md:text-xl font-semibold">
+                <a href="/" class="group">
+                n<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-orange-500">3</span>rd<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-violet-500">0</span>nc<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-lime-500">1</span>d
+                </a>
+            </h1>
+            <nav>
+                <ul class="flex items-center">
+                    <li class="ml-4 md:ml-6 tracking-wide"><a class="text-sm md:text-xl hover-g-violet-pink font-semibold" href="/journal/2022/02/24/why-ivana-writes.html">about</a></li>
+                    <li class="ml-4 md:ml-6 tracking-wide"><a class="text-sm md:text-xl hover-g-violet-pink font-semibold" href="/blog/">blog</a></li>
+                    <li class="ml-4 md:ml-6 tracking-wide"><button onclick="setMode('light')" id="mode-light" type="button" class="bg-slate-200 rounded-full dark:bg-slate-700 cursor-pointer text-yellow-500 inline-block leading-[37px] w-8 h-8 text-center">
+    <i class="cursor-pointer fa-solid fa-sun-bright text-xl"></i>
+</button>
+
+<button onclick="setMode('dark')" id="mode-dark" type="button" class="bg-slate-200 rounded-full dark:bg-slate-700 text-sky-700 cursor-pointer inline-block leading-[37px] w-8 h-8 text-center">
+    <i class="cursor-pointer fa-solid fa-moon text-xl"></i>
+</button>
+</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main aria-label="Content">
+        <section
+    class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-16 dark:bg-gradient-to-tr dark:from-slate-800 dark:to-slate-900 dark:text-yellow-50"
+    itemscope itemtype="https://schema.org/Blog">
+    <div class="max-w-screen-md mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen">
+        <div class="mb-9 flex justify-between items-center">
+            <div>
+                <a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4"
+                href="/blog/"><i class="fa-solid fa-arrow-left mr-1"></i> Blog</a>
+            </div>
+        </div>
+
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="mb-4 md:mb-9">
+                <h1 class="font-semibold text-4xl mb-4 leading-snug g-text-violet-pink" itemprop="name headline">Let&#39;s write our first Solidity contract</h1>
+                <p class="text-gray-500">
+                <time datetime="2022-09-30T07:34:00+02:00" itemprop="datePublished">Sep 30, 2022
+                </time></p>
+            </header>
+
+            <div class="tracking-wide leading-loose text-lg" itemprop="articleBody">
+                <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Why should you learn Solidity?</h2>
+<figure class="border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6">
+    <blockquote class="mb-4 text-xl leading-relaxed">
+        Solidity is is an object-oriented programming language for implementing smart contracts on various blockchain platforms, most notably, Ethereum. Programs in Solidity run on Ethereum Virtual Machine.
+    </blockquote>
+    <figcaption>
+        <cite>— <i class="fa-brands fa-wikipedia-w mr-1.5"></i> Wikipedia</cite>
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    Mastering Solidity is a must for anyone who wants to be a Blockchain developer. Many prevalent cryptocurrencies and blockchain platforms such as Avalanche, Binance smart chain, Tron and Polkadot are compatible with Ethereum Virtual Machine (EVM). Thus Solidity works out of the box.
+</p>
+<p class="mb-4 md:mb-6">
+    Even if you want to build a dApp on other blockchain platforms that don't use Solidity, your knowledge can be easily transferred to other smart contract languages.
+</p><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Let's use Remix</h2>
+<figure class="border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6">
+    <blockquote class="mb-4 text-xl leading-relaxed">
+        Remix IDE allows developing, deploying and administering smart contracts for Ethereum like blockchains. It can also be used as a learning platform.
+    </blockquote>
+    <figcaption>
+        <cite>— Remix project</cite>
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    Go to <a href="https://remix.ethereum.org/" target="_blank" class="textlink">Remix IDE</a> and clean up all the folders. Make sure to have a folder called `contracts`. Inside this folder, create a new file called <strong>UserStorage.sol</strong>.
+</p>
+<p class="mb-4 md:mb-6">At the top of your Solidity code, you must add the version of Solidity you are using. Solidity is constantly changing and updating the language. Therefore you need to state which version of Solidity you are using for this specific contract.</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="k">pragma</span> <span class="n">solidity</span> <span class="o">^</span><span class="mf">0.8</span><span class="p">.</span><span class="mi">8</span><span class="p">;</span></code></pre></figure>
+<p class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">The caret symbol `^` is to tell solidity that you want to use version 0.8.8 and above.</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="k">pragma</span> <span class="n">solidity</span> <span class="mf">0.8</span><span class="p">.</span><span class="mi">8</span><span class="p">;</span></code></pre></figure>
+<p class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">This means you want to use a specific version.</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="k">pragma</span> <span class="n">solidity</span> <span class="o">&gt;=</span><span class="mf">0.8</span><span class="p">.</span><span class="mi">8</span> <span class="o">&lt;=</span><span class="mf">0.9</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span></code></pre></figure>
+<p class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">This means that any compiler between version 0.8.7 and 0.9.0 would work, but not 0.9.1.</p>
+<p class="mb-4 md:mb-6">Optionally you could also add `SPDX license identifier` to make licensing and sharing code easier. Some compiler might nag-warning you if you don't add this line of code. To learn more about software licenses, you can read <a class="textlink" target="_blank" href="https://snyk.io/learn/what-is-a-software-license/">here</a>.</p>
+<p class="mb-4 md:mb-6">For this blog, I'd like to use Solidity ^0.8.8 and choose `MIT` to grant the software end user rights such as copying, modifying, merging, distributing, etc.</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="c1">// SPDX-License-Identifier: MIT
+</span><span class="k">pragma</span> <span class="n">solidity</span> <span class="o">^</span><span class="mf">0.8</span><span class="p">.</span><span class="mi">8</span><span class="p">;</span></code></pre></figure>
+<p class="mb-4 md:mb-6">Great, let's write our first contract!</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="c1">// SPDX-License-Identifier: MIT
+</span><span class="k">pragma</span> <span class="n">solidity</span> <span class="o">^</span><span class="mf">0.8</span><span class="p">.</span><span class="mi">8</span><span class="p">;</span>
+<span class="k">contract</span> <span class="n">MyContract</span> <span class="p">{}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">When you hit Cmd + S (Ctrl + S) on Remix, you will see that the Solidity tab compiler will show a green checkmark. That means you compile your first contract successfully!</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="/assets/images/Solidity/remix-green-compiler.png" alt="green compiler remix ethereum" class="mx-auto w-full" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Remix: Green checkmark means sucessfully compiled.
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">You could deploy this contract, and it would be a valid contract. It would be a contract that doesn't really do anything, but technically speaking, you could.</p><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Solidity types</h2>
+<p class="mb-4 md:mb-6">Solidity has multiple different types. Boolean, uint, int, address, and bytes are the most basic types that are often used. To learn more, you can check out solidity's documentation about <a target="_blank" class="textlink" href="https://docs.soliditylang.org/en/latest/types.html">types</a>.</p>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Boolean</h3>
+    <p class="mb-4 md:mb-6">
+        Returns `true` or `false`. You can use various operators to compare.
+    </p>
+</div>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">String</h3>
+    <p class="mb-4 md:mb-6">
+        A string is actually a byte object but only for text.
+    </p>
+</div>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Uint</h3>
+    <p class="mb-4 md:mb-6">
+        It's an unsigned integer, meaning it's a whole number that is not positive or negative. Just positive.
+        Type `uint` is unique because <strong>you can specify how many bits we want to allocate</strong> for the value we keep in the variable from <strong>`uint8`</strong> up to <strong>`uint256`</strong>. If you don't specify the bits, it automatically <span class="underline underline-offset-8">defaults to 256</span>.
+    </p>
+</div>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Int</h3>
+    <p class="mb-4 md:mb-6">
+        It's a signed integer, meaning it's a wholly positive or negative number. Same as `uint`, you can allocate the number of bits from 8 to 256.
+    </p>
+</div>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Address</h3>
+    <p class="mb-4 md:mb-6">
+        It's the address to which people can transfer and send values. An example is your Metamask address.
+    </p>
+</div>
+<div class="pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200">
+    <h3 class="text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Bytes</h3>
+    <p class="mb-4 md:mb-6">
+        A byte is a unit of memory data equal to eight bits. A bit is the smallest form of data, and it can either be `0` or `1`. In Solidity, bytes are treated like an array, and you can decode the bytes in the front-end. This is good because less data is stored on the blockchain.
+    </p>
+</div>
+<p class="mb-4 md:mb-6">The reason why we have these types are to define different types of variables. <strong>Variables</strong> are holders for different values.</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="c1">// SPDX-License-Identifier: MIT
+</span><span class="k">pragma</span> <span class="n">solidity</span> <span class="o">^</span><span class="mf">0.8</span><span class="p">.</span><span class="mi">8</span><span class="p">;</span>
+<span class="k">contract</span> <span class="n">MyContract</span> <span class="p">{</span>
+    <span class="kt">bool</span> <span class="n">isHuman</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="n">callMe</span> <span class="o">=</span> <span class="s">"Ivana"</span><span class="p">;</span>
+    <span class="kt">uint256</span> <span class="n">luckyNumber</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+    <span class="kt">int256</span> <span class="n">favNumber</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="p">;</span>
+    <span class="kt">address</span> <span class="n">isAddress</span> <span class="o">=</span> <span class="mh">0xa3E2836600fD72a5D20e9EB63F61838C610dF8D5</span><span class="p">;</span>
+    <span class="kt">bytes32</span> <span class="n">spritAnimal</span> <span class="o">=</span> <span class="s">"fox"</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Let's create a simple smart contract!</h2>
+<p class="mb-4 md:mb-6">But first, let's talk about <strong>function</strong>. Function (or method) is a block of reusable code that can take some input as arguments and returns an output.</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="c1">// SPDX-License-Identifier: MIT
+</span><span class="k">pragma</span> <span class="n">solidity</span> <span class="o">^</span><span class="mf">0.8</span><span class="p">.</span><span class="mi">8</span><span class="p">;</span>
+<span class="k">contract</span> <span class="n">MyContract</span> <span class="p">{</span>
+    <span class="kt">uint256</span> <span class="n">luckyNumber</span><span class="p">;</span>
+
+    <span class="k">function</span> <span class="n">show</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">_luckyNumber</span><span class="p">)</span> <span class="k">public</span> <span class="p">{</span>
+        <span class="n">luckyNumber</span> <span class="o">=</span> <span class="n">_luckyNumber</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">Compile and deploy this contract on Remix:</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg lg:-mx-20 xl:-mx-40">
+        <img src="/assets/images/Solidity/remix-deploy.gif" alt="Remix ethereum deploying a contract" class="mx-auto w-full" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Remix: Deploy your contract, click the fourth icon from top <i class="ml-1 fa-brands fa-ethereum"></i>.
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    When you change a different value on the `show` function, you can see something happening to the contract, but you cannot see the new value yet. So how can you see that the transaction is executed successfully?
+</p>
+<p class="mb-4 md:mb-6">
+    The reason is that the visibility of our variable `luckyNumber` is set to private. To make our variable `luckyNumber` visible, we must set it to `public`.
+</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="p">...</span>
+<span class="k">contract</span> <span class="n">MyContract</span> <span class="p">{</span>
+    <span class="kt">uint256</span> <span class="k">public</span> <span class="n">luckyNumber</span><span class="p">;</span>
+    <span class="p">...</span>
+<span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    When we set the variable to `public`, you will see an extra button where you can see the value of `luckyNumber`.
+</p><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Visibility specifier</h2>
+<p class="mb-4 md:mb-6">There are four types of visibility:</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="k">function</span> <span class="n">functionName</span><span class="p">()</span> <span class="o">&lt;</span><span class="n">visibility</span> <span class="n">specifier</span><span class="o">&gt;</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span></code></pre></figure>
+<ul>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong>Public</strong>: visible externally and internally. This creates a getter function for storage/state variables.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong>Private</strong>: visible for the current contract and the only.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong>External</strong>: visible for external functions only. Only developers outside this `MyContract` can call the function set to `external`.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong>Internal</strong>: visible internally. Meaning only `MyContract` and its children can access it. When we don't specify a visibility specifier to a function or variable, they are <span class="underline underline-offset-8">automatically deployed as internal</span>.
+    </li>
+</ul><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Transaction</h2>
+<p class="mb-4 md:mb-6">
+    Remember that <span class="underline underline-offset-8">every time we change the state of the blockchain, we do a transaction</span>. You can see all the details when you expand the transaction on the logging area of remix.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg lg:-mx-20 xl:-mx-40">
+        <img src="/assets/images/Solidity/remix-transaction-expanded.png" alt="Expand the transaction on the terminal" class="mx-auto w-full" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Remix: Expand the transaction to see the breakdown of gas costs.
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">The more complex the function, the more expensive the transaction will cost. You can easily prove this by adding more code to our function `show` and then compiling and redeploying the contract.</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="c1">// Transaction cost is 20402 gas
+</span><span class="k">function</span> <span class="n">show</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">_luckyNumber</span><span class="p">)</span> <span class="k">public</span> <span class="p">{</span>
+    <span class="n">luckyNumber</span> <span class="o">=</span> <span class="n">_luckyNumber</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Transaction cost is 44126 gas
+</span><span class="k">function</span> <span class="n">showAndMultiply</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">_luckyNumber</span><span class="p">)</span> <span class="k">public</span> <span class="p">{</span>
+    <span class="n">luckyNumber</span> <span class="o">=</span> <span class="n">_luckyNumber</span><span class="p">;</span>
+    <span class="n">luckyNumber</span> <span class="o">=</span> <span class="n">luckyNumber</span> <span class="o">*</span> <span class="mi">9</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">No gas: view and pure functions</h2>
+<p class="mb-4 md:mb-6">
+    In Solidity, there are two functions that can be called without spending gas on it. Those are <span class="underline underline-offset-8">view</span> and <span class="underline underline-offset-8">pure</span>.
+</p>
+<p class="mb-4 md:mb-6">
+    View and pure functions <span class="underline underline-offset-8">disallow modification of state on the blockchain</span>. Pure function disallows reading from the blockchain state.
+</p>
+<p class="mb-4 md:mb-6">
+    For our case, we can use a `view` function to read the state of our `luckyNumber` for free.
+</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="k">function</span> <span class="n">show</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">_luckyNumber</span><span class="p">)</span> <span class="k">public</span> <span class="p">{</span>
+    <span class="n">luckyNumber</span> <span class="o">=</span> <span class="n">_luckyNumber</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// `view` =&gt; Reading the value but not making any changes to the blockchain.
+</span><span class="k">function</span> <span class="n">retrieve</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">luckyNumber</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="/assets/images/Solidity/remix-view-transaction.png" alt="Remix: Blue button indicates no gas transaction cost." class="mx-auto w-full" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Remix: Blue button indicates no gas transaction cost.
+    </figcaption>
+</figure>
+
+<p class="mb-4 md:mb-6">
+    You might ask, why would anyone use a pure function if you cannot modify or read from the blockchain state?
+</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="c1">// Example of pure function
+// calculate the cost based on price and amount
+</span><span class="k">function</span> <span class="n">getCost</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">_price</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="k">public</span> <span class="k">pure</span> <span class="k">returns</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">cost</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="n">_price</span> <span class="o">*</span> <span class="n">_amount</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    Generally speaking, pure functions are guaranteed to not have side effects. It is easier to read and maintain. You will see the benefits down the road of your programming journey, and we can go into detail in a different post about the whys. As for now, I just need you to be aware that pure function exists in Solidity.
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">However...</h2>
+<p class="mb-4 md:mb-6">
+    We are aware now that both view and pure function are gas free. However, if we have a <span class="underline underline-offset-8">gas cost function that calls view or pure function</span>, this will cost us a gas fee.
+</p>
+<figure class="highlight"><pre><code class="language-solidity" data-lang="solidity"><span class="c1">// Example of gas cost function that calls a pure function
+</span><span class="k">function</span> <span class="n">show</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">_luckyNumber</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span><span class="p">(</span><span class="kt">uint256</span><span class="p">)</span>  <span class="p">{</span>
+    <span class="n">luckyNumber</span> <span class="o">=</span> <span class="n">getCost</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">_luckyNumber</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">luckyNumber</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Pure function
+</span><span class="k">function</span> <span class="n">getCost</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">_price</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_amount</span><span class="p">)</span> <span class="k">public</span> <span class="k">pure</span> <span class="k">returns</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">cost</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="n">_price</span> <span class="o">*</span> <span class="n">_amount</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Next...</h2>
+<p class="mb-4 md:mb-6">
+    Following the steps above, you have officially written and deployed your first Solidity smart contract 👏👏👏
+</p>
+<p class="mb-4 md:mb-6">
+    What's next? I will write more about arrays, structs, bytes, the front-end part of Web 3.0 and eventually a "real world" smart contract project (could be NFT or DAO.. we'll figure it out later together) 🌈
+</p>
+<p class="mb-4 md:mb-6">
+    Any tips, feedback, or recommendations? Don't hesitate to reach me. I love learning new things 🤓
+</p><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Helpers</h2>
+<ul>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://remix.ethereum.org/" target="_blank" class="textlink">Remix IDE</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.soliditylang.org/en/latest/types.html" target="_blank" class="textlink">Different types</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.soliditylang.org/en/latest/cheatsheet.html#function-visibility-specifiers" target="_blank" class="textlink">Visibility specifier</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html#transactions" target="_blank" class="textlink">Transactions on Blockchain</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.soliditylang.org/en/latest/contracts.html#pure-functions" target="_blank" class="textlink">Pure function</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.soliditylang.org/en/latest/contracts.html#view-functions" target="_blank" class="textlink">View function</a></strong>
+    </li>
+</ul>
+
+            </div>
+
+            <!-- <div class="my-10 py-10 border-t border-gray-300 dark:border-gray-700">
+                <h3 class="mb-4">Tags: </h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">personal</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">notes</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">code</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tips</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">frontend</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">vue</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">plugin</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">django</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">python</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">adsense</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">npm</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">package</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">google</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">one</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tap</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">javascript</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">async</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">await</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">promise</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">knowlegde</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">blockchain</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">centralised</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">decentralised</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">technology</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">organisation</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">Web3</h3>
+                
+            </div> -->
+        </article><a class="u-url" href="/web3/2022/09/30/solidity-contract-1.html" hidden></a>
+    </div>
+</section>
+
+<link rel="stylesheet" href="/assets/syntax.css" type="text/css">
+
+    </main><footer class="bg-slate-100">
+    <div class="max-w-screen-lg mx-auto px-4 py-10 text-gray-500 ">
+        <ul class="md:flex md:gap-6 md:justify-center">
+            <li class="my-2 md:my-0"><a href="https://www.linkedin.com/in/ivanasetiawan/" target="_blank"
+                class="textlink"><i
+                    class="fa-brands fa-linkedin mr-2"></i>ivanasetiawan</a>
+            </li>
+            <li class="my-2 md:my-0"><i class="fa-solid fa-id-card-clip mr-2"></i>KVK#: 62163566
+            </li>
+            <li class="my-2 md:my-0"><i class="fa-solid fa-hashtag mr-2"></i>VAT: NL002450150B24
+            </li>
+        </ul>
+    </div>
+</footer>
+<script>
+    const currentMode = localStorage.getItem('mode') ? localStorage.getItem('mode') : 'light';
+    setMode();
+
+    function setMode(mode = currentMode) {
+        mode === 'light' ?  lightMode() : darkMode() ;
+    }
+
+    function darkMode() {
+        document.querySelector('html').classList.add('dark');
+        localStorage.setItem('mode', 'dark');
+        document.getElementById('mode-dark').classList.add('hidden');
+        document.getElementById('mode-light').classList.remove('hidden');
+    }
+
+    function lightMode() {
+        document.querySelector('html').classList.remove('dark');
+        localStorage.setItem('mode', 'light');
+        document.getElementById('mode-light').classList.add('hidden');
+        document.getElementById('mode-dark').classList.remove('hidden');
+    }
+</script>
+</body>
+</html>
