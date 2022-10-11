@@ -1,0 +1,244 @@
+---
+layout: post
+title:  "Solidity structs and arrays"
+excerpt: Solidity structs and arrays are common types often used to create smart contracts. In this article, we will learn about both types using easy-to-understand cases.
+date: 2022-10-11 06:34:00 +0100
+categories: web3
+tags: knowlegde blockchain Web3 code
+---
+2:35:29
+<p class="mb-4 md:mb-6">
+    This article is a continuation of <a href="{{ "/web3/2022/09/30/solidity-contract-1.html" | relative_url }}" class="font-semibold textlink">"Let's write our first Solidity contract"</a>. I'd highly recommend you to read that first.
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Bridge</h2>
+<p class="mb-4 md:mb-6">
+    On the previous article "Let's write our first Solidity contract", we create a contract called `MyContract` with a uint256 public variable called `luckyNumber`.
+</p>
+{% highlight Solidity %}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+contract MyContract {
+    uint256 public luckyNumber;
+
+    function show(uint256 _luckyNumber) public {
+        luckyNumber = _luckyNumber;
+    }
+
+    // `view` => Reading the value but not making any changes to the blockchain.
+    function retrieve() public view returns(uint256) {
+        return luckyNumber;
+    }
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Our `luckyNumber` variable can only store one single lucky number. What if we want to have multiple lucky numbers? or multiple lucky numbers of our friends?
+</p>
+<p class="mb-4 md:mb-6">
+    There are several ways to do it, one of the ways is by creating a <span class="text-red-600 dark:text-pink-500">struct</span>.
+</p>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Struct</h2>
+<p class="mb-4 md:mb-6">
+    Using <span class="text-red-600 dark:text-pink-500">struct</span>, we can define our own type. It can be declared outside a contract and imported into another contract and is particularly useful for grouping together related data.
+</p>
+<p class="mb-4 md:mb-6">
+    For our case, we can create a friends object that holds both their name and lucky number.
+</p>
+{% highlight Solidity %}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+contract MyContract {
+    // Create a new type called 'Friends'
+    struct Friends {
+        string name;
+        uint256 luckyNumber;
+    }
+
+    uint256 public luckyNumber;
+    /*
+        Create a new `friend` variable using our new type `Friends`
+        - `Friends` is the type (like `uint256`)
+        - `public` is the visibility
+        - `friend` is the variable name
+    */
+    Friends public friend = Friends({
+        name: 'Oscar',
+        luckyNumber: 9
+    });
+}
+{% endhighlight %}
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/Solidity/remix-struct-1.png" | relative_url }}" alt="Struct 1" class="mx-auto w-full" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Remix: Create a new `friend` variable using our new type `Friends`
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    If you wonder why there are `0` and `1` in front of the `0: string: name Oscar` and `1: uint256: luckyNumber 9`. It's the index of the different variables, and in computer science, the list starts with no `0`.
+</p>
+<p class="mb-4 md:mb-6">
+    Whenever you have a list of variables inside an object in Solidity, they will automatically be indexed.
+</p>
+<p class="mb-4 md:mb-6">
+    We have created a new `friend` variable using our struct `Friends`. While this works, if we want to add more friends, we must copy-paste many friend variables with different names and luckyNumbers, like so:
+</p>
+{% highlight Solidity %}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+contract MyContract {
+    struct Friends {
+        string name;
+        uint256 luckyNumber;
+    }
+
+    Friends public friend = Friends({
+        name: 'Oscar',
+        luckyNumber: 9
+    });
+
+    Friends public friend2 = Friends({
+        name: 'Ani',
+        luckyNumber: 7
+    });
+
+    Friends public friend3 = Friends({
+        name: 'Suchi',
+        luckyNumber: 12
+    });
+    // ..etc
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    That doesn't look effective, don't you think?
+</p>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Array</h2>
+<p class="mb-4 md:mb-6">
+    An effective way to create a list is using an <span class="text-red-600 dark:text-pink-500">array data structure</span>.
+</p>
+<div class="border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6">
+    <p class="mb-4 text-xl leading-relaxed">
+        An array is a data structure that holds a list of other types and can be initialised with a fixed or dynamic size. It can hold primitive data types such as integers, boolean, and strings.
+    </p>
+</div>
+<p class="mb-4 md:mb-6">How does it look like?</p>
+{% highlight Solidity %}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+contract MyContract {
+    // Create a new type called 'Friends'
+    struct Friends {
+        string name;
+        uint256 luckyNumber;
+    }
+
+    /*
+        Create a new `friend` variable using our new type `Friends`
+        - `Friends[]` is the type (like `uint256`).
+          This means we want a type of an array of Friends
+        - `public` is the visibility
+        - `friend` is the variable name
+    */
+    Friends[] public friends;
+
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Yes, you can also add `[]` to another type, like: `uint256[] public friendsList;`
+</p>
+{%- include breathe.html -%}
+<p class="mb-4 md:mb-6">
+    Before we move forward, I want to quickly add that the `Friends[]` type of an array is called <span class="text-red-600 dark:text-pink-500">Dynamic Array</span> because the array size is not given at the array initialisation.
+</p>
+<p class="mb-4 md:mb-6">
+    If we specify `Friends[4]`, this means that this array of friends can only be four people, hence called <span class="text-red-600 dark:text-pink-500">Fixed-sized Array</span>.
+</p>
+<p class="mb-4 md:mb-6">
+    For our case, we'll stick to the dynamic size array because we want to add an arbitrary number of friends to this array.
+</p>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Adding </h2>
+<p class="mb-4 md:mb-6">
+    Nice! We have a dynamic array variable called `friends`. Now let's create a function to add friends to the friends array.
+</p>
+{% highlight Solidity %}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+contract MyContract {
+    // Create a new type called 'Friends'
+    struct Friends {
+        string name;
+        uint256 luckyNumber;
+    }
+
+    // Create a new `friend` variable using our new type `Friends`
+    Friends[] public friends;
+
+    /*
+        Create a public function to add friend to the friends array
+        - `_name` is a string memory for `name`
+          (Data location must be "memory" or "calldata" for parameter in function)
+        - `_luckyNumber` is uint256 for `luckyNumber`
+    */
+    function addFriend(string memory _name, uint256 _luckyNumber) public {
+        // Adding a new friend to friends array
+        Friends memory newFriend = Friends({ name: _name, luckyNumber: _luckyNumber });
+        friends.push(newFriend);
+    }
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Essential to know capitalise and lowercase matters. When you see `Friends`, we are talking about our struct `Friends`. When we type `friends`, we refer to the variable friends (dynamic-sized array)..
+</p>
+
+<p class="mb-4 md:mb-6">
+    On the arguments function, you see a new keyword `memory` (`string memory _name`). It's required to specify for the data location. To learn more, you could look at <a href="https://solidity-by-example.org/data-locations/" target="_blank" class="textlink">Solidity by example: Data Locations</a>.
+</p>
+
+<p class="mb-4 md:mb-6">
+    We could also improve our code above to be a one-liner. Like so:
+</p>
+{% highlight Solidity %}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8;
+contract MyContract {
+    // Create a new type called 'Friends'
+    struct Friends {
+        string name;
+        uint256 luckyNumber;
+    }
+
+    Friends[] public friends;
+
+    function addFriend(string memory _name, uint256 _luckyNumber) public {
+        /*
+            Follow the pattern of the struct:
+            [0] name
+            [1] luckyNumber
+            then we don't need to specify `{ name: _name, luckyNumber: _luckyNumber }`
+        */
+        friends.push(Friends(_name, _luckyNumber));
+    }
+}
+{% endhighlight %}
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Helpers</h2>
+<ul>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://solidity-by-example.org/structs/" target="_blank" class="textlink">Solidity by example: Structs</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://solidity-by-example.org/array/" target="_blank" class="textlink">Solidity by example: Array</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://solidity-by-example.org/data-locations/" target="_blank" class="textlink">Solidity by example: Data Locations</a></strong>
+    </li>
+</ul>
