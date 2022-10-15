@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Create multiple routes to the same page on your NuxtJS project | Ivana Setiawan</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Create multiple routes to the same page on your NuxtJS project" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Do you need to have multiple routes to the same page on your NuxtJS project? Here is a clean and straightforward way to do it without double content." />
+<meta property="og:description" content="Do you need to have multiple routes to the same page on your NuxtJS project? Here is a clean and straightforward way to do it without double content." />
+<link rel="canonical" href="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html" />
+<meta property="og:url" content="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html" />
+<meta property="og:site_name" content="Ivana Setiawan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-15T07:34:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Create multiple routes to the same page on your NuxtJS project" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html"},"@type":"BlogPosting","description":"Do you need to have multiple routes to the same page on your NuxtJS project? Here is a clean and straightforward way to do it without double content.","headline":"Create multiple routes to the same page on your NuxtJS project","url":"http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html","datePublished":"2022-10-15T07:34:00+02:00","dateModified":"2022-10-15T07:34:00+02:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{Ivana} Software developer, UX Designer. JavaScript lover, Blockchain experimentalist and Web3 enthusiast
+    </title>
+    <meta name="description"
+        content="I am a self-taught aspie Software Engineer, mostly doing front-end stuff. A JavaScript lover, Python amateur, Hacker, Blockchain (Solidity) experimentalist and Web3 enthusiast. I also really enjoy UX Design. My ongoing project is Venopi.">
+    <meta name="author" content="Ivana Setiawan">
+    
+    <link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/assets/dist/main.css">
+    <script src="https://kit.fontawesome.com/823d655421.js" crossorigin="anonymous"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ivana Setiawan" /><!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4362998438441268" crossorigin="anonymous"></script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDGCG2WGVF"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-JDGCG2WGVF');
+</script>
+</head>
+<body class="font-tpr tracking-wide">
+    <header class="p-4 md:px-4 md:py-6 bg-slate-50 dark:bg-slate-900 dark:text-yellow-50 fixed w-full z-10 top-0 shadow md:shadow-none">
+        <div class="max-w-screen-lg mx-auto lg:px-4 flex items-center font-monospace justify-between">
+            <h1 class="mr-4 md:mr-6 tracking-widest text-sm md:text-xl font-semibold">
+                <a href="/" class="group">
+                n<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-orange-500">3</span>rd<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-violet-500">0</span>nc<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-lime-500">1</span>d
+                </a>
+            </h1>
+            <nav>
+                <ul class="flex items-center">
+                    <li class="ml-4 md:ml-6 tracking-wide"><a class="text-sm md:text-xl hover-g-violet-pink font-semibold" href="/journal/2022/02/24/why-ivana-writes.html">about</a></li>
+                    <li class="ml-4 md:ml-6 tracking-wide"><a class="text-sm md:text-xl hover-g-violet-pink font-semibold" href="/blog/">blog</a></li>
+                    <li class="ml-4 md:ml-6 tracking-wide"><button onclick="setMode('light')" id="mode-light" type="button" class="bg-slate-200 rounded-full dark:bg-slate-700 cursor-pointer text-yellow-500 inline-block leading-[37px] w-8 h-8 text-center">
+    <i class="cursor-pointer fa-solid fa-sun-bright text-xl"></i>
+</button>
+
+<button onclick="setMode('dark')" id="mode-dark" type="button" class="bg-slate-200 rounded-full dark:bg-slate-700 text-sky-700 cursor-pointer inline-block leading-[37px] w-8 h-8 text-center">
+    <i class="cursor-pointer fa-solid fa-moon text-xl"></i>
+</button>
+</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main aria-label="Content">
+        <section
+    class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-16 dark:bg-gradient-to-tr dark:from-slate-800 dark:to-slate-900 dark:text-yellow-50"
+    itemscope itemtype="https://schema.org/Blog">
+    <div class="max-w-screen-md mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen">
+        <div class="mb-9 flex justify-between items-center">
+            <div>
+                <a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4"
+                href="/blog/"><i class="fa-solid fa-arrow-left mr-1"></i> Blog</a>
+            </div>
+        </div>
+
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="mb-4 md:mb-9">
+                <h1 class="font-semibold text-4xl mb-4 leading-snug g-text-violet-pink" itemprop="name headline">Create multiple routes to the same page on your NuxtJS project</h1>
+                <p class="text-gray-500">
+                <time datetime="2022-10-15T07:34:00+02:00" itemprop="datePublished">Oct 15, 2022
+                </time></p>
+            </header>
+
+            <div class="tracking-wide leading-loose text-lg" itemprop="articleBody">
+                <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Background</h2>
+<p class="mb-4 md:mb-6">
+    Imagine you have working NuxtJS pages with three steps onboarding forms and the url of these pages are:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding</span> (step 1 - a landing page with an entrance onboarding form)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding/taste-preference</span> (step 2 - share with us their taste preference)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding/confirm</span> (step 3 - share with us their personal info and get free samples)
+    </li>
+</ul><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">The Rainbow Campaign</h2>
+<p class="mb-4 md:mb-6">
+    Today, your marketeer, let's call them Toni, and you, let's call you - you, had this conversation:
+</p>
+
+<div class="pl-10 my-4 md:my-6 relative">
+    <p class="mb-4 text-xl leading-relaxed">
+        Yo! I have a campaign to promote our new rainbow taste! The existing onboarding page looks perfect! We can reuse it!
+    </p>
+    <p>— <i class="fa-regular fa-user-bounty-hunter absolute text-2xl left-0 top-3"></i> Toni</p>
+</div>
+
+<div class="pl-10 my-4 md:my-6 relative">
+    <p class="mb-4 text-xl leading-relaxed">
+        "Sure thing Toni! Tell me more.."
+    </p>
+    <p>— <i class="fa-regular fa-user-hair-mullet absolute text-2xl left-0 top-3"></i> You</p>
+</div>
+
+<div class="pl-10 my-4 md:my-6 relative">
+    <p class="mb-4 text-xl leading-relaxed">
+        "So the first landing page will have a different design but the form can stay as is. The url of the page will be <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split</span>...
+        <br><br>
+        The rest of the form can stay as is, but for SEO purposes we want it to be <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split/taste-preference</span> and <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split/confirm</span>. What do you think?"
+    </p>
+    <p>— <i class="fa-regular fa-user-bounty-hunter absolute text-2xl left-0 top-3"></i> Toni</p>
+</div>
+
+<div class="pl-10 my-4 md:my-6 relative">
+    <p class="mb-4 text-xl leading-relaxed">
+        "Sounds straightforward. Talk to my team's Product Owner and let's create a story!" (yes.. we're Agile)
+    </p>
+    <p>— <i class="fa-regular fa-user-hair-mullet absolute text-2xl left-0 top-3"></i> You</p>
+</div><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Execution</h2>
+<p class="mb-4 md:mb-6">
+    There are always several ways to do it. However, you want it to be quick, easy to clean up (when the campaign is done) and NuxtJS solution.
+</p>
+<p class="mb-4 md:mb-6">
+    So basically we will have:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding</span>
+        <br>
+        On NuxtJS: pages/index.vue
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split</span>
+        <br>
+        On NuxtJS: pages/banana-rainbow-split/index.vue
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding/taste-preference</span> = <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split/taste-preference</span>
+        <br>
+        Pointing to the same page: `pages/taste-preference.vue`
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding/confirm</span> = <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split/confirm</span>
+        <br>
+        Pointing to the same page: `pages/confirm.vue`
+    </li>
+</ul><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Execution</h2>
+<p class="mb-4 md:mb-6">
+    We will solve this using the power of NuxtJS modules. So the first step is to add routes module on your <span class="text-red-600 dark:text-pink-500">nuxt.config.js</span>:
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// nuxt.config.js</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="na">buildModules</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">...</span>
+        <span class="dl">'</span><span class="s1">~/modules/routes</span><span class="dl">'</span>
+    <span class="p">],</span>
+<span class="p">};</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    Then create a folder called <span class="text-red-600 dark:text-pink-500">modules</span>, if you haven't had one and inside it create a file called <span class="text-red-600 dark:text-pink-500">routes.js</span>.
+</p>
+<p class="mb-4 md:mb-6">
+    Inside this <span class="text-red-600 dark:text-pink-500">routes.js</span>, we will make the URLs magic happens.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// modules/routes.js</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">nuxt</span><span class="p">.</span><span class="nx">hook</span><span class="p">(</span><span class="dl">'</span><span class="s1">build:extendRoutes</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">routes</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">rainbowCampaign</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">banana-rainbow-split</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/banana-rainbow-split</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">component</span><span class="p">:</span> <span class="dl">'</span><span class="s1">pages/banana-rainbow-split/index.vue</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">banana-rainbow-split_taste-preference</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/banana-rainbow-split/taste-preference</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">component</span><span class="p">:</span> <span class="dl">'</span><span class="s1">pages/taste-preference.vue</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">banana-rainbow-split_confirm</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/banana-rainbow-split/confirm</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">component</span><span class="p">:</span> <span class="dl">'</span><span class="s1">pages/confirm.vue</span><span class="dl">'</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">];</span>
+
+        <span class="nx">rainbowCampaign</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">routes</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+                <span class="na">name</span><span class="p">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+                <span class="na">path</span><span class="p">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span>
+                <span class="na">component</span><span class="p">:</span> <span class="nx">resolve</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">srcDir</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="nx">item</span><span class="p">.</span><span class="nx">component</span><span class="p">)</span>
+            <span class="p">})</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+<span class="p">};</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    That's it! You can "reuse" the same page, with its logic, validations and fancy effects, for multiple URLs 👏
+</p>
+<p class="mb-4 md:mb-6">
+    Have a better solution than this? Please let me know! I always love to improve 🙏
+</p><div class="my-9 md:my-14 text-center h-12 relative">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Helpers</h2>
+<ul>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://nuxtjs.org/docs/directory-structure/modules" target="_blank" class="textlink">NuxtJS: Modules</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://nuxtjs.org/docs/configuration-glossary/configuration-router#extendroutes" target="_blank" class="textlink">NuxtJS: extendRoutes</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://nuxtjs.org/docs/internals-glossary/internals-builder/" target="_blank" class="textlink">NuxtJS: The Builder class</a></strong>
+    </li>
+</ul>
+
+
+            </div>
+
+            <!-- <div class="my-10 py-10 border-t border-gray-300 dark:border-gray-700">
+                <h3 class="mb-4">Tags: </h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">personal</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">notes</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">code</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tips</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">frontend</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">vue</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">plugin</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">django</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">python</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">adsense</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">npm</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">package</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">google</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">one</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tap</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">javascript</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">async</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">await</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">promise</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">knowlegde</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">blockchain</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">centralised</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">decentralised</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">technology</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">organisation</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">Web3</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">nuxtjs</h3>
+                
+            </div> -->
+        </article><a class="u-url" href="/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html" hidden></a>
+    </div>
+</section>
+
+<link rel="stylesheet" href="/assets/syntax.css" type="text/css">
+
+    </main><footer class="bg-slate-100">
+    <div class="max-w-screen-lg mx-auto px-4 py-10 text-gray-500 ">
+        <ul class="md:flex md:gap-6 md:justify-center">
+            <li class="my-2 md:my-0"><a href="https://www.linkedin.com/in/ivanasetiawan/" target="_blank"
+                class="textlink"><i
+                    class="fa-brands fa-linkedin mr-2"></i>ivanasetiawan</a>
+            </li>
+            <li class="my-2 md:my-0"><i class="fa-solid fa-id-card-clip mr-2"></i>KVK#: 62163566
+            </li>
+            <li class="my-2 md:my-0"><i class="fa-solid fa-hashtag mr-2"></i>VAT: NL002450150B24
+            </li>
+        </ul>
+    </div>
+</footer>
+<script>
+    const currentMode = localStorage.getItem('mode') ? localStorage.getItem('mode') : 'light';
+    setMode();
+
+    function setMode(mode = currentMode) {
+        mode === 'light' ?  lightMode() : darkMode() ;
+    }
+
+    function darkMode() {
+        document.querySelector('html').classList.add('dark');
+        localStorage.setItem('mode', 'dark');
+        document.getElementById('mode-dark').classList.add('hidden');
+        document.getElementById('mode-light').classList.remove('hidden');
+    }
+
+    function lightMode() {
+        document.querySelector('html').classList.remove('dark');
+        localStorage.setItem('mode', 'light');
+        document.getElementById('mode-light').classList.add('hidden');
+        document.getElementById('mode-dark').classList.remove('hidden');
+    }
+</script>
+</body>
+</html>
