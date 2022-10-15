@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-15T18:56:14+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Create multiple routes to the same page on your NuxtJS project</title><link href="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html" rel="alternate" type="text/html" title="Create multiple routes to the same page on your NuxtJS project" /><published>2022-10-15T07:34:00+02:00</published><updated>2022-10-15T07:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Background&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-15T19:29:22+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Create multiple routes to the same page on your NuxtJS project</title><link href="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html" rel="alternate" type="text/html" title="Create multiple routes to the same page on your NuxtJS project" /><published>2022-10-15T07:34:00+02:00</published><updated>2022-10-15T07:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Background&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Imagine you have working NuxtJS pages with three steps onboarding forms and the url of these pages are:
 &lt;/p&gt;
@@ -104,6 +104,15 @@
 		&lt;/span&gt;
     &lt;/div&gt;
 &lt;/div&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/nuxtjs-routes.png&quot; alt=&quot;NuxtJS routes&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        A page with multiple routes on NuxtJS
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Execution&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     We will solve this using the power of NuxtJS modules. So the first step is to add routes module on your &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;nuxt.config.js&lt;/span&gt;:
@@ -1387,7 +1396,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/p&gt;
 
 &lt;div class=&quot;my-4 md:my-6 border border-gray-400 dark:border-gray-200 bg-slate-50 rounded-lg&quot;&gt;
-    &lt;iframe src=&quot;http://127.0.0.1:4000/sha256-algorithm-demo&quot; class=&quot;w-full h-60&quot;&gt;&lt;/iframe&gt;
+    &lt;iframe src=&quot;https://ivanasetiawan.com/sha256-algorithm-demo&quot; class=&quot;w-full h-60&quot;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
