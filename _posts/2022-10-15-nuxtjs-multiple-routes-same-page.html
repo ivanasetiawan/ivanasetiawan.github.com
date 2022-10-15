@@ -1,0 +1,172 @@
+---
+layout: post
+title:  "Create multiple routes to the same page on your NuxtJS project"
+excerpt: Do you need to have multiple routes to the same page on your NuxtJS project? Here is a clean and straightforward way to do it without double content.
+date: 2022-10-15 06:34:00 +0100
+categories: frontend
+tags: code javascript nuxtjs
+---
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Background</h2>
+<p class="mb-4 md:mb-6">
+    Imagine you have working NuxtJS pages with three steps onboarding forms and the url of these pages are:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding</span> (step 1 - a landing page with an entrance onboarding form)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding/taste-preference</span> (step 2 - share with us their taste preference)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding/confirm</span> (step 3 - share with us their personal info and get free samples)
+    </li>
+</ul>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">The Rainbow Campaign</h2>
+<p class="mb-4 md:mb-6">
+    Today, your marketeer, let's call them Toni, and you, let's call you - you, had this conversation:
+</p>
+
+<div class="pl-10 my-4 md:my-6 relative">
+    <p class="mb-4 text-xl leading-relaxed">
+        Yo! I have a campaign to promote our new rainbow taste! The existing onboarding page looks perfect! We can reuse it!
+    </p>
+    <p>— <i class="fa-regular fa-user-bounty-hunter absolute text-2xl left-0 top-3"></i> Toni</p>
+</div>
+
+<div class="pl-10 my-4 md:my-6 relative">
+    <p class="mb-4 text-xl leading-relaxed">
+        "Sure thing Toni! Tell me more.."
+    </p>
+    <p>— <i class="fa-regular fa-user-hair-mullet absolute text-2xl left-0 top-3"></i> You</p>
+</div>
+
+<div class="pl-10 my-4 md:my-6 relative">
+    <p class="mb-4 text-xl leading-relaxed">
+        "So the first landing page will have a different design but the form can stay as is. The url of the page will be <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split</span>...
+        <br><br>
+        The rest of the form can stay as is, but for SEO purposes we want it to be <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split/taste-preference</span> and <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split/confirm</span>. What do you think?"
+    </p>
+    <p>— <i class="fa-regular fa-user-bounty-hunter absolute text-2xl left-0 top-3"></i> Toni</p>
+</div>
+
+<div class="pl-10 my-4 md:my-6 relative">
+    <p class="mb-4 text-xl leading-relaxed">
+        "Sounds straightforward. Talk to my team's Product Owner and let's create a story!" (yes.. we're Agile)
+    </p>
+    <p>— <i class="fa-regular fa-user-hair-mullet absolute text-2xl left-0 top-3"></i> You</p>
+</div>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Execution</h2>
+<p class="mb-4 md:mb-6">
+    There are always several ways to do it. However, you want it to be quick, easy to clean up (when the campaign is done) and NuxtJS solution.
+</p>
+<p class="mb-4 md:mb-6">
+    So basically we will have:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding</span>
+        <br>
+        On NuxtJS: pages/index.vue
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split</span>
+        <br>
+        On NuxtJS: pages/banana-rainbow-split/index.vue
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding/taste-preference</span> = <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split/taste-preference</span>
+        <br>
+        Pointing to the same page: `pages/taste-preference.vue`
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-ice-cream"></i>
+        <span class="text-red-600 dark:text-pink-500">/onboarding/confirm</span> = <span class="text-red-600 dark:text-pink-500">/banana-rainbow-split/confirm</span>
+        <br>
+        Pointing to the same page: `pages/confirm.vue`
+    </li>
+</ul>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Execution</h2>
+<p class="mb-4 md:mb-6">
+    We will solve this using the power of NuxtJS modules. So the first step is to add routes module on your <span class="text-red-600 dark:text-pink-500">nuxt.config.js</span>:
+</p>
+{% highlight Javascript %}
+// nuxt.config.js
+export default {
+    ...
+    buildModules: [
+        ...
+        '~/modules/routes'
+    ],
+};
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Then create a folder called <span class="text-red-600 dark:text-pink-500">modules</span>, if you haven't had one and inside it create a file called <span class="text-red-600 dark:text-pink-500">routes.js</span>.
+</p>
+<p class="mb-4 md:mb-6">
+    Inside this <span class="text-red-600 dark:text-pink-500">routes.js</span>, we will make the URLs magic happens.
+</p>
+{% highlight Javascript %}
+// modules/routes.js
+export default function () {
+    this.nuxt.hook('build:extendRoutes', (routes, resolve) => {
+        const rainbowCampaign = [
+            {
+                name: 'banana-rainbow-split',
+                path: '/banana-rainbow-split',
+                component: 'pages/banana-rainbow-split/index.vue',
+            },
+            {
+                name: 'banana-rainbow-split_taste-preference',
+                path: '/banana-rainbow-split/taste-preference',
+                component: 'pages/taste-preference.vue',
+            },
+            {
+                name: 'banana-rainbow-split_confirm',
+                path: '/banana-rainbow-split/confirm',
+                component: 'pages/confirm.vue',
+            },
+        ];
+
+        rainbowCampaign.map(item => {
+            routes.push({
+                name: item.name,
+                path: item.path,
+                component: resolve(`${this.options.srcDir}`, item.component)
+            })
+        });
+    });
+};
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    That's it! You can "reuse" the same page, with its logic, validations and fancy effects, for multiple URLs 👏
+</p>
+<p class="mb-4 md:mb-6">
+    Have a better solution than this? Please let me know! I always love to improve 🙏
+</p>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Helpers</h2>
+<ul>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://nuxtjs.org/docs/directory-structure/modules" target="_blank" class="textlink">NuxtJS: Modules</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://nuxtjs.org/docs/configuration-glossary/configuration-router#extendroutes" target="_blank" class="textlink">NuxtJS: extendRoutes</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://nuxtjs.org/docs/internals-glossary/internals-builder/" target="_blank" class="textlink">NuxtJS: The Builder class</a></strong>
+    </li>
+</ul>
+
