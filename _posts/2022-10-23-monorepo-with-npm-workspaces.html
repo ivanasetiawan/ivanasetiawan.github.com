@@ -1,0 +1,512 @@
+---
+layout: post
+title:  "Monorepo with NPM workspaces"
+excerpt: Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don't need to know anything about the other packages.
+date: 2022-10-23 19:34:00 +0100
+categories: frontend
+tags: code javascript nuxtjs
+---
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Monorepo in a nutshell</h2>
+<p class="mb-4 md:mb-6">
+    Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don't need to know anything about the other packages.
+</p>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6"></h2>
+<p class="mb-4 md:mb-6">
+    In this article, we will create a Monorepo project using NPM Workspaces. The project is from my startup <a href="https://www.venopi.com/" class="textlink" target="_blank">Venopi</a> and will have different frameworks and libraries for each application.
+</p>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Let's get started</h2>
+<p class="mb-4 md:mb-6">
+    We will build a Monorepo project consisting of two applications and two libraries. Each of the applications uses a different framework and library:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        <span class="text-red-600 dark:text-pink-500">Dashboard App</span>: Vite (Nuxt + Vue)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        <span class="text-red-600 dark:text-pink-500">Web3 App</span>: Next.js (React with TypeScript)
+    </li>
+</ul>
+<p class="mb-4 md:mb-6">
+    For the libraries, we will <a href="#tsup" class="textlink">create TypeScript libraries inside `libs` folder</a>.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/frontend/monorepo/monorepo_structure.png" | relative_url }}" alt="Monorepo structure Venopi" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Monorepo structure we are building on Venopi.
+    </figcaption>
+</figure>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Setup</h2>
+<p class="mb-4 md:mb-6">
+    Create your `package.json` file by running:
+</p>
+{% highlight Shell %}
+npm init -y
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    When it's done, let's add the `workspaces` to the `package.json` to tell NPM that this project is a Monorepo project and adjust the `package.json` default content to what we want:
+</p>
+{% highlight json %}
+{
+    "name": "@venopi",
+    "version": "1.0.0",
+    "description": "Venopi using Monorepo design system",
+    "main": "index.js",
+    "scripts": {},
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "workspaces": [
+        "apps/*",
+        "libs/*"
+    ],
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    <span class="text-red-600 dark:text-pink-500"><i class="fa-solid fa-lightbulb mr-1.5"></i> TIP:</span> Good convention for naming is `@yourcompany`, so later on, when we have many packages, we can use: `@yourcompany/package-one`, `@yourcompany/package-two`, etc.
+</p>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Install frameworks for applications into the Monorepo</h2>
+<p class="mb-4 md:mb-6">
+    We will set up our applications to match our project structure by installing Next.js and NuxtJS applications into the Monorepo.
+</p>
+{% highlight Shell %}
+mkdir apps
+mkdir libs
+{% endhighlight %}
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">01. Dashboard App: Vite (Nuxt + Vue)</h3>
+<p class="mb-4 md:mb-6">
+    Let's create a Vite project with the latest version of Vue:
+</p>
+{% highlight Shell %}
+cd apps
+npm create vite@latest
+{% endhighlight %}
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/frontend/monorepo/vite-nuxt-vue.png" | relative_url }}" alt="Vite + Nuxt + Vue" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Dashboard app: Vite + Nuxt + Vue
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    Let's update the name inside `apps/dashboard/package.json`:
+</p>
+{% highlight json %}
+{
+    "name": "@venopi/dashboard",
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Awesome, we now have a Dashboard application using NuxtJS + Vue as its framework.
+</p>
+
+{%- include breathe.html -%}
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">02. Web3 App: Next.js (React with TypeScript)</h3>
+<p class="mb-4 md:mb-6">
+    Let's create a Next.js project with TS inside `apps/web3`.
+</p>
+{% highlight Shell %}
+npx create-next-app apps/web3 --ts --use-npm
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Don't forget to update the name inside `apps/web3/package.json`:
+</p>
+{% highlight json %}
+{
+    "name": "@venopi/web3",
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Splendid, we now have a Web3 application using Next.js as its framework and React as its library with TypeScript syntax.
+</p>
+{%- include breathe.html -%}
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">NPM install</h3>
+<p class="mb-4 md:mb-6">
+    OK, we are all set up, but before we run `npm install`, check your apps/dashboard and apps/web3. They should not have `package-lock.json` inside them.
+    <span class="underline underline-offset-8">The only `package-lock.json` that exists must only be on the root folder</span>.
+</p>
+<p class="mb-4 md:mb-6">
+    Let's <strong class="text-red-600 dark:text-pink-500">go to the root folder</strong> and run `npm install`.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-900 rounded-lg text-center">
+        <img src="{{ "/assets/images/frontend/monorepo/folder-structure.png" | relative_url }}" alt="Folder structure" class="inline-block h-[540px]" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Folder structure. Only root has `package-lock.json`.
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    When we look at the `package-lock.json` on the root folder, we will see that the `apps/dashboard` and `apps/web3` are inside it.
+</p>
+{% highlight json %}
+{
+    ...
+    "packages": {
+        "": {
+            "name": "@venopi",
+            "version": "1.0.0",
+            "license": "ISC",
+            "workspaces": [
+                "apps/*",
+                "libs/*"
+            ]
+        },
+        "apps/dashboard": {
+            "name": "@venopi/dashboard",
+            "hasInstallScript": true,
+            "devDependencies": {
+                "nuxt": "3.0.0-rc.12"
+            }
+        },
+        "apps/web3": {
+            "version": "0.1.0",
+            "dependencies": {
+                "next": "12.3.1",
+                "react": "18.2.0",
+                "react-dom": "18.2.0"
+            },
+        }
+    ...
+}
+{% endhighlight %}
+{%- include breathe.html id="tsup" -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Create a TypeScript library using tsup</h2>
+<p class="mb-4 md:mb-6">
+    In this demo, we will create a `utils` TypeScript library. First, let's create a directory called `utils` inside the `libs` folder and then create an empty `package.json` file:
+</p>
+{% highlight Shell %}
+cd libs && mkdir utils && cd utils && npm init -y
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Make sure to change the name properly:
+</p>
+{% highlight json %}
+{
+    "name": "@venopi/utils",
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Then we will install tsup into our package to bundle our TypeScript code.
+</p>
+{% highlight Shell %}
+npm install tsup --save-dev -w=@venopi/utils
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Next, we will adjust our `package.json` inside `@venopi/utils`. We create a tsup object with the following:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        Entry point (`entry`)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        Configure it to generate the TypeScript definition (`dts`)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        Generate source map (`sourcemap`)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        Specify the format tsup to output ESM (`esm`) and CommonJS (`cjs`).
+    </li>
+</ul>
+<p class="mb-4 md:mb-6">
+    Tsup will generate the javascript files inside the `dist` folders. Therefore we need to update the `main` property to `dist/index.js` and add the `module` property to `dist/index.mjs`.
+</p>
+<p class="mb-4 md:mb-6">
+    Lastly, we need to adjust the `scripts` accordingly. We want a `dev` script that will watch tsup and a `build` script that will just run tsup. Here is how our final `package.json` inside `@venopi/utils` looks like:
+</p>
+{% highlight json %}
+{
+    "name": "@venopi/utils",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "tsup": {
+        "entry": ["src/index.ts"],
+        "dts": true,
+        "sourcemap": true,
+        "format": ["esm", "cjs"]
+    },
+    "scripts": {
+        "dev": "tsup --watch",
+        "build": "tsup"
+    },
+    "devDependencies": {
+        "tsup": "^6.3.0"
+    }
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Beautiful. We have a tsup configuration in place! We can create a new TypeScript file (`index.ts`) inside the `libs/utils/src` folder that will export a constant called `cookie`.
+</p>
+{% highlight javascript %}
+export const cookie = '🍪'
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    You are all set! Creating a TypeScript library is easy when you use tsup! To learn more about tsup, go <a href="https://tsup.egoist.dev/" class="textlink" target="_blank">here</a>.
+</p>
+{%- include breathe.html -%}
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">How to run app-specific commands inside a Monorepo project?</h2>
+<p class="mb-4 md:mb-6">
+    Running commands inside an npm monorepo workspaces is straightforward. You must type the `npm run` command with `-w [package name]`. For example, say we want to build `@venopi/utils`. We run:
+</p>
+{% highlight Shell %}
+npm run build -w @venopi/utils
+{% endhighlight %}
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/frontend/monorepo/npm-command-specific-package.png" | relative_url }}" alt="npm run build command on @venopi/utils" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        npm run build command on @venopi/utils
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    If you want to run all across the packages:
+</p>
+{% highlight Shell %}
+npm run build -ws
+{% endhighlight %}
+
+{%- include breathe.html -%}
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">How to install dependency for a specific package inside a Monorepo project?</h2>
+<p class="mb-4 md:mb-6">
+    In a real-world scenario, you might want to install different npm packages for different apps:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        <a href="https://www.npmjs.com/package/axios" class="textlink" target="_blank">`axios`</a> for `@venopi/dashboard` only
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        <a href="https://www.npmjs.com/package/lodash" class="textlink" target="_blank">`lodash`</a> for all packages
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        <a href="https://www.npmjs.com/package/express" class="textlink" target="_blank">`express`</a> in the root of the project
+    </li>
+</ul>
+<p class="mb-4 md:mb-6">
+    Is there a way to do this? Yes!
+</p>
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">
+    01. `axios` for `@venopi/dashboard` only:
+</h3>
+{% highlight Shell %}
+npm install axios -w @venopi/dashboard
+{% endhighlight %}
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/frontend/monorepo/axios-dashboard-only.png" | relative_url }}" alt="Axios only installed inside @venopi/dashboard" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Axios only installed inside @venopi/dashboard
+    </figcaption>
+</figure>
+
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">
+    02. `lodash` for all packages:
+</h3>
+{% highlight Shell %}
+npm install lodash -ws
+{% endhighlight %}
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-900 rounded-lg text-center">
+        <img src="{{ "/assets/images/frontend/monorepo/lodash-across-packages.png" | relative_url }}" alt="Lodash installed across packages" class="inline-block h-[540px]" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Lodash installed across packages (package-lock.json)
+    </figcaption>
+</figure>
+
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">
+    03. `express` in the root of the project:
+</h3>
+{% highlight Shell %}
+npm install express -W
+{% endhighlight %}
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-900 rounded-lg text-center">
+        <img src="{{ "/assets/images/frontend/monorepo/express-root.png" | relative_url }}" alt="Express installed on the root folder" class="inline-block" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Express installed on the root folder
+    </figcaption>
+</figure>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">How to run a dev script for all packages simultaneously in a Monorepo project?</h2>
+<p class="mb-4 md:mb-6">
+    We will do this by installing a package called <a href="https://www.npmjs.com/package/concurrently" class="textlink" target="_blank">`concurrently`</a>. Concurrently allows you to run multiple commands concurrently 👍 (brilliant name ey!)
+</p>
+<p class="mb-4 md:mb-6">
+    To do this, let us install `concurrently` as a dev dependency on the root `package.json` of the project.
+</p>
+{% highlight Shell %}
+npm install concurrently -W --save-dev
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    When the installation is done, we will add some scripts inside the `package.json` on the root folder. We need to create `dev:utils`, `dev:dashboard` and `dev:web3` then a generic `dev` using concurrently.
+</p>
+{% highlight json %}
+{
+    "scripts": {
+        "dev": "concurrently \"npm:dev:utils\" \"npm:dev:dashboard\" \"npm:dev:web3\"",
+        "dev:utils": "npm run dev -w @venopi/utils",
+        "dev:dashboard": "npm run dev -w @venopi/dashboard",
+        "dev:web3": "npm run dev -w @venopi/web3"
+    },
+}
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    Now we can run `npm run dev` and see that all our apps run simultaneously.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/frontend/monorepo/concurrently_1.png" | relative_url }}" alt="run all apps using concurrently" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Run all apps using concurrently
+    </figcaption>
+</figure>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/frontend/monorepo/concurrently_2.png" | relative_url }}" alt="Concurrently starts the ports for your apps simultanously" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Concurrently starts the ports for your apps simultanously
+    </figcaption>
+</figure>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">How to share code between the library and application in a Monorepo project?</h2>
+<p class="mb-4 md:mb-6">
+    Remember our Cookie library? We want to use that Cookie on both the dashboard and web3 apps. How do we do that?
+</p>
+{% highlight Shell %}
+npm install @venopi/utils --save -w @venopi/dashboard -w @venopi/web3
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    When it's done, we can check if our library is indeed being installed across our packages.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-900 rounded-lg text-center">
+        <img src="{{ "/assets/images/frontend/monorepo/utils-across-apps.png" | relative_url }}" alt="@venopi/utils are installed inside @venopi/dashboard and @venopi/web3" class="inline-block h-[540px]" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        @venopi/utils are installed inside @venopi/dashboard and @venopi/web3 (package-lock.json)
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    Let us use the cookie lib on both of our apps. I want to show the Cookie on the title of the browser. On the `apps/dashboard`, I adjusted the `nuxt.config.js`:
+</p>
+{% highlight javascript %}
+import { cookie } from '@venopi/utils';
+
+export default defineNuxtConfig({
+	app: {
+		head: {
+			charset: 'utf-16',
+			viewport: 'width=500, initial-scale=1',
+			title: `Nuxt + Vue  ${cookie}`,
+		}
+	}
+})
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    On the `apps/web3`, I adjusted the `pages/index.tsx`:
+</p>
+{% highlight javascript %}
+// more code
+import { cookie } from '@venopi/utils'
+
+const Home: NextPage = () => {
+    return (
+        <div className={styles.container}>
+            <Head>
+                <title>Dashboard Next.js { cookie }</title>
+                // more code
+            </Head>
+        </div>
+        // more code
+    )
+}
+{% endhighlight %}
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/frontend/monorepo/browser-titles.png" | relative_url }}" alt="Browser titles use cookie lib" class="inline-block" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Browser titles use cookie lib
+    </figcaption>
+</figure>
+
+<p class="mb-4 md:mb-6">
+    If we change the `libs/utils/src/index.ts` from 🍪 to 🍍, we will see the browser titles of Dashboard and Web3 be updated accordingly.
+</p>
+{% highlight javascript %}
+export const cookie = '🍍'
+{% endhighlight %}
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/frontend/monorepo/browser-titles-2.png" | relative_url }}" alt="Browser titles with updated 🍍" class="inline-block" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Browser titles with updated 🍍
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    That's it! You just created a Monorepo project with NPM workspaces 👏<br>
+    You can check out the repo <a href="https://github.com/ivanasetiawan/monorepo" class="textlink" target="_blank">here</a>.
+</p>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Helpers</h2>
+<ul>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.npmjs.com/cli/v8/using-npm/workspaces" target="_blank" class="textlink">NPM Workspaces</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://tsup.egoist.dev/" target="_blank" class="textlink">tsup</a>:</strong> Bundle your TypeScript library with no config, powered by esbuild.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://vitejs.dev/" target="_blank" class="textlink">Vite</a></strong>: Next Generation Frontend Tooling
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://nextjs.org/" target="_blank" class="textlink">Next.js</a></strong>: The React Framework for Production
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://v3.nuxtjs.org/" target="_blank" class="textlink">NuxtJS</a></strong>: The Hybrid Vue Framework
+    </li>
+</ul>
+

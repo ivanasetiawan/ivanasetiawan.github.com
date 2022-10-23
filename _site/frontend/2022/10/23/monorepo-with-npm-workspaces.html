@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Monorepo with NPM workspaces | Ivana Setiawan</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Monorepo with NPM workspaces" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don’t need to know anything about the other packages." />
+<meta property="og:description" content="Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don’t need to know anything about the other packages." />
+<link rel="canonical" href="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html" />
+<meta property="og:url" content="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html" />
+<meta property="og:site_name" content="Ivana Setiawan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-23T20:34:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Monorepo with NPM workspaces" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html"},"@type":"BlogPosting","description":"Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don’t need to know anything about the other packages.","headline":"Monorepo with NPM workspaces","url":"http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html","datePublished":"2022-10-23T20:34:00+02:00","dateModified":"2022-10-23T20:34:00+02:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{Ivana} Software developer, UX Designer. JavaScript lover, Blockchain experimentalist and Web3 enthusiast
+    </title>
+    <meta name="description"
+        content="I am a self-taught aspie Software Engineer, mostly doing front-end stuff. A JavaScript lover, Python amateur, Hacker, Blockchain (Solidity) experimentalist and Web3 enthusiast. I also really enjoy UX Design. My ongoing project is Venopi.">
+    <meta name="author" content="Ivana Setiawan">
+    
+    <link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/assets/dist/main.css">
+    <script src="https://kit.fontawesome.com/823d655421.js" crossorigin="anonymous"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Ivana Setiawan" /><!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4362998438441268" crossorigin="anonymous"></script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDGCG2WGVF"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-JDGCG2WGVF');
+</script>
+</head>
+<body class="font-tpr tracking-wide">
+    <header class="p-4 md:px-4 md:py-6 bg-slate-50 dark:bg-slate-900 dark:text-yellow-50 fixed w-full z-10 top-0 shadow md:shadow-none">
+        <div class="max-w-screen-lg mx-auto lg:px-4 flex items-center font-monospace justify-between">
+            <h1 class="mr-4 md:mr-6 tracking-widest text-sm md:text-xl font-semibold">
+                <a href="/" class="group">
+                n<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-orange-500">3</span>rd<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-violet-500">0</span>nc<span class="group-hover:hidden">*</span><span class="hidden group-hover:inline group-hover:text-lime-500">1</span>d
+                </a>
+            </h1>
+            <nav>
+                <ul class="flex items-center">
+                    <li class="ml-4 md:ml-6 tracking-wide"><a class="text-sm md:text-xl hover-g-violet-pink font-semibold" href="/journal/2022/02/24/why-ivana-writes.html">about</a></li>
+                    <li class="ml-4 md:ml-6 tracking-wide"><a class="text-sm md:text-xl hover-g-violet-pink font-semibold" href="/blog/">blog</a></li>
+                    <li class="ml-4 md:ml-6 tracking-wide"><button onclick="setMode('light')" id="mode-light" type="button" class="bg-slate-200 rounded-full dark:bg-slate-700 cursor-pointer text-yellow-500 inline-block leading-[37px] w-8 h-8 text-center">
+    <i class="cursor-pointer fa-solid fa-sun-bright text-xl"></i>
+</button>
+
+<button onclick="setMode('dark')" id="mode-dark" type="button" class="bg-slate-200 rounded-full dark:bg-slate-700 text-sky-700 cursor-pointer inline-block leading-[37px] w-8 h-8 text-center">
+    <i class="cursor-pointer fa-solid fa-moon text-xl"></i>
+</button>
+</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main aria-label="Content">
+        <section
+    class="bg-gradient-to-tr from-violet-100 to-amber-50 pt-16 dark:bg-gradient-to-tr dark:from-slate-800 dark:to-slate-900 dark:text-yellow-50"
+    itemscope itemtype="https://schema.org/Blog">
+    <div class="max-w-screen-md mx-auto px-4 py-12 md:py-16 lg:py-24 min-h-screen">
+        <div class="mb-9 flex justify-between items-center">
+            <div>
+                <a class="hover:decoration-dotted hover:text-orange-500 hover:underline hover:underline-offset-4"
+                href="/blog/"><i class="fa-solid fa-arrow-left mr-1"></i> Blog</a>
+            </div>
+        </div>
+
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+            <header class="mb-4 md:mb-9">
+                <h1 class="font-semibold text-4xl mb-4 leading-snug g-text-violet-pink" itemprop="name headline">Monorepo with NPM workspaces</h1>
+                <p class="text-gray-500">
+                <time datetime="2022-10-23T20:34:00+02:00" itemprop="datePublished">Oct 23, 2022
+                </time></p>
+            </header>
+
+            <div class="tracking-wide leading-loose text-lg" itemprop="articleBody">
+                <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Monorepo in a nutshell</h2>
+<p class="mb-4 md:mb-6">
+    Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don't need to know anything about the other packages.
+</p>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6"></h2>
+<p class="mb-4 md:mb-6">
+    In this article, we will create a Monorepo project using NPM Workspaces. The project is from my startup <a href="https://www.venopi.com/" class="textlink" target="_blank">Venopi</a> and will have different frameworks and libraries for each application.
+</p>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Let's get started</h2>
+<p class="mb-4 md:mb-6">
+    We will build a Monorepo project consisting of two applications and two libraries. Each of the applications uses a different framework and library:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        <span class="text-red-600 dark:text-pink-500">Dashboard App</span>: Vite (Nuxt + Vue)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        <span class="text-red-600 dark:text-pink-500">Web3 App</span>: Next.js (React with TypeScript)
+    </li>
+</ul>
+<p class="mb-4 md:mb-6">
+    For the libraries, we will <a href="#tsup" class="textlink">create TypeScript libraries inside `libs` folder</a>.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="/assets/images/frontend/monorepo/monorepo_structure.png" alt="Monorepo structure Venopi" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Monorepo structure we are building on Venopi.
+    </figcaption>
+</figure><div class="my-9 md:my-14 text-center h-12 relative" id="">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Setup</h2>
+<p class="mb-4 md:mb-6">
+    Create your `package.json` file by running:
+</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npm init <span class="nt">-y</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    When it's done, let's add the `workspaces` to the `package.json` to tell NPM that this project is a Monorepo project and adjust the `package.json` default content to what we want:
+</p>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@venopi"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Venopi using Monorepo design system"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.js"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"workspaces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"apps/*"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"libs/*"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    <span class="text-red-600 dark:text-pink-500"><i class="fa-solid fa-lightbulb mr-1.5"></i> TIP:</span> Good convention for naming is `@yourcompany`, so later on, when we have many packages, we can use: `@yourcompany/package-one`, `@yourcompany/package-two`, etc.
+</p><div class="my-9 md:my-14 text-center h-12 relative" id="">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Install frameworks for applications into the Monorepo</h2>
+<p class="mb-4 md:mb-6">
+    We will set up our applications to match our project structure by installing Next.js and NuxtJS applications into the Monorepo.
+</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nb">mkdir </span>apps
+<span class="nb">mkdir </span>libs</code></pre></figure>
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">01. Dashboard App: Vite (Nuxt + Vue)</h3>
+<p class="mb-4 md:mb-6">
+    Let's create a Vite project with the latest version of Vue:
+</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nb">cd </span>apps
+npm create vite@latest</code></pre></figure>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="/assets/images/frontend/monorepo/vite-nuxt-vue.png" alt="Vite + Nuxt + Vue" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Dashboard app: Vite + Nuxt + Vue
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    Let's update the name inside `apps/dashboard/package.json`:
+</p>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@venopi/dashboard"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    Awesome, we now have a Dashboard application using NuxtJS + Vue as its framework.
+</p><div class="my-9 md:my-14 text-center h-12 relative" id="">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">02. Web3 App: Next.js (React with TypeScript)</h3>
+<p class="mb-4 md:mb-6">
+    Let's create a Next.js project with TS inside `apps/web3`.
+</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npx create-next-app apps/web3 <span class="nt">--ts</span> <span class="nt">--use-npm</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    Don't forget to update the name inside `apps/web3/package.json`:
+</p>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@venopi/web3"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    Splendid, we now have a Web3 application using Next.js as its framework and React as its library with TypeScript syntax.
+</p><div class="my-9 md:my-14 text-center h-12 relative" id="">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">NPM install</h3>
+<p class="mb-4 md:mb-6">
+    OK, we are all set up, but before we run `npm install`, check your apps/dashboard and apps/web3. They should not have `package-lock.json` inside them.
+    <span class="underline underline-offset-8">The only `package-lock.json` that exists must only be on the root folder</span>.
+</p>
+<p class="mb-4 md:mb-6">
+    Let's <strong class="text-red-600 dark:text-pink-500">go to the root folder</strong> and run `npm install`.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-900 rounded-lg text-center">
+        <img src="/assets/images/frontend/monorepo/folder-structure.png" alt="Folder structure" class="inline-block h-[540px]" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Folder structure. Only root has `package-lock.json`.
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    When we look at the `package-lock.json` on the root folder, we will see that the `apps/dashboard` and `apps/web3` are inside it.
+</p>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="nl">"packages"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">""</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@venopi"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISC"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"workspaces"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"apps/*"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"libs/*"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"apps/dashboard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@venopi/dashboard"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hasInstallScript"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"nuxt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.0.0-rc.12"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"apps/web3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.3.1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.2.0"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"react-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.2.0"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span></code></pre></figure><div class="my-9 md:my-14 text-center h-12 relative" id="tsup">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Create a TypeScript library using tsup</h2>
+<p class="mb-4 md:mb-6">
+    In this demo, we will create a `utils` TypeScript library. First, let's create a directory called `utils` inside the `libs` folder and then create an empty `package.json` file:
+</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nb">cd </span>libs <span class="o">&amp;&amp;</span> <span class="nb">mkdir </span>utils <span class="o">&amp;&amp;</span> <span class="nb">cd </span>utils <span class="o">&amp;&amp;</span> npm init <span class="nt">-y</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    Make sure to change the name properly:
+</p>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@venopi/utils"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    Then we will install tsup into our package to bundle our TypeScript code.
+</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npm <span class="nb">install </span>tsup <span class="nt">--save-dev</span> <span class="nt">-w</span><span class="o">=</span>@venopi/utils</code></pre></figure>
+<p class="mb-4 md:mb-6">
+    Next, we will adjust our `package.json` inside `@venopi/utils`. We create a tsup object with the following:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        Entry point (`entry`)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        Configure it to generate the TypeScript definition (`dts`)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        Generate source map (`sourcemap`)
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        Specify the format tsup to output ESM (`esm`) and CommonJS (`cjs`).
+    </li>
+</ul>
+<p class="mb-4 md:mb-6">
+    Tsup will generate the javascript files inside the `dist` folders. Therefore we need to update the `main` property to `dist/index.js` and add the `module` property to `dist/index.mjs`.
+</p>
+<p class="mb-4 md:mb-6">
+    Lastly, we need to adjust the `scripts` accordingly. We want a `dev` script that will watch tsup and a `build` script that will just run tsup. Here is how our final `package.json` inside `@venopi/utils` looks like:
+</p>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@venopi/utils"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dist/index.js"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"module"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dist/index.mjs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tsup"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src/index.ts"</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"dts"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sourcemap"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"esm"</span><span class="p">,</span><span class="w"> </span><span class="s2">"cjs"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tsup --watch"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tsup"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"tsup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.3.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    Beautiful. We have a tsup configuration in place! We can create a new TypeScript file (`index.ts`) inside the `libs/utils/src` folder that will export a constant called `cookie`.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">export</span> <span class="kd">const</span> <span class="nx">cookie</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">🍪</span><span class="dl">'</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    You are all set! Creating a TypeScript library is easy when you use tsup! To learn more about tsup, go <a href="https://tsup.egoist.dev/" class="textlink" target="_blank">here</a>.
+</p><div class="my-9 md:my-14 text-center h-12 relative" id="">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">How to run app-specific commands inside a Monorepo project?</h2>
+<p class="mb-4 md:mb-6">
+    Running commands inside an npm monorepo workspaces is straightforward. You must type the `npm run` command with `-w [package name]`. For example, say we want to build `@venopi/utils`. We run:
+</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npm run build <span class="nt">-w</span> @venopi/utils</code></pre></figure>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="/assets/images/frontend/monorepo/npm-command-specific-package.png" alt="npm run build command on @venopi/utils" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        npm run build command on @venopi/utils
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    If you want to run all across the packages:
+</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npm run build <span class="nt">-ws</span></code></pre></figure><div class="my-9 md:my-14 text-center h-12 relative" id="">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">How to install dependency for a specific package inside a Monorepo project?</h2>
+<p class="mb-4 md:mb-6">
+    In a real-world scenario, you might want to install different npm packages for different apps:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        <a href="https://www.npmjs.com/package/axios" class="textlink" target="_blank">`axios`</a> for `@venopi/dashboard` only
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        <a href="https://www.npmjs.com/package/lodash" class="textlink" target="_blank">`lodash`</a> for all packages
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code"></i>
+        <a href="https://www.npmjs.com/package/express" class="textlink" target="_blank">`express`</a> in the root of the project
+    </li>
+</ul>
+<p class="mb-4 md:mb-6">
+    Is there a way to do this? Yes!
+</p>
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">
+    01. `axios` for `@venopi/dashboard` only:
+</h3>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npm <span class="nb">install </span>axios <span class="nt">-w</span> @venopi/dashboard</code></pre></figure>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="/assets/images/frontend/monorepo/axios-dashboard-only.png" alt="Axios only installed inside @venopi/dashboard" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Axios only installed inside @venopi/dashboard
+    </figcaption>
+</figure>
+
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">
+    02. `lodash` for all packages:
+</h3>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npm <span class="nb">install </span>lodash <span class="nt">-ws</span></code></pre></figure>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-900 rounded-lg text-center">
+        <img src="/assets/images/frontend/monorepo/lodash-across-packages.png" alt="Lodash installed across packages" class="inline-block h-[540px]" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Lodash installed across packages (package-lock.json)
+    </figcaption>
+</figure>
+
+<h3 class="font-semibold mt-6 mb-2 md:mt-9 md:mb-4">
+    03. `express` in the root of the project:
+</h3>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npm <span class="nb">install </span>express <span class="nt">-W</span></code></pre></figure>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-900 rounded-lg text-center">
+        <img src="/assets/images/frontend/monorepo/express-root.png" alt="Express installed on the root folder" class="inline-block" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Express installed on the root folder
+    </figcaption>
+</figure><div class="my-9 md:my-14 text-center h-12 relative" id="">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">How to run a dev script for all packages simultaneously in a Monorepo project?</h2>
+<p class="mb-4 md:mb-6">
+    We will do this by installing a package called <a href="https://www.npmjs.com/package/concurrently" class="textlink" target="_blank">`concurrently`</a>. Concurrently allows you to run multiple commands concurrently 👍 (brilliant name ey!)
+</p>
+<p class="mb-4 md:mb-6">
+    To do this, let us install `concurrently` as a dev dependency on the root `package.json` of the project.
+</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npm <span class="nb">install </span>concurrently <span class="nt">-W</span> <span class="nt">--save-dev</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    When the installation is done, we will add some scripts inside the `package.json` on the root folder. We need to create `dev:utils`, `dev:dashboard` and `dev:web3` then a generic `dev` using concurrently.
+</p>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+    </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"concurrently </span><span class="se">\"</span><span class="s2">npm:dev:utils</span><span class="se">\"</span><span class="s2"> </span><span class="se">\"</span><span class="s2">npm:dev:dashboard</span><span class="se">\"</span><span class="s2"> </span><span class="se">\"</span><span class="s2">npm:dev:web3</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dev:utils"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run dev -w @venopi/utils"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dev:dashboard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run dev -w @venopi/dashboard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dev:web3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run dev -w @venopi/web3"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    Now we can run `npm run dev` and see that all our apps run simultaneously.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="/assets/images/frontend/monorepo/concurrently_1.png" alt="run all apps using concurrently" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Run all apps using concurrently
+    </figcaption>
+</figure>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="/assets/images/frontend/monorepo/concurrently_2.png" alt="Concurrently starts the ports for your apps simultanously" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Concurrently starts the ports for your apps simultanously
+    </figcaption>
+</figure><div class="my-9 md:my-14 text-center h-12 relative" id="">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">How to share code between the library and application in a Monorepo project?</h2>
+<p class="mb-4 md:mb-6">
+    Remember our Cookie library? We want to use that Cookie on both the dashboard and web3 apps. How do we do that?
+</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">npm <span class="nb">install</span> @venopi/utils <span class="nt">--save</span> <span class="nt">-w</span> @venopi/dashboard <span class="nt">-w</span> @venopi/web3</code></pre></figure>
+<p class="mb-4 md:mb-6">
+    When it's done, we can check if our library is indeed being installed across our packages.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-900 rounded-lg text-center">
+        <img src="/assets/images/frontend/monorepo/utils-across-apps.png" alt="@venopi/utils are installed inside @venopi/dashboard and @venopi/web3" class="inline-block h-[540px]" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        @venopi/utils are installed inside @venopi/dashboard and @venopi/web3 (package-lock.json)
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    Let us use the cookie lib on both of our apps. I want to show the Cookie on the title of the browser. On the `apps/dashboard`, I adjusted the `nuxt.config.js`:
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">import</span> <span class="p">{</span> <span class="nx">cookie</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@venopi/utils</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">defineNuxtConfig</span><span class="p">({</span>
+	<span class="na">app</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">head</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">charset</span><span class="p">:</span> <span class="dl">'</span><span class="s1">utf-16</span><span class="dl">'</span><span class="p">,</span>
+			<span class="na">viewport</span><span class="p">:</span> <span class="dl">'</span><span class="s1">width=500, initial-scale=1</span><span class="dl">'</span><span class="p">,</span>
+			<span class="na">title</span><span class="p">:</span> <span class="s2">`Nuxt + Vue  </span><span class="p">${</span><span class="nx">cookie</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">})</span></code></pre></figure>
+<p class="mb-4 md:mb-6">
+    On the `apps/web3`, I adjusted the `pages/index.tsx`:
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// more code</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">cookie</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@venopi/utils</span><span class="dl">'</span>
+
+<span class="kd">const</span> <span class="nx">Home</span><span class="p">:</span> <span class="nx">NextPage</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">styles</span><span class="p">.</span><span class="nx">container</span><span class="p">}</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Head</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Dashboard</span> <span class="nx">Next</span><span class="p">.</span><span class="nx">js</span> <span class="p">{</span> <span class="nx">cookie</span> <span class="p">}</span><span class="o">&lt;</span><span class="sr">/title</span><span class="err">&gt;
+</span>                <span class="c1">// more code</span>
+            <span class="o">&lt;</span><span class="sr">/Head</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="c1">// more code</span>
+    <span class="p">)</span>
+<span class="p">}</span></code></pre></figure>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="/assets/images/frontend/monorepo/browser-titles.png" alt="Browser titles use cookie lib" class="inline-block" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Browser titles use cookie lib
+    </figcaption>
+</figure>
+
+<p class="mb-4 md:mb-6">
+    If we change the `libs/utils/src/index.ts` from 🍪 to 🍍, we will see the browser titles of Dashboard and Web3 be updated accordingly.
+</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">export</span> <span class="kd">const</span> <span class="nx">cookie</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">🍍</span><span class="dl">'</span></code></pre></figure>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="/assets/images/frontend/monorepo/browser-titles-2.png" alt="Browser titles with updated 🍍" class="inline-block" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Browser titles with updated 🍍
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    That's it! You just created a Monorepo project with NPM workspaces 👏<br>
+    You can check out the repo <a href="https://github.com/ivanasetiawan/monorepo" class="textlink" target="_blank">here</a>.
+</p><div class="my-9 md:my-14 text-center h-12 relative" id="">
+    <div class="before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6">
+		<span class="px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700">
+			<i class="fa-light fa-face-exhaling text-2xl mr-1"></i>
+			<span class="text-sm inline-block">breathe...</span>
+		</span>
+    </div>
+</div>
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Helpers</h2>
+<ul>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://docs.npmjs.com/cli/v8/using-npm/workspaces" target="_blank" class="textlink">NPM Workspaces</a></strong>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://tsup.egoist.dev/" target="_blank" class="textlink">tsup</a>:</strong> Bundle your TypeScript library with no config, powered by esbuild.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://vitejs.dev/" target="_blank" class="textlink">Vite</a></strong>: Next Generation Frontend Tooling
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://nextjs.org/" target="_blank" class="textlink">Next.js</a></strong>: The React Framework for Production
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-code text-base"></i>
+        <strong><a href="https://v3.nuxtjs.org/" target="_blank" class="textlink">NuxtJS</a></strong>: The Hybrid Vue Framework
+    </li>
+</ul>
+
+
+            </div>
+
+            <!-- <div class="my-10 py-10 border-t border-gray-300 dark:border-gray-700">
+                <h3 class="mb-4">Tags: </h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">personal</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">notes</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">code</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tips</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">frontend</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">vue</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">plugin</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">django</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">python</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">adsense</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">npm</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">package</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">google</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">one</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">tap</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">javascript</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">async</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">await</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">promise</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">knowlegde</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">blockchain</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">centralised</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">decentralised</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">technology</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">organisation</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">Web3</h3>
+                
+                <h3 class="inline-block leading-none rounded-md px-2 pt-1 pb-2 bg-slate-300 text-slate-900 mr-1 dark:bg-slate-400">nuxtjs</h3>
+                
+            </div> -->
+        </article><a class="u-url" href="/frontend/2022/10/23/monorepo-with-npm-workspaces.html" hidden></a>
+    </div>
+</section>
+
+<link rel="stylesheet" href="/assets/syntax.css" type="text/css">
+
+    </main><footer class="bg-slate-100">
+    <div class="max-w-screen-lg mx-auto px-4 py-10 text-gray-500 ">
+        <ul class="md:flex md:gap-6 md:justify-center">
+            <li class="my-2 md:my-0"><a href="https://www.linkedin.com/in/ivanasetiawan/" target="_blank"
+                class="textlink"><i
+                    class="fa-brands fa-linkedin mr-2"></i>ivanasetiawan</a>
+            </li>
+            <li class="my-2 md:my-0"><i class="fa-solid fa-id-card-clip mr-2"></i>KVK#: 62163566
+            </li>
+            <li class="my-2 md:my-0"><i class="fa-solid fa-hashtag mr-2"></i>VAT: NL002450150B24
+            </li>
+        </ul>
+    </div>
+</footer>
+<script>
+    const currentMode = localStorage.getItem('mode') ? localStorage.getItem('mode') : 'light';
+    setMode();
+
+    function setMode(mode = currentMode) {
+        mode === 'light' ?  lightMode() : darkMode() ;
+    }
+
+    function darkMode() {
+        document.querySelector('html').classList.add('dark');
+        localStorage.setItem('mode', 'dark');
+        document.getElementById('mode-dark').classList.add('hidden');
+        document.getElementById('mode-light').classList.remove('hidden');
+    }
+
+    function lightMode() {
+        document.querySelector('html').classList.remove('dark');
+        localStorage.setItem('mode', 'light');
+        document.getElementById('mode-light').classList.add('hidden');
+        document.getElementById('mode-dark').classList.remove('hidden');
+    }
+</script>
+</body>
+</html>

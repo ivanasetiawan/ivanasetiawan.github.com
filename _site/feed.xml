@@ -1,4 +1,511 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-15T19:29:22+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Create multiple routes to the same page on your NuxtJS project</title><link href="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html" rel="alternate" type="text/html" title="Create multiple routes to the same page on your NuxtJS project" /><published>2022-10-15T07:34:00+02:00</published><updated>2022-10-15T07:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Background&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-23T20:37:26+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Monorepo with NPM workspaces</title><link href="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html" rel="alternate" type="text/html" title="Monorepo with NPM workspaces" /><published>2022-10-23T20:34:00+02:00</published><updated>2022-10-23T20:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Monorepo in a nutshell&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don't need to know anything about the other packages.
+&lt;/p&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    In this article, we will create a Monorepo project using NPM Workspaces. The project is from my startup &lt;a href=&quot;https://www.venopi.com/&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;Venopi&lt;/a&gt; and will have different frameworks and libraries for each application.
+&lt;/p&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Let's get started&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    We will build a Monorepo project consisting of two applications and two libraries. Each of the applications uses a different framework and library:
+&lt;/p&gt;
+&lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;Dashboard App&lt;/span&gt;: Vite (Nuxt + Vue)
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;Web3 App&lt;/span&gt;: Next.js (React with TypeScript)
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    For the libraries, we will &lt;a href=&quot;#tsup&quot; class=&quot;textlink&quot;&gt;create TypeScript libraries inside `libs` folder&lt;/a&gt;.
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/monorepo_structure.png&quot; alt=&quot;Monorepo structure Venopi&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Monorepo structure we are building on Venopi.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Setup&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Create your `package.json` file by running:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm init &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    When it's done, let's add the `workspaces` to the `package.json` to tell NPM that this project is a Monorepo project and adjust the `package.json` default content to what we want:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@venopi&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Venopi using Monorepo design system&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;index.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;keywords&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ISC&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;workspaces&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;apps/*&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;libs/*&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;&lt;i class=&quot;fa-solid fa-lightbulb mr-1.5&quot;&gt;&lt;/i&gt; TIP:&lt;/span&gt; Good convention for naming is `@yourcompany`, so later on, when we have many packages, we can use: `@yourcompany/package-one`, `@yourcompany/package-two`, etc.
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Install frameworks for applications into the Monorepo&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    We will set up our applications to match our project structure by installing Next.js and NuxtJS applications into the Monorepo.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;apps
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;libs&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h3 class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;01. Dashboard App: Vite (Nuxt + Vue)&lt;/h3&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Let's create a Vite project with the latest version of Vue:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;apps
+npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/vite-nuxt-vue.png&quot; alt=&quot;Vite + Nuxt + Vue&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Dashboard app: Vite + Nuxt + Vue
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Let's update the name inside `apps/dashboard/package.json`:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@venopi/dashboard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Awesome, we now have a Dashboard application using NuxtJS + Vue as its framework.
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;02. Web3 App: Next.js (React with TypeScript)&lt;/h3&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Let's create a Next.js project with TS inside `apps/web3`.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npx create-next-app apps/web3 &lt;span class=&quot;nt&quot;&gt;--ts&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--use-npm&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Don't forget to update the name inside `apps/web3/package.json`:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@venopi/web3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Splendid, we now have a Web3 application using Next.js as its framework and React as its library with TypeScript syntax.
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;NPM install&lt;/h3&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    OK, we are all set up, but before we run `npm install`, check your apps/dashboard and apps/web3. They should not have `package-lock.json` inside them.
+    &lt;span class=&quot;underline underline-offset-8&quot;&gt;The only `package-lock.json` that exists must only be on the root folder&lt;/span&gt;.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Let's &lt;strong class=&quot;text-red-600 dark:text-pink-500&quot;&gt;go to the root folder&lt;/strong&gt; and run `npm install`.
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-900 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/folder-structure.png&quot; alt=&quot;Folder structure&quot; class=&quot;inline-block h-[540px]&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Folder structure. Only root has `package-lock.json`.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    When we look at the `package-lock.json` on the root folder, we will see that the `apps/dashboard` and `apps/web3` are inside it.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;packages&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@venopi&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;license&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ISC&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;workspaces&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;apps/*&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;libs/*&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;apps/dashboard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@venopi/dashboard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;hasInstallScript&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;nuxt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;3.0.0-rc.12&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;apps/web3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0.1.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12.3.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;18.2.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;react-dom&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;18.2.0&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;tsup&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Create a TypeScript library using tsup&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    In this demo, we will create a `utils` TypeScript library. First, let's create a directory called `utils` inside the `libs` folder and then create an empty `package.json` file:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;libs &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;utils &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;utils &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; npm init &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Make sure to change the name properly:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@venopi/utils&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Then we will install tsup into our package to bundle our TypeScript code.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;tsup &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;@venopi/utils&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Next, we will adjust our `package.json` inside `@venopi/utils`. We create a tsup object with the following:
+&lt;/p&gt;
+&lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code&quot;&gt;&lt;/i&gt;
+        Entry point (`entry`)
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code&quot;&gt;&lt;/i&gt;
+        Configure it to generate the TypeScript definition (`dts`)
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code&quot;&gt;&lt;/i&gt;
+        Generate source map (`sourcemap`)
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code&quot;&gt;&lt;/i&gt;
+        Specify the format tsup to output ESM (`esm`) and CommonJS (`cjs`).
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Tsup will generate the javascript files inside the `dist` folders. Therefore we need to update the `main` property to `dist/index.js` and add the `module` property to `dist/index.mjs`.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Lastly, we need to adjust the `scripts` accordingly. We want a `dev` script that will watch tsup and a `build` script that will just run tsup. Here is how our final `package.json` inside `@venopi/utils` looks like:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@venopi/utils&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dist/index.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;module&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dist/index.mjs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;tsup&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;entry&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;src/index.ts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;sourcemap&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;format&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;esm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cjs&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tsup --watch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tsup&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;tsup&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^6.3.0&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Beautiful. We have a tsup configuration in place! We can create a new TypeScript file (`index.ts`) inside the `libs/utils/src` folder that will export a constant called `cookie`.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🍪&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    You are all set! Creating a TypeScript library is easy when you use tsup! To learn more about tsup, go &lt;a href=&quot;https://tsup.egoist.dev/&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;How to run app-specific commands inside a Monorepo project?&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Running commands inside an npm monorepo workspaces is straightforward. You must type the `npm run` command with `-w [package name]`. For example, say we want to build `@venopi/utils`. We run:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm run build &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; @venopi/utils&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/npm-command-specific-package.png&quot; alt=&quot;npm run build command on @venopi/utils&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        npm run build command on @venopi/utils
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    If you want to run all across the packages:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm run build &lt;span class=&quot;nt&quot;&gt;-ws&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;How to install dependency for a specific package inside a Monorepo project?&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    In a real-world scenario, you might want to install different npm packages for different apps:
+&lt;/p&gt;
+&lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code&quot;&gt;&lt;/i&gt;
+        &lt;a href=&quot;https://www.npmjs.com/package/axios&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;`axios`&lt;/a&gt; for `@venopi/dashboard` only
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code&quot;&gt;&lt;/i&gt;
+        &lt;a href=&quot;https://www.npmjs.com/package/lodash&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;`lodash`&lt;/a&gt; for all packages
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code&quot;&gt;&lt;/i&gt;
+        &lt;a href=&quot;https://www.npmjs.com/package/express&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;`express`&lt;/a&gt; in the root of the project
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Is there a way to do this? Yes!
+&lt;/p&gt;
+&lt;h3 class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;
+    01. `axios` for `@venopi/dashboard` only:
+&lt;/h3&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;axios &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; @venopi/dashboard&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/axios-dashboard-only.png&quot; alt=&quot;Axios only installed inside @venopi/dashboard&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Axios only installed inside @venopi/dashboard
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;
+    02. `lodash` for all packages:
+&lt;/h3&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;lodash &lt;span class=&quot;nt&quot;&gt;-ws&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-900 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/lodash-across-packages.png&quot; alt=&quot;Lodash installed across packages&quot; class=&quot;inline-block h-[540px]&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Lodash installed across packages (package-lock.json)
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;
+    03. `express` in the root of the project:
+&lt;/h3&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;express &lt;span class=&quot;nt&quot;&gt;-W&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-900 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/express-root.png&quot; alt=&quot;Express installed on the root folder&quot; class=&quot;inline-block&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Express installed on the root folder
+    &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;How to run a dev script for all packages simultaneously in a Monorepo project?&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    We will do this by installing a package called &lt;a href=&quot;https://www.npmjs.com/package/concurrently&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;`concurrently`&lt;/a&gt;. Concurrently allows you to run multiple commands concurrently 👍 (brilliant name ey!)
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    To do this, let us install `concurrently` as a dev dependency on the root `package.json` of the project.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;concurrently &lt;span class=&quot;nt&quot;&gt;-W&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    When the installation is done, we will add some scripts inside the `package.json` on the root folder. We need to create `dev:utils`, `dev:dashboard` and `dev:web3` then a generic `dev` using concurrently.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;concurrently &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;npm:dev:utils&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;npm:dev:dashboard&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;npm:dev:web3&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dev:utils&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;npm run dev -w @venopi/utils&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dev:dashboard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;npm run dev -w @venopi/dashboard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dev:web3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;npm run dev -w @venopi/web3&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Now we can run `npm run dev` and see that all our apps run simultaneously.
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/concurrently_1.png&quot; alt=&quot;run all apps using concurrently&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Run all apps using concurrently
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/concurrently_2.png&quot; alt=&quot;Concurrently starts the ports for your apps simultanously&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Concurrently starts the ports for your apps simultanously
+    &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;How to share code between the library and application in a Monorepo project?&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Remember our Cookie library? We want to use that Cookie on both the dashboard and web3 apps. How do we do that?
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; @venopi/utils &lt;span class=&quot;nt&quot;&gt;--save&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; @venopi/dashboard &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; @venopi/web3&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    When it's done, we can check if our library is indeed being installed across our packages.
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-900 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/utils-across-apps.png&quot; alt=&quot;@venopi/utils are installed inside @venopi/dashboard and @venopi/web3&quot; class=&quot;inline-block h-[540px]&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        @venopi/utils are installed inside @venopi/dashboard and @venopi/web3 (package-lock.json)
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Let us use the cookie lib on both of our apps. I want to show the Cookie on the title of the browser. On the `apps/dashboard`, I adjusted the `nuxt.config.js`:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@venopi/utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;defineNuxtConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;na&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf-16&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;width=500, initial-scale=1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`Nuxt + Vue  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    On the `apps/web3`, I adjusted the `pages/index.tsx`:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// more code&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@venopi/utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Home&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NextPage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;styles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Head&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Dashboard&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/title&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;// more code&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Head&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;// more code&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/browser-titles.png&quot; alt=&quot;Browser titles use cookie lib&quot; class=&quot;inline-block&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Browser titles use cookie lib
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    If we change the `libs/utils/src/index.ts` from 🍪 to 🍍, we will see the browser titles of Dashboard and Web3 be updated accordingly.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🍍&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/browser-titles-2.png&quot; alt=&quot;Browser titles with updated 🍍&quot; class=&quot;inline-block&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Browser titles with updated 🍍
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    That's it! You just created a Monorepo project with NPM workspaces 👏&lt;br&gt;
+    You can check out the repo &lt;a href=&quot;https://github.com/ivanasetiawan/monorepo&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Helpers&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://docs.npmjs.com/cli/v8/using-npm/workspaces&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;NPM Workspaces&lt;/a&gt;&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://tsup.egoist.dev/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;tsup&lt;/a&gt;:&lt;/strong&gt; Bundle your TypeScript library with no config, powered by esbuild.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://vitejs.dev/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Vite&lt;/a&gt;&lt;/strong&gt;: Next Generation Frontend Tooling
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://nextjs.org/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Next.js&lt;/a&gt;&lt;/strong&gt;: The React Framework for Production
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
+        &lt;strong&gt;&lt;a href=&quot;https://v3.nuxtjs.org/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;NuxtJS&lt;/a&gt;&lt;/strong&gt;: The Hybrid Vue Framework
+    &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="frontend" /><category term="code" /><category term="javascript" /><category term="nuxtjs" /><summary type="html">Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don't need to know anything about the other packages.</summary></entry><entry><title type="html">Create multiple routes to the same page on your NuxtJS project</title><link href="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html" rel="alternate" type="text/html" title="Create multiple routes to the same page on your NuxtJS project" /><published>2022-10-15T07:34:00+02:00</published><updated>2022-10-15T07:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Background&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Imagine you have working NuxtJS pages with three steps onboarding forms and the url of these pages are:
 &lt;/p&gt;
@@ -15,7 +522,7 @@
         &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-ice-cream&quot;&gt;&lt;/i&gt;
         &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;/onboarding/confirm&lt;/span&gt; (step 3 - share with us their personal info and get free samples)
     &lt;/li&gt;
-&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -56,7 +563,7 @@
         &quot;Sounds straightforward. Talk to my team's Product Owner and let's create a story!&quot; (yes.. we're Agile)
     &lt;/p&gt;
     &lt;p&gt;— &lt;i class=&quot;fa-regular fa-user-hair-mullet absolute text-2xl left-0 top-3&quot;&gt;&lt;/i&gt; You&lt;/p&gt;
-&lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -96,7 +603,7 @@
         &lt;br&gt;
         Pointing to the same page: `pages/confirm.vue`
     &lt;/li&gt;
-&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -166,7 +673,7 @@
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Have a better solution than this? Please let me know! I always love to improve 🙏
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -215,7 +722,7 @@
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     There are several ways to do it, one of the ways is by creating a &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;struct&lt;/span&gt;.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -295,7 +802,7 @@
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     That doesn't look effective, don't you think?
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -334,7 +841,7 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Yes, you can also add `[]` to another type, like: `uint256[] public friendsList;`
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -350,7 +857,7 @@
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     For our case, we'll stick to the dynamic size array because we want to add an arbitrary number of friends to this array.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -417,7 +924,7 @@
         */&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;friends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -453,7 +960,7 @@
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Even if you want to build a dApp on other blockchain platforms that don't use Solidity, your knowledge can be easily transferred to other smart contract languages.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -498,7 +1005,7 @@
         Remix: Green checkmark means sucessfully compiled.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;You could deploy this contract, and it would be a valid contract. It would be a contract that doesn't really do anything, but technically speaking, you could.&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;You could deploy this contract, and it would be a valid contract. It would be a contract that doesn't really do anything, but technically speaking, you could.&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -555,7 +1062,7 @@
     &lt;span class=&quot;kt&quot;&gt;int256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;favNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isAddress&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xa3E2836600fD72a5D20e9EB63F61838C610dF8D5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;bytes32&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spritAnimal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;fox&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -597,7 +1104,7 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     When we set the variable to `public`, you will see an extra button where you can see the value of `luckyNumber`.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -627,7 +1134,7 @@
         &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
         &lt;strong&gt;Internal&lt;/strong&gt;: visible internally. Meaning only `MyContract` and its children can access it. When we don't specify a visibility specifier to a function or variable, they are &lt;span class=&quot;underline underline-offset-8&quot;&gt;automatically deployed as internal&lt;/span&gt;.
     &lt;/li&gt;
-&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -712,7 +1219,7 @@
 &lt;span class=&quot;c1&quot;&gt;// Pure function
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getCost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;pure&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;returns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;cost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_price&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -735,7 +1242,7 @@
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Any tips, feedback, or recommendations? Don't hesitate to reach me. I love learning new things 🤓
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -775,7 +1282,7 @@
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     We cannot comprehend Web 3.0 before understanding what Web 1.0 and Web 2.0 are. So let's get to the history of the Web first.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -795,7 +1302,7 @@
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Web 1.0 era was pretty disorganised and overwhelming, but necessary to pave the way for the Web 2.0 era.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -839,7 +1346,7 @@
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
         In plain words, cloud computing delivers computing services—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet (&quot;the cloud&quot;) to offer faster innovation, flexible resources, and economies of scale.
     &lt;/p&gt;
-&lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -853,7 +1360,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     The centralisation of the internet issue, together with the advancement of technology (IoT), AI and machine learning, paved the way for the next generation of the internet, Web 3.0.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -886,7 +1393,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Web 3.0 is a leap forward to open, trustless and permissionless networks. It promises a more intelligent, efficient, accurate, and connected online experience for everyone.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -932,7 +1439,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
         OK look, I am not a gadget nerd, and it could be scary to think of the end-of-the-world scenario where machines go wild and my refrigerator murders me. But think of another scenario of how IoT + AI could save billions of people's lives in healthcare, climate solutions, or food industries.
     &lt;/p&gt;
-&lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -971,7 +1478,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     The next burning question is, How do Eki, Dwi, Tri and you add a transaction to a Blockchain?
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1029,7 +1536,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     The combination of these layers of security is called &lt;strong&gt;cryptography in Blockchains&lt;/strong&gt;.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1114,7 +1621,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
         &lt;/figure&gt;
     &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;That's it! Now, this particular record is immutable and securely saved in the Blockchain.&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;That's it! Now, this particular record is immutable and securely saved in the Blockchain.&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1148,7 +1655,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Hm... What if many computers have identical data? Yes! Peer-to-peer network should do the job!
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1276,7 +1783,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/div&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     There are many different consensus mechanisms used in various types of Blockchains. We're not going to get into details of consensus, but this is how Blockchain demonstrates a secure method of storing data without a centralised party, like banks or corporates.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1306,7 +1813,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Wait, you might ask - what is the centralised and decentralised system? Why is it a big deal?! Good question. &lt;a href=&quot;/web3/2022/09/08/centralised-vs-decentralised-system.html&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Here is an article that should help you 🦊&lt;/a&gt;
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1329,7 +1836,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     So many questions in one paragraph, some people get this right away, and some don't. This article is for those who don't because I can relate with them so much.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1365,7 +1872,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
         &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-fingerprint text-pink-500&quot;&gt;&lt;/i&gt; &lt;strong class=&quot;text-pink-500&quot;&gt;Fingerprint hash from the previous block&lt;/strong&gt;
         &lt;p&gt;Purpose: To form a chain history and to make sure that everything matches as it should be (tamper-resistance)&lt;/p&gt;
     &lt;/li&gt;
-&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1414,7 +1921,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
         Each block contains the previous block's hash, forming a chain structure. Hence the name &quot;Blockchain&quot;.
     &lt;/figcaption&gt;
-&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1564,7 +2071,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     &lt;p class=&quot;monospace&quot;&gt;&lt;i class=&quot;fa-duotone fa-bug mr-1&quot;&gt;&lt;/i&gt; The rest of the blocks are no longer valid&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;So the only way a hacker/cheater wants to commit an offence successfully is by changing all the history related to the block they have corrupted. Not so easy right!&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;So the only way a hacker/cheater wants to commit an offence successfully is by changing all the history related to the block they have corrupted. Not so easy right!&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1584,7 +2091,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     You must have heard of &quot;Blockchain&quot;, and the chance is you are reading this because you probably got confused about blockchain's &quot;decentralised&quot; strength and why people make such a massive deal about it.&lt;br&gt;&lt;br&gt;
     Blockchain is often used for crypto related project (digital currency). However, I find it essential to understand the general interpretation of the word &quot;centralised&quot; vs &quot;decentralised&quot; because blockchain technology is not all about finance.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1628,7 +2135,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
         &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Clear chain of command, faster decision making&lt;/li&gt;
         &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Dedicated resources&lt;/li&gt;
     &lt;/ul&gt;
-&lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1659,7 +2166,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
         &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Peer-to-peer means no one node has supremacy over other nodes&lt;/li&gt;
         &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;High availability since we're not dependant on one centralised node&lt;/li&gt;
     &lt;/ul&gt;
-&lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot;&gt;
+&lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1805,387 +2312,4 @@ If you adjust the `deelay` to larger than 500ms, you will get the fallback insid
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;gravity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1 standard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;To see this concept in action, you can go to &lt;a href=&quot;https://codepen.io/ivanasetiawan/pen/qBxdqNw&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;this Codepen&lt;/a&gt;.&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Any questions or suggestions for better implementations? Write to me 😀&lt;/p&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="javascript" /><category term="async" /><category term="await" /><category term="promise" /><summary type="html">How to set a time limit on Asynchronous functions in JavaScript? Explained in simple words using real case scenario.</summary></entry><entry><title type="html">Google One Tap Vue plugin</title><link href="http://localhost:4000/code/2022/04/10/how-to-create-google-one-tap-plugin.html" rel="alternate" type="text/html" title="Google One Tap Vue plugin" /><published>2022-04-10T21:11:00+02:00</published><updated>2022-04-10T21:11:00+02:00</updated><id>http://localhost:4000/code/2022/04/10/how-to-create-google-one-tap-plugin</id><content type="html" xml:base="http://localhost:4000/code/2022/04/10/how-to-create-google-one-tap-plugin.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is GOT?&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-It's not Game of Thrones. It is Google One Tap.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-One Tap is the new cross-platform sign-in mechanism from Google that supports and streamlines multiple types of credentials.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-You can quickly and easily manage user authentication and sign in to your website using One Tap. Users sign into a Google Account, provide their consent and securely share their profile information with your platform.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Many organisations have started using this method to increase their user retention score. After reading this blog post, you will be able to create a Google One Tap package plugin for any of your projects. Let's go!
-&lt;/p&gt;
-
-&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;But of course, create your Google OAuth credential from &lt;a href=&quot;https://console.developers.google.com/apis&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Google APIs console&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 class=&quot;text-lg font-semibold mt-6 mb-2&quot;&gt;Step 1: Create OAuth Client ID&lt;/h3&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Go to &quot;Credentials&quot; =&gt; Click &quot;Create Credentials&quot; then &quot;OAuth Client ID&quot;.
-&lt;/p&gt;
-&lt;figure class=&quot;my-4 md:my-6 text-center&quot;&gt;
-	&lt;img src=&quot;/assets/images/GOT/1.GOT.png&quot; alt=&quot;Create OAuth Client ID&quot;
-	class=&quot;w-full rounded-2xl overflow-hidden&quot; /&gt;
-	&lt;figcaption class=&quot;text-sm mt-2 md:mt-4&quot;&gt;Credentials =&gt; Create Credentials &gt; OAuth Client ID&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h3 class=&quot;text-lg font-semibold mt-6 mb-2&quot;&gt;Step 2: Fill in details&lt;/h3&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Fill in the details of your project to create Client ID for the Web Application.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-IMPORTANT: Include your site's domain in the Authorized JavaScript origins box. Please note that Google One Tap can only be displayed in HTTPS domains.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-When you perform local tests or development, you must add both &lt;span class=&quot;text-orange-500&quot;&gt;http://localhost&lt;/span&gt; and &lt;span class=&quot;text-orange-500&quot;&gt;http://localhost:port_number&lt;/span&gt; to the Authorized JavaScript origins box. In my case, I added &lt;span class=&quot;text-orange-500&quot;&gt;http://localhost&lt;/span&gt; and &lt;span class=&quot;text-orange-500&quot;&gt;http://localhost:3000&lt;/span&gt;.
-&lt;/p&gt;
-&lt;figure class=&quot;my-4 md:my-6 text-center&quot;&gt;
-	&lt;img src=&quot;/assets/images/GOT/2.GOT.png&quot; alt=&quot;Step 2 Fill in details&quot;
-	class=&quot;w-full rounded-2xl overflow-hidden&quot; /&gt;
-	&lt;figcaption class=&quot;text-sm mt-2 md:mt-4&quot;&gt;Fill in details&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-
-&lt;h3 class=&quot;text-lg font-semibold mt-6 mb-2&quot;&gt;Step 3: Get your Client ID&lt;/h3&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Yes! you have your Client ID ready to be used! Make sure to save it, we will use this Client ID on our plugin 👍
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-IMPORTANT: Do not share your Client Secret to anyone.
-&lt;/p&gt;
-&lt;figure class=&quot;my-4 md:my-6 text-center&quot;&gt;
-	&lt;img src=&quot;/assets/images/GOT/3.GOT.png&quot; alt=&quot;Step 2 Fill in details&quot;
-	class=&quot;w-full rounded-2xl overflow-hidden&quot; /&gt;
-	&lt;figcaption class=&quot;text-sm mt-2 md:mt-4&quot;&gt;Credentials =&gt; Create Credentials &gt; OAuth Client ID&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h2 id=&quot;project-setup&quot; class=&quot;text-2xl font-semibold pt-24 mb-4 md:mb-6&quot;&gt;&lt;a href=&quot;/code/2022/04/10/how-to-create-google-one-tap-plugin.html#project-setup&quot;&gt;01. Project setup&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/google-one-tap/tree/feat/01-setup&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/01-setup]&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Before we write our code, I'd like setup our project with eslint, jest, and playground. Let's start with setting up our `package.json`.
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// File: package.json&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;one-tap-login&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1.0.0&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Google One Tap Login plugin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;onetaplogin.js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Ivana Setiawan&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;license&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;MIT&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;scripts&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;jest&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;test:watch&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;jest --watch&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;lint&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;eslint --fix --ext &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.js,.vue&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; .&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-	&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;devDependencies&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@babel/cli&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^7.17.6&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@babel/core&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^7.17.9&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@babel/preset-env&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^7.16.11&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@vue/test-utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^1.3.0&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;babel-jest&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^27.5.1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;eslint&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^8.11.0&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;eslint-plugin-vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^8.5.0&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;jest&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^27.5.1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;jest-junit&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^13.0.0&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;vue-jest&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^3.0.7&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Then install all the dependencies by running &lt;span class=&quot;text-orange-500&quot;&gt;npm install&lt;/span&gt; on your terminal. Afterwards, we need to setup the Babel, ESLint and Jest config:
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Create a new file .eslintrc.js&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;extends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-	  &lt;span class=&quot;c1&quot;&gt;// add more generic rulesets here, such as:&lt;/span&gt;
-	  &lt;span class=&quot;c1&quot;&gt;// 'eslint:recommended',&lt;/span&gt;
-	  &lt;span class=&quot;c1&quot;&gt;// 'plugin:vue/vue3-recommended',&lt;/span&gt;
-	  &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;plugin:vue/recommended&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Use this if you are using Vue.js 2.x.&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	  &lt;span class=&quot;c1&quot;&gt;// override/add rules settings here, such as:&lt;/span&gt;
-	  &lt;span class=&quot;c1&quot;&gt;// 'vue/no-unused-vars': 'error'&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Create a new file babel.config.js&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;na&quot;&gt;presets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@babel/preset-env&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;targets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}]],&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Create a new file jest.preset.js&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;moduleFileExtensions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;moduleNameMapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;^~/(.*)$&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;lt;rootDir&amp;gt;/$1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;^~~/(.*)$&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;lt;rootDir&amp;gt;/$1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;^@/(.*)$&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;lt;rootDir&amp;gt;/$1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;^.+&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.js$&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;babel-jest&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-		&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.*&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.(vue)$&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;vue-jest&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;reporters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;jest-junit&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Create a new file jest.config.js&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;onetaplogin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;displayName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;one-tap-login&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./jest.preset&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;testEnvironment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;jsdom&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-When it's done, you see a new `node_modules` folder and `package-lock.json`. To check if everything is OK, run these commands on your terminal without any errors:
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lint&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-When the setup is done, we are gonna create the `playground` for our project so we can test our plugin later on. To create a playground, follow &lt;a target=&quot;_blank&quot; href=&quot;/code/2022/03/15/how-i-created-datadog-vuejs-plugin.html#create-playground&quot; class=&quot;textlink&quot;&gt;this steps&lt;/a&gt;.&lt;br&gt;
-You can also check out this &lt;a href=&quot;https://github.com/ivanasetiawan/google-one-tap/commit/252f2e3cef452a52a488a3aaa7d3933b4cfcf76d&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;commit ...fcf76d&lt;/a&gt;.
-&lt;/p&gt;
-
-&lt;h2 id=&quot;create-plugin&quot; class=&quot;text-2xl font-semibold mb-4 pt-24 md:mb-6&quot;&gt;&lt;a href=&quot;/code/2022/04/10/how-to-create-google-one-tap-plugin.html#create-plugin&quot;&gt;02. Build Google One Tap plugin&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/google-one-tap/tree/feat/02-build-got&quot;
-    target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/02-build-got]&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Before I start writing code, it helps me tremendously to visualise what would be the best developer experience for my plugin.
-In my head, I want the flow to work like:&lt;/p&gt;
-&lt;ul class=&quot;mb-6 md:mb-9 list-disc list-inside md:ml-6&quot;&gt;
-	&lt;li&gt;To install, run &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm install google-one-tap&lt;/code&gt;&lt;/li&gt;
-	&lt;li&gt;Developers should be able to pass client ID, context and logged in status to determine the visibility of the GOT.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 class=&quot;text-lg font-semibold mt-10 mb-2&quot;&gt;
-Create `onetaplogin.js` and start with install plugin. See &lt;a href=&quot;https://github.com/ivanasetiawan/google-one-tap/commit/c1246a90f7129a251ba26dc3246ccb9743b6914c&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;commit ...43b6914c&lt;/a&gt;
-&lt;/h3&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*
-* options (Object):
-*   - isLoggedIn (Boolean): Logged in status
-*   - clientId (String): Your Google's credential client ID
-* callback (Function)
-*
-* Usage:
-* new Vue.use(OneTapLogin, {
-*   id: 'Client ID',
-*   isLoggedIn: false,
-* }, callback);
-*/&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isLoaded&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-        &lt;span class=&quot;cm&quot;&gt;/**
-         * Rules to not execute:
-         * User is already logged in, or client ID is not defined.
-         */&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isLoggedIn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_checkExecutable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 class=&quot;text-lg font-semibold mt-10 mb-2&quot;&gt;
-Check if the pluging is executable based on the `rules`. See &lt;a href=&quot;https://github.com/ivanasetiawan/google-one-tap/commit/d02eb179abe487660fb490986e1fbd98f0d5434f&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;commit ...d5434f&lt;/a&gt;
-&lt;/h3&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-
-	&lt;span class=&quot;cm&quot;&gt;/**
-     * Check if the plugin is executable based on the `rules`.
-     */&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;_checkExecutable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 class=&quot;text-lg font-semibold mt-10 mb-2&quot;&gt;
-Load method to check if the plugin is not yet loaded. See &lt;a href=&quot;https://github.com/ivanasetiawan/google-one-tap/commit/db37c3737a25ae1e1c3916cc884c8bd6311215e7&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;commit ...215e7&lt;/a&gt;
-&lt;/h3&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-
-    &lt;span class=&quot;cm&quot;&gt;/**
-     * Load method to check if the plugin is not yet loaded.
-     * If not yet, load the library,
-     * If already loaded, do not load the library
-     */&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;_load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isLoaded&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_loadLibrary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 class=&quot;text-lg font-semibold mt-10 mb-2&quot;&gt;
-Load method to check if the plugin is not yet loaded. See &lt;a href=&quot;https://github.com/ivanasetiawan/google-one-tap/commit/8b4aacd3f65c16698ffc07d972d888b8004d88f0&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;commit ...4d88f0&lt;/a&gt;
-&lt;/h3&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-
-    &lt;span class=&quot;cm&quot;&gt;/**
-     * Load the library method.
-     * Based on this: https://developers.google.com/identity/gsi/web/guides/client-library
-     */&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;_loadLibrary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;text/javascript&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://accounts.google.com/gsi/client&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;defer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isLoaded&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 class=&quot;text-lg font-semibold mt-10 mb-2&quot;&gt;
-Initialise the Google One Tap. See &lt;a href=&quot;https://github.com/ivanasetiawan/google-one-tap/commit/525722b79014a1ae2ca02f8dcd000cd3099183f9&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;commit ...9183f9&lt;/a&gt;
-&lt;/h3&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-
-    &lt;span class=&quot;cm&quot;&gt;/**
-     * Initialise the Google One Tap
-     */&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;signin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// eslint-disable-line&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;signin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;signup&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ctx&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;signin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;cm&quot;&gt;/* eslint-disable */&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;client_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// eslint-disable-line&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;accounts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-                &lt;span class=&quot;nx&quot;&gt;client_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;cancel_on_tap_outside&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;nx&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-            &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;accounts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;prompt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-        &lt;span class=&quot;cm&quot;&gt;/* eslint-enable */&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 class=&quot;text-lg font-semibold mt-10 mb-2&quot;&gt;
-Test your Google One Tap plugin on the plaground. See &lt;a href=&quot;https://github.com/ivanasetiawan/google-one-tap/commit/1449fd5c400eec6f155f258ab89214273130a66e&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;commit ...0a66e&lt;/a&gt;
-&lt;/h3&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OneTapLogin&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;one-tap-login&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;redirectUrl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://www.venopi.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;redirectUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;OneTapLogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;// Get the Client Id from your OAuth credential&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;clientId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;410358638264-egs2qtqe6i9mn19c56lhnscblfnuols4.apps.googleusercontent.com&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-
-	&lt;span class=&quot;c1&quot;&gt;// Should set dynamically, depending on your user logged in status&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;isLoggedIn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Let's run &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm run playground&lt;/code&gt; and go to localhost:8080. You should see One Tap login shows up like this:
-&lt;/p&gt;
-&lt;figure class=&quot;my-4 md:my-6 text-center&quot;&gt;
-	&lt;img src=&quot;/assets/images/GOT/4.GOT.png&quot; alt=&quot;Google One Tap on your website&quot;
-	class=&quot;w-full rounded-2xl overflow-hidden&quot; /&gt;
-	&lt;figcaption class=&quot;text-sm mt-2 md:mt-4&quot;&gt;Google One Tap on your website&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Check your &quot;Authorized JavaScript origins&quot; on your &lt;a href=&quot;https://console.developers.google.com/apis&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Google API Console&lt;/a&gt; if you see this error on your browser console =&gt; &lt;span class=&quot;text-red-500&quot;&gt;[GSI_LOGGER]: The given origin is not allowed for the given client ID.&lt;/span&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;unit-test&quot; class=&quot;text-2xl font-semibold pt-24 mb-4 md:mb-6&quot;&gt;&lt;a href=&quot;/code/2022/04/10/how-to-create-google-one-tap-plugin.html#unit-test&quot;&gt;03. Unit Testing&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;mb-6 md:mb-9&quot;&gt;This step is on: &lt;a href=&quot;https://github.com/ivanasetiawan/google-one-tap/tree/feat/03-test&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;repo [branch: feat/03-test]&lt;/a&gt;&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Based on our `onetaplogin.js`, I think we need create a test that covers:
-&lt;/p&gt;
-&lt;ul&gt;
-	&lt;li class=&quot;mb-2&quot;&gt;&lt;span class=&quot;inline-block mr-2&quot;&gt;🧪&lt;/span&gt; The plugin should be installed properly&lt;/li&gt;
-	&lt;li class=&quot;mb-2&quot;&gt;&lt;span class=&quot;inline-block mr-2&quot;&gt;🧪&lt;/span&gt; The plugin should check the rules condition before loading the client library&lt;/li&gt;
-	&lt;li class=&quot;mb-2&quot;&gt;&lt;span class=&quot;inline-block mr-2&quot;&gt;🧪&lt;/span&gt; The plugin should not load the client library from google if rules to not execute is true&lt;/li&gt;
-	&lt;li class=&quot;mb-2&quot;&gt;&lt;span class=&quot;inline-block mr-2&quot;&gt;🧪&lt;/span&gt; The plugin should load the client library from google if rules to not execute is false&lt;/li&gt;
-	&lt;li class=&quot;mb-2&quot;&gt;&lt;span class=&quot;inline-block mr-2&quot;&gt;🧪&lt;/span&gt; The plugin should load the client library from google&lt;/li&gt;
-	&lt;li class=&quot;mb-2&quot;&gt;&lt;span class=&quot;inline-block mr-2&quot;&gt;🧪&lt;/span&gt; The plugin should append cookie law script on the document body&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Let's write this test!&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createLocalVue&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@vue/test-utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OneTapLogin&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;./onetaplogin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;describe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;One Tap Login&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;localVue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createLocalVue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_loadSpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_loadLibrarySpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_checkExecutableSpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;beforeEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;lt;body&amp;gt;&amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;/body&amp;gt;&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;_checkExecutableSpy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;spyOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;OneTapLogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;_checkExecutable&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;_loadSpy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;spyOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;OneTapLogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;_load&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;_loadLibrarySpy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;spyOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;OneTapLogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;_loadLibrary&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;spyOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;localVue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;OneTapLogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;should be installed properly&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;localVue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_installedPlugins&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;should check the rules condition before loading the client library&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rulesMock&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_checkExecutableSpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBeCalledWith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rulesMock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;should not load the client library from google if rules to not execute is true&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rulesMock&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;OneTapLogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_checkExecutable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rulesMock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_loadSpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;not&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBeCalled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;should load the client library from google if rules to not execute is false&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rulesMock&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;OneTapLogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_checkExecutable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rulesMock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_loadSpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBeCalled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;should load the client library from google&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_loadLibrarySpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBeCalled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;should append cookie law script on the document body&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toBeCalledWith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;objectContaining&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;text/javascript&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://accounts.google.com/gsi/client&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;defer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Let's run &lt;code class=&quot;precode px-2.5 py-1 mx-1&quot;&gt;npm run test&lt;/code&gt; on our terminal. You should see the tests are passing, like this:
-&lt;/p&gt;
-&lt;figure class=&quot;my-4 md:my-6 text-center&quot;&gt;
-	&lt;img src=&quot;/assets/images/GOT/5.GOT.png&quot; alt=&quot;Unit testing for our Google One Tap plugin&quot;
-	class=&quot;w-full rounded-2xl overflow-hidden&quot; /&gt;
-	&lt;figcaption class=&quot;text-sm mt-2 md:mt-4&quot;&gt;Unit testing for our Google One Tap plugin&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h2 id=&quot;alternative&quot; class=&quot;text-2xl font-semibold pt-24 mb-4 md:mb-6&quot;&gt;&lt;a href=&quot;/code/2022/04/10/how-to-create-google-one-tap-plugin.html#alternative&quot;&gt;04. Alternative plugin&lt;/a&gt;&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Coming soon: Alternative way to write the plugin.
-&lt;/p&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Any questions or suggestions for better implementations? Write to me 😀&lt;/p&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="npm" /><category term="package" /><category term="google" /><category term="one" /><category term="tap" /><summary type="html">How to create a Google One Tap Vue plugin (with alternative framework-agnostic JavaScript plugin) for sign in and sign up for project</summary></entry></feed>
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Any questions or suggestions for better implementations? Write to me 😀&lt;/p&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="javascript" /><category term="async" /><category term="await" /><category term="promise" /><summary type="html">How to set a time limit on Asynchronous functions in JavaScript? Explained in simple words using real case scenario.</summary></entry></feed>
