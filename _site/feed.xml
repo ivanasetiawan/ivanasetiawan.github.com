@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-26T11:49:02+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Monorepo with NPM workspaces</title><link href="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html" rel="alternate" type="text/html" title="Monorepo with NPM workspaces" /><published>2022-10-23T20:34:00+02:00</published><updated>2022-10-23T20:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Monorepo in a nutshell&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-02T08:27:05+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Monorepo with NPM workspaces</title><link href="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html" rel="alternate" type="text/html" title="Monorepo with NPM workspaces" /><published>2022-10-23T20:34:00+02:00</published><updated>2022-10-23T20:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Monorepo in a nutshell&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don't need to know anything about the other packages.
+    Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don&apos;t need to know anything about the other packages.
 &lt;/p&gt;
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     In this article, we will create a Monorepo project using NPM Workspaces. The project is from my startup &lt;a href=&quot;https://www.venopi.com/&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;Venopi&lt;/a&gt; and will have different frameworks and libraries for each application.
 &lt;/p&gt;
-&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Let's get started&lt;/h2&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Let&apos;s get started&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     We will build a Monorepo project consisting of two applications and two libraries. Each of the applications uses a different framework and library:
 &lt;/p&gt;
@@ -45,7 +45,7 @@
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm init &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    When it's done, let's add the `workspaces` to the `package.json` to tell NPM that this project is a Monorepo project and adjust the `package.json` default content to what we want:
+    When it&apos;s done, let&apos;s add the `workspaces` to the `package.json` to tell NPM that this project is a Monorepo project and adjust the `package.json` default content to what we want:
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@venopi&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -79,7 +79,7 @@
 &lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;libs&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;h3 class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;01. Dashboard App: Vite (Nuxt + Vue)&lt;/h3&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Let's create a Vite project with the latest version of Vue:
+    Let&apos;s create a Vite project with the latest version of Vue:
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;apps
 npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -93,7 +93,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Let's update the name inside `apps/dashboard/package.json`:
+    Let&apos;s update the name inside `apps/dashboard/package.json`:
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@venopi/dashboard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -110,11 +110,11 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 &lt;h3 class=&quot;font-semibold mt-6 mb-2 md:mt-9 md:mb-4&quot;&gt;02. Web3 App: Next.js (React with TypeScript)&lt;/h3&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Let's create a Next.js project with TS inside `apps/web3`.
+    Let&apos;s create a Next.js project with TS inside `apps/web3`.
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npx create-next-app apps/web3 &lt;span class=&quot;nt&quot;&gt;--ts&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--use-npm&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Don't forget to update the name inside `apps/web3/package.json`:
+    Don&apos;t forget to update the name inside `apps/web3/package.json`:
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@venopi/web3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -135,7 +135,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     &lt;span class=&quot;underline underline-offset-8&quot;&gt;The only `package-lock.json` that exists must only be on the root folder&lt;/span&gt;.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Let's &lt;strong class=&quot;text-red-600 dark:text-pink-500&quot;&gt;go to the root folder&lt;/strong&gt; and run `npm install`.
+    Let&apos;s &lt;strong class=&quot;text-red-600 dark:text-pink-500&quot;&gt;go to the root folder&lt;/strong&gt; and run `npm install`.
 &lt;/p&gt;
 &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
     &lt;div class=&quot;p-4 bg-slate-900 rounded-lg text-center&quot;&gt;
@@ -187,7 +187,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Create a TypeScript library using tsup&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    In this demo, we will create a `utils` TypeScript library. First, let's create a directory called `utils` inside the `libs` folder and then create an empty `package.json` file:
+    In this demo, we will create a `utils` TypeScript library. First, let&apos;s create a directory called `utils` inside the `libs` folder and then create an empty `package.json` file:
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;libs &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;utils &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;utils &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; npm init &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
@@ -249,7 +249,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Beautiful. We have a tsup configuration in place! We can create a new TypeScript file (`index.ts`) inside the `libs/utils/src` folder that will export a constant called `cookie`.
 &lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🍪&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🍪&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     You are all set! Creating a TypeScript library is easy when you use tsup! To learn more about tsup, go &lt;a href=&quot;https://tsup.egoist.dev/&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
@@ -407,7 +407,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; @venopi/utils &lt;span class=&quot;nt&quot;&gt;--save&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; @venopi/dashboard &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; @venopi/web3&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    When it's done, we can check if our library is indeed being installed across our packages.
+    When it&apos;s done, we can check if our library is indeed being installed across our packages.
 &lt;/p&gt;
 &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
     &lt;div class=&quot;p-4 bg-slate-900 rounded-lg text-center&quot;&gt;
@@ -421,13 +421,13 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Let us use the cookie lib on both of our apps. I want to show the Cookie on the title of the browser. On the `apps/dashboard`, I adjusted the `nuxt.config.js`:
 &lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@venopi/utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@venopi/utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;defineNuxtConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
 	&lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;na&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;na&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf-16&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-			&lt;span class=&quot;na&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;width=500, initial-scale=1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf-16&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;width=500, initial-scale=1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 			&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`Nuxt + Vue  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -436,7 +436,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     On the `apps/web3`, I adjusted the `pages/index.tsx`:
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// more code&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@venopi/utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@venopi/utils&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
 
 &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Home&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NextPage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
@@ -462,7 +462,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     If we change the `libs/utils/src/index.ts` from 🍪 to 🍍, we will see the browser titles of Dashboard and Web3 be updated accordingly.
 &lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🍍&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cookie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;🍍&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
     &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
         &lt;img src=&quot;/assets/images/frontend/monorepo/browser-titles-2.png&quot; alt=&quot;Browser titles with updated 🍍&quot; class=&quot;inline-block&quot; /&gt;
@@ -473,7 +473,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    That's it! You just created a Monorepo project with NPM workspaces 👏&lt;br&gt;
+    That&apos;s it! You just created a Monorepo project with NPM workspaces 👏&lt;br&gt;
     You can check out the repo &lt;a href=&quot;https://github.com/ivanasetiawan/monorepo&quot; class=&quot;textlink&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
@@ -505,7 +505,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
         &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
         &lt;strong&gt;&lt;a href=&quot;https://v3.nuxtjs.org/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;NuxtJS&lt;/a&gt;&lt;/strong&gt;: The Hybrid Vue Framework
     &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="frontend" /><category term="code" /><category term="javascript" /><category term="nuxtjs" /><summary type="html">Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don't need to know anything about the other packages.</summary></entry><entry><title type="html">Create multiple routes to the same page on your NuxtJS project</title><link href="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html" rel="alternate" type="text/html" title="Create multiple routes to the same page on your NuxtJS project" /><published>2022-10-15T07:34:00+02:00</published><updated>2022-10-15T07:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Background&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="frontend" /><category term="code" /><category term="javascript" /><category term="nuxtjs" /><summary type="html">Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don&apos;t need to know anything about the other packages.</summary></entry><entry><title type="html">Create multiple routes to the same page on your NuxtJS project</title><link href="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html" rel="alternate" type="text/html" title="Create multiple routes to the same page on your NuxtJS project" /><published>2022-10-15T07:34:00+02:00</published><updated>2022-10-15T07:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/15/nuxtjs-multiple-routes-same-page.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Background&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Imagine you have working NuxtJS pages with three steps onboarding forms and the url of these pages are:
 &lt;/p&gt;
@@ -532,7 +532,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The Rainbow Campaign&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Today, your marketeer, let's call them Toni, and you, let's call you - you, had this conversation:
+    Today, your marketeer, let&apos;s call them Toni, and you, let&apos;s call you - you, had this conversation:
 &lt;/p&gt;
 
 &lt;div class=&quot;pl-10 my-4 md:my-6 relative&quot;&gt;
@@ -560,7 +560,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;div class=&quot;pl-10 my-4 md:my-6 relative&quot;&gt;
     &lt;p class=&quot;mb-4 text-xl leading-relaxed&quot;&gt;
-        &quot;Sounds straightforward. Talk to my team's Product Owner and let's create a story!&quot; (yes.. we're Agile)
+        &quot;Sounds straightforward. Talk to my team&apos;s Product Owner and let&apos;s create a story!&quot; (yes.. we&apos;re Agile)
     &lt;/p&gt;
     &lt;p&gt;— &lt;i class=&quot;fa-regular fa-user-hair-mullet absolute text-2xl left-0 top-3&quot;&gt;&lt;/i&gt; You&lt;/p&gt;
 &lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
@@ -629,33 +629,33 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
     &lt;span class=&quot;na&quot;&gt;buildModules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-        &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;~/modules/routes&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+        &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;~/modules/routes&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Then create a folder called &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;modules&lt;/span&gt;, if you haven't had one and inside it create a file called &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;routes.js&lt;/span&gt;.
+    Then create a folder called &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;modules&lt;/span&gt;, if you haven&apos;t had one and inside it create a file called &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;routes.js&lt;/span&gt;.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Inside this &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;routes.js&lt;/span&gt;, we will make the URLs magic happens.
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// modules/routes.js&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nuxt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;build:extendRoutes&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;nuxt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;build:extendRoutes&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rainbowCampaign&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;banana-rainbow-split&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/banana-rainbow-split&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;pages/banana-rainbow-split/index.vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;banana-rainbow-split&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/banana-rainbow-split&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;pages/banana-rainbow-split/index.vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;banana-rainbow-split_taste-preference&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/banana-rainbow-split/taste-preference&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;pages/taste-preference.vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;banana-rainbow-split_taste-preference&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/banana-rainbow-split/taste-preference&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;pages/taste-preference.vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;banana-rainbow-split_confirm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/banana-rainbow-split/confirm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;pages/confirm.vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;banana-rainbow-split_confirm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/banana-rainbow-split/confirm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;pages/confirm.vue&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
             &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
         &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 
@@ -669,7 +669,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    That's it! You can &quot;reuse&quot; the same page, with its logic, validations and fancy effects, for multiple URLs 👏
+    That&apos;s it! You can &quot;reuse&quot; the same page, with its logic, validations and fancy effects, for multiple URLs 👏
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Have a better solution than this? Please let me know! I always love to improve 🙏
@@ -696,12 +696,12 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
         &lt;strong&gt;&lt;a href=&quot;https://nuxtjs.org/docs/internals-glossary/internals-builder/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;NuxtJS: The Builder class&lt;/a&gt;&lt;/strong&gt;
     &lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="frontend" /><category term="code" /><category term="javascript" /><category term="nuxtjs" /><summary type="html">Do you need to have multiple routes to the same page on your NuxtJS project? Here is a clean and straightforward way to do it without double content.</summary></entry><entry><title type="html">Solidity structs and arrays</title><link href="http://localhost:4000/web3/2022/10/11/solidity-structs-arrays.html" rel="alternate" type="text/html" title="Solidity structs and arrays" /><published>2022-10-11T07:34:00+02:00</published><updated>2022-10-11T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/10/11/solidity-structs-arrays</id><content type="html" xml:base="http://localhost:4000/web3/2022/10/11/solidity-structs-arrays.html">&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    This article is a continuation of &lt;a href=&quot;/web3/2022/09/30/solidity-contract-1.html&quot; class=&quot;font-semibold textlink&quot;&gt;&quot;Let's write our first Solidity contract&quot;&lt;/a&gt;. I'd highly recommend you to read that first.
+    This article is a continuation of &lt;a href=&quot;/web3/2022/09/30/solidity-contract-1.html&quot; class=&quot;font-semibold textlink&quot;&gt;&quot;Let&apos;s write our first Solidity contract&quot;&lt;/a&gt;. I&apos;d highly recommend you to read that first.
 &lt;/p&gt;
 
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Bridge&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    On the previous article &quot;Let's write our first Solidity contract&quot;, we create a contract called `MyContract` with a uint256 public variable called `luckyNumber`.
+    On the previous article &quot;Let&apos;s write our first Solidity contract&quot;, we create a contract called `MyContract` with a uint256 public variable called `luckyNumber`.
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -740,7 +740,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Create a new type called 'Friends'
+    &lt;span class=&quot;c1&quot;&gt;// Create a new type called &apos;Friends&apos;
 &lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -754,7 +754,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
         - `friend` is the variable name
     */&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;friend&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Oscar'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Oscar&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -768,7 +768,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    If you wonder why there are `0` and `1` in front of the `0: string: name Oscar` and `1: uint256: luckyNumber 9`. It's the index of the different variables, and in computer science, the list starts with no `0`.
+    If you wonder why there are `0` and `1` in front of the `0: string: name Oscar` and `1: uint256: luckyNumber 9`. It&apos;s the index of the different variables, and in computer science, the list starts with no `0`.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Whenever you have a list of variables inside an object in Solidity, they will automatically be indexed.
@@ -785,23 +785,23 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;friend&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Oscar'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Oscar&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;friend2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ani'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Ani&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;friend3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Suchi'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Suchi&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// ..etc
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    That doesn't look effective, don't you think?
+    That doesn&apos;t look effective, don&apos;t you think?
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
@@ -823,7 +823,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Create a new type called 'Friends'
+    &lt;span class=&quot;c1&quot;&gt;// Create a new type called &apos;Friends&apos;
 &lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -856,7 +856,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     If we specify `Friends[4]`, this means that this array of friends can only be four people, hence called &lt;span class=&quot;text-red-600 dark:text-pink-500&quot;&gt;Fixed-sized Array&lt;/span&gt;.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    For our case, we'll stick to the dynamic size array because we want to add an arbitrary number of friends to this array.
+    For our case, we&apos;ll stick to the dynamic size array because we want to add an arbitrary number of friends to this array.
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
@@ -867,12 +867,12 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Adding &lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Nice! We have a dynamic array variable called `friends`. Now let's create a function to add friends to the friends array.
+    Nice! We have a dynamic array variable called `friends`. Now let&apos;s create a function to add friends to the friends array.
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Create a new type called 'Friends'
+    &lt;span class=&quot;c1&quot;&gt;// Create a new type called &apos;Friends&apos;
 &lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -898,7 +898,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    On the arguments function, you see a new keyword `memory` (`string memory _name`). It's required to specify for the data location. To learn more, you could look at &lt;a href=&quot;https://solidity-by-example.org/data-locations/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Solidity by example: Data Locations&lt;/a&gt;.
+    On the arguments function, you see a new keyword `memory` (`string memory _name`). It&apos;s required to specify for the data location. To learn more, you could look at &lt;a href=&quot;https://solidity-by-example.org/data-locations/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Solidity by example: Data Locations&lt;/a&gt;.
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
@@ -907,7 +907,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Create a new type called 'Friends'
+    &lt;span class=&quot;c1&quot;&gt;// Create a new type called &apos;Friends&apos;
 &lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;uint256&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -920,7 +920,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
             Follow the pattern of the struct:
             [0] name
             [1] luckyNumber
-            then we don't need to specify `{ name: _name, luckyNumber: _luckyNumber }`
+            then we don&apos;t need to specify `{ name: _name, luckyNumber: _luckyNumber }`
         */&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;friends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Friends&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_luckyNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -959,7 +959,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     Mastering Solidity is a must for anyone who wants to be a Blockchain developer. Many prevalent cryptocurrencies and blockchain platforms such as Avalanche, Binance smart chain, Tron and Polkadot are compatible with Ethereum Virtual Machine (EVM). Thus Solidity works out of the box.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Even if you want to build a dApp on other blockchain platforms that don't use Solidity, your knowledge can be easily transferred to other smart contract languages.
+    Even if you want to build a dApp on other blockchain platforms that don&apos;t use Solidity, your knowledge can be easily transferred to other smart contract languages.
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
@@ -968,7 +968,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 		&lt;/span&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Let's use Remix&lt;/h2&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Let&apos;s use Remix&lt;/h2&gt;
 &lt;figure class=&quot;border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6&quot;&gt;
     &lt;blockquote class=&quot;mb-4 text-xl leading-relaxed&quot;&gt;
         Remix IDE allows developing, deploying and administering smart contracts for Ethereum like blockchains. It can also be used as a learning platform.
@@ -987,11 +987,11 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;This means you want to use a specific version.&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;This means that any compiler between version 0.8.7 and 0.9.0 would work, but not 0.9.1.&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Optionally you could also add `SPDX license identifier` to make licensing and sharing code easier. Some compiler might nag-warning you if you don't add this line of code. To learn more about software licenses, you can read &lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://snyk.io/learn/what-is-a-software-license/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;For this blog, I'd like to use Solidity ^0.8.8 and choose `MIT` to grant the software end user rights such as copying, modifying, merging, distributing, etc.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Optionally you could also add `SPDX license identifier` to make licensing and sharing code easier. Some compiler might nag-warning you if you don&apos;t add this line of code. To learn more about software licenses, you can read &lt;a class=&quot;textlink&quot; target=&quot;_blank&quot; href=&quot;https://snyk.io/learn/what-is-a-software-license/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;For this blog, I&apos;d like to use Solidity ^0.8.8 and choose `MIT` to grant the software end user rights such as copying, modifying, merging, distributing, etc.&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Great, let's write our first contract!&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Great, let&apos;s write our first contract!&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -1005,7 +1005,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
         Remix: Green checkmark means sucessfully compiled.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;You could deploy this contract, and it would be a valid contract. It would be a contract that doesn't really do anything, but technically speaking, you could.&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;You could deploy this contract, and it would be a valid contract. It would be a contract that doesn&apos;t really do anything, but technically speaking, you could.&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1014,7 +1014,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Solidity types&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Solidity has multiple different types. Boolean, uint, int, address, and bytes are the most basic types that are often used. To learn more, you can check out solidity's documentation about &lt;a target=&quot;_blank&quot; class=&quot;textlink&quot; href=&quot;https://docs.soliditylang.org/en/latest/types.html&quot;&gt;types&lt;/a&gt;.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Solidity has multiple different types. Boolean, uint, int, address, and bytes are the most basic types that are often used. To learn more, you can check out solidity&apos;s documentation about &lt;a target=&quot;_blank&quot; class=&quot;textlink&quot; href=&quot;https://docs.soliditylang.org/en/latest/types.html&quot;&gt;types&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
     &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Boolean&lt;/h3&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
@@ -1030,20 +1030,20 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
     &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Uint&lt;/h3&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        It's an unsigned integer, meaning it's a whole number that is not positive or negative. Just positive.
-        Type `uint` is unique because &lt;strong&gt;you can specify how many bits we want to allocate&lt;/strong&gt; for the value we keep in the variable from &lt;strong&gt;`uint8`&lt;/strong&gt; up to &lt;strong&gt;`uint256`&lt;/strong&gt;. If you don't specify the bits, it automatically &lt;span class=&quot;underline underline-offset-8&quot;&gt;defaults to 256&lt;/span&gt;.
+        It&apos;s an unsigned integer, meaning it&apos;s a whole number that is not positive or negative. Just positive.
+        Type `uint` is unique because &lt;strong&gt;you can specify how many bits we want to allocate&lt;/strong&gt; for the value we keep in the variable from &lt;strong&gt;`uint8`&lt;/strong&gt; up to &lt;strong&gt;`uint256`&lt;/strong&gt;. If you don&apos;t specify the bits, it automatically &lt;span class=&quot;underline underline-offset-8&quot;&gt;defaults to 256&lt;/span&gt;.
     &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
     &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Int&lt;/h3&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        It's a signed integer, meaning it's a wholly positive or negative number. Same as `uint`, you can allocate the number of bits from 8 to 256.
+        It&apos;s a signed integer, meaning it&apos;s a wholly positive or negative number. Same as `uint`, you can allocate the number of bits from 8 to 256.
     &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
     &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Address&lt;/h3&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        It's the address to which people can transfer and send values. An example is your Metamask address.
+        It&apos;s the address to which people can transfer and send values. An example is your Metamask address.
     &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
@@ -1070,8 +1070,8 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 		&lt;/span&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Let's create a simple smart contract!&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;But first, let's talk about &lt;strong&gt;function&lt;/strong&gt;. Function (or method) is a block of reusable code that can take some input as arguments and returns an output.&lt;/p&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Let&apos;s create a simple smart contract!&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;But first, let&apos;s talk about &lt;strong&gt;function&lt;/strong&gt;. Function (or method) is a block of reusable code that can take some input as arguments and returns an output.&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// SPDX-License-Identifier: MIT
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;pragma&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;solidity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -1132,7 +1132,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     &lt;/li&gt;
     &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
         &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-code text-base&quot;&gt;&lt;/i&gt;
-        &lt;strong&gt;Internal&lt;/strong&gt;: visible internally. Meaning only `MyContract` and its children can access it. When we don't specify a visibility specifier to a function or variable, they are &lt;span class=&quot;underline underline-offset-8&quot;&gt;automatically deployed as internal&lt;/span&gt;.
+        &lt;strong&gt;Internal&lt;/strong&gt;: visible internally. Meaning only `MyContract` and its children can access it. When we don&apos;t specify a visibility specifier to a function or variable, they are &lt;span class=&quot;underline underline-offset-8&quot;&gt;automatically deployed as internal&lt;/span&gt;.
     &lt;/li&gt;
 &lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
@@ -1237,11 +1237,11 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    ✨ I will write more about &lt;span class=&quot;line-through&quot;&gt;arrays, structs&lt;/span&gt;, bytes, the front-end part of Web 3.0 and eventually a &quot;real world&quot; smart contract project (could be NFT or DAO.. we'll figure it out later together) 🌈
+    ✨ I will write more about &lt;span class=&quot;line-through&quot;&gt;arrays, structs&lt;/span&gt;, bytes, the front-end part of Web 3.0 and eventually a &quot;real world&quot; smart contract project (could be NFT or DAO.. we&apos;ll figure it out later together) 🌈
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Any tips, feedback, or recommendations? Don't hesitate to reach me. I love learning new things 🤓
+    Any tips, feedback, or recommendations? Don&apos;t hesitate to reach me. I love learning new things 🤓
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
@@ -1281,7 +1281,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     I am sure you have heard about &quot;Web 3.0&quot;, but what exactly? Is it all about digital currencies, like Bitcoin, Ethereum, and Cardano? or the decentralisation of the Web? or is it something else entirely?
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    We cannot comprehend Web 3.0 before understanding what Web 1.0 and Web 2.0 are. So let's get to the history of the Web first.
+    We cannot comprehend Web 3.0 before understanding what Web 1.0 and Web 2.0 are. So let&apos;s get to the history of the Web first.
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
@@ -1295,10 +1295,10 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
     Web 1.0 era lasted roughly from 1989 to 2005 and was called the &quot;Static Web&quot;. It consists of web pages connected by hyperlinks, and you cannot do any interactions. It was one way of providing information, but you, as a user, cannot do anything with it other than read it.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Web 1.0 is like opening a Wikipedia page that you know the exact URL, and... that's it.
+    Web 1.0 is like opening a Wikipedia page that you know the exact URL, and... that&apos;s it.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Think about this, say you are a plumber in the era of Web 1.0 and successfully created your website with the URL &quot;www.awesome-plumber-robertsfors.com&quot;. How can people find you? They need to know your URL precisely; otherwise, forget about it. Now you can understand why search engine companies such as Google, Bing, or DuckDuckGo exist in the era of Web 2.0. Nowadays, it's easy to find plumbers ranging from highest to lowest rating or price in your area.
+    Think about this, say you are a plumber in the era of Web 1.0 and successfully created your website with the URL &quot;www.awesome-plumber-robertsfors.com&quot;. How can people find you? They need to know your URL precisely; otherwise, forget about it. Now you can understand why search engine companies such as Google, Bing, or DuckDuckGo exist in the era of Web 2.0. Nowadays, it&apos;s easy to find plumbers ranging from highest to lowest rating or price in your area.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Web 1.0 era was pretty disorganised and overwhelming, but necessary to pave the way for the Web 2.0 era.
@@ -1328,13 +1328,13 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
     &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Mobile&lt;/h3&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        Mobile connectivity to the Internet happened in the Web 2.0 era, allowing us to be online most of the time. In September 2022, there are 10.92 Billion mobile connections worldwide and 83,4% of the earth's population own smartphones. &lt;small&gt;(Source: https://www.bankmycell.com/blog/how-many-phones-are-in-the-world)&lt;/small&gt;
+        Mobile connectivity to the Internet happened in the Web 2.0 era, allowing us to be online most of the time. In September 2022, there are 10.92 Billion mobile connections worldwide and 83,4% of the earth&apos;s population own smartphones. &lt;small&gt;(Source: https://www.bankmycell.com/blog/how-many-phones-are-in-the-world)&lt;/small&gt;
     &lt;/p&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        The numbers are not shocking, considering smartphones are affordable and seen as a necessity instead of a luxury item. In developing countries, such as Indonesia, it's not uncommon for a person to own at least two smartphones but no laptop.
+        The numbers are not shocking, considering smartphones are affordable and seen as a necessity instead of a luxury item. In developing countries, such as Indonesia, it&apos;s not uncommon for a person to own at least two smartphones but no laptop.
     &lt;/p&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        Due to the rise of mobile connectivity and ownership, it's so easy to track our whereabouts, preferences, activities, habits and even desires.
+        Due to the rise of mobile connectivity and ownership, it&apos;s so easy to track our whereabouts, preferences, activities, habits and even desires.
     &lt;/p&gt;
 &lt;/div&gt;
 
@@ -1356,7 +1356,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/div&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Web 2.0 helps the internet to the mainstream; Many successful startups, such as YouTube, Facebook, Google and Instagram, enable users to upload and distribute their content between various platforms, applications and the world without writing a single line of code.
-The internet's easy access and smooth adoption seem like the perfect utopia, but these startups turn into giants, and the internet world becomes more centralised.
+The internet&apos;s easy access and smooth adoption seem like the perfect utopia, but these startups turn into giants, and the internet world becomes more centralised.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     The centralisation of the internet issue, together with the advancement of technology (IoT), AI and machine learning, paved the way for the next generation of the internet, Web 3.0.
@@ -1412,18 +1412,18 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
         Thanks to &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; target=&quot;_blank&quot; class=&quot;font-semibold textlink&quot;&gt;Blockchain technology&lt;/a&gt;, we no longer rely on the centralised organisation to do transactions for us. We can efficiently execute a transaction using a smart contract and have confidence that it will be done to the arrangement that both parties agreed upon.
     &lt;/p&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        I am not entirely against centralised parties. There are &lt;a href=&quot;/web3/2022/09/08/centralised-vs-decentralised-system.html&quot; target=&quot;_blank&quot; class=&quot;font-semibold textlink&quot;&gt;pros and cons for both centralised and decentralised paradigms&lt;/a&gt;. I think balance is the key, and it's refreshing to see that there is finally a decentralised approach option for internet users.
+        I am not entirely against centralised parties. There are &lt;a href=&quot;/web3/2022/09/08/centralised-vs-decentralised-system.html&quot; target=&quot;_blank&quot; class=&quot;font-semibold textlink&quot;&gt;pros and cons for both centralised and decentralised paradigms&lt;/a&gt;. I think balance is the key, and it&apos;s refreshing to see that there is finally a decentralised approach option for internet users.
     &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
     &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Trust and privacy&lt;/h3&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        We can stay anonymous and transparent at the same time. It doesn't sound very clear, but it's true. With Blockchain technology, you can be sure that a deal is a deal. Without knowing the other person, you can trust that they will deliver what they promise because the contract won't be fulfilled until the criteria are met.
+        We can stay anonymous and transparent at the same time. It doesn&apos;t sound very clear, but it&apos;s true. With Blockchain technology, you can be sure that a deal is a deal. Without knowing the other person, you can trust that they will deliver what they promise because the contract won&apos;t be fulfilled until the criteria are met.
     &lt;/p&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        There's one thing that might be undesirable for some people. Everyone can see your transactions. Understandably, sometimes you want to have your privacy
+        There&apos;s one thing that might be undesirable for some people. Everyone can see your transactions. Understandably, sometimes you want to have your privacy
     &lt;/p&gt;
-    &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Don't worry! We have &lt;strong&gt;zero-knowledge proofs&lt;/strong&gt;. A zero-knowledge proof is a way of &lt;strong&gt;proving the validity of a statement without revealing the statement itself&lt;/strong&gt;. So the public can see your transactions, but that doesn't mean they can fully know the agreement.&lt;/p&gt;
+    &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Don&apos;t worry! We have &lt;strong&gt;zero-knowledge proofs&lt;/strong&gt;. A zero-knowledge proof is a way of &lt;strong&gt;proving the validity of a statement without revealing the statement itself&lt;/strong&gt;. So the public can see your transactions, but that doesn&apos;t mean they can fully know the agreement.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;pl-4 md:pl-6 lg:pl-9 border-l-4 border-gray-400 dark:border-gray-200&quot;&gt;
     &lt;h3 class=&quot;text-base font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;IoT&lt;/h3&gt;
@@ -1431,13 +1431,13 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
         The Internet of things (IoT) is pretty rad! It refers to the connected billions of physical devices worldwide to the Internet. These devices have sensors, processing ability, software, etc that connect and exchange data with other devices and systems over the Internet or other communications networks.
     &lt;/p&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        IoT is your smart-everything. It's your smart-watch, smart-refrigerator,  smart-thermostat, smart-bell, smart-lamps, you name it. IoT enables your devices to talk to one another too. Your refrigerator can communicate with your digital shopping list to remind you to buy more oat milk, for example.
+        IoT is your smart-everything. It&apos;s your smart-watch, smart-refrigerator,  smart-thermostat, smart-bell, smart-lamps, you name it. IoT enables your devices to talk to one another too. Your refrigerator can communicate with your digital shopping list to remind you to buy more oat milk, for example.
     &lt;/p&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
         IoT requires a super reliable and fast network and thanks to the 5G network, which enables 100x quicker speeds than 4G, it can enhance edge computing applications significantly.
     &lt;/p&gt;
     &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-        OK look, I am not a gadget nerd, and it could be scary to think of the end-of-the-world scenario where machines go wild and my refrigerator murders me. But think of another scenario of how IoT + AI could save billions of people's lives in healthcare, climate solutions, or food industries.
+        OK look, I am not a gadget nerd, and it could be scary to think of the end-of-the-world scenario where machines go wild and my refrigerator murders me. But think of another scenario of how IoT + AI could save billions of people&apos;s lives in healthcare, climate solutions, or food industries.
     &lt;/p&gt;
 &lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
@@ -1455,18 +1455,18 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     Some people I talked with are very sceptical about Web 3.0, and I understand why. There are too many noises with cryptocurrency pump-and-dump scams, counterfeit NFTs, and getting rich (or bankrupt) super fast and easy.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    However, I think Web 3.0 is more profound than those noises. It's the future of the Web. I can see how I can buy my house or car entirely using smart contracts. Or how my smart watch can send data to my doctor's software every month to monitor my health and pay them using cryptocurrency, automatically executed using smart contracts.
+    However, I think Web 3.0 is more profound than those noises. It&apos;s the future of the Web. I can see how I can buy my house or car entirely using smart contracts. Or how my smart watch can send data to my doctor&apos;s software every month to monitor my health and pay them using cryptocurrency, automatically executed using smart contracts.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     You can call me a dork, but I can see how people can book virtual DJs, hire a metaverse decorator, hire NFT artists to create and send NFT invitations and celebrate their events on a metaverse.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    I can see all the benefits Web 3.0 can give to the event industry and creative event vendors for my startup &lt;a href=&quot;https://www.venopi.com&quot; target=&quot;_blank&quot; class=&quot;font-semibold textlink&quot;&gt;Venopi&lt;/a&gt;. Even if I couldn't get funding for Venopi, I still want to work and contribute to the future of the Web. That's why I self-taught myself how to be a developer in Web 3.0.
+    I can see all the benefits Web 3.0 can give to the event industry and creative event vendors for my startup &lt;a href=&quot;https://www.venopi.com&quot; target=&quot;_blank&quot; class=&quot;font-semibold textlink&quot;&gt;Venopi&lt;/a&gt;. Even if I couldn&apos;t get funding for Venopi, I still want to work and contribute to the future of the Web. That&apos;s why I self-taught myself how to be a developer in Web 3.0.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    For everyone reading this, I hope this article helps you understand more about Web 3.0 and get excited to jump into the space and help shape the Web's future. It's still so early, and we can be a part of the solution. Doesn't it sound like a lot of fun?
+    For everyone reading this, I hope this article helps you understand more about Web 3.0 and get excited to jump into the space and help shape the Web&apos;s future. It&apos;s still so early, and we can be a part of the solution. Doesn&apos;t it sound like a lot of fun?
 &lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="Web3" /><summary type="html">I am sure you have heard about &quot;Web 3.0&quot;, but what exactly? Is it all about digital currencies, like Bitcoin, Ethereum, and Cardano? or the decentralisation of the Web? or is it something else entirely?</summary></entry><entry><title type="html">How do you create a transaction in a Blockchain? [Read me third]</title><link href="http://localhost:4000/web3/2022/09/16/how-do-you-create-a-transaction-in-a-blockchain.html" rel="alternate" type="text/html" title="How do you create a transaction in a Blockchain? [Read me third]" /><published>2022-09-16T09:34:00+02:00</published><updated>2022-09-16T09:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/16/how-do-you-create-a-transaction-in-a-blockchain</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/16/how-do-you-create-a-transaction-in-a-blockchain.html">&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    This article is a continuation of &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;&quot;What is Blockchain?&quot;&lt;/a&gt;. I'd highly recommend you to read that first.
+    This article is a continuation of &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;&quot;What is Blockchain?&quot;&lt;/a&gt;. I&apos;d highly recommend you to read that first.
 &lt;/p&gt;
 
 &lt;p class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;
@@ -1519,7 +1519,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    A good illustration of this is your mailbox and your key. Your mailbox is your public key and the key to open your mailbox is your private key. You don't want anybody to access your mailbox and read all of your messages.
+    A good illustration of this is your mailbox and your key. Your mailbox is your public key and the key to open your mailbox is your private key. You don&apos;t want anybody to access your mailbox and read all of your messages.
 &lt;/p&gt;
 
 &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
@@ -1546,17 +1546,17 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/div&gt;
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What does this flow look like in real-world scenarios?&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Eki wants to document the trio's latest savings on a Blockchain:
+    Eki wants to document the trio&apos;s latest savings on a Blockchain:
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;n&quot;&gt;Eki&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;€&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Dwi&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;€&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1900&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Tri&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;€&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;900&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ol&gt;
     &lt;li class=&quot;relative pl-12&quot;&gt;
-        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;1&lt;/span&gt; &lt;p&gt;Eki writes and signs the data using Eki's private key to create a digital signature. The data combined with the signature is a transaction.&lt;/p&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;1&lt;/span&gt; &lt;p&gt;Eki writes and signs the data using Eki&apos;s private key to create a digital signature. The data combined with the signature is a transaction.&lt;/p&gt;
 
         &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
             &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
-                &lt;img src=&quot;/assets/images/Web3/public-private-key-1.svg&quot; alt=&quot;Eki writes and signs the data using Eki's private key to create a digital signature. The data combined with the signature is a transaction&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
+                &lt;img src=&quot;/assets/images/Web3/public-private-key-1.svg&quot; alt=&quot;Eki writes and signs the data using Eki&apos;s private key to create a digital signature. The data combined with the signature is a transaction&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
             &lt;/div&gt;
 
             &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
@@ -1580,11 +1580,11 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     &lt;/li&gt;
 
     &lt;li class=&quot;relative pl-12&quot;&gt;
-        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;3&lt;/span&gt; &lt;p&gt;Everyone in the peer-to-peer network verifies the new transaction signature using Eki's public key to confirm that Eki is the person who signed the transaction.&lt;/p&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;3&lt;/span&gt; &lt;p&gt;Everyone in the peer-to-peer network verifies the new transaction signature using Eki&apos;s public key to confirm that Eki is the person who signed the transaction.&lt;/p&gt;
 
         &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
             &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
-                &lt;img src=&quot;/assets/images/Web3/public-private-key-3.svg&quot; alt=&quot;Everyone in the peer-to-peer network verifies the new transaction signature using Eki's public key to confirm that Eki is the person who signed the transaction&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
+                &lt;img src=&quot;/assets/images/Web3/public-private-key-3.svg&quot; alt=&quot;Everyone in the peer-to-peer network verifies the new transaction signature using Eki&apos;s public key to confirm that Eki is the person who signed the transaction&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
             &lt;/div&gt;
 
             &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
@@ -1594,34 +1594,34 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     &lt;/li&gt;
 
     &lt;li class=&quot;relative pl-12&quot;&gt;
-        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;4&lt;/span&gt; &lt;p&gt;The peer-to-peer network will then include Eki's new verified transaction on a block in a Blockchain.&lt;/p&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;4&lt;/span&gt; &lt;p&gt;The peer-to-peer network will then include Eki&apos;s new verified transaction on a block in a Blockchain.&lt;/p&gt;
 
         &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
             &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
-                &lt;img src=&quot;/assets/images/Web3/public-private-key-4.svg&quot; alt=&quot;The peer-to-peer network will then include Eki's new verified transaction on a block in a Blockchain&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
+                &lt;img src=&quot;/assets/images/Web3/public-private-key-4.svg&quot; alt=&quot;The peer-to-peer network will then include Eki&apos;s new verified transaction on a block in a Blockchain&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
             &lt;/div&gt;
 
             &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
-                Include Eki's new transaction on a block in a Blockchain
+                Include Eki&apos;s new transaction on a block in a Blockchain
             &lt;/figcaption&gt;
         &lt;/figure&gt;
     &lt;/li&gt;
 
     &lt;li class=&quot;relative pl-12&quot;&gt;
-        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;5&lt;/span&gt; &lt;p&gt;After reaching &lt;a href=&quot;/web3/2022/09/16/peer-to-peer-network-in-blockchain.html#consensus-peer-to-peer&quot; target=&quot;_blank&quot; class=&quot;font-semibold textlink&quot;&gt;the consensus&lt;/a&gt;, the peer-to-peer network will include Eki's new transaction in all nodes in the Blockchain.&lt;/p&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;5&lt;/span&gt; &lt;p&gt;After reaching &lt;a href=&quot;/web3/2022/09/16/peer-to-peer-network-in-blockchain.html#consensus-peer-to-peer&quot; target=&quot;_blank&quot; class=&quot;font-semibold textlink&quot;&gt;the consensus&lt;/a&gt;, the peer-to-peer network will include Eki&apos;s new transaction in all nodes in the Blockchain.&lt;/p&gt;
 
         &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
             &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
-                &lt;img src=&quot;/assets/images/Web3/public-private-key-5.svg&quot; alt=&quot;After reaching the consensus, the peer-to-peer network will include Eki's new transaction in all nodes in the Blockchain&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
+                &lt;img src=&quot;/assets/images/Web3/public-private-key-5.svg&quot; alt=&quot;After reaching the consensus, the peer-to-peer network will include Eki&apos;s new transaction in all nodes in the Blockchain&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
             &lt;/div&gt;
 
             &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
-                Consensus reached - Eki's new transaction will be added in all nodes in the Blockchain
+                Consensus reached - Eki&apos;s new transaction will be added in all nodes in the Blockchain
             &lt;/figcaption&gt;
         &lt;/figure&gt;
     &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;That's it! Now, this particular record is immutable and securely saved in the Blockchain.&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;That&apos;s it! Now, this particular record is immutable and securely saved in the Blockchain.&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
 			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
@@ -1638,9 +1638,9 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Need a refresher? Read the first chapter:
-    &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;What is a 'Blockchain'?&lt;/a&gt;
+    &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;What is a &apos;Blockchain&apos;?&lt;/a&gt;
 &lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="Web3" /><summary type="html">What and how does peer to peer network work in Blockchain?</summary></entry><entry><title type="html">Peer to peer network in Blockchain [Read me second]</title><link href="http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain.html" rel="alternate" type="text/html" title="Peer to peer network in Blockchain [Read me second]" /><published>2022-09-16T07:34:00+02:00</published><updated>2022-09-16T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain.html">&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    This article is a continuation of &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;&quot;What is Blockchain?&quot;&lt;/a&gt;. I'd highly recommend you to read that first.
+    This article is a continuation of &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;&quot;What is Blockchain?&quot;&lt;/a&gt;. I&apos;d highly recommend you to read that first.
 &lt;/p&gt;
 
 &lt;p class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;
@@ -1648,10 +1648,10 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     &lt;small class=&quot;font-normal text-slate-500 text-base&quot;&gt;- No, not the TV show&lt;/small&gt;
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    So our trio, Eki, Dwi and Tri, has figured out a way to secure their chaining blocks using cryptography, but it doesn't end there.
+    So our trio, Eki, Dwi and Tri, has figured out a way to secure their chaining blocks using cryptography, but it doesn&apos;t end there.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    The trio realised early on that it doesn't matter how secure and tamper-proof the protocol is. If this data only has one source of truth, they would be fucked anyway if the computer is lost or hacked.
+    The trio realised early on that it doesn&apos;t matter how secure and tamper-proof the protocol is. If this data only has one source of truth, they would be fucked anyway if the computer is lost or hacked.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Hm... What if many computers have identical data? Yes! Peer-to-peer network should do the job!
@@ -1668,7 +1668,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     Blockchain is stored in an extensive network of computers called a peer-to-peer network. On this network, we call each computer a node and every node has a copy of the blockchain.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    In the case of Eki, Dwi, and Tri, imagine that their chaining blocks of data are not just available on one person's computer but on many more computers.
+    In the case of Eki, Dwi, and Tri, imagine that their chaining blocks of data are not just available on one person&apos;s computer but on many more computers.
 &lt;/p&gt;
 
 &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot; id=&quot;consensus-peer-to-peer&quot;&gt;
@@ -1782,7 +1782,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    There are many different consensus mechanisms used in various types of Blockchains. We're not going to get into details of consensus, but this is how Blockchain demonstrates a secure method of storing data without a centralised party, like banks or corporates.
+    There are many different consensus mechanisms used in various types of Blockchains. We&apos;re not going to get into details of consensus, but this is how Blockchain demonstrates a secure method of storing data without a centralised party, like banks or corporates.
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
@@ -1800,11 +1800,11 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     &lt;a href=&quot;/web3/2022/09/16/how-do-you-create-a-transaction-in-a-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;How do you create a transaction in a Blockchain?&lt;/a&gt;
 &lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="Web3" /><summary type="html">What and how does peer to peer network work in Blockchain? Blockchain is stored in an extensive network of computers called a peer-to-peer network. On this network, we call each computer a node and every node has a copy of the blockchain.</summary></entry><entry><title type="html">What is a ‘Blockchain’? [Read me first]</title><link href="http://localhost:4000/web3/2022/09/13/what-is-blockchain.html" rel="alternate" type="text/html" title="What is a ‘Blockchain’? [Read me first]" /><published>2022-09-13T12:34:00+02:00</published><updated>2022-09-13T12:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/13/what-is-blockchain</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/13/what-is-blockchain.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The beginning&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Suppose you are still confused after googling the word 'Blockchain'. This article will hopefully help you because I aim to help you understand the word's meaning!
+    Suppose you are still confused after googling the word &apos;Blockchain&apos;. This article will hopefully help you because I aim to help you understand the word&apos;s meaning!
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    If you wanna know more about &quot;Blockchain&quot;, you must have heard of &quot;Bitcoin&quot;. It's one of the first digital currencies that uses Blockchain as its protocol.
+    If you wanna know more about &quot;Blockchain&quot;, you must have heard of &quot;Bitcoin&quot;. It&apos;s one of the first digital currencies that uses Blockchain as its protocol.
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
@@ -1835,7 +1835,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     Wait, what is Digital Ledger Technology? A growing list of records for what? And why linked? Cryptography is something like Benedict Cumberbatch did at The Imitation Game, right?
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    So many questions in one paragraph, some people get this right away, and some don't. This article is for those who don't because I can relate with them so much.
+    So many questions in one paragraph, some people get this right away, and some don&apos;t. This article is for those who don&apos;t because I can relate with them so much.
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
 		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
@@ -1854,7 +1854,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     There are three best friends named Eki, Dwi, and Tri. They dream of building a fancy shared house where they will grow old together. Yes, they got it all figured out 🌈
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    So starting January 1st 2008, they pledge to give 10% of their monthly income to their joined account. Mind that they are entrepreneurs, so their monthly payments are never the same, and they don't want to involve any banks because they have been hearing about this financial crisis that might push banks to go to shitholes. &lt;span class=&quot;text-pink-500&quot;&gt;Spoiler alert, they were right. Banks did go to shitholes, and lots of people lost money.&lt;/span&gt;
+    So starting January 1st 2008, they pledge to give 10% of their monthly income to their joined account. Mind that they are entrepreneurs, so their monthly payments are never the same, and they don&apos;t want to involve any banks because they have been hearing about this financial crisis that might push banks to go to shitholes. &lt;span class=&quot;text-pink-500&quot;&gt;Spoiler alert, they were right. Banks did go to shitholes, and lots of people lost money.&lt;/span&gt;
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Before they started saving, the trio mulled the security aspect of protecting their assets without the bank and devised three rules. These rules are simple yet robust:
@@ -1885,7 +1885,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     What the heck is &quot;fingerprint recognition and cryptographic methods&quot;?
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    It's just a fancy way of saying &lt;strong&gt;when you type something, it will encrypt your data into something unreadable to humans&lt;/strong&gt;.
+    It&apos;s just a fancy way of saying &lt;strong&gt;when you type something, it will encrypt your data into something unreadable to humans&lt;/strong&gt;.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     As an example, if you put data:
@@ -1897,8 +1897,8 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-solidity&quot; data-lang=&quot;solidity&quot;&gt;&lt;span class=&quot;mi&quot;&gt;00000&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d8f25735dfa0c6c0a95cda7f612204fe5d2f2890f43b768bfbd1b8a4640&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     This hash will change if you change the data. Yes, even a slight change.&lt;br&gt;
-    &lt;i class=&quot;fa-duotone fa-seal-question mr-1&quot;&gt;&lt;/i&gt; `Eki` to `Eka`? Hash won't match.&lt;br&gt;
-    &lt;i class=&quot;fa-duotone fa-seal-question mr-1&quot;&gt;&lt;/i&gt; `€ 200` to `€ 201`? Hash won't match.&lt;br&gt;
+    &lt;i class=&quot;fa-duotone fa-seal-question mr-1&quot;&gt;&lt;/i&gt; `Eki` to `Eka`? Hash won&apos;t match.&lt;br&gt;
+    &lt;i class=&quot;fa-duotone fa-seal-question mr-1&quot;&gt;&lt;/i&gt; `€ 200` to `€ 201`? Hash won&apos;t match.&lt;br&gt;
     You get my point.
 &lt;/p&gt;
 
@@ -1919,7 +1919,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     &lt;/div&gt;
 
     &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
-        Each block contains the previous block's hash, forming a chain structure. Hence the name &quot;Blockchain&quot;.
+        Each block contains the previous block&apos;s hash, forming a chain structure. Hence the name &quot;Blockchain&quot;.
     &lt;/figcaption&gt;
 &lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
@@ -1931,7 +1931,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/div&gt;
 &lt;h3 class=&quot;text-lg font-semibold mt-4 md:mt-6 mb-2 md:mb-3&quot;&gt;How is this secure?&lt;/h3&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Let's do this in a realistic case with Eki, Dwi, and Tri. Say they have been saving for years.
+    Let&apos;s do this in a realistic case with Eki, Dwi, and Tri. Say they have been saving for years.
 &lt;/p&gt;
 &lt;div class=&quot;p-4 md:p-6 border border-gray-500 dark:border-gray-200 border-dashed text-sm leading-loose&quot;&gt;
     &lt;p class=&quot;monospace&quot;&gt;&lt;i class=&quot;fa-duotone fa-cubes mr-1&quot;&gt;&lt;/i&gt; There are 120 blocks before this...&lt;/p&gt;
@@ -2004,7 +2004,7 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     &lt;p class=&quot;monospace&quot;&gt;&lt;i class=&quot;fa-duotone fa-cubes mr-1&quot;&gt;&lt;/i&gt; There are many more blocks coming...&lt;/p&gt;
 &lt;/div&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    For example, someone wants to cheat on block 121 and change the amount of money they contribute. The hashes won't match anymore, the block 121 and blocks chaining afterwards will become obsolete.
+    For example, someone wants to cheat on block 121 and change the amount of money they contribute. The hashes won&apos;t match anymore, the block 121 and blocks chaining afterwards will become obsolete.
 &lt;/p&gt;
 &lt;div class=&quot;text-center&quot;&gt;&lt;i class=&quot;fa-thin fa-link-horizontal rotate-90 text-xl&quot;&gt;&lt;/i&gt;&lt;/div&gt;
 &lt;div class=&quot;p-4 md:p-6 border border-gray-500 dark:border-gray-200 border-dashed relative text-sm leading-loose&quot;&gt;
@@ -2083,13 +2083,13 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;If you get this far, you have grasped the basic idea of Blockchain.&lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;A Blockchain is a digital ledger consisting of a growing list of blocks. Each block contains encrypted data and is securely linked together using cryptography.
 &lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;It doesn't end here. This trio realised early on that it doesn't matter how secure and tamper-proof the protocol is. If this data only has one source of truth, they would be fucked anyway if the computer is lost or hacked. &lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;It doesn&apos;t end here. This trio realised early on that it doesn&apos;t matter how secure and tamper-proof the protocol is. If this data only has one source of truth, they would be fucked anyway if the computer is lost or hacked. &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Read next chapter:
     &lt;a href=&quot;/web3/2022/09/16/peer-to-peer-network-in-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;Peer to peer network in Blockchain&lt;/a&gt;
-&lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="Web3" /><summary type="html">Bitcoin explanation in a simple plain english using a story to help you understand the meaning of 'Blockchain technology'.</summary></entry><entry><title type="html">Centralised vs Decentralised system</title><link href="http://localhost:4000/web3/2022/09/08/centralised-vs-decentralised-system.html" rel="alternate" type="text/html" title="Centralised vs Decentralised system" /><published>2022-09-08T12:34:00+02:00</published><updated>2022-09-08T12:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/08/centralised-vs-decentralised-system</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/08/centralised-vs-decentralised-system.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is the centralised and decentralised system? Why is it a big deal?!&lt;/h2&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="Web3" /><summary type="html">Bitcoin explanation in a simple plain english using a story to help you understand the meaning of &apos;Blockchain technology&apos;.</summary></entry><entry><title type="html">Centralised vs Decentralised system</title><link href="http://localhost:4000/web3/2022/09/08/centralised-vs-decentralised-system.html" rel="alternate" type="text/html" title="Centralised vs Decentralised system" /><published>2022-09-08T12:34:00+02:00</published><updated>2022-09-08T12:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/08/centralised-vs-decentralised-system</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/08/centralised-vs-decentralised-system.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is the centralised and decentralised system? Why is it a big deal?!&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    You must have heard of &quot;Blockchain&quot;, and the chance is you are reading this because you probably got confused about blockchain's &quot;decentralised&quot; strength and why people make such a massive deal about it.&lt;br&gt;&lt;br&gt;
+    You must have heard of &quot;Blockchain&quot;, and the chance is you are reading this because you probably got confused about blockchain&apos;s &quot;decentralised&quot; strength and why people make such a massive deal about it.&lt;br&gt;&lt;br&gt;
     Blockchain is often used for crypto related project (digital currency). However, I find it essential to understand the general interpretation of the word &quot;centralised&quot; vs &quot;decentralised&quot; because blockchain technology is not all about finance.
 &lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
@@ -2108,19 +2108,19 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    The key is on &lt;strong&gt;'trust&lt;/strong&gt;'. If you have to trust another entity to confirm or verify your tasks, you are dealing with something centralised. A good example is when you want to send money to someone you have never met named &quot;Elie&quot;. Based on the information Elie gave you, you rely on the bank to confirm that this account exists in their database. Therefore you feel safe hitting the &quot;send&quot; button.
+    The key is on &lt;strong&gt;&apos;trust&lt;/strong&gt;&apos;. If you have to trust another entity to confirm or verify your tasks, you are dealing with something centralised. A good example is when you want to send money to someone you have never met named &quot;Elie&quot;. Based on the information Elie gave you, you rely on the bank to confirm that this account exists in their database. Therefore you feel safe hitting the &quot;send&quot; button.
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Oh, on top of that, you also trust the bank to hold your money. Although you don't discern it, you are asking permission from your bank whenever you withdraw your money. Banks can refuse cash withdrawals and freeze your account as they see fit.
+    Oh, on top of that, you also trust the bank to hold your money. Although you don&apos;t discern it, you are asking permission from your bank whenever you withdraw your money. Banks can refuse cash withdrawals and freeze your account as they see fit.
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Let's give another example—your YouTube account. When you create it, you provide your identity and give YouTube permission so you can use their services, and they can have the right to publish your content.
+    Let&apos;s give another example—your YouTube account. When you create it, you provide your identity and give YouTube permission so you can use their services, and they can have the right to publish your content.
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    When you upload a video, your content belongs on the YouTube database, managed by them. Their code is not open, you're not entitled to see the code or own your own data. They own the data. Your gain is that you unlock the potential of reaching billions of people with your content. You could make millions of dollars streaming your video. Still, they could also decide to ban your account, unpublish your content without your permission, or sell your data to whomever they see fit (yes, I am talking about ads).
+    When you upload a video, your content belongs on the YouTube database, managed by them. Their code is not open, you&apos;re not entitled to see the code or own your own data. They own the data. Your gain is that you unlock the potential of reaching billions of people with your content. You could make millions of dollars streaming your video. Still, they could also decide to ban your account, unpublish your content without your permission, or sell your data to whomever they see fit (yes, I am talking about ads).
 &lt;/p&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
@@ -2149,22 +2149,22 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
     Is there anything decentralised these days? Yes, the Internet! The Internet is controlled by many. It consists of millions of devices linked together in an open network. No one can own, manage or switch it off for everyone.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Coincidence? No, this was very much a part of the design.  The inventors of the Web want all people to be able to create and access information. I can't imagine how the world would be today if a company, country or wealthy individual owned the Internet.
+    Coincidence? No, this was very much a part of the design.  The inventors of the Web want all people to be able to create and access information. I can&apos;t imagine how the world would be today if a company, country or wealthy individual owned the Internet.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Anyone, literally anyone, can create a new website. When one website is down, others won't be affected. This architecture enables the Web to scale, facilitate innovation, and open the market.
+    Anyone, literally anyone, can create a new website. When one website is down, others won&apos;t be affected. This architecture enables the Web to scale, facilitate innovation, and open the market.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Don't get confused. Some successful services have achieved near-monopoly status, but the Internet is not them, and they are not The Internet.
+    Don&apos;t get confused. Some successful services have achieved near-monopoly status, but the Internet is not them, and they are not The Internet.
 &lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Anything that doesn't require an entity to allow or disallow you to do what you want when you want can be considered a decentralised system.&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Anything that doesn&apos;t require an entity to allow or disallow you to do what you want when you want can be considered a decentralised system.&lt;/p&gt;
 
 &lt;div class=&quot;mb-4 md:mb-6&quot;&gt;
     &lt;p class=&quot;font-semibold mb-3&quot;&gt;Decentralised system pros:&lt;/p&gt;
     &lt;ul&gt;
         &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Scaling is easier&lt;/li&gt;
         &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;Peer-to-peer means no one node has supremacy over other nodes&lt;/li&gt;
-        &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;High availability since we're not dependant on one centralised node&lt;/li&gt;
+        &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;&lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check text-base&quot;&gt;&lt;/i&gt;High availability since we&apos;re not dependant on one centralised node&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
     &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
@@ -2178,15 +2178,15 @@ The internet's easy access and smooth adoption seem like the perfect utopia, but
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     A clear distinction between a centralised and decentralised system can be illustrated in a case where a user named &quot;Ivana&quot; posts to a centralised system called Facebook.
     &lt;br&gt;&lt;br&gt;
-    Facebook has one computer, and this &lt;span class=&quot;underline underline-offset-8&quot;&gt;one computer is responsible for verifying&lt;/span&gt; Ivana's updates. When confirmed, this one computer will update everywhere on the Facebook page where this new change is affecting.
+    Facebook has one computer, and this &lt;span class=&quot;underline underline-offset-8&quot;&gt;one computer is responsible for verifying&lt;/span&gt; Ivana&apos;s updates. When confirmed, this one computer will update everywhere on the Facebook page where this new change is affecting.
     &lt;br&gt;&lt;br&gt;
-    On the alternative side, &lt;span class=&quot;underline underline-offset-8&quot;&gt;hundreds of thousands of computers verify&lt;/span&gt; Ivana's change in a decentralised system.
+    On the alternative side, &lt;span class=&quot;underline underline-offset-8&quot;&gt;hundreds of thousands of computers verify&lt;/span&gt; Ivana&apos;s change in a decentralised system.
     &lt;br&gt;&lt;br&gt;
-    As a Web 3 enthusiast, I don't want everything to be decentralised. I believe the key is balance. What is the problem we are solving? What is the purpose of the project, and why?&lt;br&gt;&lt;br&gt;
+    As a Web 3 enthusiast, I don&apos;t want everything to be decentralised. I believe the key is balance. What is the problem we are solving? What is the purpose of the project, and why?&lt;br&gt;&lt;br&gt;
     Now we understand what centralised and decentralised are. How about reading more about &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;Blockchain&lt;/a&gt;?
 &lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="centralised" /><category term="decentralised" /><category term="technology" /><category term="organisation" /><category term="Web3" /><summary type="html">Understanding centralised and decentralised system, not only in finance but also in technology and organisation. Is one better than the other?</summary></entry><entry><title type="html">Timeout Limit to Asynchronous JavaScript Functions</title><link href="http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html" rel="alternate" type="text/html" title="Timeout Limit to Asynchronous JavaScript Functions" /><published>2022-05-04T12:35:00+02:00</published><updated>2022-05-04T12:35:00+02:00</updated><id>http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions</id><content type="html" xml:base="http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The case&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-I have a page that gets data from an API (&lt;a href=&quot;https://swapi.dev/api/planets/9&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Swapi&lt;/a&gt;). I want to make an asynchronous call to fetch the data but I don't want the users to wait too long.
+I have a page that gets data from an API (&lt;a href=&quot;https://swapi.dev/api/planets/9&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Swapi&lt;/a&gt;). I want to make an asynchronous call to fetch the data but I don&apos;t want the users to wait too long.
 &lt;/p&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
 Ideally, the maximum waiting time would be 500ms and if nothing happens, I will show the &quot;fallback&quot; data. How can we tackle this?
@@ -2194,24 +2194,24 @@ Ideally, the maximum waiting time would be 500ms and if nothing happens, I will 
 
 &lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The Solution&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Let's start with the basic function that supposedly takes a while to be fetched (1sec). We will be using &lt;a href=&quot;https://deelay.me/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Deelay.me&lt;/a&gt; to slow loading the API.
+Let&apos;s start with the basic function that supposedly takes a while to be fetched (1sec). We will be using &lt;a href=&quot;https://deelay.me/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Deelay.me&lt;/a&gt; to slow loading the API.
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://deelay.me/1000/https://swapi.dev/api/planets/9/?format=json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://deelay.me/1000/https://swapi.dev/api/planets/9/?format=json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-We agreed that 1 second is too long. The acceptable waiting time is 500 ms. So let's create a timeLimit function to set the max waiting time.
+We agreed that 1 second is too long. The acceptable waiting time is 500 ms. So let&apos;s create a timeLimit function to set the max waiting time.
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeLimit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-We need to make sure to provide the fallback response or data, should the async `getPlanets` function takes over 500ms to complete the task. Let's use the `timeLimit` function above on the `onApiTimeout` function and provide the fallback.
+We need to make sure to provide the fallback response or data, should the async `getPlanets` function takes over 500ms to complete the task. Let&apos;s use the `timeLimit` function above on the `onApiTimeout` function and provide the fallback.
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onApiTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fallbackplanet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -2240,7 +2240,7 @@ The Promise.race() method returns a promise that fulfills or rejects as soon as 
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Finally, let's create a async function called `initGetPlanets` where we can try to get `planets` from `getPlanetsWithTimeLimit` and catch if there's an error to the request.
+Finally, let&apos;s create a async function called `initGetPlanets` where we can try to get `planets` from `getPlanetsWithTimeLimit` and catch if there&apos;s an error to the request.
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;planets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initGetPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -2249,7 +2249,7 @@ Finally, let's create a async function called `initGetPlanets` where we can try 
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;PLANETS &amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;planets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;PLANETS &amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;planets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;initGetPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -2258,8 +2258,8 @@ To test if the concept works, we can adjust the `deelay` on `getPlanets` functio
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// Make the deelay shorter than 500ms&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://deelay.me/100/https://swapi.dev/api/planets/9/?format=json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://deelay.me/100/https://swapi.dev/api/planets/9/?format=json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -2297,8 +2297,8 @@ If you adjust the `deelay` to larger than 500ms, you will get the fallback insid
 &lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// Make the deelay larger than 500ms&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://deelay.me/1000/https://swapi.dev/api/planets/9/?format=json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://deelay.me/1000/https://swapi.dev/api/planets/9/?format=json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
