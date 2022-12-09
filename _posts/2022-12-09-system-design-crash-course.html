@@ -1,0 +1,518 @@
+---
+layout: post
+title:  "System Design crash course"
+excerpt: Do you ever think of how to design the system of a marketplace website that allows millions of users to browse products and purchase them from start to finish? Me too!
+date: 2022-12-09 19:34:00 +0100
+categories: code
+tags: system-design database dns web-server cache load-balancer backend frontend
+---
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">The beginning</h2>
+<p class="mb-4 md:mb-6">
+    Do you ever think of how to design the system of a marketplace website that allows millions of users to browse products and purchase them from start to finish? Or maybe wonder how a video streaming application like Netflix can stream so fast and show different video quality based on your internet connection speed?
+</p>
+<p class="mb-4 md:mb-6">
+    Me too! and this is why I want to start writing about System Design.
+</p>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Why System Design is important?</h2>
+<p class="mb-4 md:mb-6">
+    As a software engineer, it's crucial to understand System Design because it is the backbone of any project and application.
+</p>
+<p class="mb-4 md:mb-6">
+    To advance our careers as software engineers and deliver long-term solutions, we need to know how to design an application's system and how each module, storage, server, and interface work together.
+</p>
+<p class="mb-4 md:mb-6">
+    Especially when it comes to designing a system that supports millions of users. It can be challenging because it requires us to continuously improve and refine our strategy.
+</p>
+
+<p class="mb-4 md:mb-6">
+    The best part is there are no "right" answers. Based on the project's requirements, which could always be dynamic and ever-changing, we can explore different solutions that satisfactorily fit the criteria.
+</p>
+
+<p class="mb-4 md:mb-6">
+    So let's dive into it and have fun!
+</p>
+
+{%- include breathe.html -%}
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">What is System Design?</h2>
+<figure class="border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6">
+    <blockquote class="mb-4 text-xl leading-relaxed">
+        System design is the process of defining a system's entire requirements, such as the architecture, modules, interface, and design.
+    </blockquote>
+    <figcaption>
+        <cite>— <i class="fa-brands fa-wikipedia-w mr-1.5"></i> Wikipedia</cite>
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    To be able to design a large and complex system, we need to start with the most basic setup.
+</p>
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Single server setup</h2>
+<p class="mb-4 md:mb-6">
+    Let's start with the simplest setup, a single server setup. A single server setup is where everything (web, app, database, cache) runs on one server.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/system-design/single-server-setup.png" | relative_url }}" width="704" height="389" alt="Single server setup" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Single server setup
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    The flow is like this:
+</p>
+<ol class="mb-4 md:mb-6">
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">1</span>
+        <p class="mb-2 md:mb-4">
+            Users access the website via the domain name (www.venopi.com).
+        </p>
+        <p class="mb-2 md:mb-4">
+            The Domain Name System (DNS) is a paid service provided by third parties that translates domain names (like www.venopi.com) into IP addresses (like 99.349.34.99) so browsers can load Internet resources.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">2</span>
+        <p class="mb-2 md:mb-4">
+            IP address is returned from the DNS to the browser or mobile app.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">3</span>
+        <p class="mb-2 md:mb-4">
+            Once the IP address is received, Hypertext Transfer Protocol (HTTP) requests are sent directly to our web server.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">3</span>
+        <p class="mb-2 md:mb-4">
+            The web server returns HTML or JSON response for rendering.
+        </p>
+    </li>
+</ol>
+<p class="mb-4 md:mb-6">
+    Now we have received an HTML page on our Web browser or JSON on our Mobile app. What's next?
+</p>
+
+{%- include breathe.html -%}
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Database</h2>
+<p class="mb-4 md:mb-6">
+    When the users are growing, more than one server is needed. We will need at least one server for the traffic (web and mobile) and the other for the database.
+</p>
+
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/system-design/database.png" | relative_url }}" width="704" height="374" alt="Multiple server: Database" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Multiple server: Database
+    </figcaption>
+</figure>
+
+<p class="mb-4 md:mb-6">
+    There are two different kinds of databases: a <strong>relational database</strong> and a <strong>non-relational database</strong>.
+</p>
+
+<h3 class="text-xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Relational databases</h3>
+<p class="mb-4 md:mb-6">
+    Relational databases are known as relational database management system (RDBMS). It represents and stores data in tables and rows. You can join operations using SQL across different database tables. MySQL, PostgreSQL, Oracle database, and Amazon Relational Database Service (RDS) are the most popular ones.
+</p>
+<p class="mb-4 md:mb-6">
+    Relational databases are the most commonly used ones. It's been around since the 70s and has proven to work well.
+</p>
+<p class="mb-4 md:mb-6">
+    Relational databases could be the right choice if:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        The application works with related data.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        The need to have a database instance automatically refreshes when one user updates a specific record and provides that information in real-time.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        The application cares about assessing data integrity.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        The application prioritises vertical scaling over horizontal scaling.
+    </li>
+</ul>
+<h3 class="text-xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Non-Relational databases</h3>
+<p class="mb-4 md:mb-6">
+    Non-Relational databases are called NoSQL databases. These databases are grouped into four categories: key-value stores, graph stores, column stores, and document stores. Join operations are generally not supported. The most popular ones are MongoDB, Cassandra, and Couchbase.
+</p>
+<p class="mb-4 md:mb-6">
+    Non-Relational databases could be the right choice if:
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        The application requires super-low latency.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        The data is unstructured or has no relational data.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        The purpose is to serialise and deserialised data (JSON, XML, YAML).
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        The need to store a massive amount of data.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        The application prioritises availability over consistency.
+    </li>
+</ul>
+
+{%- include breathe.html -%}
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Scaling</h2>
+<p class="mb-4 md:mb-6">
+    Scaling is a common system problem when your application grows (more users, more orders, etc.).
+</p>
+<p class="mb-4 md:mb-6">
+    There are two different types of scaling, vertical and horizontal.
+</p>
+<p class="mb-4 md:mb-6">
+    <strong>Vertical</strong> means adding more power to the existing server (RAM, CPU).<br>
+    <strong>Horizontal</strong> means adding more servers next to your existing one.
+</p>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Load balancer</h2>
+<p class="mb-4 md:mb-6">
+    A load balancer is a device between the user and the servers to ensure that no server is overworked by evenly distributing traffic to maximise speed and performance.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg">
+        <img src="{{ "/assets/images/system-design/load-balancer.png" | relative_url }}" width="704" height="472" alt="Load balancer" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Load balancer
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    As shown above, users connect to the public IP of the load balancer instead of the web server. Then the load balancer communicates with the web servers via private IPs. The private IPs are used for communication between servers in the same network and are unreachable over the internet.
+</p>
+<p class="mb-4 md:mb-6">
+    The nice part about this approach is that if server A goes down, all the traffic will be routed to server B. This means that the application is always gonna be online.
+</p>
+<p class="mb-4 md:mb-6">
+    If the traffic proliferates and two servers are no longer enough to handle it. We can add more servers, and the load balancer can handle it gracefully by automatically sending requests or traffic to them.
+</p>
+
+<p class="mb-4 md:mb-6">
+    The web tier looks solid now. How about the database, though? We currently only have one. Is it enough, or can we improve the data tier?
+</p>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Database replication</h2>
+<p class="mb-4 md:mb-6">
+    Yep! It is as it sounds. It's a method where we replicate the master database (original) and create slaves (copies) from it.
+</p>
+<p class="mb-4 md:mb-6">
+    The master database usually only supports the write operations, while the slaves support the read operations. Any actions related to data modification (insert, delete, update) must only be sent to the master.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/system-design/database-replication.png" | relative_url }}" alt="Database replication" height="540" width="473" class="inline-block h-[540px]" />
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Database replication (master / slaves)
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    So now we have the master database and several slaves, what if one of the databases goes offline?
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        <p><strong>If there is only one slave and it's offline</strong></p>
+        <p>The read operations will be directed to the master temporarily. Once the issue is found, a new slave database will replace the old one.</p>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        <p><strong>If there are multiple slaves and one of them is offline</strong></p>
+        <p>The read operations will be directed to other healthy slaves. Once the issue is found, a new slave database will replace the old one.</p>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        <p><strong>If the master is offline</strong></p>
+        <p>A slave database will be promoted to be the master. Then all the database operations will be temporarily executed on the new master. A new slave database will immediately replace the old one for data replication.</p>
+    </li>
+</ul>
+<p class="mb-4 md:mb-6">
+    Our data tier looks solid now! What are the benefits of database replication?
+</p>
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        <p><strong>Higher reliability and availability</strong></p>
+        <p>The data will still be available even if one of the machines has a severe hardware failure because there are many replications across different locations. Spinning up a new database will be trivial.</p>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        <p><strong>Better data security</strong></p>
+        <p>Many replications across different locations also mean that the data will be safe on some servers, even if a disaster occurs on others.</p>
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
+        <p><strong>Performance improvement</strong></p>
+        <p>The model improves performance because the data is distributed on different servers. The master is responsible for data modification, while slaves are responsible for read operations.
+    </li>
+</ul>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/system-design/database-replication-full.png" | relative_url }}" width="704" height="434" alt="Web + Data tier flow"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Web + Data tier flow
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    Let's go through it together:
+</p>
+<ol class="mb-4 md:mb-6">
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-circle-dot"></i></span>
+        <p class="mb-2 md:mb-4">
+            Users get the public IP address of the load balancer from the DNS.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-arrow-down"></i></span>
+        <p class="mb-2 md:mb-4">
+            Users connect to the load balancer with the public IP address.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-arrow-down"></i></span>
+        <p class="mb-2 md:mb-4">
+            The HTTP request is routed to either server A or server B.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-arrow-down"></i></span>
+        <p class="mb-2 md:mb-4">
+            The web server (A/B) reads the data from one of the slave databases.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-circle-dot"></i></span>
+        <p class="mb-2 md:mb-4">
+            The web server (A/B) routes data-modification operations to the master database.
+        </p>
+    </li>
+</ol>
+<p class="mb-4 md:mb-6">
+    We now have a concrete understanding of how the web and data tier works. Let's talk about improving the load and response time.
+</p>
+<p class="mb-4 md:mb-6">
+    Yes, we are talking about adding a cache layer and shifting static content to the CDN 👍
+</p>
+
+{%- include breathe.html -%}
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Cache</h2>
+<figure class="border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6">
+    <blockquote class="mb-4 text-xl leading-relaxed">
+        A component that stores data so that future requests for that data can be served faster; the data stored in a cache might be the result of an earlier computation or a copy of data stored elsewhere.
+    </blockquote>
+    <figcaption>
+        <cite>— <i class="fa-brands fa-wikipedia-w mr-1.5"></i> Wikipedia</cite>
+    </figcaption>
+</figure>
+<p class="mb-4 md:mb-6">
+    Multiple calls are executed every time a web page loads to fetch the data. The application performance is significantly affected by calling the database repeatedly, and the cache can mitigate this issue.
+</p>
+
+<h3 class="text-xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Cache tier</h3>
+<p class="mb-4 md:mb-6">
+    The cache tier is a temporary data store layer that is much faster than the database. Having a cache tier can improve the system performance by reducing the database workload.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/system-design/cache.png" | relative_url }}" width="704" height="193" alt="Cache tier"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Cache tier flow
+    </figcaption>
+</figure>
+<ol class="mb-4 md:mb-6">
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">1</span>
+        <p class="mb-2 md:mb-4">
+            When a request is received, the web server checks if the cache has the response. If it has, it sends the data back to the client.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">2</span>
+        <p class="mb-2 md:mb-4">
+            If not, it queries the database and stores the response in the cache.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">3</span>
+        <p class="mb-2 md:mb-4">
+            From the cache, sends the response to the client.
+        </p>
+    </li>
+</ol>
+<p class="mb-4 md:mb-6">
+    Some tips to consider when using the cache system:
+</p>
+
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        Use cache when the data is read often but rarely modified. Cached data is stored in volatile memory. It will be gone if the cache server restarts, so important data should be saved in the persistent data stores.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        Implement an expiration policy. If not implemented, the cache data will be stored permanently in the memory. It's a good practice to clean up when data is expired.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        Implement the eviction policy. When the cache is full, existing items might be removed when new items are attempted to be added. Some variations of the cache eviction policy are <strong>Last Recently Used (LRU)</strong>, <strong>Last Frequently Used (LFU)</strong>, <strong>First In First Out (FIFO)</strong>.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        Synchronize the data and the cache correctly. Maintaining consistency is very challenging when the product grows, and there are multiple caches and databases. A good read for this topic is <a href="https://research.facebook.com/publications/scaling-memcache-at-facebook/" target="_blank" class="textlink">Scaling Memcache at Facebook</a>.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        Avoid Single Point Of Failure (SPOF) at any cost.
+    </li>
+</ul>
+
+{%- include breathe.html -%}
+
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Content Delivery Network (CDN)</h2>
+<p class="mb-4 md:mb-6">
+    CDN is a geographically distributed group of servers that work together to provide fast delivery of static content, such as images, stylesheets, javascript files, etc.
+</p>
+<p class="mb-4 md:mb-6">
+    The way CDN work is straightforward. The further the users are located from the CDN server, the longer they will get data. Say if the CDN server is located in Amsterdam, users in Sweden will get the content faster than those in Canada.
+</p>
+<p class="mb-4 md:mb-6">
+    The flow of CDN:
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/system-design/cdn.png" | relative_url }}" width="704" height="313" alt="CDN"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        CDN flow
+    </figcaption>
+</figure>
+<ol class="mb-4 md:mb-6">
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">1</span>
+        <p class="mb-2 md:mb-4">
+            Suchi gets an image logo on Venopi. The CDN provider provides the URL's domain, such as: `https://venopi.cdnproviderx.net/logo.png`.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">2</span>
+        <p class="mb-2 md:mb-4">
+            If the CDN server doesn't have the logo in the cache, the CDN server requests the file from the origin, which can be a web server or online storage.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">3</span>
+        <p class="mb-2 md:mb-4">
+            The origin returns the logo to the CDN server, including the optional HTTP header Time-to-Live (TTL), which describes how long the image is cached.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">4</span>
+        <p class="mb-2 md:mb-4">
+            The CDN caches the logo and returns it to Suchi. The image remains cached in the CDN until the TTL expires.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">5</span>
+        <p class="mb-2 md:mb-4">
+            Other users visit venopi.com and request to get the logo.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">6</span>
+        <p class="mb-2 md:mb-4">
+            Other users will get the logo from the cache for as long as the TTL is not expired.
+        </p>
+    </li>
+</ol>
+<p class="mb-4 md:mb-6">
+    Some tips to consider when using CDN:
+</p>
+
+<ul class="mb-4 md:mb-6">
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        CDNs are charged per data transfer in and out of the CDN, adding extra cost to your project.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        Implement an expiration cache policy. Not too long but also not too short ("lagom" in Swedish). If it's too long, the content may not be fresh; if it's too short, it can cause repeat reloading of content from origin servers to the CDN.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        Implement the fallback in case of CDN failures. If CDN fails, clients should detect the problem and request resources from the origin.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        Remove unused files by invalidating them before the expiration date. This can be done by using the CDN vendors' APIs or using object versioning to serve a different version of the object. It looks like `https://venopi.cdnproviderx.net/logo.png?v=2` — which the `?v=2` indicates version #2.
+    </li>
+</ul>
+
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/system-design/cdn-flow.png" | relative_url }}" width="704" height="317" alt="System design with CDN and cache"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        System design with CDN and cache
+    </figcaption>
+</figure>
+
+<ol class="mb-4 md:mb-6">
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">1</span>
+        <p class="mb-2 md:mb-4">
+            Static assets (javascript files, images, videos, stylesheets, etc) are fetched from the CDN for better performance.
+        </p>
+    </li>
+    <li class="relative pl-12">
+        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0">1</span>
+        <p class="mb-2 md:mb-4">
+            The database load is reduced by the cache tier.
+        </p>
+    </li>
+</ol>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">That's it for now!</h2>
+<p class="mb-4 md:mb-6">
+    I hope this post will help you understand better about System Design. In the following posts, I will write more in-depth topics about system design, such as stateless vs stateful architecture, message queues, etc.
+</p>
+<p class="mb-4 md:mb-6">
+    Feel free to ping me if you have any questions or suggestions 🙏
+</p>
