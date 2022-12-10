@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-10T08:35:05+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">System Design Crash Course for Beginners</title><link href="http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners.html" rel="alternate" type="text/html" title="System Design Crash Course for Beginners" /><published>2022-12-10T08:34:00+01:00</published><updated>2022-12-10T08:34:00+01:00</updated><id>http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners</id><content type="html" xml:base="http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The beginning&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-10T09:00:49+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">System Design Crash Course for Beginners</title><link href="http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners.html" rel="alternate" type="text/html" title="System Design Crash Course for Beginners" /><published>2022-12-10T08:34:00+01:00</published><updated>2022-12-10T08:34:00+01:00</updated><id>http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners</id><content type="html" xml:base="http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The beginning&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Do you ever think of how to design the system of a marketplace website that allows millions of users to browse products and purchase them from start to finish? Or maybe wonder how a video streaming application like Netflix can stream so fast and show different video quality based on your internet connection speed?
 &lt;/p&gt;
@@ -309,7 +309,7 @@
 &lt;/p&gt;
 &lt;ol class=&quot;mb-4 md:mb-6&quot;&gt;
     &lt;li class=&quot;relative pl-12&quot;&gt;
-        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-circle-dot&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-[30px] rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-circle-dot&quot;&gt;&lt;/i&gt;&lt;/span&gt;
         &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
             Users get the public IP address of the load balancer from the DNS.
         &lt;/p&gt;
@@ -333,7 +333,7 @@
         &lt;/p&gt;
     &lt;/li&gt;
     &lt;li class=&quot;relative pl-12&quot;&gt;
-        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-circle-dot&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-[30px] rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-circle-dot&quot;&gt;&lt;/i&gt;&lt;/span&gt;
         &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
             The web server (A/B) routes data-modification operations to the master database.
         &lt;/p&gt;
@@ -404,23 +404,23 @@
 
 &lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
     &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
-        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-lightbulb&quot;&gt;&lt;/i&gt;
         Use cache when the data is read often but rarely modified. Cached data is stored in volatile memory. It will be gone if the cache server restarts, so important data should be saved in the persistent data stores.
     &lt;/li&gt;
     &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
-        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-lightbulb&quot;&gt;&lt;/i&gt;
         Implement an expiration policy. If not implemented, the cache data will be stored permanently in the memory. It&apos;s a good practice to clean up when data is expired.
     &lt;/li&gt;
     &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
-        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-lightbulb&quot;&gt;&lt;/i&gt;
         Implement the eviction policy. When the cache is full, existing items might be removed when new items are attempted to be added. Some variations of the cache eviction policy are &lt;strong&gt;Last Recently Used (LRU)&lt;/strong&gt;, &lt;strong&gt;Last Frequently Used (LFU)&lt;/strong&gt;, &lt;strong&gt;First In First Out (FIFO)&lt;/strong&gt;.
     &lt;/li&gt;
     &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
-        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-lightbulb&quot;&gt;&lt;/i&gt;
         Synchronize the data and the cache correctly. Maintaining consistency is very challenging when the product grows, and there are multiple caches and databases. A good read for this topic is &lt;a href=&quot;https://research.facebook.com/publications/scaling-memcache-at-facebook/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Scaling Memcache at Facebook&lt;/a&gt;.
     &lt;/li&gt;
     &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
-        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-lightbulb&quot;&gt;&lt;/i&gt;
         Avoid Single Point Of Failure (SPOF) at any cost.
     &lt;/li&gt;
 &lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
@@ -494,19 +494,19 @@
 
 &lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
     &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
-        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-lightbulb&quot;&gt;&lt;/i&gt;
         CDNs are charged per data transfer in and out of the CDN, adding extra cost to your project.
     &lt;/li&gt;
     &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
-        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-lightbulb&quot;&gt;&lt;/i&gt;
         Implement an expiration cache policy. Not too long but also not too short (&quot;lagom&quot; in Swedish). If it&apos;s too long, the content may not be fresh; if it&apos;s too short, it can cause repeat reloading of content from origin servers to the CDN.
     &lt;/li&gt;
     &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
-        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-lightbulb&quot;&gt;&lt;/i&gt;
         Implement the fallback in case of CDN failures. If CDN fails, clients should detect the problem and request resources from the origin.
     &lt;/li&gt;
     &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
-        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-lightbulb&quot;&gt;&lt;/i&gt;
         Remove unused files by invalidating them before the expiration date. This can be done by using the CDN vendors&apos; APIs or using object versioning to serve a different version of the object. It looks like `https://venopi.cdnproviderx.net/logo.png?v=2` — which the `?v=2` indicates version #2.
     &lt;/li&gt;
 &lt;/ul&gt;

@@ -290,7 +290,7 @@ tags: system-design database dns web-server cache load-balancer backend frontend
 </p>
 <ol class="mb-4 md:mb-6">
     <li class="relative pl-12">
-        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-circle-dot"></i></span>
+        <span class="w-8 h-8 inline-block text-center leading-[30px] rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-circle-dot"></i></span>
         <p class="mb-2 md:mb-4">
             Users get the public IP address of the load balancer from the DNS.
         </p>
@@ -314,7 +314,7 @@ tags: system-design database dns web-server cache load-balancer backend frontend
         </p>
     </li>
     <li class="relative pl-12">
-        <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-circle-dot"></i></span>
+        <span class="w-8 h-8 inline-block text-center leading-[30px] rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-circle-dot"></i></span>
         <p class="mb-2 md:mb-4">
             The web server (A/B) routes data-modification operations to the master database.
         </p>
@@ -381,23 +381,23 @@ tags: system-design database dns web-server cache load-balancer backend frontend
 
 <ul class="mb-4 md:mb-6">
     <li class="relative pl-9 mb-2">
-        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         Use cache when the data is read often but rarely modified. Cached data is stored in volatile memory. It will be gone if the cache server restarts, so important data should be saved in the persistent data stores.
     </li>
     <li class="relative pl-9 mb-2">
-        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         Implement an expiration policy. If not implemented, the cache data will be stored permanently in the memory. It's a good practice to clean up when data is expired.
     </li>
     <li class="relative pl-9 mb-2">
-        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         Implement the eviction policy. When the cache is full, existing items might be removed when new items are attempted to be added. Some variations of the cache eviction policy are <strong>Last Recently Used (LRU)</strong>, <strong>Last Frequently Used (LFU)</strong>, <strong>First In First Out (FIFO)</strong>.
     </li>
     <li class="relative pl-9 mb-2">
-        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         Synchronize the data and the cache correctly. Maintaining consistency is very challenging when the product grows, and there are multiple caches and databases. A good read for this topic is <a href="https://research.facebook.com/publications/scaling-memcache-at-facebook/" target="_blank" class="textlink">Scaling Memcache at Facebook</a>.
     </li>
     <li class="relative pl-9 mb-2">
-        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         Avoid Single Point Of Failure (SPOF) at any cost.
     </li>
 </ul>
@@ -467,19 +467,19 @@ tags: system-design database dns web-server cache load-balancer backend frontend
 
 <ul class="mb-4 md:mb-6">
     <li class="relative pl-9 mb-2">
-        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         CDNs are charged per data transfer in and out of the CDN, adding extra cost to your project.
     </li>
     <li class="relative pl-9 mb-2">
-        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         Implement an expiration cache policy. Not too long but also not too short ("lagom" in Swedish). If it's too long, the content may not be fresh; if it's too short, it can cause repeat reloading of content from origin servers to the CDN.
     </li>
     <li class="relative pl-9 mb-2">
-        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         Implement the fallback in case of CDN failures. If CDN fails, clients should detect the problem and request resources from the origin.
     </li>
     <li class="relative pl-9 mb-2">
-        <i class="absolute left-1 top-2 fa-duotone fa-square-check"></i>
+        <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         Remove unused files by invalidating them before the expiration date. This can be done by using the CDN vendors' APIs or using object versioning to serve a different version of the object. It looks like `https://venopi.cdnproviderx.net/logo.png?v=2` — which the `?v=2` indicates version #2.
     </li>
 </ul>
