@@ -1,4 +1,554 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-02T08:27:05+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Monorepo with NPM workspaces</title><link href="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html" rel="alternate" type="text/html" title="Monorepo with NPM workspaces" /><published>2022-10-23T20:34:00+02:00</published><updated>2022-10-23T20:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Monorepo in a nutshell&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-10T08:35:05+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">System Design Crash Course for Beginners</title><link href="http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners.html" rel="alternate" type="text/html" title="System Design Crash Course for Beginners" /><published>2022-12-10T08:34:00+01:00</published><updated>2022-12-10T08:34:00+01:00</updated><id>http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners</id><content type="html" xml:base="http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The beginning&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Do you ever think of how to design the system of a marketplace website that allows millions of users to browse products and purchase them from start to finish? Or maybe wonder how a video streaming application like Netflix can stream so fast and show different video quality based on your internet connection speed?
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Me too! and this is why I want to start writing about System Design.
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Why System Design is important?&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    As a software engineer, it&apos;s crucial to understand System Design because it is the backbone of any project and application.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    To advance our careers as software engineers and deliver long-term solutions, we need to know how to design an application&apos;s system and how each module, storage, server, and interface work together.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Especially when it comes to designing a system that supports millions of users. It can be challenging because it requires us to continuously improve and refine our strategy.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The best part is there are no &quot;right&quot; answers. Based on the project&apos;s requirements, which could always be dynamic and ever-changing, we can explore different solutions that satisfactorily fit the criteria.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    So let&apos;s dive into it and have fun!
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;What is System Design?&lt;/h2&gt;
+&lt;figure class=&quot;border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6&quot;&gt;
+    &lt;blockquote class=&quot;mb-4 text-xl leading-relaxed&quot;&gt;
+        System design is the process of defining a system&apos;s entire requirements, such as the architecture, modules, interface, and design.
+    &lt;/blockquote&gt;
+    &lt;figcaption&gt;
+        &lt;cite&gt;— &lt;i class=&quot;fa-brands fa-wikipedia-w mr-1.5&quot;&gt;&lt;/i&gt; Wikipedia&lt;/cite&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    To be able to design a large and complex system, we need to start with the most basic setup.
+&lt;/p&gt;
+
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Single server setup&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Let&apos;s start with the simplest setup, a single server setup. A single server setup is where everything (web, app, database, cache) runs on one server.
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/system-design/single-server-setup.png&quot; width=&quot;704&quot; height=&quot;389&quot; alt=&quot;Single server setup&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Single server setup
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The flow is like this:
+&lt;/p&gt;
+&lt;ol class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;1&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            Users access the website via the domain name (www.venopi.com).
+        &lt;/p&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            The Domain Name System (DNS) is a paid service provided by third parties that translates domain names (like www.venopi.com) into IP addresses (like 99.349.34.99) so browsers can load Internet resources.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;2&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            IP address is returned from the DNS to the browser or mobile app.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;3&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            Once the IP address is received, Hypertext Transfer Protocol (HTTP) requests are sent directly to our web server.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;3&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            The web server returns HTML or JSON response for rendering.
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Now we have received an HTML page on our Web browser or JSON on our Mobile app. What&apos;s next?
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Database&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    When the users are growing, more than one server is needed. We will need at least one server for the traffic (web and mobile) and the other for the database.
+&lt;/p&gt;
+
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/system-design/database.png&quot; width=&quot;704&quot; height=&quot;374&quot; alt=&quot;Multiple server: Database&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Multiple server: Database
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    There are two different kinds of databases: a &lt;strong&gt;relational database&lt;/strong&gt; and a &lt;strong&gt;non-relational database&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;h3 class=&quot;text-xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Relational databases&lt;/h3&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Relational databases are known as relational database management system (RDBMS). It represents and stores data in tables and rows. You can join operations using SQL across different database tables. MySQL, PostgreSQL, Oracle database, and Amazon Relational Database Service (RDS) are the most popular ones.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Relational databases are the most commonly used ones. It&apos;s been around since the 70s and has proven to work well.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Relational databases could be the right choice if:
+&lt;/p&gt;
+&lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        The application works with related data.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        The need to have a database instance automatically refreshes when one user updates a specific record and provides that information in real-time.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        The application cares about assessing data integrity.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        The application prioritises vertical scaling over horizontal scaling.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class=&quot;text-xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Non-Relational databases&lt;/h3&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Non-Relational databases are called NoSQL databases. These databases are grouped into four categories: key-value stores, graph stores, column stores, and document stores. Join operations are generally not supported. The most popular ones are MongoDB, Cassandra, and Couchbase.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Non-Relational databases could be the right choice if:
+&lt;/p&gt;
+&lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        The application requires super-low latency.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        The data is unstructured or has no relational data.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        The purpose is to serialise and deserialised data (JSON, XML, YAML).
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        The need to store a massive amount of data.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        The application prioritises availability over consistency.
+    &lt;/li&gt;
+&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Scaling&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Scaling is a common system problem when your application grows (more users, more orders, etc.).
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    There are two different types of scaling, vertical and horizontal.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;strong&gt;Vertical&lt;/strong&gt; means adding more power to the existing server (RAM, CPU).&lt;br&gt;
+    &lt;strong&gt;Horizontal&lt;/strong&gt; means adding more servers next to your existing one.
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Load balancer&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    A load balancer is a device between the user and the servers to ensure that no server is overworked by evenly distributing traffic to maximise speed and performance.
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
+        &lt;img src=&quot;/assets/images/system-design/load-balancer.png&quot; width=&quot;704&quot; height=&quot;472&quot; alt=&quot;Load balancer&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Load balancer
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    As shown above, users connect to the public IP of the load balancer instead of the web server. Then the load balancer communicates with the web servers via private IPs. The private IPs are used for communication between servers in the same network and are unreachable over the internet.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The nice part about this approach is that if server A goes down, all the traffic will be routed to server B. This means that the application is always gonna be online.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    If the traffic proliferates and two servers are no longer enough to handle it. We can add more servers, and the load balancer can handle it gracefully by automatically sending requests or traffic to them.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The web tier looks solid now. How about the database, though? We currently only have one. Is it enough, or can we improve the data tier?
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Database replication&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Yep! It is as it sounds. It&apos;s a method where we replicate the master database (original) and create slaves (copies) from it.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The master database usually only supports the write operations, while the slaves support the read operations. Any actions related to data modification (insert, delete, update) must only be sent to the master.
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/system-design/database-replication.png&quot; alt=&quot;Database replication&quot; height=&quot;540&quot; width=&quot;473&quot; class=&quot;inline-block h-[540px]&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Database replication (master / slaves)
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    So now we have the master database and several slaves, what if one of the databases goes offline?
+&lt;/p&gt;
+&lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        &lt;p&gt;&lt;strong&gt;If there is only one slave and it&apos;s offline&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;The read operations will be directed to the master temporarily. Once the issue is found, a new slave database will replace the old one.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        &lt;p&gt;&lt;strong&gt;If there are multiple slaves and one of them is offline&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;The read operations will be directed to other healthy slaves. Once the issue is found, a new slave database will replace the old one.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        &lt;p&gt;&lt;strong&gt;If the master is offline&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;A slave database will be promoted to be the master. Then all the database operations will be temporarily executed on the new master. A new slave database will immediately replace the old one for data replication.&lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Our data tier looks solid now! What are the benefits of database replication?
+&lt;/p&gt;
+&lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        &lt;p&gt;&lt;strong&gt;Higher reliability and availability&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;The data will still be available even if one of the machines has a severe hardware failure because there are many replications across different locations. Spinning up a new database will be trivial.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        &lt;p&gt;&lt;strong&gt;Better data security&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;Many replications across different locations also mean that the data will be safe on some servers, even if a disaster occurs on others.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-database&quot;&gt;&lt;/i&gt;
+        &lt;p&gt;&lt;strong&gt;Performance improvement&lt;/strong&gt;&lt;/p&gt;
+        &lt;p&gt;The model improves performance because the data is distributed on different servers. The master is responsible for data modification, while slaves are responsible for read operations.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/system-design/database-replication-full.png&quot; width=&quot;704&quot; height=&quot;434&quot; alt=&quot;Web + Data tier flow&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Web + Data tier flow
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Let&apos;s go through it together:
+&lt;/p&gt;
+&lt;ol class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-circle-dot&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            Users get the public IP address of the load balancer from the DNS.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-arrow-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            Users connect to the load balancer with the public IP address.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-arrow-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            The HTTP request is routed to either server A or server B.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-arrow-down&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            The web server (A/B) reads the data from one of the slave databases.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-circle-dot&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            The web server (A/B) routes data-modification operations to the master database.
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    We now have a concrete understanding of how the web and data tier works. Let&apos;s talk about improving the load and response time.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Yes, we are talking about adding a cache layer and shifting static content to the CDN 👍
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Cache&lt;/h2&gt;
+&lt;figure class=&quot;border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6&quot;&gt;
+    &lt;blockquote class=&quot;mb-4 text-xl leading-relaxed&quot;&gt;
+        A component that stores data so that future requests for that data can be served faster; the data stored in a cache might be the result of an earlier computation or a copy of data stored elsewhere.
+    &lt;/blockquote&gt;
+    &lt;figcaption&gt;
+        &lt;cite&gt;— &lt;i class=&quot;fa-brands fa-wikipedia-w mr-1.5&quot;&gt;&lt;/i&gt; Wikipedia&lt;/cite&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Multiple calls are executed every time a web page loads to fetch the data. The application performance is significantly affected by calling the database repeatedly, and the cache can mitigate this issue.
+&lt;/p&gt;
+
+&lt;h3 class=&quot;text-xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Cache tier&lt;/h3&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The cache tier is a temporary data store layer that is much faster than the database. Having a cache tier can improve the system performance by reducing the database workload.
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/system-design/cache.png&quot; width=&quot;704&quot; height=&quot;193&quot; alt=&quot;Cache tier&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        Cache tier flow
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;ol class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;1&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            When a request is received, the web server checks if the cache has the response. If it has, it sends the data back to the client.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;2&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            If not, it queries the database and stores the response in the cache.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;3&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            From the cache, sends the response to the client.
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Some tips to consider when using the cache system:
+&lt;/p&gt;
+
+&lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        Use cache when the data is read often but rarely modified. Cached data is stored in volatile memory. It will be gone if the cache server restarts, so important data should be saved in the persistent data stores.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        Implement an expiration policy. If not implemented, the cache data will be stored permanently in the memory. It&apos;s a good practice to clean up when data is expired.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        Implement the eviction policy. When the cache is full, existing items might be removed when new items are attempted to be added. Some variations of the cache eviction policy are &lt;strong&gt;Last Recently Used (LRU)&lt;/strong&gt;, &lt;strong&gt;Last Frequently Used (LFU)&lt;/strong&gt;, &lt;strong&gt;First In First Out (FIFO)&lt;/strong&gt;.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        Synchronize the data and the cache correctly. Maintaining consistency is very challenging when the product grows, and there are multiple caches and databases. A good read for this topic is &lt;a href=&quot;https://research.facebook.com/publications/scaling-memcache-at-facebook/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Scaling Memcache at Facebook&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        Avoid Single Point Of Failure (SPOF) at any cost.
+    &lt;/li&gt;
+&lt;/ul&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Content Delivery Network (CDN)&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    CDN is a geographically distributed group of servers that work together to provide fast delivery of static content, such as images, stylesheets, javascript files, etc.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The way CDN work is straightforward. The further the users are located from the CDN server, the longer they will get data. Say if the CDN server is located in Amsterdam, users in Sweden will get the content faster than those in Canada.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    The flow of CDN:
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/system-design/cdn.png&quot; width=&quot;704&quot; height=&quot;313&quot; alt=&quot;CDN&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        CDN flow
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;ol class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;1&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            Suchi gets an image logo on Venopi. The CDN provider provides the URL&apos;s domain, such as: `https://venopi.cdnproviderx.net/logo.png`.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;2&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            If the CDN server doesn&apos;t have the logo in the cache, the CDN server requests the file from the origin, which can be a web server or online storage.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;3&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            The origin returns the logo to the CDN server, including the optional HTTP header Time-to-Live (TTL), which describes how long the image is cached.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;4&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            The CDN caches the logo and returns it to Suchi. The image remains cached in the CDN until the TTL expires.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;5&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            Other users visit venopi.com and request to get the logo.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;6&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            Other users will get the logo from the cache for as long as the TTL is not expired.
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Some tips to consider when using CDN:
+&lt;/p&gt;
+
+&lt;ul class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        CDNs are charged per data transfer in and out of the CDN, adding extra cost to your project.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        Implement an expiration cache policy. Not too long but also not too short (&quot;lagom&quot; in Swedish). If it&apos;s too long, the content may not be fresh; if it&apos;s too short, it can cause repeat reloading of content from origin servers to the CDN.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        Implement the fallback in case of CDN failures. If CDN fails, clients should detect the problem and request resources from the origin.
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-9 mb-2&quot;&gt;
+        &lt;i class=&quot;absolute left-1 top-2 fa-duotone fa-square-check&quot;&gt;&lt;/i&gt;
+        Remove unused files by invalidating them before the expiration date. This can be done by using the CDN vendors&apos; APIs or using object versioning to serve a different version of the object. It looks like `https://venopi.cdnproviderx.net/logo.png?v=2` — which the `?v=2` indicates version #2.
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/system-design/cdn-flow.png&quot; width=&quot;704&quot; height=&quot;317&quot; alt=&quot;System design with CDN and cache&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        System design with CDN and cache
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ol class=&quot;mb-4 md:mb-6&quot;&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;1&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            Static assets (javascript files, images, videos, stylesheets, etc) are fetched from the CDN for better performance.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;relative pl-12&quot;&gt;
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;1&lt;/span&gt;
+        &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
+            The database load is reduced by the cache tier.
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;That&apos;s it for now!&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    I hope this post will help you understand better about System Design. I will write more about system design in the future, such as stateless vs stateful architecture, message queues, sharding, etc.
+&lt;/p&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Feel free to ping me if you have any questions or suggestions 🙏
+&lt;/p&gt;</content><author><name></name></author><category term="code" /><category term="system-design" /><category term="database" /><category term="dns" /><category term="web-server" /><category term="cache" /><category term="load-balancer" /><category term="backend" /><category term="frontend" /><summary type="html">Do you ever think of how to design the system of a marketplace website that allows millions of users to browse products and purchase them from start to finish? Me too!</summary></entry><entry><title type="html">Monorepo with NPM workspaces</title><link href="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html" rel="alternate" type="text/html" title="Monorepo with NPM workspaces" /><published>2022-10-23T20:34:00+02:00</published><updated>2022-10-23T20:34:00+02:00</updated><id>http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces</id><content type="html" xml:base="http://localhost:4000/frontend/2022/10/23/monorepo-with-npm-workspaces.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Monorepo in a nutshell&lt;/h2&gt;
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Monorepo is a collection of small projects or packages that can be combined to build a larger project. These small packages can also be independent and don&apos;t need to know anything about the other packages.
 &lt;/p&gt;
@@ -139,7 +689,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
     &lt;div class=&quot;p-4 bg-slate-900 rounded-lg text-center&quot;&gt;
-        &lt;img src=&quot;/assets/images/frontend/monorepo/folder-structure.png&quot; alt=&quot;Folder structure&quot; class=&quot;inline-block h-[540px]&quot; /&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/folder-structure.png&quot; height=&quot;540&quot; alt=&quot;Folder structure&quot; class=&quot;inline-block h-[540px]&quot; /&gt;
     &lt;/div&gt;
 
     &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
@@ -326,7 +876,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;lodash &lt;span class=&quot;nt&quot;&gt;-ws&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
     &lt;div class=&quot;p-4 bg-slate-900 rounded-lg text-center&quot;&gt;
-        &lt;img src=&quot;/assets/images/frontend/monorepo/lodash-across-packages.png&quot; alt=&quot;Lodash installed across packages&quot; class=&quot;inline-block h-[540px]&quot; /&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/lodash-across-packages.png&quot; height=&quot;540&quot; alt=&quot;Lodash installed across packages&quot; class=&quot;inline-block h-[540px]&quot; /&gt;
     &lt;/div&gt;
 
     &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
@@ -411,7 +961,7 @@ npm create vite@latest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
     &lt;div class=&quot;p-4 bg-slate-900 rounded-lg text-center&quot;&gt;
-        &lt;img src=&quot;/assets/images/frontend/monorepo/utils-across-apps.png&quot; alt=&quot;@venopi/utils are installed inside @venopi/dashboard and @venopi/web3&quot; class=&quot;inline-block h-[540px]&quot; /&gt;
+        &lt;img src=&quot;/assets/images/frontend/monorepo/utils-across-apps.png&quot; height=&quot;540&quot; alt=&quot;@venopi/utils are installed inside @venopi/dashboard and @venopi/web3&quot; class=&quot;inline-block h-[540px]&quot; /&gt;
     &lt;/div&gt;
 
     &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
@@ -2184,132 +2734,4 @@ The internet&apos;s easy access and smooth adoption seem like the perfect utopia
     &lt;br&gt;&lt;br&gt;
     As a Web 3 enthusiast, I don&apos;t want everything to be decentralised. I believe the key is balance. What is the problem we are solving? What is the purpose of the project, and why?&lt;br&gt;&lt;br&gt;
     Now we understand what centralised and decentralised are. How about reading more about &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;Blockchain&lt;/a&gt;?
-&lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="centralised" /><category term="decentralised" /><category term="technology" /><category term="organisation" /><category term="Web3" /><summary type="html">Understanding centralised and decentralised system, not only in finance but also in technology and organisation. Is one better than the other?</summary></entry><entry><title type="html">Timeout Limit to Asynchronous JavaScript Functions</title><link href="http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html" rel="alternate" type="text/html" title="Timeout Limit to Asynchronous JavaScript Functions" /><published>2022-05-04T12:35:00+02:00</published><updated>2022-05-04T12:35:00+02:00</updated><id>http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions</id><content type="html" xml:base="http://localhost:4000/code/2022/05/04/timeout-limit-asynchronous-javascript-functions.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The case&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-I have a page that gets data from an API (&lt;a href=&quot;https://swapi.dev/api/planets/9&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Swapi&lt;/a&gt;). I want to make an asynchronous call to fetch the data but I don&apos;t want the users to wait too long.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Ideally, the maximum waiting time would be 500ms and if nothing happens, I will show the &quot;fallback&quot; data. How can we tackle this?
-&lt;/p&gt;
-
-&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The Solution&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Let&apos;s start with the basic function that supposedly takes a while to be fetched (1sec). We will be using &lt;a href=&quot;https://deelay.me/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Deelay.me&lt;/a&gt; to slow loading the API.
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://deelay.me/1000/https://swapi.dev/api/planets/9/?format=json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-We agreed that 1 second is too long. The acceptable waiting time is 500 ms. So let&apos;s create a timeLimit function to set the max waiting time.
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeLimit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-We need to make sure to provide the fallback response or data, should the async `getPlanets` function takes over 500ms to complete the task. Let&apos;s use the `timeLimit` function above on the `onApiTimeout` function and provide the fallback.
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onApiTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fallbackplanet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Fallback Coruscant&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rotation_period&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;orbital_period&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;368&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;diameter&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;12240&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;climate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;temperate&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;gravity&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1 standard&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeLimit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fallbackplanet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Now we need to make sure that the `getPlanets` adhere the time limit rule. If `getPlanets` takes longer than 500ms, we will give the fallback response instead of the one from the API. The key here is to use `Promise.race`.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-The Promise.race() method returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or reason from that promise. &lt;a class=&quot;textlink&quot; href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race&quot; target=&quot;_blank&quot;&gt;Learn more here&lt;/a&gt;.
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPlanetsWithTimeLimit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;race&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
-			&lt;span class=&quot;nx&quot;&gt;getPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
-			&lt;span class=&quot;nx&quot;&gt;onApiTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-Finally, let&apos;s create a async function called `initGetPlanets` where we can try to get `planets` from `getPlanetsWithTimeLimit` and catch if there&apos;s an error to the request.
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;planets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;initGetPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;planets&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPlanetsWithTimeLimit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;PLANETS &amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;planets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;initGetPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-To test if the concept works, we can adjust the `deelay` on `getPlanets` function and/or the `timeLimit` inside the `onApiTimeout` function.
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Make the deelay shorter than 500ms&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://deelay.me/100/https://swapi.dev/api/planets/9/?format=json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-If you check out the console, you will see that the `planets` is coming from the Swapi API.
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PLANETS &amp;gt;&amp;gt;&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Coruscant&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;rotation_period&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;24&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;orbital_period&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;368&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;diameter&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12240&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;climate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;temperate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;gravity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1 standard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;terrain&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cityscape, mountains&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;surface_water&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;unknown&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;population&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1000000000000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;residents&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/people/34/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/people/55/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/people/74/&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;films&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/3/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/4/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/5/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/films/6/&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;created&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014-12-10T11:54:13.921000Z&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;edited&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014-12-20T20:58:18.432000Z&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://swapi.dev/api/planets/9/&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-If you adjust the `deelay` to larger than 500ms, you will get the fallback inside planets variable.
-&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getPlanets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Make the deelay larger than 500ms&lt;/span&gt;
-	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;https://deelay.me/1000/https://swapi.dev/api/planets/9/?format=json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PLANETS &amp;gt;&amp;gt;&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fallback Coruscant&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;rotation_period&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;24&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;orbital_period&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;368&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;diameter&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12240&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;climate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;temperate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;gravity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1 standard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;To see this concept in action, you can go to &lt;a href=&quot;https://codepen.io/ivanasetiawan/pen/qBxdqNw&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;this Codepen&lt;/a&gt;.&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;Any questions or suggestions for better implementations? Write to me 😀&lt;/p&gt;</content><author><name></name></author><category term="code" /><category term="code" /><category term="tips" /><category term="javascript" /><category term="async" /><category term="await" /><category term="promise" /><summary type="html">How to set a time limit on Asynchronous functions in JavaScript? Explained in simple words using real case scenario.</summary></entry></feed>
+&lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="centralised" /><category term="decentralised" /><category term="technology" /><category term="organisation" /><category term="Web3" /><summary type="html">Understanding centralised and decentralised system, not only in finance but also in technology and organisation. Is one better than the other?</summary></entry></feed>
