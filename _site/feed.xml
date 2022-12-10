@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-10T08:35:05+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">System Design Crash Course for Beginners</title><link href="http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners.html" rel="alternate" type="text/html" title="System Design Crash Course for Beginners" /><published>2022-12-10T08:34:00+01:00</published><updated>2022-12-10T08:34:00+01:00</updated><id>http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners</id><content type="html" xml:base="http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The beginning&lt;/h2&gt;
+=======
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-12-10T08:46:08+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">System Design Crash Course for Beginners</title><link href="http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners.html" rel="alternate" type="text/html" title="System Design Crash Course for Beginners" /><published>2022-12-10T08:34:00+01:00</published><updated>2022-12-10T08:34:00+01:00</updated><id>http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners</id><content type="html" xml:base="http://localhost:4000/code/2022/12/10/system-design-crash-course-for-beginners.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;The beginning&lt;/h2&gt;
+>>>>>>> style: line height
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Do you ever think of how to design the system of a marketplace website that allows millions of users to browse products and purchase them from start to finish? Or maybe wonder how a video streaming application like Netflix can stream so fast and show different video quality based on your internet connection speed?
 &lt;/p&gt;
@@ -309,7 +313,11 @@
 &lt;/p&gt;
 &lt;ol class=&quot;mb-4 md:mb-6&quot;&gt;
     &lt;li class=&quot;relative pl-12&quot;&gt;
+<<<<<<< HEAD
         &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-circle-dot&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+=======
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-[30px] rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-circle-dot&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+>>>>>>> style: line height
         &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
             Users get the public IP address of the load balancer from the DNS.
         &lt;/p&gt;
@@ -333,7 +341,11 @@
         &lt;/p&gt;
     &lt;/li&gt;
     &lt;li class=&quot;relative pl-12&quot;&gt;
+<<<<<<< HEAD
         &lt;span class=&quot;w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-circle-dot&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+=======
+        &lt;span class=&quot;w-8 h-8 inline-block text-center leading-[30px] rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0&quot;&gt;&lt;i class=&quot;fa-regular fa-circle-dot&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+>>>>>>> style: line height
         &lt;p class=&quot;mb-2 md:mb-4&quot;&gt;
             The web server (A/B) routes data-modification operations to the master database.
         &lt;/p&gt;
