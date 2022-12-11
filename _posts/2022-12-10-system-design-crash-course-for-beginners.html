@@ -222,10 +222,10 @@ tags: system-design database dns web-server cache load-balancer backend frontend
 {%- include breathe.html -%}
 <h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Database replication</h2>
 <p class="mb-4 md:mb-6">
-    Yep! It is as it sounds. It's a method where we replicate the master database (original) and create slaves (copies) from it.
+    Yep! It is as it sounds. It's a method where we replicate the primary database (original) and create read replicas (copies) from it.
 </p>
 <p class="mb-4 md:mb-6">
-    The master database usually only supports the write operations, while the slaves support the read operations. Any actions related to data modification (insert, delete, update) must only be sent to the master.
+    The primary database usually only supports the write operations, while the read replicas support the read operations. Any actions related to data modification (insert, delete, update) must only be sent to the primary.
 </p>
 <figure class="my-4 md:my-6 lg:my-8">
     <div class="p-4 bg-slate-50 rounded-lg text-center">
@@ -233,27 +233,27 @@ tags: system-design database dns web-server cache load-balancer backend frontend
     </div>
 
     <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
-        Database replication (master / slaves)
+        Database replication (primary / read replicas)
     </figcaption>
 </figure>
 <p class="mb-4 md:mb-6">
-    So now we have the master database and several slaves, what if one of the databases goes offline?
+    So now we have the primary database and several read replicas, what if one of the databases goes offline?
 </p>
 <ul class="mb-4 md:mb-6">
     <li class="relative pl-9 mb-2">
         <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
-        <p><strong>If there is only one slave and it's offline</strong></p>
-        <p>The read operations will be directed to the master temporarily. Once the issue is found, a new slave database will replace the old one.</p>
+        <p><strong>If there is only one read replica and it's offline</strong></p>
+        <p>The read operations will be directed to the primary temporarily. Once the issue is found, a new read replica database will replace the old one.</p>
     </li>
     <li class="relative pl-9 mb-2">
         <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
-        <p><strong>If there are multiple slaves and one of them is offline</strong></p>
-        <p>The read operations will be directed to other healthy slaves. Once the issue is found, a new slave database will replace the old one.</p>
+        <p><strong>If there are multiple read replicas and one of them is offline</strong></p>
+        <p>The read operations will be directed to other healthy read replicas. Once the issue is found, a new read replica database will replace the old one.</p>
     </li>
     <li class="relative pl-9 mb-2">
         <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
-        <p><strong>If the master is offline</strong></p>
-        <p>A slave database will be promoted to be the master. Then all the database operations will be temporarily executed on the new master. A new slave database will immediately replace the old one for data replication.</p>
+        <p><strong>If the primary is offline</strong></p>
+        <p>A read replica database will be promoted to be the primary. Then all the database operations will be temporarily executed on the new primary. A new read replica database will immediately replace the old one for data replication.</p>
     </li>
 </ul>
 <p class="mb-4 md:mb-6">
@@ -273,12 +273,12 @@ tags: system-design database dns web-server cache load-balancer backend frontend
     <li class="relative pl-9 mb-2">
         <i class="absolute left-1 top-2 fa-duotone fa-database"></i>
         <p><strong>Performance improvement</strong></p>
-        <p>The model improves performance because the data is distributed on different servers. The master is responsible for data modification, while slaves are responsible for read operations.
+        <p>The model improves performance because the data is distributed on different servers. The primary is responsible for data modification, while read replicas are responsible for read operations.
     </li>
 </ul>
 <figure class="my-4 md:my-6 lg:my-8">
     <div class="p-4 bg-slate-50 rounded-lg text-center">
-        <img src="{{ "/assets/images/system-design/database-replication-full.png" | relative_url }}" width="704" height="434" alt="Web + Data tier flow"/>
+        <img src="{{ "/assets/images/system-design/database-replication-full.png" | relative_url }}" width="704" height="410" alt="Web + Data tier flow"/>
     </div>
 
     <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
@@ -310,13 +310,13 @@ tags: system-design database dns web-server cache load-balancer backend frontend
     <li class="relative pl-12">
         <span class="w-8 h-8 inline-block text-center leading-7 rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-arrow-down"></i></span>
         <p class="mb-2 md:mb-4">
-            The web server (A/B) reads the data from one of the slave databases.
+            The web server (A/B) reads the data from one of the read replica databases.
         </p>
     </li>
     <li class="relative pl-12">
         <span class="w-8 h-8 inline-block text-center leading-[30px] rounded-full bg-pink-300 dark:bg-pink-600 absolute top-1 left-0"><i class="fa-regular fa-circle-dot"></i></span>
         <p class="mb-2 md:mb-4">
-            The web server (A/B) routes data-modification operations to the master database.
+            The web server (A/B) routes data-modification operations to the primary database.
         </p>
     </li>
 </ol>
@@ -376,7 +376,7 @@ tags: system-design database dns web-server cache load-balancer backend frontend
     </li>
 </ol>
 <p class="mb-4 md:mb-6">
-    Some tips to consider when using the cache system:
+    Some tips when using the cache system:
 </p>
 
 <ul class="mb-4 md:mb-6">
@@ -462,13 +462,17 @@ tags: system-design database dns web-server cache load-balancer backend frontend
     </li>
 </ol>
 <p class="mb-4 md:mb-6">
-    Some tips to consider when using CDN:
+    Some tips when using CDN:
 </p>
 
 <ul class="mb-4 md:mb-6">
     <li class="relative pl-9 mb-2">
         <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
-        CDNs are charged per data transfer in and out of the CDN, adding extra cost to your project.
+        CDNs are charged per data transfer in and out of the CDN. You need to pay extra for this service. However, this doesn't necessarily mean that your total cost will increase. A CDN reduces the traffic to the origin; thus, you can use smaller servers.
+    </li>
+    <li class="relative pl-9 mb-2">
+        <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
+        CDN increases security by detecting issues and blocking traffic earlier and increases the reliability and availability of the application. Even if the origin goes offline, users can get the cached version. More uptime means more revenue.
     </li>
     <li class="relative pl-9 mb-2">
         <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
@@ -478,6 +482,7 @@ tags: system-design database dns web-server cache load-balancer backend frontend
         <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         Implement the fallback in case of CDN failures. If CDN fails, clients should detect the problem and request resources from the origin.
     </li>
+
     <li class="relative pl-9 mb-2">
         <i class="absolute left-1 top-2 fa-duotone fa-lightbulb"></i>
         Remove unused files by invalidating them before the expiration date. This can be done by using the CDN vendors' APIs or using object versioning to serve a different version of the object. It looks like `https://venopi.cdnproviderx.net/logo.png?v=2` — which the `?v=2` indicates version #2.
@@ -486,7 +491,7 @@ tags: system-design database dns web-server cache load-balancer backend frontend
 
 <figure class="my-4 md:my-6 lg:my-8">
     <div class="p-4 bg-slate-50 rounded-lg text-center">
-        <img src="{{ "/assets/images/system-design/cdn-flow.png" | relative_url }}" width="704" height="317" alt="System design with CDN and cache"/>
+        <img src="{{ "/assets/images/system-design/cdn-flow.png" | relative_url }}" width="704" height="314" alt="System design with CDN and cache"/>
     </div>
 
     <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
@@ -514,5 +519,9 @@ tags: system-design database dns web-server cache load-balancer backend frontend
     I hope this post will help you understand better about System Design. I will write more about system design in the future, such as stateless vs stateful architecture, message queues, sharding, etc.
 </p>
 <p class="mb-4 md:mb-6">
-    Feel free to ping me if you have any questions or suggestions 🙏
+    Feel free to ping me if you have any questions or suggestions 🌈
+</p>
+
+<p class="border-l-4 border-l-slate-300 pl-4 md:pl-8 my-4 md:my-6">
+    Special thanks to <a href="https://www.linkedin.com/in/ioannislioupras/" target="_blank" class="textlink">Ioannis Lioupras (he/him)</a> who gave me inputs with the naming (Primary/Read replica(s)), CDN cost review, and how the majority of the media companies use multiple CDNs instead of falling back to origin 🙏
 </p>
