@@ -917,6 +917,10 @@ video {
   height: 540px;
 }
 
+.h-\[518px\] {
+  height: 518px;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -931,6 +935,14 @@ video {
 
 .w-8 {
   width: 2rem;
+}
+
+.w-\[220px\] {
+  width: 220px;
+}
+
+.w-\[220px\!important\] {
+  width: 220px !important;
 }
 
 .max-w-screen-lg {
@@ -1464,10 +1476,6 @@ video {
 
 .leading-\[29px\] {
   line-height: 29px;
-}
-
-.leading-8 {
-  line-height: 2rem;
 }
 
 .tracking-wide {

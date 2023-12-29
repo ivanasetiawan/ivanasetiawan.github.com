@@ -1,0 +1,159 @@
+---
+layout: post
+title:  "How to deploy SvelteKit on DigitalOcean App"
+excerpt: When you truly understand this, everything you experience will be more intense and meaningful.
+date: 2023-12-29 10:44:00 +0100
+categories: fullstack
+tags: tech, fullstack, svelte, svelteKit, vercel, pocket
+---
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Sounds so simple right?</h2>
+
+<p class="mb-4 md:mb-6">
+    Yep! but you know what Leonardo Da Vinci said, "simplicity is the ultimate sophistication".
+</p>
+
+<p class="mb-4 md:mb-6">
+    In the process of establishing a new B2B startup within the manufacturing industry, I decided to turn myself into a full-stack engineer and build everything singlehandedly as pragmatic, cost efficient, yet easily to scale approach as possible.
+</p>
+
+<p class="mb-4 md:mb-6">
+    For the deployment, I explored various options like <a href="https://vercel.com/" target="_blank" class="textlink">Vercel</a>, <a href="https://fly.io/" target="_blank" class="textlink">Fly.io</a>, and <a href="https://www.heroku.com/" target="_blank" class="textlink">Heroku</a>, but I ultimately chose <a href="https://www.digitalocean.com/" target="_blank" class="textlink">DigitalOcean</a> for a few key reasons—competitive pricing, a $200 voucher for 60 days, and the fact that Venopi also uses DigitalOcean.
+    If you're still deciding, <a href="https://zellwk.com/blog/netlify-vercel-digital-ocean/" target="_blank" class="textlink">Zell</a> wrote a concise piece on this that I found quite agreeable.
+</p>
+
+<p class="mb-4 md:mb-6">
+    During the process of deployment, I bumped into some issues that unable me to proceed. Aka, my build failed and I couldn't figure out why..
+    The error messages & troubleshooting hints were too "open", such as <span class="text-red-500 font-medium">Build Error: Job Failed</span>, <span class="text-red-500 font-medium">Failed during deploy/build phase</span>, <span class="text-red-500 font-medium">Out of Memory</span>, and eventually <span class="text-red-500 font-medium">Deploy Error: Health Checks</span>.
+</p>
+
+<p class="mb-4 md:mb-6">
+    My point is, I went through those errors so that you don't have to. Below is the step by step setup that I use for my SvelteKit project. Keep in mind that of course if your setup is different, then it might affect your build/deploy process.
+    However if you are trying to deploy a "common" SvelteKit project, this should do the trick. Else, holla at me and I will do my best to help :)
+</p>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">DigitalOcean setup</h2>
+<p class="mb-4 md:mb-6">
+    First things first, click "App" on the sidebar and connect your GitHub project. Then follow these setup:
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/sveltekit-do/1.scaling.png" | relative_url }}" alt="Scaling" width="518" height="220" style="width: 518px; height: 220px;"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        1. Scaling (plan). Feel rich? pick more fancy options.
+    </figcaption>
+</figure>
+
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/sveltekit-do/2.source.png" | relative_url }}" alt="Source" width="503" height="425" style="width: 503px; height: 425px;"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        2. Source. My main branch is `main`. Change accordingly.
+    </figcaption>
+</figure>
+
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/sveltekit-do/3.env.png" | relative_url }}" alt="File .env" width="705" height="292" style="width: 705px; height: 292px;"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        3. File: .env - I use Supabase for my DB
+    </figcaption>
+</figure>
+
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/sveltekit-do/4.commands.png" | relative_url }}" alt="Commands" width="495" height="158" style="width: 495px; height: 158px;"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        4. Commands
+    </figcaption>
+</figure>
+
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/sveltekit-do/5.port.png" | relative_url }}" alt="Port" width="375" height="69" style="width: 375px; height: 69px;"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        5. Port
+    </figcaption>
+</figure>
+
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">SvelteKit setup</h2>
+<p class="mb-4 md:mb-6">
+    Right! Now let's do the setup on SvelteKit! Good to know is that I am using `svelte v4.2.7` and `SvelteKit v2.0.0` for this current setup.
+    First, set the correct engines:
+</p>
+
+{% highlight javascript %}
+// package.json
+{
+    "engines": {
+        "node": "18.x",
+        "npm": "^9.6.7"
+    },
+}
+{% endhighlight %}
+
+
+<p class="mb-4 md:mb-6">
+    Then the `scripts` commands. The `start` commans is important.
+</p>
+{% highlight javascript %}
+// package.json
+{
+    "scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "HOST=0.0.0.0 vite preview --host",
+		"start": "node build/index.js",
+		"build:digitalocean": "npm install --production=false && npm run build && npm ci",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+    },
+}
+{% endhighlight %}
+
+<p class="mb-4 md:mb-6">
+    Make sure you install "@sveltejs/adapter-node": "^2.0.2":
+</p>
+{% highlight javascript %}
+npm install @sveltejs/adapter-node --save-dev
+{% endhighlight %}
+<p class="mb-4 md:mb-6">
+    And adjust the `svelte.config.js` accordingly:
+</p>
+{% highlight javascript %}
+// svelte.config.js
+import adapter from '@sveltejs/adapter-node';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+const config = {
+	kit: {
+		adapter: adapter()
+	},
+    preprocess: vitePreprocess()
+}
+export default config;
+{% endhighlight %}
+
+<p class="mb-4 md:mb-6">
+    Ok that's it! Now you can commit and push the changes to the `main` branch of your GitHub.
+</p>
+
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/sveltekit-do/6.live.png" | relative_url }}" alt="Live!" width="704" height="194" style="width: 704px;"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        WE GOING LIVE!!
+    </figcaption>
+</figure>
