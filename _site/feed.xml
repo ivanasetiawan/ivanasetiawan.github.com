@@ -1,4 +1,156 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-12-29T10:39:13+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">Death—</title><link href="http://localhost:4000/personal/2023/12/07/death-daily-law-december.html" rel="alternate" type="text/html" title="Death—" /><published>2023-12-07T04:04:00+01:00</published><updated>2023-12-07T04:04:00+01:00</updated><id>http://localhost:4000/personal/2023/12/07/death-daily-law-december</id><content type="html" xml:base="http://localhost:4000/personal/2023/12/07/death-daily-law-december.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;0534 &lt;span class=&quot;mb-4 md:mb-6 text-sm text-gray-400&quot;&gt;(The Daily Law: December)&lt;/span&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-12-29T15:50:48+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ivana Setiawan</title><subtitle>NerdOnAcid</subtitle><entry><title type="html">How to deploy SvelteKit on DigitalOcean App</title><link href="http://localhost:4000/fullstack/2023/12/29/deploy-sveletekit-digitalocean.html" rel="alternate" type="text/html" title="How to deploy SvelteKit on DigitalOcean App" /><published>2023-12-29T10:44:00+01:00</published><updated>2023-12-29T10:44:00+01:00</updated><id>http://localhost:4000/fullstack/2023/12/29/deploy-sveletekit-digitalocean</id><content type="html" xml:base="http://localhost:4000/fullstack/2023/12/29/deploy-sveletekit-digitalocean.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Sounds so simple right?&lt;/h2&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Yep! but you know what Leonardo Da Vinci said, &quot;simplicity is the ultimate sophistication&quot;.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    In the process of establishing a new B2B startup within the manufacturing industry, I decided to turn myself into a full-stack engineer and build everything singlehandedly as pragmatic, cost efficient, yet easily to scale approach as possible.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    For the deployment, I explored various options like &lt;a href=&quot;https://vercel.com/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Vercel&lt;/a&gt;, &lt;a href=&quot;https://fly.io/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Fly.io&lt;/a&gt;, and &lt;a href=&quot;https://www.heroku.com/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Heroku&lt;/a&gt;, but I ultimately chose &lt;a href=&quot;https://www.digitalocean.com/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;DigitalOcean&lt;/a&gt; for a few key reasons—competitive pricing, a $200 voucher for 60 days, and the fact that Venopi also uses DigitalOcean.
+    If you&apos;re still deciding, &lt;a href=&quot;https://zellwk.com/blog/netlify-vercel-digital-ocean/&quot; target=&quot;_blank&quot; class=&quot;textlink&quot;&gt;Zell&lt;/a&gt; wrote a concise piece on this that I found quite agreeable.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    During the process of deployment, I bumped into some issues that unable me to proceed. Aka, my build failed and I couldn&apos;t figure out why..
+    The error messages &amp; troubleshooting hints were too &quot;open&quot;, such as &lt;span class=&quot;text-red-500 font-medium&quot;&gt;Build Error: Job Failed&lt;/span&gt;, &lt;span class=&quot;text-red-500 font-medium&quot;&gt;Failed during deploy/build phase&lt;/span&gt;, &lt;span class=&quot;text-red-500 font-medium&quot;&gt;Out of Memory&lt;/span&gt;, and eventually &lt;span class=&quot;text-red-500 font-medium&quot;&gt;Deploy Error: Health Checks&lt;/span&gt;.
+&lt;/p&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    My point is, I went through those errors so that you don&apos;t have to. Below is the step by step setup that I use for my SvelteKit project. Keep in mind that of course if your setup is different, then it might affect your build/deploy process.
+    However if you are trying to deploy a &quot;common&quot; SvelteKit project, this should do the trick. Else, holla at me and I will do my best to help :)
+&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;DigitalOcean setup&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    First things first, click &quot;App&quot; on the sidebar and connect your GitHub project. Then follow these setup:
+&lt;/p&gt;
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/sveltekit-do/1.scaling.png&quot; alt=&quot;Scaling&quot; width=&quot;518&quot; height=&quot;220&quot; style=&quot;width: 518px; height: 220px;&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        1. Scaling (plan). Feel rich? pick more fancy options.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/sveltekit-do/2.source.png&quot; alt=&quot;Source&quot; width=&quot;503&quot; height=&quot;425&quot; style=&quot;width: 503px; height: 425px;&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        2. Source. My main branch is `main`. Change accordingly.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/sveltekit-do/3.env.png&quot; alt=&quot;File .env&quot; width=&quot;705&quot; height=&quot;292&quot; style=&quot;width: 705px; height: 292px;&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        3. File: .env - I use Supabase for my DB
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/sveltekit-do/4.commands.png&quot; alt=&quot;Commands&quot; width=&quot;495&quot; height=&quot;158&quot; style=&quot;width: 495px; height: 158px;&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        4. Commands
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/sveltekit-do/5.port.png&quot; alt=&quot;Port&quot; width=&quot;375&quot; height=&quot;69&quot; style=&quot;width: 375px; height: 69px;&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        5. Port
+    &lt;/figcaption&gt;
+&lt;/figure&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
+    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
+		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
+			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
+			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
+		&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;SvelteKit setup&lt;/h2&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Right! Now let&apos;s do the setup on SvelteKit! Good to know is that I am using `svelte v4.2.7` and `SvelteKit v2.0.0` for this current setup.
+    First, set the correct engines:
+&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// package.json&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;engines&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;18.x&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;npm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;^9.6.7&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Then the `scripts` commands. The `start` commans is important.
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// package.json&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;scripts&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;vite dev&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;vite build&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;preview&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;HOST=0.0.0.0 vite preview --host&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;node build/index.js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;build:digitalocean&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;npm install --production=false &amp;amp;&amp;amp; npm run build &amp;amp;&amp;amp; npm ci&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;svelte-kit sync &amp;amp;&amp;amp; svelte-check --tsconfig ./jsconfig.json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;check:watch&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;svelte-kit sync &amp;amp;&amp;amp; svelte-check --tsconfig ./jsconfig.json --watch&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Make sure you install &quot;@sveltejs/adapter-node&quot;: &quot;^2.0.2&quot;:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;sveltejs&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/adapter-node --save-dev&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    And adjust the `svelte.config.js` accordingly:
+&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// svelte.config.js&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adapter&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@sveltejs/adapter-node&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;vitePreprocess&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@sveltejs/vite-plugin-svelte&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;kit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;na&quot;&gt;adapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;preprocess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;vitePreprocess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
+    Ok that&apos;s it! Now you can commit and push the changes to the `main` branch of your GitHub.
+&lt;/p&gt;
+
+&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot;&gt;
+    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg text-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/sveltekit-do/6.live.png&quot; alt=&quot;Live!&quot; width=&quot;704&quot; height=&quot;194&quot; style=&quot;width: 704px;&quot;/&gt;
+    &lt;/div&gt;
+
+    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
+        WE GOING LIVE!!
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</content><author><name></name></author><category term="fullstack" /><category term="tech," /><category term="fullstack," /><category term="svelte," /><category term="svelteKit," /><category term="vercel," /><category term="pocket" /><summary type="html">When you truly understand this, everything you experience will be more intense and meaningful.</summary></entry><entry><title type="html">Death—</title><link href="http://localhost:4000/personal/2023/12/07/death-daily-law-december.html" rel="alternate" type="text/html" title="Death—" /><published>2023-12-07T04:04:00+01:00</published><updated>2023-12-07T04:04:00+01:00</updated><id>http://localhost:4000/personal/2023/12/07/death-daily-law-december</id><content type="html" xml:base="http://localhost:4000/personal/2023/12/07/death-daily-law-december.html">&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;0534 &lt;span class=&quot;mb-4 md:mb-6 text-sm text-gray-400&quot;&gt;(The Daily Law: December)&lt;/span&gt;&lt;/h2&gt;
 
 &lt;blockquote class=&quot;mb-4 md:mb-6 italic font-tpr leading-relaxed&quot;&gt;
     &lt;p class=&quot;text-2xl mb-4&quot;&gt;You detemine the quality of your mind by the nature of your daily thoughts.  &lt;span class=&quot;text-gray-500 text-sm&quot;&gt;— Many Yogis.&lt;/span&gt;&lt;/p&gt;
@@ -2267,163 +2419,4 @@ The internet&apos;s easy access and smooth adoption seem like the perfect utopia
 &lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
     Need a refresher? Read the first chapter:
     &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;What is a &apos;Blockchain&apos;?&lt;/a&gt;
-&lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="Web3" /><summary type="html">What and how does peer to peer network work in Blockchain?</summary></entry><entry><title type="html">Peer to peer network in Blockchain [Read me second]</title><link href="http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain.html" rel="alternate" type="text/html" title="Peer to peer network in Blockchain [Read me second]" /><published>2022-09-16T07:34:00+02:00</published><updated>2022-09-16T07:34:00+02:00</updated><id>http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain</id><content type="html" xml:base="http://localhost:4000/web3/2022/09/16/peer-to-peer-network-in-blockchain.html">&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    This article is a continuation of &lt;a href=&quot;/web3/2022/09/13/what-is-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;&quot;What is Blockchain?&quot;&lt;/a&gt;. I&apos;d highly recommend you to read that first.
-&lt;/p&gt;
-
-&lt;p class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;
-    The Bridge
-    &lt;small class=&quot;font-normal text-slate-500 text-base&quot;&gt;- No, not the TV show&lt;/small&gt;
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    So our trio, Eki, Dwi and Tri, has figured out a way to secure their chaining blocks using cryptography, but it doesn&apos;t end there.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    The trio realised early on that it doesn&apos;t matter how secure and tamper-proof the protocol is. If this data only has one source of truth, they would be fucked anyway if the computer is lost or hacked.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Hm... What if many computers have identical data? Yes! Peer-to-peer network should do the job!
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
-    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
-		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
-			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
-			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
-		&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;Peer to peer!&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Blockchain is stored in an extensive network of computers called a peer-to-peer network. On this network, we call each computer a node and every node has a copy of the blockchain.
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    In the case of Eki, Dwi, and Tri, imagine that their chaining blocks of data are not just available on one person&apos;s computer but on many more computers.
-&lt;/p&gt;
-
-&lt;figure class=&quot;my-4 md:my-6 lg:my-8&quot; id=&quot;consensus-peer-to-peer&quot;&gt;
-    &lt;div class=&quot;p-4 bg-slate-50 rounded-lg&quot;&gt;
-        &lt;img src=&quot;/assets/images/Web3/peer-to-peer_example.svg&quot; alt=&quot;Example peer to peer&quot; class=&quot;max-w-lg mx-auto w-full&quot; /&gt;
-    &lt;/div&gt;
-
-    &lt;figcaption class=&quot;text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic&quot;&gt;
-        Blockchain is stored in an extensive network of computers called a peer-to-peer network
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    When a new block of data has to be added to a network, all nodes of this network must check and verify if all data in the block are valid. If all nodes in the network agree that all data are correct, then the new block will be added to every node on that specific Blockchain. The technical term for this is &lt;strong&gt;consensus&lt;/strong&gt;.
-&lt;/p&gt;
-&lt;div class=&quot;border border-gray-500 dark:border-gray-200 border-dashed leading-loose overflow-x-auto mb-4 md:mb-6&quot;&gt;
-    &lt;div class=&quot;text-sm&quot;&gt;
-        &lt;p class=&quot;px-4 py-1 border-b border-gray-500 border-dashed font-semibold&quot;&gt;Network A&lt;/p&gt;
-        &lt;div class=&quot;p-4 md:p-6 border-b border-gray-500 border-dashed flex justify-around&quot;&gt;
-            &lt;div&gt;
-                &lt;i class=&quot;text-3xl mr-4 fa-solid fa-user-vneck-hair-long&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;flex items-center&quot;&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;mx-2&quot;&gt;
-                &lt;i class=&quot;fa-regular fa-circle-check text-3xl text-green-500&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-                &lt;div class=&quot;py-1 px-1.5 bg-green-200 flex items-center rounded&quot;&gt;
-                    &lt;i class=&quot;fa-regular fa-plus text-base mr-1 md:mr-2 &quot;&gt;&lt;/i&gt;
-                    &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;p-4 md:p-6 border-b border-gray-500 border-dashed flex justify-around&quot;&gt;
-            &lt;div&gt;
-                &lt;i class=&quot;text-3xl mr-4 fa-solid fa-user-hair-buns&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;flex items-center&quot;&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;mx-2&quot;&gt;
-                &lt;i class=&quot;fa-regular fa-circle-check text-3xl text-green-500&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-                &lt;div class=&quot;py-1 px-1.5 bg-green-200 flex items-center rounded&quot;&gt;
-                    &lt;i class=&quot;fa-regular fa-plus text-base mr-1 md:mr-2 &quot;&gt;&lt;/i&gt;
-                    &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;p-4 md:p-6 border-b border-gray-500 border-dashed flex justify-around&quot;&gt;
-            &lt;div&gt;
-                &lt;i class=&quot;text-3xl mr-4 fa-solid fa-user-shakespeare&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;flex items-center&quot;&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;mx-2&quot;&gt;
-                &lt;i class=&quot;fa-regular fa-circle-check text-3xl text-green-500&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-                &lt;div class=&quot;py-1 px-1.5 bg-green-200 flex items-center rounded&quot;&gt;
-                    &lt;i class=&quot;fa-regular fa-plus text-base mr-1 md:mr-2 &quot;&gt;&lt;/i&gt;
-                    &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;p-4 md:p-6 flex justify-around&quot;&gt;
-            &lt;div&gt;
-                &lt;i class=&quot;text-3xl mr-4 fa-solid fa-user-robot&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;flex items-center&quot;&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-sm mx-1 md:mx-2 fa-light fa-link-horizontal&quot;&gt;&lt;/i&gt;
-                &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;mx-2&quot;&gt;
-                &lt;i class=&quot;fa-regular fa-circle-check text-3xl text-green-500&quot;&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;div&gt;
-                &lt;div class=&quot;py-1 px-1.5 bg-green-200 flex items-center rounded&quot;&gt;
-                    &lt;i class=&quot;fa-regular fa-plus text-base mr-1 md:mr-2 &quot;&gt;&lt;/i&gt;
-                    &lt;i class=&quot;text-3xl fa-light fa-cube&quot;&gt;&lt;/i&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    There are many different consensus mechanisms used in various types of Blockchains. We&apos;re not going to get into details of consensus, but this is how Blockchain demonstrates a secure method of storing data without a centralised party, like banks or corporates.
-&lt;/p&gt;&lt;div class=&quot;my-9 md:my-14 text-center h-12 relative&quot; id=&quot;&quot;&gt;
-    &lt;div class=&quot;before:border-t before:border-t-slate-400 before:border-dashed before:w-full before:absolute before:left-0 before:top-6&quot;&gt;
-		&lt;span class=&quot;px-4 py-1.5 inline-block bg-slate-200 relative border-l-4 border-l-slate-400 dark:bg-slate-700&quot;&gt;
-			&lt;i class=&quot;fa-light fa-face-exhaling text-2xl mr-1&quot;&gt;&lt;/i&gt;
-			&lt;span class=&quot;text-sm inline-block&quot;&gt;breathe...&lt;/span&gt;
-		&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 class=&quot;text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6&quot;&gt;You got it!&lt;/h2&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Now you understand how and why Blockchain is a secure data storage method. But you might wonder... How do Eki, Dwi and Tri add a transaction to a Blockchain?
-&lt;/p&gt;
-&lt;p class=&quot;mb-4 md:mb-6&quot;&gt;
-    Read next chapter:
-    &lt;a href=&quot;/web3/2022/09/16/how-do-you-create-a-transaction-in-a-blockchain.html&quot; class=&quot;font-semibold textlink&quot;&gt;How do you create a transaction in a Blockchain?&lt;/a&gt;
-&lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="Web3" /><summary type="html">What and how does peer to peer network work in Blockchain? Blockchain is stored in an extensive network of computers called a peer-to-peer network. On this network, we call each computer a node and every node has a copy of the blockchain.</summary></entry></feed>
+&lt;/p&gt;</content><author><name></name></author><category term="web3" /><category term="knowlegde" /><category term="tips" /><category term="blockchain" /><category term="Web3" /><summary type="html">What and how does peer to peer network work in Blockchain?</summary></entry></feed>
