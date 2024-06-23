@@ -157,3 +157,33 @@ export default config;
         WE GOING LIVE!!
     </figcaption>
 </figure>
+{%- include breathe.html -%}
+<h2 class="text-2xl font-semibold mt-6 mb-4 md:mt-9 md:mb-6">Oh, one more thing!</h2>
+<p class="mb-4 md:mb-6">
+    Don't forget about your DNS records! DigitalOcean can do this automatically for you.
+</p>
+<p class="mb-4 md:mb-6">
+    Go to Projects > Apps > Settings. Under "App Settings > Domains", click "Edit" and add your domains.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/sveltekit-do/7.domain.png" | relative_url }}" alt="Live!" width="704" height="265" style="width: 704px;"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Under "App Settings > Domains", click "Edit"
+    </figcaption>
+</figure>
+
+<p class="mb-4 md:mb-6">
+    Make sure to also point to DigitalOcean name servers from common domain registrars. <a href="https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/" class="textlink" target="_blank">Read more here</a>.
+</p>
+<figure class="my-4 md:my-6 lg:my-8">
+    <div class="p-4 bg-slate-50 rounded-lg text-center">
+        <img src="{{ "/assets/images/sveltekit-do/8.dns.png" | relative_url }}" alt="Live!" width="704" height="438" style="width: 704px;"/>
+    </div>
+
+    <figcaption class="text-sm mt-2 mb-4 md:mb-6 text-gray-500 dark:text-gray-300 italic">
+        Point to DigitalOcean name servers
+    </figcaption>
+</figure>
