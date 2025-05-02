@@ -1,13 +1,12 @@
 # Ivana Setiawan
 
-I build Venopi. Our mission is to improve the event ecosystem through collaboration, digitalisation, and smart work.
+Engineer, Hacker & Founder.
+I'm a polyglot programmer experienced in JavaScript, Python, PHP, and PostgreSQL, with a focus on crafting seamless user experiences. 
+I excel at merging code and design to create impactful digital solutions. My passion is learning and mastering new languages and frameworks to 
+innovate in software engineering.
 
-I am a self-taught software engineer and hacker - have been writing code since 2009.
-
-And oh, I am a JavaScript lover, Blockchain (Solidity) experimentalist and Web3 enthusiast. I also really enjoy UX Design.
-
-A coder at heart and reader during leisure time.
-https://www.venopi.com ~ http://ivanasetiawan.com
+My ongoing projects are Avstarna, Venopi, & Ruma.
+https://www.avstarna.com ~ https://www.venopi.com ~ http://ivanasetiawan.com
 
 ## Usage
 
@@ -31,8 +30,3 @@ Run tailwind for styling:
 ```bash
 npx tailwindcss -i ./assets/main.css -o ./assets/dist/main.css --watch
 ```
-
-## Roadmap
-- Web3 101: Smart contract setup for your local development
-- Solidity: the basic value types you need to know to write your first smart contract
-- Solidity: let's create a simple smart contract together!
