@@ -5,8 +5,8 @@ I'm a polyglot programmer experienced in JavaScript, Python, PHP, and PostgreSQL
 I excel at merging code and design to create impactful digital solutions. My passion is learning and mastering new languages and frameworks to 
 innovate in software engineering.
 
-My ongoing projects are Avstarna, Venopi, & Ruma.
-https://www.avstarna.com ~ https://www.venopi.com ~ http://ivanasetiawan.com
+My ongoing projects are Avstarna, Nite-Nite, Venopi, & Ruma.
+https://www.avstarna.com ~ https://nite-nite.com/ ~ https://www.venopi.com ~ https://ruma-living.com/
 
 ## Usage
 
