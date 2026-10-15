@@ -598,6 +598,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: inline-block;
 }
 
+.list-disc {
+  list-style-type: disc;
+}
+
 .flex {
   display: flex;
 }
@@ -771,6 +775,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
 }
 
 .pr-6 {
